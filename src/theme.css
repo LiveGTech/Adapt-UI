@@ -1,0 +1,36 @@
+/*
+    LiveG App Runtime
+
+    Copyright (C) LiveG. All Rights Reserved.
+
+    https://liveg.tech
+    Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
+*/
+
+:root {
+    --primaryBackground: rgb(255, 255, 255);
+    --primaryText: rgb(0, 0, 0);
+    --primaryUI: rgb(80, 145, 247);
+    --primaryUIText: rgb(255, 255, 255);
+    --primaryUIPress: rgb(150, 186, 243);
+    --primaryExtra: rgba(0, 0, 0, 0.5);
+    --primaryPress: rgba(0, 0, 0, 0.2);
+    --primarySelected: rgba(0, 0, 0, 0.1);
+    --secondaryBackground: rgb(229, 229, 229);
+    --secondaryText: rgb(0, 0, 0);
+    --secondaryUI: rgb(150, 184, 247);
+    --secondaryUIText: rgb(255, 255, 255);
+    --secondaryUIPress: rgb(191, 217, 245);
+    --secondaryExtra: rgba(0, 0, 0, 0.5);
+    --secondaryPress: rgba(0, 0, 0, 0.2);
+    --secondarySelected: rgba(0, 0, 0, 0.1);
+    --dangerousUI: rgb(224, 102, 102);
+    --dangerousUIText: rgb(255, 255, 255);
+    --dangerousUIPress: rgb(234, 153, 153);
+    --scrollbar: rgba(0, 0, 0, 0.5);
+    --scrollbarHover: rgba(0, 0, 0, 0.6);
+    --scrollbarPress: rgba(0, 0, 0, 0.8);
+    --accordionSummary: rgba(0, 0, 0, 0.05);
+    --accordionSummaryHover: rgba(0, 0, 0, 0.1);
+    --blur: rgba(0, 0, 0, 0.5);
+}

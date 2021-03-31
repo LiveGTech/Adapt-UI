@@ -1,0 +1,142 @@
+/*
+    LiveG App Runtime
+
+    Copyright (C) LiveG. All Rights Reserved.
+
+    https://liveg.tech
+    Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
+*/
+
+:root {
+    --sizeH1: 2em;
+    --sizeH2: 1.8em;
+    --sizeH3: 1.5em;
+    --sizeH4: 1.2em;
+    --sizeH5: 1em;
+    --sizeH6: 0.8em;
+    --sizeP: 1em;
+}
+
+* {
+    font-size: var(--sizeP);
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: var(--sizeH1);
+}
+
+h2 {
+    font-size: var(--sizeH2);
+}
+
+h3 {
+    font-size: var(--sizeH3);
+}
+
+h4 {
+    font-size: var(--sizeH4);
+}
+
+h5 {
+    font-size: var(--sizeH5);
+    text-transform: uppercase;
+}
+
+h6 {
+    font-size: var(--sizeH6);
+    text-transform: uppercase;
+}
+
+p {
+    font-size: var(--sizeP);
+}
+
+html, body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    background-color: var(--primaryBackground);
+    color: var(--primaryText);
+}
+
+header {
+    height: 2.5em;
+    padding: 1em;
+    padding-top: 0.75em;
+    padding-bottom: 0.75em;
+    background-color: var(--primaryUI);
+    color: var(--primaryUIText);
+}
+
+aside {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 15em;
+    height: 100vh;
+    background-color: var(--secondaryBackground);
+    color: var(--secondaryText);
+}
+
+aside p {
+    margin: 0;
+    padding: 1em;
+    color: var(--secondaryExtra);
+}
+
+aside button {
+    display: block;
+    width: 100%;
+    padding: 1em;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    text-align: start;
+    transition: 0.5s background-color;
+}
+
+aside button[selected] {
+    background-color: var(--secondarySelected);
+}
+
+aside button:hover {
+    background-color: var(--secondaryPress);
+}
+
+aside hr {
+    height: 2px;
+    background-color: var(--secondaryPress);
+    border: none;
+}
+
+header ~ aside {
+    top: 2.5em;
+    height: calc(100vh - 2.5em);
+}
+
+main {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    padding: 1em;
+}
+
+header ~ main {
+    top: 2.5em;
+    height: calc(100vh - 2.5em);
+}
+
+aside ~ main {
+    left: 15em;
+    width: calc(100vw - 15em);
+}

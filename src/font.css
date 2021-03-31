@@ -1,0 +1,26 @@
+/*
+    LiveG App Runtime
+
+    Copyright (C) LiveG. All Rights Reserved.
+
+    https://liveg.tech
+    Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
+*/
+
+:root {
+    --fontMain: "URW Gothic L Book", system-ui, sans-serif;
+    --fontHeadings: "URW Gothic L Book", system-ui, sans-serif;
+    --fontCode: "Overpass Mono", monospace, sans-serif;
+}
+
+* {
+    font-family: var(--fontMain);
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--fontHeadings);
+}
+
+pre, code {
+    font-family: var(--fontCode);
+}
