@@ -7,7 +7,10 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
-@import url("theme.css");
-@import url("font.css");
-@import url("layout.css");
-@import url("icons.css");
+export function show(element) {
+    element.hidden = false;
+}
+
+export function hide(element) {
+    element.hidden = true;
+}

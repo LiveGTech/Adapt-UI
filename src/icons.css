@@ -7,7 +7,10 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
-@import url("theme.css");
-@import url("font.css");
-@import url("layout.css");
-@import url("icons.css");
+img[icon="dark"] {
+    filter: contrast(0) brightness(0);
+}
+
+img[icon="light"] {
+    filter: contrast(0) brightness(10);
+}

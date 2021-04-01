@@ -65,13 +65,53 @@ html, body {
     color: var(--primaryText);
 }
 
+screen {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
 header {
-    height: 2.5em;
+    height: 2.8em;
     padding: 1em;
-    padding-top: 0.75em;
-    padding-bottom: 0.75em;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
     background-color: var(--primaryUI);
     color: var(--primaryUIText);
+}
+
+header button {
+    height: 2em;
+    margin: 0.6em;
+    margin-top: -0.4em;
+    margin-bottom: -0.2em;
+    padding: 0.2em;
+    padding-bottom: 0.2em;
+    background-color: var(--primaryUI);
+    color: var(--primaryUIText);
+    border: none;
+    border-radius: 0.5em;
+    vertical-align: middle;
+    transition: 0.5s background-color;
+}
+
+header button:first-child {
+    margin-inline-start: 0;
+}
+
+header button:last-child {
+    margin-inline-end: 0;
+}
+
+header button:hover {
+    background-color: var(--primaryUIPress);
+}
+
+header button img {
+    height: 100%;
 }
 
 aside {
@@ -82,6 +122,11 @@ aside {
     height: 100vh;
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
+}
+
+[dir="rtl"] aside {
+    left: unset;
+    right: 0;
 }
 
 aside p {
@@ -118,8 +163,8 @@ aside hr {
 }
 
 header ~ aside {
-    top: 2.5em;
-    height: calc(100vh - 2.5em);
+    top: 2.8em;
+    height: calc(100vh - 2.8em);
 }
 
 main {
@@ -129,14 +174,36 @@ main {
     width: 100vw;
     height: 100vh;
     padding: 1em;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 header ~ main {
-    top: 2.5em;
-    height: calc(100vh - 2.5em);
+    top: 2.8em;
+    height: calc(100vh - 2.8em);
 }
 
 aside ~ main {
     left: 15em;
     width: calc(100vw - 15em);
+}
+
+[dir="rtl"] aside ~ main {
+    left: unset;
+    right: 15em;
+}
+
+@media (max-width: 800px) {
+    aside {
+        display: none;
+    }
+
+    aside ~ main {
+        left: 0;
+        width: 100vw;
+    }
+
+    [dir="rtl"] aside ~ main {
+        left: 0;
+    }
 }
