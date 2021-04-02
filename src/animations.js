@@ -21,13 +21,13 @@ export function getStyleNumericalValue(element, property) {
 }
 
 export function getStyleUnit(element, property) {
-    return /[0-9]*(.*)/.exec(getComputedStyle(element)[property])[1];
+    return /[-]?[0-9.]*(.*)/.exec(getComputedStyle(element)[property])[1];
 }
 
 export function easeStyleTransition(element, property, targetValue, duration = 500, easingFunction = easingFunctions.EASE) {
     var startTime = new Date().getTime();
-        var initialValue = getStyleNumericalValue(element, property);
-        var styleUnit = getStyleUnit(element, property);
+    var initialValue = getStyleNumericalValue(element, property);
+    var styleUnit = getStyleUnit(element, property);
 
     return new Promise(function(resolve, reject) {
         requestAnimationFrame(function renderFrame() {
@@ -48,11 +48,11 @@ export function easeStyleTransition(element, property, targetValue, duration = 5
 export function fadeIn(element, duration = 500) {
     element.hidden = false;
 
-    return easeStyleTransition(element, "opacity", "1", duration);
+    return easeStyleTransition(element, "opacity", 1, duration);
 }
 
 export function fadeOut(element, duration = 1000) {
-    return easeStyleTransition(element, "opacity", "0", duration).then(function() {
+    return easeStyleTransition(element, "opacity", 0, duration).then(function() {
         element.hidden = true;
 
         return Promise.resolve();

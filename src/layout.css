@@ -122,6 +122,7 @@ aside {
     height: 100vh;
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
+    z-index: 1;
 }
 
 [dir="rtl"] aside {
