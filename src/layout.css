@@ -173,9 +173,6 @@ main {
     left: 0;
     width: 100vw;
     height: 100vh;
-    padding: 1em;
-    padding-left: 10%;
-    padding-right: 10%;
 }
 
 header ~ main {
@@ -191,6 +188,12 @@ aside ~ main {
 [dir="rtl"] aside ~ main {
     left: unset;
     right: 15em;
+}
+
+section {
+    padding: 1em;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 @media (max-width: 800px) {
