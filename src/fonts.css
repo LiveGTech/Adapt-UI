@@ -8,9 +8,20 @@
 */
 
 :root {
-    --fontMain: "URW Gothic L Book", system-ui, sans-serif;
-    --fontHeadings: "URW Gothic L Book", system-ui, sans-serif;
+    --fontMain: "URW Gothic L", system-ui, sans-serif;
+    --fontHeadings: "URW Gothic L", system-ui, sans-serif;
     --fontCode: "Overpass Mono", monospace, sans-serif;
+}
+
+@font-face {
+    font-family: "URW Gothic L";
+    src: url("../fonts/urwgothiclbook.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "URW Gothic L";
+    font-weight: bold;
+    src: url("../fonts/urwgothicldemi.woff2") format("woff2");
 }
 
 * {

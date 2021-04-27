@@ -7,10 +7,10 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
-img[icon="dark"] {
+img[aui-icon="dark"] {
     filter: contrast(0) brightness(0);
 }
 
-img[icon="light"] {
+img[aui-icon="light"] {
     filter: contrast(0) brightness(10);
 }

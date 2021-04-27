@@ -11,6 +11,8 @@ import * as animations from "./animations.js";
 
 const ASIDE_HIDDEN_SCREEN_WIDTH = 800;
 
+var asideWasHideable = null;
+
 export function open(element) {
     if (element.tagName != "ASIDE") {
         throw new TypeError(`Expected aside element to open to have an \`aside\` tag, but got \`${element.tagName.toLowerCase()}\` instead`);
@@ -22,6 +24,10 @@ export function open(element) {
 
     element.style.left = `-${getComputedStyle(element).width}`;
     element.style.display = "block";
+
+    if (element.previousSibling?.tagName == "AUI-BACKDROP") {
+        animations.fadeIn(element.previousSibling, 500);
+    }
 
     return animations.easeStyleTransition(element, "left", 0, 500, animations.easingFunctions.EASE_OUT);
 }
@@ -35,7 +41,9 @@ export function close(element) {
         return Promise.resolve();
     }
 
-    console.log(`-${getComputedStyle(element).width}`);
+    if (element.previousSibling?.tagName == "AUI-BACKDROP") {
+        animations.fadeOut(element.previousSibling, 500);
+    }
 
     return animations.easeStyleTransition(element, "left", -parseFloat(getComputedStyle(element).width), 500, animations.easingFunctions.EASE_IN).then(function() {
         element.style.display = "none";
@@ -43,4 +51,36 @@ export function close(element) {
 
         return Promise.resolve();
     });
+}
+
+export function toggle(element) {
+    if (element.style.display != "block") {
+        return open(element);
+    } else {
+        return close(element);
+    }
+}
+
+export function update() {
+    var asideIsHideable = window.innerWidth <= ASIDE_HIDDEN_SCREEN_WIDTH;
+
+    if (asideIsHideable == asideWasHideable) {
+        return;
+    }
+
+    asideWasHideable = asideIsHideable;
+
+    if (asideIsHideable) {
+        document.querySelectorAll("aside").forEach(function(element) {
+            element.style.display = "none";
+        });
+    } else {
+        document.querySelectorAll("aside").forEach(function(element) {
+            element.style.display = "block";
+        });
+
+        document.querySelectorAll("aui-backdrop[aui-for='aside']").forEach(function(element) {
+            element.hidden = true;
+        });
+    }
 }

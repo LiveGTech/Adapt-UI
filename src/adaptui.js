@@ -10,6 +10,7 @@
 import * as basic from "./basic.js";
 import * as animations from "./animations.js";
 import * as aside from "./aside.js";
+import * as screens from "./screens.js";
 import * as markup from "./markup.js";
 
 const AVAILABLE_OPERATIONS = {
@@ -19,8 +20,14 @@ const AVAILABLE_OPERATIONS = {
     fadeIn: animations.fadeIn,
     fadeOut: animations.fadeOut,
     asideOpen: aside.open,
-    asideClose: aside.close
+    asideClose: aside.close,
+    screenBack: screens.back,
+    screenForward: screens.forward
 };
+
+const RESIZE_LISTENERS = [
+    aside.update
+];
 
 function apply(operation, elements) {
     return function() {
@@ -33,8 +40,14 @@ function apply(operation, elements) {
 }
 
 export function sel(selector) {
-    var elements = document.querySelectorAll(selector);
+    var elements;
     var appliedOperations = {};
+
+    if (selector instanceof Element) {
+        elements = [selector];
+    } else {
+        elements = document.querySelectorAll(selector);
+    }
 
     for (var operation in AVAILABLE_OPERATIONS) {
         appliedOperations[operation] = apply(AVAILABLE_OPERATIONS[operation], elements);
@@ -42,3 +55,11 @@ export function sel(selector) {
 
     return appliedOperations;
 }
+
+window.addEventListener("load", function() {
+    markup.apply(); 
+});
+
+window.addEventListener("resize", function() {
+    RESIZE_LISTENERS.forEach((listener) => listener());
+});

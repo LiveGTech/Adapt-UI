@@ -8,9 +8,9 @@
         <script type="module" src="script.js"></script>
     </head>
     <body>
-        <screen>
+        <aui-screen id="home">
             <header>
-                <button><img src="../../icons/menu.svg" alt="" icon="light"></object></button>
+                <button aui-bind="aside"><img src="../../icons/menu.svg" alt="" aui-icon="light"></object></button>
                 <span>Adapt UI Demo</span>
             </header>
             <aside>
@@ -31,8 +31,20 @@
                     <h5>So many headings</h5>
                     <h6>There's loads</h6>
                     <p>As you can see, there are a lot of headings.</p>
+                    <button onclick="$g.sel('#about').screenForward();">Go to about</button>
                 </section>
             </main>
-        </screen>
+        </aui-screen>
+        <aui-screen hidden id="about">
+            <header>
+                <button aui-bind="back"><img src="../../icons/back.svg" alt="" aui-icon="light"></object></button>
+                <span>About this app</span>
+            </header>
+            <main>
+                <section>
+                    <h1>About</h1>
+                </section>
+            </main>
+        </aui-screen>
     </body>
 </html>

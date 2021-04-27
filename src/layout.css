@@ -23,7 +23,7 @@
 }
 
 h1, h2, h3, h4, h5, h6 {
-    font-weight: normal;
+    font-weight: bold;
 }
 
 h1 {
@@ -65,13 +65,17 @@ html, body {
     color: var(--primaryText);
 }
 
-screen {
+aui-screen {
     display: block;
     position: fixed;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+}
+
+aui-screen[hidden] {
+    display: none;
 }
 
 header {
@@ -122,7 +126,7 @@ aside {
     height: 100vh;
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
-    z-index: 1;
+    z-index: 2;
 }
 
 [dir="rtl"] aside {
@@ -169,11 +173,13 @@ header ~ aside {
 }
 
 main {
-    position: fixed;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100vw;
     height: 100vh;
+    background-color: var(--primaryBackground);
+    color: var(--primaryText);
 }
 
 header ~ main {
@@ -197,9 +203,32 @@ section {
     padding-right: 10%;
 }
 
+aui-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--blur);
+    z-index: 2;
+}
+
+aui-backdrop[aui-for="aside"] {
+    opacity: 0;
+}
+
+[aui-bind="aside"] {
+    display: none;
+}
+
 @media (max-width: 800px) {
     aside {
         display: none;
+    }
+
+    header ~ aside {
+        top: 0;
+        height: 100vh;
     }
 
     aside ~ main {
@@ -209,5 +238,9 @@ section {
 
     [dir="rtl"] aside ~ main {
         left: 0;
+    }
+
+    [aui-bind="aside"] {
+        display: unset;
     }
 }
