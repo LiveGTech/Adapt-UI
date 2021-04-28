@@ -1,0 +1,186 @@
+/*
+    LiveG App Runtime
+
+    Copyright (C) LiveG. All Rights Reserved.
+
+    https://liveg.tech
+    Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
+*/
+
+label {
+    display: block;
+    width: 60%;
+    min-width: 20em;
+    margin-top: 0.8em;
+    margin-bottom: 0.3em;
+}
+
+button:not(header button, aside button), input, select, progress {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+    vertical-align: middle;
+}
+
+button:not(header button, aside button) {
+    margin-inline-end: 0.5em;
+    padding: 0.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    background-color: var(--primaryUI);
+    color: var(--primaryUIText);
+    border: none;
+    border-radius: 0.5em;
+    transition: 0.5s background-color;
+}
+
+button:hover {
+    background-color: var(--primaryUIPress);
+}
+
+button[aui-mode="secondary"] {
+    background-color: var(--secondaryUI);
+    color: var(--secondaryUIText);
+}
+
+button[aui-mode="secondary"]:hover {
+    background-color: var(--secondaryUIPress);
+}
+
+button[aui-mode="navigational"] {
+    display: block;
+    width: 60%;
+    min-width: 20em;
+    margin-inline-end: 0;
+    padding-left: 0;
+    padding-right: 0;
+    background-color: inherit;
+    color: var(--primaryUI);
+    text-align: start;
+    transition: 0.5s color;
+    cursor: pointer;
+}
+
+button[aui-mode="navigational"]:hover {
+    background-color: inherit;
+    color: var(--primaryUIPress);
+}
+
+button[aui-mode="navigational"] img {
+    opacity: 0.5;
+}
+
+input, select, progress {
+    margin-inline-end: 0.5em;
+    padding: 0.5em;
+    width: 60%;
+    min-width: 20em;
+    background-color: var(--secondaryBackground);
+    color: var(--secondaryText);
+    border: none;
+    border-radius: 0.5em;
+}
+
+input[aui-mode="secondary"], select[aui-mode="secondary"] {
+    background-color: var(--primaryBackground);
+    color: var(--primaryText);
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 0;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding: 0;
+    padding-top: 0.4em;
+    padding-bottom: 0.4em;
+    background-color: var(--secondaryBackground);
+    color: var(--secondaryText);
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 1.2em;
+    height: 1.2em;
+    background-color: var(--primaryUI);
+    border-radius: 0.6em;
+    transition: 0.5s background-color;
+}
+
+input[type="range"]::-webkit-slider-thumb:hover {
+    background-color: var(--primaryUIPress);
+}
+
+input[type="range"]::-moz-slider-thumb {
+    width: 1.2em;
+    height: 1.2em;
+    background-color: var(--primaryUI);
+    border-radius: 0.6em;
+    transition: 0.5s background-color;
+}
+
+input[type="range"]::-moz-slider-thumb:hover {
+    background-color: var(--primaryUIPress);
+}
+
+select {
+    background: url("../icons/dropdown.svg") no-repeat right var(--secondaryBackground);
+    background-size: 1.5em;
+    border-right: 0.2em solid transparent;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+[dir="rtl"] select {
+    background: url("../icons/dropdown.svg") no-repeat left var(--secondaryBackground);
+    background-size: 1.5em;
+    border-left: 0.2em solid transparent;
+    border-right: unset;
+}
+
+progress {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    height: 0.8em;
+    padding: 0;
+    overflow: hidden;
+}
+
+progress::-webkit-progress-bar {
+    background-color: var(--secondaryBackground);
+    border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+    background-color: var(--primaryUI);
+    border-radius: 10px;
+    transition: width 0.5s;
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--primaryUI);
+    border-radius: 10px;
+}
+
+@media (max-width: 1000px) {
+    label {
+        display: block;
+        width: 60%;
+        min-width: 20em;
+        margin-top: 0.8em;
+        margin-bottom: 0.3em;
+    }
+
+    label, button[aui-mode="navigational"], input, select, progress {
+        width: 100%;
+        min-width: unset;
+    }
+}

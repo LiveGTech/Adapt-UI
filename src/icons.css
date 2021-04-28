@@ -14,3 +14,9 @@ img[aui-icon="dark"] {
 img[aui-icon="light"] {
     filter: contrast(0) brightness(10);
 }
+
+[dir="rtl"] img[aui-icon][src$="/back.svg"],
+[dir="rtl"] img[aui-icon][src$="/forward.svg"]
+{
+    transform: rotateZ(180deg);
+}

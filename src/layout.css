@@ -74,6 +74,11 @@ aui-screen {
     height: 100vh;
 }
 
+[dir="rtl"] aui-screen {
+    left: unset;
+    right: 0;
+}
+
 aui-screen[hidden] {
     display: none;
 }
@@ -180,6 +185,12 @@ main {
     height: 100vh;
     background-color: var(--primaryBackground);
     color: var(--primaryText);
+    overflow: auto;
+}
+
+[dir="rtl"] main {
+    left: unset;
+    right: 0;
 }
 
 header ~ main {
@@ -190,6 +201,11 @@ header ~ main {
 aside ~ main {
     left: 15em;
     width: calc(100vw - 15em);
+}
+
+[dir="rtl"] aside ~ main {
+    left: unset;
+    right: 15em;
 }
 
 [dir="rtl"] aside ~ main {
@@ -237,7 +253,8 @@ aui-backdrop[aui-for="aside"] {
     }
 
     [dir="rtl"] aside ~ main {
-        left: 0;
+        left: unset;
+        right: 0;
     }
 
     [aui-bind="aside"] {

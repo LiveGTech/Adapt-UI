@@ -22,14 +22,27 @@ export function open(element) {
         return Promise.resolve();
     }
 
-    element.style.left = `-${getComputedStyle(element).width}`;
+    if (document.dir == "rtl") {
+        element.style.left = null;
+        element.style.right = `-${getComputedStyle(element).width}`;
+    } else {
+        element.style.left = `-${getComputedStyle(element).width}`;
+        element.style.right = null;
+    }
+
     element.style.display = "block";
 
     if (element.previousSibling?.tagName == "AUI-BACKDROP") {
         animations.fadeIn(element.previousSibling, 500);
     }
 
-    return animations.easeStyleTransition(element, "left", 0, 500, animations.easingFunctions.EASE_OUT);
+    return animations.easeStyleTransition(
+        element,
+        document.dir == "rtl" ? "right" : "left",
+        0,
+        500,
+        animations.easingFunctions.EASE_OUT
+    );
 }
 
 export function close(element) {
@@ -45,7 +58,13 @@ export function close(element) {
         animations.fadeOut(element.previousSibling, 500);
     }
 
-    return animations.easeStyleTransition(element, "left", -parseFloat(getComputedStyle(element).width), 500, animations.easingFunctions.EASE_IN).then(function() {
+    return animations.easeStyleTransition(
+        element,
+        document.dir == "rtl" ? "right" : "left",
+        -parseFloat(getComputedStyle(element).width),
+        500,
+        animations.easingFunctions.EASE_IN
+    ).then(function() {
         element.style.display = "none";
         element.style.left = "0px";
 

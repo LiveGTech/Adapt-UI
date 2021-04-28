@@ -14,8 +14,16 @@ import * as screens from "./screens.js";
 import * as markup from "./markup.js";
 
 const AVAILABLE_OPERATIONS = {
+    get: basic.get,
     show: basic.show,
     hide: basic.hide,
+    getText: basic.getText,
+    setText: basic.setText,
+    getHTML: basic.getHTML,
+    setHTML: basic.setHTML,
+    on: basic.on,
+    getValue: basic.getValue,
+    setValue: basic.setValue,
     easeStyleTransition: animations.easeStyleTransition,
     fadeIn: animations.fadeIn,
     fadeOut: animations.fadeOut,
@@ -29,17 +37,24 @@ const RESIZE_LISTENERS = [
     aside.update
 ];
 
-function apply(operation, elements) {
+function apply(operation, elements, multiReturn) {
     return function() {
         var operationArguments = arguments;
+        var returns = [];
 
         elements.forEach(function(element) {
-            operation(element, ...operationArguments);
+            returns.push(operation(element, ...operationArguments));
         });
+
+        if (multiReturn) {
+            return returns;
+        }
+
+        return returns[0];
     };
 }
 
-export function sel(selector) {
+export function sel(selector, multiReturn = false) {
     var elements;
     var appliedOperations = {};
 
@@ -50,10 +65,16 @@ export function sel(selector) {
     }
 
     for (var operation in AVAILABLE_OPERATIONS) {
-        appliedOperations[operation] = apply(AVAILABLE_OPERATIONS[operation], elements);
+        appliedOperations[operation] = apply(AVAILABLE_OPERATIONS[operation], elements, multiReturn);
     }
 
     return appliedOperations;
+}
+
+export function waitForLoad() {
+    return new Promise(function(resolve, reject) {
+        window.addEventListener("load", resolve);
+    });
 }
 
 window.addEventListener("load", function() {

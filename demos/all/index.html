@@ -31,7 +31,36 @@
                     <h5>So many headings</h5>
                     <h6>There's loads</h6>
                     <p>As you can see, there are a lot of headings.</p>
-                    <button onclick="$g.sel('#about').screenForward();">Go to about</button>
+                    <button>Primary button</button>
+                    <button aui-mode="secondary">Secondary button</button>
+                    <button aui-mode="navigational" onclick="$g.sel('#about').screenForward();">Go to about page</button>
+                </section>
+                <section>
+                    <div>
+                        <label for="inputPrimary">Text input (primary)</label>
+                        <input placeholder="Write something here..." id="inputPrimary">
+                    </div>
+                    <div>
+                        <label for="inputSecondary">Text input (secondary)</label>
+                        <input placeholder="Looking camouflaged!" aui-mode="secondary" id="inputSecondary">
+                    </div>
+                    <div>
+                        <label for="select">Selection input</label>
+                        <select id="select">
+                            <option>The default option</option>
+                            <option>The other option</option>
+                            <option>The third one</option>
+                            <option>Last but not least, the fourth one</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="inputSlider">Slider input</label>
+                        <input type="range" value="33" minimum="0" maximum="100" id="inputSlider">
+                    </div>
+                    <div>
+                        <label for="progress">Progress bar result</label>
+                        <progress value="0.33" id="progress">
+                    </div>
                 </section>
             </main>
         </aui-screen>

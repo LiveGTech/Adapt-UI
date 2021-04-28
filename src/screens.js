@@ -22,7 +22,12 @@ export function back(destinationElement) {
         sourceElement.parentElement.insertBefore(backdrop, sourceElement);
     }
 
-    sourceElement.style.left = `0`;
+    if (document.dir == "rtl") {
+        sourceElement.style.right = `0`;
+    } else {
+        sourceElement.style.left = `0`;
+    }
+
     sourceElement.style.zIndex = `1`;
     sourceElement.hidden = false;
 
@@ -36,7 +41,13 @@ export function back(destinationElement) {
         navigationStack.pop();
     }
 
-    return animations.easeStyleTransition(sourceElement, "left", parseFloat(getComputedStyle(sourceElement).width), 500, animations.easingFunctions.EASE_IN).then(function() {
+    return animations.easeStyleTransition(
+        sourceElement,
+        document.dir == "rtl" ? "right" : "left",
+        parseFloat(getComputedStyle(sourceElement).width),
+        500,
+        animations.easingFunctions.EASE_IN
+    ).then(function() {
         sourceElement.hidden = true;
 
         backdrop.remove();
@@ -53,7 +64,12 @@ export function forward(destinationElement) {
         sourceElement.parentElement.insertBefore(backdrop, sourceElement);
     }
 
-    destinationElement.style.left = getComputedStyle(destinationElement).width;
+    if (document.dir == "rtl") {
+        destinationElement.style.right = getComputedStyle(destinationElement).width;
+    } else {
+        destinationElement.style.left = getComputedStyle(destinationElement).width;
+    }
+
     destinationElement.style.zIndex = `1`;
     destinationElement.hidden = false;
 
@@ -66,7 +82,13 @@ export function forward(destinationElement) {
 
     navigationStack.push(sourceElement);
 
-    return animations.easeStyleTransition(destinationElement, "left", 0, 500, animations.easingFunctions.EASE_OUT).then(function() {
+    return animations.easeStyleTransition(
+        destinationElement,
+        document.dir == "rtl" ? "right" : "left",
+        0,
+        500,
+        animations.easingFunctions.EASE_OUT
+    ).then(function() {
         sourceElement.hidden = true;
 
         backdrop.remove();
