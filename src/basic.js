@@ -36,10 +36,29 @@ export function setHTML(element, value) {
 }
 
 export function getValue(element) {
+    if (element.tagName == "INPUT" && ["checkbox", "radio"].includes(element.getAttribute("type"))) {
+        return element.checked;
+    }
+
     return element.value;
 }
 
 export function setValue(element, value) {
+    if (element.tagName == "INPUT" && ["checkbox", "radio"].includes(element.getAttribute("type"))) {
+        if (value == "indeterminate" && element.getAttribute("type") == "checkbox") {
+            element.checked = true;
+            element.indeterminate = true;
+        } else if (value) {
+            element.checked = true;
+            element.indeterminate = false;
+        } else {
+            element.checked = false;
+            element.indeterminate = false;
+        }
+
+        return;
+    }
+
     element.value = value;
 }
 
