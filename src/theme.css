@@ -1,5 +1,5 @@
 /*
-    LiveG App Runtime
+    Adapt UI
 
     Copyright (C) LiveG. All Rights Reserved.
 
