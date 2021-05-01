@@ -217,6 +217,11 @@ input[type="checkbox"][role="switch"]::after {
     transition: 0.5s background-color, 0.5s margin-left, 0.5s margin-right;
 }
 
+[dir="rtl"] input[type="checkbox"][role="switch"]::after {
+    margin-left: 2.5em;
+    margin-right: 0.5em;
+}
+
 input[type="checkbox"][role="switch"]:checked {
     background-color: var(--primaryUI);
 }
@@ -226,6 +231,11 @@ input[type="checkbox"][role="switch"]:checked::after {
     margin-left: 2.5em;
     margin-right: 0.5em;
     background-color: var(--primaryBackground);
+}
+
+[dir="rtl"] input[type="checkbox"][role="switch"]:checked::after {
+    margin-left: 0.5em;
+    margin-right: 2.5em;
 }
 
 select {
