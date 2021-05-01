@@ -26,6 +26,14 @@ export function applyBackdrop() {
     });
 }
 
+export function applyDialogs() {
+    document.querySelectorAll("dialog").forEach(function(element) {
+        dialogPolyfill.registerDialog(element);
+
+        element.setAttribute("aui-mode", "hidden");
+    });
+}
+
 export function applyBindings() {
     document.querySelectorAll("[aui-bind]").forEach(function(element) {
         var binding = element.getAttribute("aui-bind").toLowerCase();
@@ -49,5 +57,6 @@ export function applyBindings() {
 
 export function apply() {
     applyBackdrop();
+    applyDialogs();
     applyBindings();
 }

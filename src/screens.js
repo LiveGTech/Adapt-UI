@@ -17,7 +17,6 @@ export function back(destinationElement) {
 
     backdrop.setAttribute("aui-for", "main");
 
-
     if (sourceElement instanceof Element) {    
         sourceElement.parentElement.insertBefore(backdrop, sourceElement);
     }

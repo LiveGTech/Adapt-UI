@@ -10,3 +10,13 @@
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus-visible {
     outline: none;
 }
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        transition: none!important;
+    }
+
+    *::backdrop {
+        transition: none!important;
+    }
+}

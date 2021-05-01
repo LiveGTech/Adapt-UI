@@ -7,11 +7,14 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
+import "../lib/dialog-polyfill.js";
+
 import * as basic from "./basic.js";
 import * as animations from "./animations.js";
+import * as markup from "./markup.js";
 import * as aside from "./aside.js";
 import * as screens from "./screens.js";
-import * as markup from "./markup.js";
+import * as dialogs from "./dialogs.js";
 
 const AVAILABLE_OPERATIONS = {
     get: basic.get,
@@ -30,7 +33,9 @@ const AVAILABLE_OPERATIONS = {
     asideOpen: aside.open,
     asideClose: aside.close,
     screenBack: screens.back,
-    screenForward: screens.forward
+    screenForward: screens.forward,
+    dialogOpen: dialogs.open,
+    dialogClose: dialogs.close
 };
 
 const RESIZE_LISTENERS = [

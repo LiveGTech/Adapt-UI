@@ -7,6 +7,8 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
+@import url("../lib/dialog-polyfill.css");
+
 @import url("theme.css");
 @import url("fonts.css");
 @import url("icons.css");

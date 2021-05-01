@@ -10,3 +10,11 @@ $g.waitForLoad().then(function() {
 
     $g.sel("#checkboxIndeterminate").setValue("indeterminate");
 });
+
+setTimeout(function() {
+    $g.sel("dialog").dialogOpen();
+}, 3000);
+
+setTimeout(function() {
+    $g.sel("dialog").dialogClose();
+}, 6000);
