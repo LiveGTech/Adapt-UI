@@ -15,7 +15,7 @@ label {
     margin-bottom: 0.3em;
 }
 
-input[type="checkbox"] + label, input[type="radio"] + label {
+input[type="checkbox"]:not([role="switch"]) + label, input[type="radio"] + label {
     display: inline-block;
     width: calc(60% - 2.5em);
     min-width: 17.5em;
@@ -23,13 +23,21 @@ input[type="checkbox"] + label, input[type="radio"] + label {
     vertical-align: top;
 }
 
-button:not(header button, aside button), input, select, progress {
+label[aui-mode="switch"] {
+    display: inline-block;
+    width: calc(60% - 4.5em);
+    min-width: 15.5em;
+    padding-inline-start: 0.3em;
+    vertical-align: top;
+}
+
+button:not(header button):not(aside button), input, select, progress {
     margin-top: 0.2em;
     margin-bottom: 0.2em;
     vertical-align: middle;
 }
 
-button:not(header button, aside button) {
+button:not(header button):not(aside button) {
     margin-inline-end: 0.5em;
     padding: 0.5em;
     padding-left: 1em;
@@ -133,7 +141,7 @@ input[type="range"]::-moz-slider-thumb:hover {
     background-color: var(--primaryUIPress);
 }
 
-input[type="checkbox"], input[type="radio"] {
+input[type="checkbox"]:not([role="switch"]), input[type="radio"] {
     display: inline-block;
     width: 1.5em;
     height: 1.5em;
@@ -149,11 +157,11 @@ input[type="radio"] {
     border-radius: 0.75em;
 }
 
-input[type="checkbox"]:checked, input[type="radio"]:checked, input[type="checkbox"]:indeterminate {
+input[type="checkbox"]:not([role="switch"]):checked, input[type="radio"]:checked, input[type="checkbox"]:not([role="switch"]):indeterminate {
     background-color: var(--primaryUI);
 }
 
-input[type="checkbox"]:checked::after {
+input[type="checkbox"]:not([role="switch"]):checked::after {
     display: block;
     width: 100%;
     height: 100%;
@@ -163,7 +171,7 @@ input[type="checkbox"]:checked::after {
     content: "";
 }
 
-input[type="checkbox"]:indeterminate::after {
+input[type="checkbox"]:not([role="switch"]):indeterminate::after {
     display: block;
     width: 100%;
     height: 100%;
@@ -183,6 +191,41 @@ input[type="radio"]:checked::after {
     background-repeat: no-repeat;
     filter: contrast(0.5) brightness(10);
     content: "";
+}
+
+input[type="checkbox"][role="switch"] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 4em;
+    height: 2em;
+    margin-top: 0.5em;
+    background-color: var(--secondaryBackground);
+    border-radius: 1em;
+    transition: 0.5s background-color;
+}
+
+input[type="checkbox"][role="switch"]::after {
+    display: block;
+    width: 1em;
+    height: 1em;
+    margin-top: 0.5em;
+    margin-left: 0.5em;
+    margin-right: 2.5em;
+    background-color: var(--primaryUI);
+    border-radius: 0.5em;
+    content: "";
+    transition: 0.5s background-color, 0.5s margin-left, 0.5s margin-right;
+}
+
+input[type="checkbox"][role="switch"]:checked {
+    background-color: var(--primaryUI);
+}
+
+input[type="checkbox"][role="switch"]:checked::after {
+    margin-top: 0.5em;
+    margin-left: 2.5em;
+    margin-right: 0.5em;
+    background-color: var(--primaryBackground);
 }
 
 select {
@@ -238,8 +281,13 @@ progress::-moz-progress-bar {
         min-width: unset;
     }
 
-    input[type="checkbox"] + label, input[type="radio"] + label {
+    input[type="checkbox"]:not([role="switch"]) + label, input[type="radio"] + label {
         width: calc(100% - 2.5em);
+        min-width: unset;
+    }
+
+    label[aui-mode="switch"] {
+        width: calc(100% - 5em);
         min-width: unset;
     }
 }
