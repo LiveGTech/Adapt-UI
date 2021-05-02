@@ -31,8 +31,10 @@
                     <h5>So many headings</h5>
                     <h6>There's loads</h6>
                     <p>As you can see, there are a lot of headings.</p>
-                    <button>Primary button</button>
-                    <button aui-mode="secondary">Secondary button</button>
+                    <aui-buttons>
+                        <button onclick="$g.sel('#dialog').dialogOpen();">Primary button</button>
+                        <button aui-mode="secondary">Secondary button</button>
+                    </aui-buttons>
                     <button aui-mode="navigational" onclick="$g.sel('#about').screenForward();">Go to about page</button>
                 </section>
                 <section>
@@ -110,8 +112,23 @@
                 </section>
             </main>
         </aui-screen>
-        <dialog>
-            This is a test dialog!
+        <dialog id="dialog">
+            <h1>Test dialog</h1>
+            <aui-dialogcontent>
+                <p>This is a test of dialogs!</p>
+                <div>
+                    <label for="inputDialog">What's your name?</label>
+                    <input placeholder="Enter your name here" id="inputDialog">
+                </div>
+                <div>
+                    <input type="checkbox" checked="true" id="checkboxDialog">
+                    <label for="checkboxDialog">Save this name for later</label>
+                </div>
+            </aui-dialogcontent>
+            <aui-buttons aui-mode="end">
+                <button aui-bind="close">OK</button>
+                <button aui-mode="secondary" aui-bind="close">Cancel</button>
+            </aui-buttons>
         </dialog>
     </body>
 </html>

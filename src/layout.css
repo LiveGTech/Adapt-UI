@@ -224,6 +224,7 @@ section {
 dialog {
     min-width: 500px;
     max-width: 700px;
+    max-height: 80vh;
     padding: 1em;
     border: none;
     border-radius: 1em;
@@ -257,6 +258,12 @@ dialog[aui-mode="hidden"] + .backdrop {
     opacity: 0;
 }
 
+dialog h1 {
+    margin: 0;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 aui-backdrop {
     position: fixed;
     top: 0;
@@ -269,6 +276,42 @@ aui-backdrop {
 
 aui-backdrop[aui-for="aside"] {
     opacity: 0;
+}
+
+aui-dialogcontent {
+    display: block;
+    max-height: 60vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+aui-buttons {
+    display: flex;
+}
+
+aui-buttons button:first-child {
+    margin-inline-end: 0.5em;
+}
+
+aui-buttons button:last-child {
+    margin-inline-end: 0;
+}
+
+aui-buttons[aui-mode="end"] {
+    flex-direction: row-reverse;
+    text-align: end;
+}
+
+aui-buttons[aui-mode="end"] button:first-child {
+    margin-inline-end: 0;
+}
+
+aui-buttons[aui-mode="end"] button:last-child {
+    margin-inline-end: 0.5em;
+}
+
+aui-dialogcontent + aui-buttons {
+    margin-top: 0.5em;
 }
 
 [aui-bind="aside"] {

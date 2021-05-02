@@ -9,6 +9,7 @@
 
 import * as aside from "./aside.js";
 import * as screens from "./screens.js";
+import * as dialogs from "./dialogs.js";
 
 export function applyBackdrop() {
     document.querySelectorAll("aside").forEach(function(element) {
@@ -31,6 +32,14 @@ export function applyDialogs() {
         dialogPolyfill.registerDialog(element);
 
         element.setAttribute("aui-mode", "hidden");
+
+        element.addEventListener("keydown", function(event) {
+            if (event.key == "Escape") {
+                event.preventDefault();
+
+                dialogs.close(element);
+            }
+        });
     });
 }
 
@@ -47,6 +56,9 @@ export function applyBindings() {
             case "back":
                 action = () => screens.navigateBack();
                 break;
+
+            case "close":
+                action = () => dialogs.close(element.closest("dialog"));
         }
 
         element.addEventListener("click", function() {

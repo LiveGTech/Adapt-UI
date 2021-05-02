@@ -285,6 +285,21 @@ progress::-moz-progress-bar {
     border-radius: 10px;
 }
 
+dialog label, dialog button[aui-mode="navigational"], dialog input:not([type="checkbox"]):not([type="radio"]), dialog select, dialog progress {
+    width: 100%;
+    min-width: unset;
+}
+
+dialog input[type="checkbox"]:not([role="switch"]) + label, dialog input[type="radio"] + label {
+    width: calc(100% - 2.5em);
+    min-width: unset;
+}
+
+dialog label[aui-mode="switch"] {
+    width: calc(100% - 5em);
+    min-width: unset;
+}
+
 @media (max-width: 1000px) {
     label, button[aui-mode="navigational"], input:not([type="checkbox"]):not([type="radio"]), select, progress {
         width: 100%;
