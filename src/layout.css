@@ -314,6 +314,11 @@ aui-dialogcontent + aui-buttons {
     margin-top: 0.5em;
 }
 
+dialog aui-buttons button:not(header button):not(aside button) {
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
 [aui-bind="aside"] {
     display: none;
 }
