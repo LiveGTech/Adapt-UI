@@ -7,14 +7,14 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
-var lastFocussedElement = null;
+var lastFocusedElement = null;
 
 export function open(element) {
     if (element.tagName != "DIALOG") {
         throw new TypeError(`Expected dialog element to open to have a \`dialog\` tag, but got \`${element.tagName.toLowerCase()}\` instead`);
     }
 
-    lastFocussedElement = document.activeElement;
+    lastFocusedElement = document.activeElement;
 
     element.showModal();
     element.removeAttribute("aui-mode");
@@ -39,9 +39,9 @@ export function close(element) {
 
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
         element.close();
-        lastFocussedElement.focus();
+        lastFocusedElement.focus();
 
-        lastFocussedElement = null;
+        lastFocusedElement = null;
 
         return Promise.resolve();
     }
@@ -49,9 +49,9 @@ export function close(element) {
     return new Promise(function(resolve, reject) {
         setTimeout(function() {
             element.close();
-            lastFocussedElement.focus();
+            lastFocusedElement.focus();
 
-            lastFocussedElement = null;
+            lastFocusedElement = null;
 
             resolve();
         }, 500);
