@@ -20,6 +20,9 @@
 * {
     font-size: var(--sizeP);
     box-sizing: border-box;
+    user-select: none;
+    -webkit-user-drag: none;
+    -moz-user-drag: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -319,6 +322,16 @@ aui-dialogcontent + aui-buttons {
 dialog aui-buttons button:not(header button):not(aside button) {
     margin-top: 0;
     margin-bottom: 0;
+}
+
+[aui-select], [aui-select] * {
+    user-select: text!important;
+    -webkit-user-drag: auto!important;
+    -moz-user-drag: auto!important;
+}
+
+[aui-select="hint"] {
+    cursor: text;
 }
 
 [aui-bind="aside"] {
