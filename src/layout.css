@@ -226,6 +226,8 @@ dialog {
     max-width: 700px;
     max-height: 80vh;
     padding: 1em;
+    background-color: var(--primaryBackground);
+    color: var(--primaryText);
     border: none;
     border-radius: 1em;
     opacity: 1;

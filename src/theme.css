@@ -34,3 +34,21 @@
     --accordionSummaryHover: rgba(0, 0, 0, 0.1);
     --blur: rgba(0, 0, 0, 0.5);
 }
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --primaryBackground: rgb(33, 33, 33);
+        --primaryText: rgb(255, 255, 255);
+        --primaryExtra: rgba(255, 255, 255, 0.5);
+        --primaryPress: rgba(255, 255, 255, 0.2);
+        --primarySelected: rgba(255, 255, 255, 0.1);
+        --secondaryBackground: rgb(77, 77, 77);
+        --secondaryText: rgb(255, 255, 255);
+        --secondaryExtra: rgba(255, 255, 255, 0.5);
+        --secondaryPress: rgba(255, 255, 255, 0.2);
+        --secondarySelected: rgba(255, 255, 255, 0.1);
+        --scrollbar: rgba(255, 255, 255, 0.5);
+        --scrollbarHover: rgba(255, 255, 255, 0.6);
+        --scrollbarPress: rgba(255, 255, 255, 0.8);
+    }
+}

@@ -316,3 +316,10 @@ dialog label[aui-mode="switch"] {
         min-width: unset;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    select {
+        background: url("../icons/dropdown-dark.svg") no-repeat right var(--secondaryBackground)!important;
+        background-size: 1.5em!important;
+    }
+}
