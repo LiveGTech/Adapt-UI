@@ -1,0 +1,23 @@
+/*
+    Adapt UI
+
+    Copyright (C) LiveG. All Rights Reserved.
+
+    https://liveg.tech
+    Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
+*/
+
+button[aui-listitem] {
+    display: block;
+    width: 100%;
+    padding: 0.5em;
+    background-color: inherit;
+    color: inherit;
+    text-align: start;
+    transition: 0.5s background-color, 0.5s color;
+}
+
+button[aui-listitem]:hover {
+    background-color: var(--secondaryBackground);
+    color: var(--secondaryText);
+}
