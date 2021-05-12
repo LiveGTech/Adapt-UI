@@ -27,7 +27,7 @@ Inside the `<body>` element, insert the following content:
 <aui-screen id="welcome">
     <main>
         <section>
-            <h1>Hello, world!</h1>
+            <h1 id="helloHeader">Hello, world!</h1>
             <p>Welcome to my first app using Adapt UI.</p>
         </section>
     </main>
@@ -75,6 +75,8 @@ import * as $g from "/path/to/adaptui.js";
 ```
 
 > **Note:** If you want to use `$g` in the debugger console, you will need to add `window.$g = $g;` to your script so it can be accessed ouside of modules.
+
+Ensure that the reference to `adaptui.js` is the correct path.
 
 ## Adding a UI
 Let's add a UI which asks for the user's name and performs a certain action with it. Inside of `<main>` in your HTML file, create another `<section>` element:
