@@ -294,7 +294,7 @@ aui-buttons {
     display: flex;
 }
 
-aui-buttons button:first-child {
+aui-buttons button:first-child:not(:last-child) {
     margin-inline-end: 0.5em;
 }
 
@@ -311,7 +311,7 @@ aui-buttons[aui-mode="end"] button:first-child {
     margin-inline-end: 0;
 }
 
-aui-buttons[aui-mode="end"] button:last-child {
+aui-buttons[aui-mode="end"] button:last-child:not(:first-child) {
     margin-inline-end: 0.5em;
 }
 

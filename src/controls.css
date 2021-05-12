@@ -62,6 +62,15 @@ button[aui-mode="secondary"]:hover {
     background-color: var(--secondaryUIPress);
 }
 
+button[aui-mode="dangerous"] {
+    background-color: var(--dangerousUI);
+    color: var(--dangerousUIText);
+}
+
+button[aui-mode="dangerous"]:hover {
+    background-color: var(--dangerousUIPress);
+}
+
 button[aui-mode="navigational"] {
     display: block;
     width: 60%;
