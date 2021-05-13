@@ -8,21 +8,21 @@
         <script type="module" src="script.js"></script>
     </head>
     <body>
-        <aui-screen id="home">
+        <aui-screen id="main">
             <header>
                 <button aui-bind="aside"><img src="../../icons/menu.svg" alt="" aui-icon="light"></object></button>
                 <span>Adapt UI Demo</span>
             </header>
             <aside>
                 <p>This is a sidebar which can hold menu items such as buttons and text.</p>
-                <button selected>Home</button>
-                <button>About us</button>
+                <button selected id="homeButton">Home</button>
+                <button id="aboutButton">About us</button>
                 <button>Contact us</button>
                 <hr>
                 <button>Sign in</button>
                 <button>Sign up</button>
             </aside>
-            <main>
+            <main id="home">
                 <section>
                     <h1>All UI components</h1>
                     <h2>Testing all of them</h2>
@@ -32,10 +32,10 @@
                     <h6>There's loads</h6>
                     <p aui-select="hint">As you can see, there are a lot of headings.</p>
                     <aui-buttons>
-                        <button onclick="$g.sel('#dialog').dialogOpen();">Primary button</button>
+                        <button id="openDialogButton">Primary button</button>
                         <button aui-mode="secondary">Secondary button</button>
                     </aui-buttons>
-                    <button aui-mode="navigational" onclick="$g.sel('#about').screenForward();">Go to about page</button>
+                    <button aui-mode="navigational" id="navigateForwardButton">Go to another page</button>
                 </section>
                 <section>
                     <div>
@@ -113,15 +113,20 @@
                     </button>
                 </section>
             </main>
+            <main hidden id="about">
+                <section>
+                    <h1>This is the about page</h1>
+                </section>
+            </main>
         </aui-screen>
-        <aui-screen hidden id="about">
+        <aui-screen hidden id="otherPage">
             <header>
                 <button aui-bind="back"><img src="../../icons/back.svg" alt="" aui-icon="light"></object></button>
-                <span>About this app</span>
+                <span>Another page</span>
             </header>
             <main>
                 <section>
-                    <h1>About</h1>
+                    <h1>This is another page</h1>
                 </section>
             </main>
         </aui-screen>

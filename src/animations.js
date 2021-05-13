@@ -58,3 +58,11 @@ export function fadeOut(element, duration = 1000) {
         return Promise.resolve();
     });
 }
+
+export function switchFrom(element, oldElement, duration = 1000) {
+    element.style.opacity = "0";
+
+    return fadeOut(oldElement, duration / 2).then(function() {
+        return fadeIn(element, duration / 2);
+    });
+}

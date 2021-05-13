@@ -30,6 +30,7 @@ const AVAILABLE_OPERATIONS = {
     easeStyleTransition: animations.easeStyleTransition,
     fadeIn: animations.fadeIn,
     fadeOut: animations.fadeOut,
+    switchFrom: animations.switchFrom,
     asideOpen: aside.open,
     asideClose: aside.close,
     screenBack: screens.back,
