@@ -127,6 +127,13 @@ export function addPages(element) {
                 return;
             }
 
+            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+            element.parentNode.querySelector(pageSelector).style.opacity = "1";
+                element.parentNode.querySelector(pageSelector).hidden = false;
+
+                return;
+            }
+
             element.parentNode.querySelector(pageSelector).style.opacity = "0";
 
             setTimeout(function() {

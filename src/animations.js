@@ -29,6 +29,12 @@ export function easeStyleTransition(element, property, targetValue, duration = 5
     var initialValue = getStyleNumericalValue(element, property);
     var styleUnit = getStyleUnit(element, property);
 
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+        element.style[property] = String(targetValue) + styleUnit;
+
+        return Promise.resolve();
+    }
+
     return new Promise(function(resolve, reject) {
         requestAnimationFrame(function renderFrame() {
             var currentDuration = new Date().getTime() - startTime;
