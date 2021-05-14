@@ -128,7 +128,7 @@ export function addPages(element) {
             }
 
             if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-            element.parentNode.querySelector(pageSelector).style.opacity = "1";
+                element.parentNode.querySelector(pageSelector).style.opacity = "1";
                 element.parentNode.querySelector(pageSelector).hidden = false;
 
                 return;
