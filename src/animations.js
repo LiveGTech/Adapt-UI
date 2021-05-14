@@ -45,14 +45,14 @@ export function easeStyleTransition(element, property, targetValue, duration = 5
     });
 }
 
-export function fadeIn(element, duration = 500) {
+export function fadeIn(element, duration = 500, easingFunction = easingFunctions.LINEAR) {
     element.hidden = false;
 
-    return easeStyleTransition(element, "opacity", 1, duration);
+    return easeStyleTransition(element, "opacity", 1, duration, easingFunction);
 }
 
-export function fadeOut(element, duration = 500) {
-    return easeStyleTransition(element, "opacity", 0, duration).then(function() {
+export function fadeOut(element, duration = 500, easingFunction = easingFunctions.LINEAR) {
+    return easeStyleTransition(element, "opacity", 0, duration, easingFunction).then(function() {
         element.hidden = true;
 
         return Promise.resolve();

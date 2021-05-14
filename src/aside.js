@@ -33,7 +33,7 @@ export function open(element) {
     element.style.display = "block";
 
     if (element.previousSibling?.tagName == "AUI-BACKDROP") {
-        animations.fadeIn(element.previousSibling, 500);
+        animations.fadeIn(element.previousSibling, 500, animations.easingFunctions.EASE_OUT);
     }
 
     return animations.easeStyleTransition(
@@ -55,7 +55,7 @@ export function close(element) {
     }
 
     if (element.previousSibling?.tagName == "AUI-BACKDROP") {
-        animations.fadeOut(element.previousSibling, 500);
+        animations.fadeOut(element.previousSibling, 500, animations.easingFunctions.EASE_IN);
     }
 
     return animations.easeStyleTransition(
@@ -111,7 +111,7 @@ export function addPages(element) {
         buttonElement.addEventListener("click", function() {
             element.parentNode.querySelectorAll("main").forEach(function(mainElement) {
                 if (mainElement != element.parentNode.querySelector(pageSelector)) {
-                    animations.fadeOut(mainElement, 250);
+                    animations.fadeOut(mainElement, 250, animations.easingFunctions.EASE_OUT);
                 }
             });
 
@@ -130,7 +130,7 @@ export function addPages(element) {
             element.parentNode.querySelector(pageSelector).style.opacity = "0";
 
             setTimeout(function() {
-                animations.fadeIn(element.parentNode.querySelector(pageSelector), 250);          
+                animations.fadeIn(element.parentNode.querySelector(pageSelector), 250, animations.easingFunctions.EASE_IN);
             }, 250);
         });
     });
