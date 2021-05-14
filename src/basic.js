@@ -62,6 +62,50 @@ export function setValue(element, value) {
     element.value = value;
 }
 
+export function hasAttribute(element, attributeName) {
+    return element.hasAttribute(attributeName);
+}
+
+export function getAttribute(element, attributeName) {
+    return element.getAttribute(attributeName);
+}
+
+export function setAttribute(element, attributeName, value) {
+    element.setAttribute(attributeName, value);
+}
+
+export function addAttribute(element, attributeName) {
+    element.setAttribute(attributeName, "");
+}
+
+export function removeAttribute(element, attributeName) {
+    element.removeAttribute(attributeName);
+}
+
+export function hasClass(element, className) {
+    return element.classList.contains(className);
+}
+
+export function addClass(element, className) {
+    return element.classList.add(className);
+}
+
+export function removeClass(element, className) {
+    return element.classList.remove(className);
+}
+
+export function toggleClass(element, className) {
+    return element.classList.toggle(className);
+}
+
+export function getId(element) {
+    return element.id;
+}
+
+export function setId(element, value) {
+    element.id = value;
+}
+
 export function on(element, event, callback) {
     element.addEventListener(event, callback);
 }

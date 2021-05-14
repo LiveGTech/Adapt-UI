@@ -27,6 +27,12 @@ export function applyBackdrop() {
     });
 }
 
+export function applyAsides() {
+    document.querySelectorAll("aside").forEach(function(element) {
+        aside.addPages(element);
+    });
+}
+
 export function applyDialogs() {
     document.querySelectorAll("dialog").forEach(function(element) {
         dialogPolyfill.registerDialog(element);
@@ -69,6 +75,7 @@ export function applyBindings() {
 
 export function apply() {
     applyBackdrop();
+    applyAsides();
     applyDialogs();
     applyBindings();
 }

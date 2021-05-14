@@ -15,9 +15,9 @@
             </header>
             <aside>
                 <p>This is a sidebar which can hold menu items such as buttons and text.</p>
-                <button selected id="homeButton">Home</button>
-                <button id="aboutButton">About us</button>
-                <button>Contact us</button>
+                <button aui-page="#home" aui-selected>Home</button>
+                <button aui-page="#about">About us</button>
+                <button aui-page="#contact">Contact us</button>
                 <hr>
                 <button>Sign in</button>
                 <button>Sign up</button>
@@ -116,6 +116,11 @@
             <main hidden id="about">
                 <section>
                     <h1>This is the about page</h1>
+                </section>
+            </main>
+            <main hidden id="contact">
+                <section>
+                    <h1>This is the contact page</h1>
                 </section>
             </main>
         </aui-screen>

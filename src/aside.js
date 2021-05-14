@@ -103,3 +103,35 @@ export function update() {
         });
     }
 }
+
+export function addPages(element) {
+    element.querySelectorAll("button[aui-page]").forEach(function(buttonElement) {
+        var pageSelector = buttonElement.getAttribute("aui-page");
+
+        buttonElement.addEventListener("click", function() {
+            element.parentNode.querySelectorAll("main").forEach(function(mainElement) {
+                if (mainElement != element.parentNode.querySelector(pageSelector)) {
+                    animations.fadeOut(mainElement, 250);
+                }
+            });
+
+            element.querySelectorAll("button[aui-page]").forEach(function(otherButtonElement) {
+                otherButtonElement.removeAttribute("aui-selected");
+            });
+
+            buttonElement.setAttribute("aui-selected", "");
+
+            close(element);
+
+            if (element.parentNode.querySelector(pageSelector).hidden == false) {
+                return;
+            }
+
+            element.parentNode.querySelector(pageSelector).style.opacity = "0";
+
+            setTimeout(function() {
+                animations.fadeIn(element.parentNode.querySelector(pageSelector), 250);          
+            }, 250);
+        });
+    });
+}

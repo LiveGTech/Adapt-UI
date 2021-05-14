@@ -51,7 +51,7 @@ export function fadeIn(element, duration = 500) {
     return easeStyleTransition(element, "opacity", 1, duration);
 }
 
-export function fadeOut(element, duration = 1000) {
+export function fadeOut(element, duration = 500) {
     return easeStyleTransition(element, "opacity", 0, duration).then(function() {
         element.hidden = true;
 
@@ -59,7 +59,7 @@ export function fadeOut(element, duration = 1000) {
     });
 }
 
-export function switchFrom(element, oldElement, duration = 1000) {
+export function switchFrom(element, oldElement, duration = 500) {
     element.style.opacity = "0";
 
     return fadeOut(oldElement, duration / 2).then(function() {

@@ -63,7 +63,7 @@ p {
 
 html, body {
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     margin: 0;
     padding: 0;
     background-color: var(--primaryBackground);
@@ -76,7 +76,7 @@ aui-screen {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
 }
 
 [dir="rtl"] aui-screen {
@@ -133,7 +133,7 @@ aside {
     top: 0;
     left: 0;
     width: 15em;
-    height: 100vh;
+    height: 100%;
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
     z-index: 2;
@@ -163,7 +163,7 @@ aside button {
     transition: 0.5s background-color;
 }
 
-aside button[selected] {
+aside button[aui-selected] {
     background-color: var(--secondarySelected);
 }
 
@@ -179,7 +179,7 @@ aside hr {
 
 header ~ aside {
     top: 2.8em;
-    height: calc(100vh - 2.8em);
+    height: calc(100% - 2.8em);
 }
 
 main {
@@ -187,7 +187,7 @@ main {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: var(--primaryBackground);
     color: var(--primaryText);
     overflow: auto;
@@ -200,7 +200,7 @@ main {
 
 header ~ main {
     top: 2.8em;
-    height: calc(100vh - 2.8em);
+    height: calc(100% - 2.8em);
 }
 
 aside ~ main {
@@ -274,7 +274,7 @@ aui-backdrop {
     top: 0;
     left: 0;
     width: 100vw;
-    height: 100vh;
+    height: 100%;
     background-color: var(--blur);
     z-index: 2;
 }
@@ -345,7 +345,7 @@ dialog aui-buttons button:not(header button):not(aside button) {
 
     header ~ aside {
         top: 0;
-        height: 100vh;
+        height: 100%;
     }
 
     aside ~ main {
