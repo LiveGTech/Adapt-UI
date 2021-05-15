@@ -171,8 +171,8 @@ The `if` statement will check if the name entered isn't empty, and if so, will p
 
 Now try entering your name into the input ─ it should work as before. Then try leaving the input blank ─ the dialog should correctly show up.
 
-## Adding a navigation bar
-Let's now add a navigation bar which will appear at the side of the app (will be hidden by default on mobile). Create an `<aside>` element just below the header like so:
+## Adding a navigation menu
+Let's now add a navigation menu which will appear at the side of the app (will be hidden by default on mobile). Create an `<aside>` element just below the header like so:
 
 ```html
 <aui-screen id="welcome">
@@ -190,7 +190,7 @@ Let's now add a navigation bar which will appear at the side of the app (will be
 </aui-screen>
 ```
 
-The `<aside>` element is the navigation bar. Each `<button>` in the menu is a menu option. The `aui-page` attribute will hook an event to each button to show and hide their respective `<main>` elements by their selectors. `aui-selected` will make the respective button visually appear selected.
+The `<aside>` element is the navigation menu. Each `<button>` in the menu is a menu option. The `aui-page` attribute will hook an event to each button to show and hide their respective `<main>` elements by their selectors. `aui-selected` will make the respective button visually appear selected.
 
 Now add an ID to the `<main>` element so it says `<main id="first">`. Create two more `<main>` elements below that first element and add the attribute `hidden` to both, in addition to their respective IDs. Now check your code so that the following is true:
 
@@ -202,7 +202,7 @@ Ideally, we would use better ID names instead of `first`, `second` and `third` (
 
 Now that you've created the extra pages, we don't even need to write any JavaScript to handle the page events since `aui-page` has already created the events at app startup! Try your new app to see if you can switch between pages.
 
-There is only one more thing left to do to make our navigation bar fully functional, though. On mobile, you can't open the menu yet, so we'll need to add a button which allows mobile users to open the menu.
+There is only one more thing left to do to make our navigation menu fully functional, though. On mobile, you can't open the menu yet, so we'll need to add a button which allows mobile users to open the menu.
 
 In the `<header>` element, just above the `<span>` element, insert this line:
 
@@ -214,14 +214,14 @@ Ensure that the reference to `icons/menu.svg` is the correct path.
 
 This newly-added button will:
 
-* Open the navigation bar when pressed using the binding `aui-bind="aside"`.
+* Open the navigation menu when pressed using the binding `aui-bind="aside"`.
 * Announce "Open menu" to assistive technologies (such as screen readers) when the button is selected.
 * Have an icon inside it which visually conveys that the button is a menu.
 * Automatically hide on non-mobile devices (since it's not needed), again automatically via the `aui-bind="aside"` attribute.
 
-Now that our navigation bar is fully complete, you can navigate between pages. Pages aren't quite screens, though; there's a difference:
+Now that our navigation menu is fully complete, you can navigate between pages. Pages aren't quite screens, though; there's a difference:
 
 * A screen is a distinct area of your app which is part of a progressive navigation flow. It is defined by `<aui-screen>`. Screens can have their own header titles and header buttons.
-* A page is a subsection of a screen. A screen can contain one or more pages via the `<main>` element. Pages can't control the header, and can only mainly be selected through a navigation bar. It is designed for lateral navigation and not progressive navigation.
+* A page is a subsection of a screen. A screen can contain one or more pages via the `<main>` element. Pages can't control the header, and can only mainly be selected through a navigation menu. It is designed for lateral navigation and not progressive navigation.
 
 Screens can also be animated to transition back and fourth between different scenarios. For example, you may have a sign-in screen which then transitions to the main screen of the app. Pages don't have this navigative animatibility aside from being able to fade out and then fade in to show a different page, since they're not designed for conveying progessive navigation.
