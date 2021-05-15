@@ -11,14 +11,14 @@ Create a new HTML file and insert the following boilerplate code:
         <title>My First App</title>
         <meta name="charset" content="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
-        <link rel="stylesheet" href="/path/to/adaptui.css">
+        <link rel="stylesheet" href="/path/to/src/adaptui.css">
     </head>
     <body>
     </body>
 </html>
 ```
 
-Ensure that the reference to `adaptui.css` is the correct path.
+Ensure that the reference to `src/adaptui.css` is the correct path.
 
 ## Saying hello
 Inside the `<body>` element, insert the following content:
@@ -71,12 +71,12 @@ The `type="module"` part enables JavaScript module support, which is what is nee
 Inside `script.js`, write:
 
 ```javascript
-import * as $g from "/path/to/adaptui.js";
+import * as $g from "/path/to/src/adaptui.js";
 ```
 
 > **Note:** If you want to use `$g` in the debugger console, you will need to add `window.$g = $g;` to your script so it can be accessed ouside of modules.
 
-Ensure that the reference to `adaptui.js` is the correct path.
+Ensure that the reference to `src/adaptui.js` is the correct path.
 
 ## Adding a UI
 Let's add a UI which asks for the user's name and performs a certain action with it. Inside of `<main>` in your HTML file, create another `<section>` element:
@@ -170,3 +170,58 @@ $g.sel("#saveButton").on("click", function() {
 The `if` statement will check if the name entered isn't empty, and if so, will perform the action we assigned earlier. Otherwise, if it is empty (or if the contents is just whitespace, since `.trim()` removes leading/trailing spaces), then show the dialog instead.
 
 Now try entering your name into the input ─ it should work as before. Then try leaving the input blank ─ the dialog should correctly show up.
+
+## Adding a navigation bar
+Let's now add a navigation bar which will appear at the side of the app (will be hidden by default on mobile). Create an `<aside>` element just below the header like so:
+
+```html
+<aui-screen id="welcome">
+    <header>
+        <!-- ... -->
+    </header>
+    <aside>
+        <button aui-page="#first" aui-selected>First page</button>
+        <button aui-page="#second">Second page</button>
+        <button aui-page="#third">Third page</button>
+    </aside>
+    <main>
+        <!-- ... -->
+    </main>
+</aui-screen>
+```
+
+The `<aside>` element is the navigation bar. Each `<button>` in the menu is a menu option. The `aui-page` attribute will hook an event to each button to show and hide their respective `<main>` elements by their selectors. `aui-selected` will make the respective button visually appear selected.
+
+Now add an ID to the `<main>` element so it says `<main id="first">`. Create two more `<main>` elements below that first element and add the attribute `hidden` to both, in addition to their respective IDs. Now check your code so that the following is true:
+
+* The first `<main>` tag should say `<main id="first">`.
+* The second `<main>` tag should say `<main hidden id="second">`.
+* The third `<main>` tag should say `<main hidden id="third">`.
+
+Ideally, we would use better ID names instead of `first`, `second` and `third` (for example, `feed` or `signIn`), but for the purposes of this tutorial, we'll stick to these basic names. Feel free to add some content to the new `<main>` elements (such as a paragraph) ─ ensure that both contain a `<section>` element each for proper layouting.
+
+Now that you've created the extra pages, we don't even need to write any JavaScript to handle the page events since `aui-page` has already created the events at app startup! Try your new app to see if you can switch between pages.
+
+There is only one more thing left to do to make our navigation bar fully functional, though. On mobile, you can't open the menu yet, so we'll need to add a button which allows mobile users to open the menu.
+
+In the `<header>` element, just above the `<span>` element, insert this line:
+
+```html
+<button aui-bind="aside" aria-label="Open menu"><img src="/path/to/icons/menu.svg" alt="" aui-icon="light"></button>
+```
+
+Ensure that the reference to `icons/menu.svg` is the correct path.
+
+This newly-added button will:
+
+* Open the navigation bar when pressed using the binding `aui-bind="aside"`.
+* Announce "Open menu" to assistive technologies (such as screen readers) when the button is selected.
+* Have an icon inside it which visually conveys that the button is a menu.
+* Automatically hide on non-mobile devices (since it's not needed), again automatically via the `aui-bind="aside"` attribute.
+
+Now that our navigation bar is fully complete, you can navigate between pages. Pages aren't quite screens, though; there's a difference:
+
+* A screen is a distinct area of your app which is part of a progressive navigation flow. It is defined by `<aui-screen>`. Screens can have their own header titles and header buttons.
+* A page is a subsection of a screen. A screen can contain one or more pages via the `<main>` element. Pages can't control the header, and can only mainly be selected through a navigation bar. It is designed for lateral navigation and not progressive navigation.
+
+Screens can also be animated to transition back and fourth between different scenarios. For example, you may have a sign-in screen which then transitions to the main screen of the app. Pages don't have this navigative animatibility aside from being able to fade out and then fade in to show a different page, since they're not designed for conveying progessive navigation.
