@@ -129,6 +129,24 @@ header button img {
     height: 100%;
 }
 
+header button[aui-mode="action"] {
+    width: 3em;
+    height: 3em;
+    margin-top: 0.3em;
+    padding: 0.5em;
+    background-color: var(--secondaryUI);
+    border-radius: 50%;
+    z-index: 1;
+}
+
+header button[aui-mode="action"]:hover {
+    background-color: var(--secondaryUIPress);
+}
+
+header button + button {
+    margin-inline-start: 0;
+}
+
 header span {
     flex-grow: 1;
     overflow: hidden;
