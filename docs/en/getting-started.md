@@ -104,7 +104,7 @@ Let's see what some of it means:
 
 > **Note:** Using `aui-mode="dangerous"` will colour the button in red. This is useful for marking buttons that delete things as potentially dangerous to the user.
 
-Of course our code doesn't actually do anything yet ─ we'll need to add the functionality in `script.js`. Let's set the `<h1>` (with ID `helloHeader`) when a name is entered:
+Of course our code doesn't actually do anything yet — we'll need to add the functionality in `script.js`. Let's set the `<h1>` (with ID `helloHeader`) when a name is entered:
 
 ```javascript
 $g.waitForLoad().then(function() {
@@ -169,7 +169,7 @@ $g.sel("#saveButton").on("click", function() {
 
 The `if` statement will check if the name entered isn't empty, and if so, will perform the action we assigned earlier. Otherwise, if it is empty (or if the contents is just whitespace, since `.trim()` removes leading/trailing spaces), then show the dialog instead.
 
-Now try entering your name into the input ─ it should work as before. Then try leaving the input blank ─ the dialog should correctly show up.
+Now try entering your name into the input — it should work as before. Then try leaving the input blank — the dialog should correctly show up.
 
 ## Adding a navigation menu
 Let's now add a navigation menu which will appear at the side of the app (will be hidden by default on mobile). Create an `<aside>` element just below the header like so:
@@ -198,7 +198,7 @@ Now add an ID to the `<main>` element so it says `<main id="first">`. Create two
 * The second `<main>` tag should say `<main hidden id="second">`.
 * The third `<main>` tag should say `<main hidden id="third">`.
 
-Ideally, we would use better ID names instead of `first`, `second` and `third` (for example, `feed` or `signIn`), but for the purposes of this tutorial, we'll stick to these basic names. Feel free to add some content to the new `<main>` elements (such as a paragraph) ─ ensure that both contain a `<section>` element each for proper layouting.
+Ideally, we would use better ID names instead of `first`, `second` and `third` (for example, `feed` or `signIn`), but for the purposes of this tutorial, we'll stick to these basic names. Feel free to add some content to the new `<main>` elements (such as a paragraph) — ensure that both contain a `<section>` element each for proper layouting.
 
 Now that you've created the extra pages, we don't even need to write any JavaScript to handle the page events since `aui-page` has already created the events at app startup! Try your new app to see if you can switch between pages.
 
