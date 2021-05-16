@@ -207,7 +207,7 @@ There is only one more thing left to do to make our navigation menu fully functi
 In the `<header>` element, just above the `<span>` element, insert this line:
 
 ```html
-<button aui-bind="aside" aria-label="Open menu"><img src="/path/to/icons/menu.svg" alt="" aui-icon="light"></button>
+<button title="Open menu" aui-bind="aside" aria-label="Open menu"><img src="/path/to/icons/menu.svg" alt="" aui-icon="light"></button>
 ```
 
 Ensure that the reference to `icons/menu.svg` is the correct path.
@@ -215,7 +215,7 @@ Ensure that the reference to `icons/menu.svg` is the correct path.
 This newly-added button will:
 
 * Open the navigation menu when pressed using the binding `aui-bind="aside"`.
-* Announce "Open menu" to assistive technologies (such as screen readers) when the button is selected.
+* Announce "Open menu" to assistive technologies (such as screen readers) when the button is selected, using `aria-label="Open menu"`. Mouse users can also hover over the button to see what it does using the `title` attribute.
 * Have an icon inside it which visually conveys that the button is a menu.
 * Automatically hide on non-mobile devices (since it's not needed), again automatically via the `aui-bind="aside"` attribute.
 

@@ -89,6 +89,7 @@ aui-screen[hidden] {
 }
 
 header {
+    display: flex;
     height: 2.8em;
     padding: 1em;
     padding-top: 0.8em;
@@ -126,6 +127,13 @@ header button:hover {
 
 header button img {
     height: 100%;
+}
+
+header span {
+    flex-grow: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
 }
 
 aside {
