@@ -225,3 +225,23 @@ Now that our navigation menu is fully complete, you can navigate between pages. 
 * A page is a subsection of a screen. A screen can contain one or more pages via the `<main>` element. Pages can't control the header, and can only mainly be selected through a navigation menu. It is designed for lateral navigation and not progressive navigation.
 
 Screens can also be animated to transition back and fourth between different scenarios. For example, you may have a sign-in screen which then transitions to the main screen of the app. Pages don't have this navigative animatibility aside from being able to fade out and then fade in to show a different page, since they're not designed for conveying progessive navigation.
+
+## Adding extra screens
+As we have discussed, we have added pages to our `#main` screen, but we can also add screens to our app to add a progressive flow. Add another screen under the `<aui-screen id="main">` element:
+
+```html
+<aui-screen hidden id="about">
+    <header>
+        <button title="Back" aui-bind="back" aria-label="Back"><img src="../../icons/back.svg" alt="" aui-icon="light"></button>
+        <span>About this app</span>
+    </header>
+    <main>
+        <section>
+            <h1>App information</h1>
+            <p>I made this app</p>
+        </section>
+    </main>
+</aui-screen>
+```
+
+This element adds another screen to our app, in a very similar way to what we did for the `#main` screen. This time, `aui-bind="back"` hooks an event to the back button which traverses back a screen when pressed.
