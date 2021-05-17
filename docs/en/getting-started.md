@@ -245,3 +245,21 @@ As we have discussed, we have added pages to our `#main` screen, but we can also
 ```
 
 This element adds another screen to our app, in a very similar way to what we did for the `#main` screen. This time, `aui-bind="back"` hooks an event to the back button which traverses back a screen when pressed.
+
+Now, to go forwards a screen from the `#main` screen, attach an event to a button which runs the command `$g("#about").screenForward();`. In your HTML code:
+
+```html
+<section>
+    <button id="openAboutButton">Open app information</button>
+</section>
+```
+
+Now, write the event inside `$g.waitForLoad()`:
+
+```javascript
+$g.sel("#openAboutButton").on("click", function() {
+    $g.sel("about").screenForward();
+});
+```
+
+Now test the app. You should be able to navigate forwards by pressing the new button, and then navigate back again by pressing the back button in the header.
