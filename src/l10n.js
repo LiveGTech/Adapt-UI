@@ -18,15 +18,16 @@ export class TranslationError extends error {
 }
 
 export class Locale {
-    constructor(localeCode, source, fallbackLocale = null) {
+    constructor(localeCode, source, fallbackLocale = null, metadata = {}) {
         this.localeCode = localeCode;
         this.source = source;
         this.fallbackLocale = fallbackLocale;
+        this.textDirection = metadata;
     }
 
     static fromResource(url, fallbackLocale = null) {
         return requests.json(url).then(function(data) {
-            return Promise.resolve(new this(data.localeCode, data.source, fallbackLocale));
+            return Promise.resolve(new this(data.localeCode, data.source, fallbackLocale, data.metadata));
         });
     }
 
