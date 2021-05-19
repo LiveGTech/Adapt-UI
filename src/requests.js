@@ -14,7 +14,7 @@ export function send(method, url) {
         xhr.onload = function() {
             resolve({
                 status: xhr.status,
-                response: xhr.response
+                data: xhr.response
             });
         };
 
@@ -31,7 +31,7 @@ export function json(url) {
     return new Promise(function(resolve, reject) {
         return send("GET", url).then(function(response) {
             try {
-                resolve(JSON.parse(response));
+                resolve(JSON.parse(response.data));
             } catch (e) {
                 if (e instanceof SyntaxError) {
                     reject("Syntax error while parsing JSON");

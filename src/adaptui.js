@@ -16,6 +16,9 @@ import * as aside from "./aside.js";
 import * as screens from "./screens.js";
 import * as dialogs from "./dialogs.js";
 
+export * as requests from "./requests.js";
+export * as l10n from "./l10n.js";
+
 const AVAILABLE_OPERATIONS = {
     get: basic.get,
     show: basic.show,

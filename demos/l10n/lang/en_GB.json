@@ -1,0 +1,21 @@
+{
+    "localeCode": "en_GB",
+    "metadata": {
+        "name": "English (United Kingdom)",
+        "nameShort": "English",
+        "textDirection": "ltr"
+    },
+    "source": {
+        "title": "L10n Demo",
+        "helloWorld": "Hello, world!",
+        "helloText": "Hello, {name}!",
+        "welcome": "Welcome to my first app using Adapt UI.",
+        "nameQuestion": "What's your name?",
+        "namePlaceholder": "Enter your name here",
+        "selectLanguage": "Select language",
+        "selectLanguageDescription": "Choose a langugage to display this demo in.",
+        "save": "Save",
+        "clear": "Clear",
+        "ok": "OK"
+    }
+}

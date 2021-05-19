@@ -1,0 +1,21 @@
+{
+    "localeCode": "ar_AE",
+    "metadata": {
+        "name": "العربية (الإمارات العربية المتحدة)",
+        "nameShort": "العربية",
+        "textDirection": "rtl"
+    },
+    "source": {
+        "title": "L10n تجريبي",
+        "helloWorld": "مرحبا بالعالم!",
+        "helloText": "مرحبا {name}!",
+        "welcome": "مرحبًا بك في تطبيقي الأول باستخدام Adapt UI.",
+        "nameQuestion": "ما اسمك؟",
+        "namePlaceholder": "أدخل اسمك هنا",
+        "selectLanguage": "اختار اللغة",
+        "selectLanguageDescription": "اختر لغة لعرض هذا العرض التوضيحي بها.",
+        "save": "احفظ",
+        "clear": "واضح",
+        "ok": "موافق"
+    }
+}

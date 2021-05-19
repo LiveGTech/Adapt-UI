@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title translate aui-l10nstring="title">L10n Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <link rel="stylesheet" href="../../src/adaptui.css">
+        <script type="module" src="script.js"></script>
+    </head>
+    <body>
+        <aui-screen id="welcome">
+            <header>
+                <span translate>title</span>
+                <button aui-mode="action" id="selectLanguageButton" translate="attributesOnly" tl:title="selectLanguage" tl:aria-label="selectLanguage">
+                    <img src="../../icons/translate.svg" alt="" aui-icon="light">
+                </button>
+            </header>
+            <main>
+                <section>
+                    <h1 id="helloHeader" translate>helloWorld</h1>
+                    <p translate>welcome</p>
+                </section>
+                <section>
+                    <div>
+                        <label for="name" translate>nameQuestion</label>
+                        <input id="name" translate tl:placeholder="namePlaceholder">
+                    </div>
+                    <br>
+                    <aui-buttons>
+                        <button id="saveButton" translate>save</button>
+                        <button aui-mode="secondary" id="clearButton" translate>clear</button>
+                    </aui-buttons>
+                </section>
+            </main>
+        </aui-screen>
+        <dialog id="selectLanguage">
+            <h1 translate>selectLanguage</h1>
+            <aui-dialogcontent>
+                <p translate>selectLanguageDescription</p>
+                <div>
+                    <select id="chosenLanguage">
+                        <option value="en_GB">English (United Kingdom)</option>
+                        <option value="fr_FR">Français (France)</option>
+                        <option value="ar_AE">العربية (الإمارات العربية المتحدة)</option>
+                        <option value="zh_CN">中文（中国）</option>
+                    </select>
+                </div>
+            </aui-dialogcontent>
+            <aui-buttons aui-mode="end">
+                <button aui-bind="close" id="selectLanguageDone" translate>ok</button>
+            </aui-buttons>
+        </dialog>
+    </body>
+</html>

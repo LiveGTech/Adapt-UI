@@ -7,6 +7,11 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
+/*
+    This code improves accessibility support for Adapt UI, which allows for
+    adaptive focus outlines.
+*/
+
 input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus-visible {
     outline: none;
 }

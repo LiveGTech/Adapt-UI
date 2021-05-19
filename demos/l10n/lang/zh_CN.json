@@ -1,0 +1,21 @@
+{
+    "localeCode": "en_GB",
+    "metadata": {
+        "name": "中文（中国）",
+        "nameShort": "中文",
+        "textDirection": "ltr"
+    },
+    "source": {
+        "title": "L10n示范",
+        "helloWorld": "你好，世界！",
+        "helloText": "你好，{name}！",
+        "welcome": "欢迎使用我的第一个使用Adapt UI的应用程序。",
+        "nameQuestion": "你叫什么名字？",
+        "namePlaceholder": "在这里输入你的名字",
+        "selectLanguage": "选择语言",
+        "selectLanguageDescription": "选择一种语言来显示此演示。",
+        "save": "保存",
+        "clear": "清除",
+        "ok": "确定"
+    }
+}

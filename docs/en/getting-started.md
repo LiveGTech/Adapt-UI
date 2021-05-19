@@ -9,7 +9,7 @@ Create a new HTML file and insert the following boilerplate code:
 <html>
     <head>
         <title>My First App</title>
-        <meta name="charset" content="utf-8">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
         <link rel="stylesheet" href="/path/to/src/adaptui.css">
     </head>

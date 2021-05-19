@@ -1,0 +1,21 @@
+{
+    "localeCode": "en_GB",
+    "metadata": {
+        "name": "Français (France)",
+        "nameShort": "Français",
+        "textDirection": "ltr"
+    },
+    "source": {
+        "title": "Démo L10n",
+        "helloWorld": "Bonjour le monde !",
+        "helloText": "Bonjour, {name} !",
+        "welcome": "Bienvenue dans ma première application utilisant Adapt UI.",
+        "nameQuestion": "Qel est ton nom ?",
+        "namePlaceholder": "Entrez votre nom ici",
+        "selectLanguage": "Choisir la langue",
+        "selectLanguageDescription": "Choisissez une langue dans laquelle afficher cette démo.",
+        "save": "Enregister",
+        "clear": "Effacer",
+        "ok": "OK"
+    }
+}

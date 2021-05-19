@@ -9,7 +9,7 @@
 
 import * as requests from "./requests.js";
 
-export class TranslationError extends error {
+export class TranslationError extends Error {
     constructor(message) {
         super(message);
 
@@ -22,12 +22,14 @@ export class Locale {
         this.localeCode = localeCode;
         this.source = source;
         this.fallbackLocale = fallbackLocale;
-        this.textDirection = metadata;
+        this.metadata = metadata;
     }
 
     static fromResource(url, fallbackLocale = null) {
+        var thisScope = this;
+
         return requests.json(url).then(function(data) {
-            return Promise.resolve(new this(data.localeCode, data.source, fallbackLocale, data.metadata));
+            return Promise.resolve(new thisScope(data.localeCode, data.source, fallbackLocale, data.metadata));
         });
     }
 
@@ -41,6 +43,12 @@ export class Locale {
         }
     }
 
+    translationErrorHandler(string) {
+        console.warn(`Could not find translation for string \`${string}\``);
+
+        return `?{${string}}`;
+    }
+
     translate(string, args = {}, applyFormatting = true) {
         if (applyFormatting) {
             Object.keys(args).map((i) => args[i] = this.format(args[i]));
@@ -51,7 +59,7 @@ export class Locale {
                 return this.fallbackLocale.translate(string, args, applyFormatting);
             }
 
-            throw new TranslationError(`Could not find translation for string \`${string}\``);
+            return this.translationErrorHandler(string);
         }
 
         var translation = this.source[string];
@@ -84,5 +92,84 @@ export class Locale {
         for (var key in args) {
             translation = String(translation).split("{" + key + "}").join(args[key]); // Replace arguments globally without RegEx
         }
+
+        return translation;
     }
+
+    get name() {
+        return this.metadata.name;
+    }
+
+    get nameShort() {
+        return this.metadata.nameShort || this.metadata.name;
+    }
+
+    get textDirection() {
+        return this.metadata.textDirection || "ltr";
+    }
+}
+
+export function getSystemLocaleCode() {
+    var rawLocaleCode = navigator.language;
+
+    if (navigator.languages != undefined) {
+        rawLocaleCode = navigator.languages[0];
+    }
+
+    return rawLocaleCode.split("-")[0] + "_" + rawLocaleCode.split("-")[1];
+}
+
+export function selectLocaleFromResources(localeResources, fallbackLocaleCode = "en_GB", fallbacks = {}, localeCode = getSystemLocaleCode()) {
+    if (typeof(localeResources) != "object") {
+        throw new TypeError("Locale source URL list must be an object");
+    }
+
+    if (typeof(fallbacks) != "object") {
+        throw new TypeError("Locale fallbacks list must be an object");
+    }
+
+    if (!localeResources.hasOwnProperty(localeCode)) {
+        if (localeResources.hasOwnProperty(fallbackLocaleCode)) {
+            localeCode = fallbackLocaleCode;
+        } else {
+            throw new ReferenceError(`No locale resource found for locale \`${localeCode}\`, and default locale failed`);
+        }
+    }
+
+    return Locale.fromResource(localeResources[localeCode], localeResources[fallbacks[localeCode]]);
+}
+
+export function translateApp(locale, root = document.body, useDocumentElementForLang = true) {
+    root.dir = locale.textDirection;
+
+    if (useDocumentElementForLang) {
+        document.documentElement.lang = locale.localeCode.split("_")[0];
+    } else {
+        root.lang = locale.localeCode.split("_")[0];
+    }
+
+    root.querySelectorAll("[translate]").forEach(function(element) {
+        var stringToUse = null;
+
+        // If the string has already been translated, get the `aui-l10nstring` source string
+        if (element.hasAttribute("aui-l10nstring")) {
+            stringToUse = element.getAttribute("aui-l10nstring");
+        } else {
+            stringToUse = element.textContent.trim();
+
+            element.setAttribute("aui-l10nstring", stringToUse);
+        }
+
+        // Translate the contents of the element
+        if (stringToUse != "" && element.getAttribute("translate") != "attributesOnly") {
+            element.textContent = locale.translate(stringToUse);
+        }
+
+        // Translate the attributes of the element
+        for (var i = 0; i < element.attributes.length; i++) {
+            if (element.attributes[i].name.startsWith("tl:")) {
+                element.setAttribute(element.attributes[i].name.split(":")[1], locale.translate(element.attributes[i].value));
+            }
+        }
+    });
 }

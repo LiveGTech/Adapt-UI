@@ -1,0 +1,17 @@
+/*
+    Adapt UI
+
+    Copyright (C) LiveG. All Rights Reserved.
+
+    https://liveg.tech
+    Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
+*/
+
+/*
+    This code provides a clean user experience when localisation is being
+    performed.
+*/
+
+[translate]:not([aui-l10nstring]) {
+    display: none!important;
+}
