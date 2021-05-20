@@ -136,7 +136,11 @@ export function selectLocaleFromResources(localeResources, fallbackLocaleCode = 
         }
     }
 
-    return Locale.fromResource(localeResources[localeCode], localeResources[fallbacks[localeCode]]);
+    if (localeResources[fallbacks[localeCode]] != undefined) {
+        return Locale.fromResource(localeResources[localeCode], selectLocaleFromResources(localeResources, fallbackLocaleCode, fallbacks, fallbacks[localeCode]));
+    }
+
+    return Locale.fromResource(localeResources[localeCode]);
 }
 
 export function translateApp(locale, root = document.body, useDocumentElementForLang = true) {

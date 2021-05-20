@@ -263,3 +263,8 @@ $g.sel("#openAboutButton").on("click", function() {
 ```
 
 Now test the app. You should be able to navigate forwards by pressing the new button, and then navigate back again by pressing the back button in the header.
+
+## Next steps
+Congrats! You've got a basic app working. We have other guides for what you can do with Adapt UI, for which you can choose what you want to learn next.
+
+* Learn how to localise your app: [Localising apps using the Adapt UI `l10n` module](localising-apps.md)
