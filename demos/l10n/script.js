@@ -2,10 +2,10 @@ import * as $g from "../../src/adaptui.js";
 
 function applyL10n(localeCode = $g.l10n.getSystemLocaleCode()) {
     return $g.l10n.selectLocaleFromResources({
-        "en_GB": "lang/en_GB.json",
-        "fr_FR": "lang/fr_FR.json",
-        "ar_AE": "lang/ar_AE.json",
-        "zh_CN": "lang/zh_CN.json"
+        "en_GB": "locales/en_GB.json",
+        "fr_FR": "locales/fr_FR.json",
+        "ar_AE": "locales/ar_AE.json",
+        "zh_CN": "locales/zh_CN.json"
     }, "en_GB", {}, localeCode).then(function(locale) {
         window._ = function() {
             return locale.translate(...arguments);
