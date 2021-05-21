@@ -1,0 +1,21 @@
+{
+    "localeCode": "ru_RU",
+    "metadata": {
+        "name": "Русский (Россия)",
+        "nameShort": "Русский",
+        "textDirection": "ltr"
+    },
+    "source": {
+        "title": "L10n Демо",
+        "helloWorld": "Привет мир!",
+        "helloText": "Привет {name}!",
+        "welcome": "Добро пожаловать в мое первое приложение, использующее Adapt UI.",
+        "nameQuestion": "Как тебя зовут?",
+        "namePlaceholder": "Введите ваше имя здесь",
+        "selectLanguage": "Выберите язык",
+        "selectLanguageDescription": "Выберите язык, на котором будет отображаться эта демонстрация.",
+        "save": "Сохранить",
+        "clear": "Очистить",
+        "ok": "ОК"
+    }
+}
