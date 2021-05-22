@@ -21,3 +21,34 @@ button[aui-listitem]:hover {
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
 }
+
+aui-cards {
+    display: flex;
+    flex-direction: column;
+}
+
+aui-card {
+    display: block;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+    padding: 0.5em;
+    background-color: var(--secondaryBackground);
+    color: var(--secondaryText);
+    border-radius: 0.5em;
+    transition: 0.5s background-color;
+}
+
+aui-card:hover {
+    background-color: var(--secondaryPress);
+}
+
+aui-card h1, aui-card h2, aui-card h3, aui-card h4, aui-card h5, aui-card h6 {
+    margin: 0em;
+    font-size: 1.2em;
+}
+
+aui-card p {
+    margin: 0;
+    margin-top: 0.25em;
+    margin-bottom: 0.25em;
+}
