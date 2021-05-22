@@ -394,6 +394,11 @@ dialog aui-buttons button:not(header button):not(aside button) {
 }
 
 @media (max-width: 600px) {
+    section {
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+
     dialog {
         width: 90vw;
         min-width: unset;
