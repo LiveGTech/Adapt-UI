@@ -24,7 +24,7 @@ $g.waitForLoad().then(function() {
     });
 
     $g.sel("#saveButton").on("click", function() {
-        $g.sel("#helloHeader").setText(_("helloText", {name: $g.sel("#name").getValue()}));
+        $g.sel("#helloHeader").setText(_("helloName", {name: $g.sel("#name").getValue()}));
     });
 
     $g.sel("#clearButton").on("click", function() {

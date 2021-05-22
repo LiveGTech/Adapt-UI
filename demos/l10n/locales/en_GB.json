@@ -8,7 +8,7 @@
     "source": {
         "title": "L10n Demo",
         "helloWorld": "Hello, world!",
-        "helloText": "Hello, {name}!",
+        "helloName": "Hello, {name}!",
         "welcome": "Welcome to my first app using Adapt UI.",
         "nameQuestion": "What's your name?",
         "namePlaceholder": "Enter your name here",
