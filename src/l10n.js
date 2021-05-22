@@ -146,12 +146,12 @@ export function selectLocaleFromResources(localeResources, fallbackLocaleCode = 
 }
 
 export function translateApp(locale, root = document.body, useDocumentElementForLang = true) {
-    root.dir = locale.textDirection;
-
     if (useDocumentElementForLang) {
         document.documentElement.lang = locale.localeCode.split("_")[0];
+        document.documentElement.dir = locale.textDirection;
     } else {
         root.lang = locale.localeCode.split("_")[0];
+        root.dir = locale.textDirection;
     }
 
     root.querySelectorAll("[translate]").forEach(function(element) {

@@ -150,3 +150,14 @@ The following code achieves this for English:
 This can then be customised for different locales which have different requirements and rules for pluralisation, such as Polish, Russian and Serbian. The [Localization Guide website](http://docs.translatehouse.org/projects/localization-guide/en/latest/l10n/pluralforms.html) has a comprehensive list of plural forms for most languages.
 
 > **Note:** Conditional string rules (the keys of the objects in the `"source"` part of locale resources) are directly substituted and then evaluated by JavaScript. Whilst this provides a powerful tool for rule determination, ensure that your use of conditional string rules is only restricted to formatted data such as numbers, since maliciously-crafted strings could potentially execute untrusted code.
+
+## Mirroring for right-to-left (RTL) languages
+For languages where text is displayed in a right-to-left text direction, the layout of the page will need to be vertically mirrored to respect the text direction. Whilst this is automatically done via Adapt UI's CSS, ensure that your app performs well for both LTR and RTL text directions. You must pay special attention to this if you use custom CSS in your Adapt UI app, too.
+
+Some icons are automatically mirroed with Adapt UI where necessary to ensure that progressive navigation makes sense to users that have a RTL locale selected.
+
+## Best practices
+* **Begin l10n as early as possible:** Even if you are not yet intending to distribute your app internationally, it may still be important to ensure that your app is fully localised, even if your app currently will only have the English locale. That way, later on, you can translate your app with ease when going international.
+* **Use conditional strings to deal with language-specific behaviour:** When dealing with plurals, always use conditional strings to format text and ensure that sentences make sense depending on the grammatical number of the subject. This will be especially useful for when you translate your app into locales with different rules for pluralisation.
+* **Stress-test your app to discover potential l10n problems:** Checking all aspects of your app in every translated language to see if your app performs as expected is key to ensuring that users don't come across any problems when using your app. Getting users who speak different languages to use your app can also be insightful to see if they can understand it in a non-English setting.
+* **Don't _ever_ reduce your app's functionality for a specific locale:** Users who use your app in locales that you restrict could lead to negative sentiment, and your app's reputation could be ruined if you are seen to not value a certain locale over other locales. Ensuring that your app is inclusive across locales will (hopefully) allow everyone to enjoy your app equally.
