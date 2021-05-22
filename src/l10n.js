@@ -50,6 +50,8 @@ export class Locale {
     }
 
     translate(string, args = {}, applyFormatting = true) {
+        var unformattedArgs = args;
+
         if (applyFormatting) {
             Object.keys(args).map((i) => args[i] = this.format(args[i]));
         }
@@ -70,7 +72,7 @@ export class Locale {
                 var replacedRule = rule;
 
                 for (var key in args) {
-                    replacedRule = String(replacedRule).split("{" + key + "}").join(args[key]);
+                    replacedRule = String(replacedRule).split("{" + key + "}").join(unformattedArgs[key]);
                 }
 
                 try {
