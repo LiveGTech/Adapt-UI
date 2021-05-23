@@ -162,6 +162,7 @@ aside {
     height: 100%;
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
+    overflow: auto;
     z-index: 2;
 }
 
