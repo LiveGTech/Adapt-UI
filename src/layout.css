@@ -224,6 +224,14 @@ main {
     right: 0;
 }
 
+main img {
+    display: block;
+    width: 100%;
+    max-width: 30em;
+    margin: auto;
+    border-radius: 0.5em;
+}
+
 header ~ main {
     top: 2.8em;
     height: calc(100% - 2.8em);
@@ -248,6 +256,23 @@ section {
     padding: 1em;
     padding-left: 10%;
     padding-right: 10%;
+}
+
+figure {
+    margin: 0;
+}
+
+figure img, figure figcaption {
+    display: block;
+    width: 100%;
+    max-width: 30em;
+    margin: auto;
+    border-radius: 0.5em;
+}
+
+figure figcaption {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
 }
 
 dialog {
@@ -362,6 +387,18 @@ dialog aui-buttons button:not(header button):not(aside button) {
 
 [aui-bind="aside"] {
     display: none;
+}
+
+[aui-justify="start"] {
+    text-align: start;
+}
+
+[aui-justify="middle"] {
+    text-align: center;
+}
+
+[aui-justify="end"] {
+    text-align: end;
 }
 
 @media (max-width: 800px) {
