@@ -22,15 +22,17 @@ button[aui-listitem]:hover {
     color: var(--secondaryText);
 }
 
-aui-cards {
-    display: flex;
-    flex-direction: column;
+aui-cards[aui-mode="grid"] {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
+    margin-left: -0.25em;
+    margin-right: -0.25em;
 }
 
 aui-card {
     display: block;
-    margin-top: 0.25em;
-    margin-bottom: 0.25em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
     padding: 0.5em;
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
@@ -51,4 +53,8 @@ aui-card p {
     margin: 0;
     margin-top: 0.25em;
     margin-bottom: 0.25em;
+}
+
+aui-cards[aui-mode="grid"] aui-card {
+    margin: 0.25em;
 }
