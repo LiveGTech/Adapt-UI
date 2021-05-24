@@ -331,4 +331,9 @@ dialog label[aui-mode="switch"] {
         background: url("../icons/dropdown-dark.svg") no-repeat right var(--secondaryBackground)!important;
         background-size: 1.5em!important;
     }
+
+    [dir="rtl"] select {
+        background: url("../icons/dropdown-dark.svg") no-repeat left var(--secondaryBackground)!important;
+        background-size: 1.5em!important;
+    }
 }
