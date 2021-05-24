@@ -19,6 +19,9 @@ import * as dialogs from "./dialogs.js";
 export * as requests from "./requests.js";
 export * as l10n from "./l10n.js";
 
+export const VERSION = "0.1.0";
+export const VERNUM = 0;
+
 const AVAILABLE_OPERATIONS = {
     get: basic.get,
     show: basic.show,
@@ -87,7 +90,23 @@ export function waitForLoad() {
 }
 
 window.addEventListener("load", function() {
-    markup.apply(); 
+    markup.apply();
+
+    console.log(`%c ◔%c LiveG Adapt UI \n%cV${VERSION} · https://github.com/LiveGTech/Adapt-UI · Ready!`, `
+        background-color: rgb(80, 145, 247);
+        color: yellow;
+        font-size: 20px;
+        font-family: "URW Gothic L Book", sans-serif;
+    `,`
+        background-color: rgb(80, 145, 247);
+        color: white;
+        font-size: 20px;
+        font-family: "URW Gothic L Book", sans-serif;
+    `, `
+        margin-top: 6px;
+        font-size: 12px;
+        font-family: "URW Gothic L Book", sans-serif;
+    `);
 });
 
 window.addEventListener("resize", function() {
