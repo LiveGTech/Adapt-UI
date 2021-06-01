@@ -49,6 +49,20 @@ export function applyDialogs() {
     });
 }
 
+export function applyCards() {
+    document.querySelectorAll("aui-card").forEach(function(element) {
+        var linkElements = element.querySelectorAll("a");
+
+        if (linkElements.length > 0) {
+            element.setAttribute("aui-linked", "");
+
+            element.addEventListener("click", function() {
+                linkElements[0].click();
+            });
+        }
+    });
+}
+
 export function applyBindings() {
     document.querySelectorAll("[aui-bind]").forEach(function(element) {
         var binding = element.getAttribute("aui-bind").toLowerCase();
@@ -77,5 +91,6 @@ export function apply() {
     applyBackdrop();
     applyAsides();
     applyDialogs();
+    applyCards();
     applyBindings();
 }

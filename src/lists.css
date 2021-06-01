@@ -40,10 +40,6 @@ aui-card {
     transition: 0.5s background-color;
 }
 
-aui-card:hover {
-    background-color: var(--secondaryPress);
-}
-
 aui-card h1, aui-card h2, aui-card h3, aui-card h4, aui-card h5, aui-card h6 {
     margin: 0em;
     font-size: 1.2em;
@@ -53,6 +49,19 @@ aui-card p {
     margin: 0;
     margin-top: 0.25em;
     margin-bottom: 0.25em;
+}
+
+aui-card[aui-linked], aui-card[aui-linked] * {
+    cursor: pointer;
+}
+
+aui-card[aui-linked]:hover {
+    background-color: var(--secondaryPress);
+}
+
+aui-card[aui-linked] a {
+    color: inherit;
+    text-decoration: inherit;
 }
 
 aui-cards[aui-mode="grid"] aui-card {
