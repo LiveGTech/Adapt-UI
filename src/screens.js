@@ -7,6 +7,7 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
+import * as a11y from "./a11y.js";
 import * as animations from "./animations.js";
 
 export var navigationStack = [];
@@ -39,6 +40,8 @@ export function back(destinationElement) {
     if (navigationStack.length > 0) {
         navigationStack.pop();
     }
+
+    a11y.focusStack.pop()?.focus();
 
     return animations.easeStyleTransition(
         sourceElement,
@@ -79,6 +82,7 @@ export function forward(destinationElement) {
 
     animations.fadeIn(backdrop, 500);
 
+    a11y.focusStack.push(document.activeElement);
     navigationStack.push(sourceElement);
 
     return animations.easeStyleTransition(

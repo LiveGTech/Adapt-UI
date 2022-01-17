@@ -35,7 +35,7 @@ export function open(element) {
 
     a11y.focusStack.push(document.activeElement);
     element.querySelector(a11y.FOCUSABLES)?.focus();
-    a11y.setFocusTrap(element);
+    a11y.setFocusTrap(element, true);
 
     if (element.previousSibling?.tagName == "AUI-BACKDROP") {
         animations.fadeIn(element.previousSibling, 500, animations.easingFunctions.EASE_OUT);
