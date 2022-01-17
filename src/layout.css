@@ -90,25 +90,25 @@ aui-screen[hidden] {
 
 header {
     display: flex;
-    height: 2.8em;
-    padding: 1em;
-    padding-top: 0.8em;
-    padding-bottom: 0.8em;
+    height: 2.8rem;
+    padding: 1rem;
+    padding-top: 0.8rem;
+    padding-bottom: 0.8rem;
     background-color: var(--primaryUI);
     color: var(--primaryUIText);
 }
 
 header button {
-    height: 2em;
-    margin: 0.6em;
-    margin-top: -0.4em;
-    margin-bottom: -0.2em;
-    padding: 0.2em;
-    padding-bottom: 0.2em;
+    height: 2rem;
+    margin: 0.6rem;
+    margin-top: -0.4rem;
+    margin-bottom: -0.2rem;
+    padding: 0.2rem;
+    padding-bottom: 0.2rem;
     background-color: var(--primaryUI);
     color: var(--primaryUIText);
     border: none;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     vertical-align: middle;
     transition: 0.5s background-color;
 }
@@ -130,10 +130,10 @@ header button img {
 }
 
 header button[aui-mode="action"] {
-    width: 3em;
-    height: 3em;
-    margin-top: 0.3em;
-    padding: 0.6em;
+    width: 3rem;
+    height: 3rem;
+    margin-top: 0.3rem;
+    padding: 0.6rem;
     background-color: var(--secondaryUI);
     border-radius: 50%;
     z-index: 1;
@@ -158,7 +158,7 @@ aside {
     position: fixed;
     top: 0;
     left: 0;
-    width: 15em;
+    width: 15rem;
     height: 100%;
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
@@ -173,16 +173,16 @@ aside {
 
 aside p {
     margin: 0;
-    padding: 1em;
+    padding: 1rem;
     color: var(--secondaryExtra);
 }
 
 aside button {
     display: block;
     width: 100%;
-    padding: 1em;
-    padding-top: 0.5em;
-    padding-bottom: 0.5em;
+    padding: 1rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     background-color: transparent;
     color: inherit;
     border: none;
@@ -205,8 +205,8 @@ aside hr {
 }
 
 header ~ aside {
-    top: 2.8em;
-    height: calc(100% - 2.8em);
+    top: 2.8rem;
+    height: calc(100% - 2.8rem);
 }
 
 main {
@@ -228,33 +228,33 @@ main {
 main img {
     display: block;
     width: 100%;
-    max-width: 30em;
+    max-width: 30rem;
     margin: auto;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
 }
 
 header ~ main {
-    top: 2.8em;
-    height: calc(100% - 2.8em);
+    top: 2.8rem;
+    height: calc(100% - 2.8rem);
 }
 
 aside ~ main {
-    left: 15em;
-    width: calc(100vw - 15em);
+    left: 15rem;
+    width: calc(100vw - 15rem);
 }
 
 [dir="rtl"] aside ~ main {
     left: unset;
-    right: 15em;
+    right: 15rem;
 }
 
 [dir="rtl"] aside ~ main {
     left: unset;
-    right: 15em;
+    right: 15rem;
 }
 
 section {
-    padding: 1em;
+    padding: 1rem;
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -266,25 +266,25 @@ figure {
 figure img, figure figcaption {
     display: block;
     width: 100%;
-    max-width: 30em;
+    max-width: 30rem;
     margin: auto;
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
 }
 
 figure figcaption {
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
 }
 
 dialog {
     min-width: 500px;
     max-width: 700px;
     max-height: 80vh;
-    padding: 1em;
+    padding: 1rem;
     background-color: var(--primaryBackground);
     color: var(--primaryText);
     border: none;
-    border-radius: 1em;
+    border-radius: 1rem;
     opacity: 1;
     transform: scale(1);
     transition: 0.5s opacity, 0.5s transform;
@@ -317,7 +317,7 @@ dialog[aui-mode="hidden"] + .backdrop {
 
 dialog h1 {
     margin: 0;
-    font-size: 1.2em;
+    font-size: 1.2rem;
     font-weight: bold;
 }
 
@@ -347,7 +347,7 @@ aui-buttons {
 }
 
 aui-buttons button:first-child:not(:last-child) {
-    margin-inline-end: 0.5em;
+    margin-inline-end: 0.5rem;
 }
 
 aui-buttons button:last-child {
@@ -364,11 +364,11 @@ aui-buttons[aui-mode="end"] button:first-child {
 }
 
 aui-buttons[aui-mode="end"] button:last-child:not(:first-child) {
-    margin-inline-end: 0.5em;
+    margin-inline-end: 0.5rem;
 }
 
 aui-dialogcontent + aui-buttons {
-    margin-top: 0.5em;
+    margin-top: 0.5rem;
 }
 
 dialog aui-buttons button:not(header button):not(aside button) {

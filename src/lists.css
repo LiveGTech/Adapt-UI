@@ -10,7 +10,7 @@
 button[aui-listitem] {
     display: block;
     width: 100%;
-    padding: 0.5em;
+    padding: 0.5rem;
     background-color: inherit;
     color: inherit;
     text-align: start;
@@ -24,31 +24,31 @@ button[aui-listitem]:hover {
 
 aui-cards[aui-mode="grid"] {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(16em, 1fr));
-    margin-left: -0.25em;
-    margin-right: -0.25em;
+    grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
+    margin-left: -0.25rem;
+    margin-right: -0.25rem;
 }
 
 aui-card {
     display: block;
-    margin-top: 0.5em;
-    margin-bottom: 0.5em;
-    padding: 0.5em;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
-    border-radius: 0.5em;
+    border-radius: 0.5rem;
     transition: 0.5s background-color;
 }
 
 aui-card h1, aui-card h2, aui-card h3, aui-card h4, aui-card h5, aui-card h6 {
-    margin: 0em;
-    font-size: 1.2em;
+    margin: 0rem;
+    font-size: 1.2rem;
 }
 
 aui-card p {
     margin: 0;
-    margin-top: 0.25em;
-    margin-bottom: 0.25em;
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
 }
 
 aui-card[aui-linked], aui-card[aui-linked] * {
@@ -65,5 +65,5 @@ aui-card[aui-linked] a {
 }
 
 aui-cards[aui-mode="grid"] aui-card {
-    margin: 0.25em;
+    margin: 0.25rem;
 }
