@@ -29,6 +29,12 @@ export function applyBackdrop() {
 
 export function applyAsides() {
     document.querySelectorAll("aside").forEach(function(element) {
+        element.addEventListener("keydown", function(event) {
+            if (event.key == "Escape") {
+                aside.close(element);
+            }
+        });
+
         aside.addPages(element);
     });
 }

@@ -10,6 +10,7 @@
 import "../lib/dialog-polyfill.js";
 
 import * as basic from "./basic.js";
+import * as a11y from "./a11y.js";
 import * as animations from "./animations.js";
 import * as markup from "./markup.js";
 import * as aside from "./aside.js";
@@ -72,15 +73,133 @@ export function sel(selector, multiReturn = false) {
 
     if (selector instanceof Element) {
         elements = [selector];
+    } else if (selector instanceof Object) {
+        elements = selector;
     } else {
-        elements = document.querySelectorAll(selector);
+        elements = [...document.querySelectorAll(selector)];
     }
+
+    appliedOperations["getAll"] = function() {
+        return elements;
+    };
+
+    appliedOperations["find"] = function(selector) {
+        return $g.sel(elements.map((element) => [...element.querySelectorAll(selector)]).flat());
+    };
+
+    appliedOperations["first"] = function() {
+        return $g.sel(elements[0]);
+    };
+
+    appliedOperations["last"] = function() {
+        return $g.sel(elements[elements.length - 1]);
+    };
+
+    appliedOperations["prev"] = function(selector, condition = (element) => true) {
+        return $g.sel(elements.map(function(element) {
+            while (true) {
+                element = element.previousSibling;
+    
+                if (!element) {
+                    return null;
+                }
+        
+                if (element.nodeType != Node.ELEMENT_NODE) {
+                    continue;
+                }
+        
+                if (!condition(element)) {
+                    continue;
+                }
+        
+                if (element.matches(selector)) {
+                    return element;
+                }
+            }
+        }).filter((element) => element != null));
+    };
+
+    appliedOperations["next"] = function(selector, condition = (element) => true) {
+        return $g.sel(elements.map(function(element) {
+            while (true) {
+                element = element.nextSibling;
+    
+                if (!element) {
+                    return null;
+                }
+        
+                if (element.nodeType != Node.ELEMENT_NODE) {
+                    continue;
+                }
+        
+                if (!condition(element)) {
+                    continue;
+                }
+        
+                if (element.matches(selector)) {
+                    return element;
+                }
+            }
+        }).filter((element) => element != null));
+    };
 
     for (var operation in AVAILABLE_OPERATIONS) {
         appliedOperations[operation] = apply(AVAILABLE_OPERATIONS[operation], elements, multiReturn);
     }
 
     return appliedOperations;
+}
+
+export function prev(element, selector, condition = (element) => true) {
+    if (!(element instanceof Element)) {
+        element = element.get();
+    }
+
+    while (true) {
+        element = element.previousSibling;
+
+        if (!element) {
+            return {};
+        }
+
+        if (element.nodeType != Node.ELEMENT_NODE) {
+            continue;
+        }
+
+        if (!condition(element)) {
+            continue;
+        }
+
+        if (element.matches(selector)) {
+            return $g.sel(element);
+        }
+    }
+}
+
+export function next(element, selector, condition = (element) => true) {
+    if (!(element instanceof Element)) {
+        element = element.get();
+    }
+
+    while (true) {
+        element = element.nextSibling;
+
+        if (!element) {
+            return {};
+        }
+
+        if (element.nodeType != Node.ELEMENT_NODE) {
+            continue;
+        }
+
+        if (!condition(element)) {
+            continue;
+        }
+
+        if (element.matches(selector)) {
+            return $g.sel(element);
+        }
+    }
 }
 
 export function waitForLoad() {
@@ -90,6 +209,8 @@ export function waitForLoad() {
 }
 
 window.addEventListener("load", function() {
+    a11y.startTrappingFocus();
+
     markup.apply();
 
     console.log(`%c ◔%c LiveG Adapt UI \n%cV${VERSION} · https://github.com/LiveGTech/Adapt-UI · Ready!`, `

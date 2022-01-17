@@ -7,6 +7,7 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
+import * as a11y from "./a11y.js";
 import * as animations from "./animations.js";
 
 const ASIDE_HIDDEN_SCREEN_WIDTH = 800;
@@ -32,6 +33,10 @@ export function open(element) {
 
     element.style.display = "block";
 
+    a11y.focusStack.push(document.activeElement);
+    element.querySelector(a11y.FOCUSABLES)?.focus();
+    a11y.setFocusTrap(element);
+
     if (element.previousSibling?.tagName == "AUI-BACKDROP") {
         animations.fadeIn(element.previousSibling, 500, animations.easingFunctions.EASE_OUT);
     }
@@ -49,6 +54,9 @@ export function close(element) {
     if (element.tagName != "ASIDE") {
         throw new TypeError(`Expected aside element to open to have an \`aside\` tag, but got \`${element.tagName.toLowerCase()}\` instead`);
     }
+
+    a11y.clearFocusTrap();
+    a11y.focusStack.pop()?.focus();
 
     if (window.innerWidth > ASIDE_HIDDEN_SCREEN_WIDTH) {
         return Promise.resolve();
