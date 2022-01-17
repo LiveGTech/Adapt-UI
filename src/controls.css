@@ -31,7 +31,7 @@ label[aui-mode="switch"] {
     display: inline-block;
     width: calc(60% - 4.5rem);
     min-width: 15.5rem;
-    padding-inline-start: 0.3rem;
+    padding-inline-end: 0.3rem;
     vertical-align: top;
 }
 

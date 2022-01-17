@@ -338,6 +338,8 @@ aui-backdrop[aui-for="aside"] {
 aui-dialogcontent {
     display: block;
     max-height: 60vh;
+    margin-inline-end: -0.5rem;
+    padding-inline-end: 0.5rem;
     overflow-x: hidden;
     overflow-y: auto;
 }

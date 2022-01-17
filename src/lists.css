@@ -22,6 +22,12 @@ button[aui-listitem]:hover {
     color: var(--secondaryText);
 }
 
+section > button[aui-listitem] {
+    width: calc(100% + 1rem);
+    margin-left: -0.5rem;
+    margin-right: -0.5rem;
+}
+
 aui-cards[aui-mode="grid"] {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
