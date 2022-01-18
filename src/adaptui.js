@@ -11,6 +11,7 @@ import "../lib/dialog-polyfill.js";
 
 import * as basic from "./basic.js";
 import * as a11y from "./a11y.js";
+import * as device from "./device.js";
 import * as animations from "./animations.js";
 import * as markup from "./markup.js";
 import * as aside from "./aside.js";
@@ -210,6 +211,7 @@ export function waitForLoad() {
 
 window.addEventListener("load", function() {
     a11y.startTrappingFocus();
+    device.startChecking();
 
     markup.apply();
 

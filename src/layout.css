@@ -122,7 +122,7 @@ header button:last-child {
     margin-inline-end: 0;
 }
 
-header button:hover {
+html[aui-istouch="false"] header button:hover, header button:active {
     background-color: var(--primaryUIPress);
 }
 
@@ -140,7 +140,7 @@ header button[aui-mode="action"] {
     z-index: 1;
 }
 
-header button[aui-mode="action"]:hover {
+html[aui-istouch="false"] header button[aui-mode="action"]:hover, header button[aui-mode="action"]:active {
     background-color: var(--secondaryUIPress);
 }
 
@@ -196,7 +196,7 @@ aside button[aui-selected] {
     background-color: var(--secondarySelected);
 }
 
-aside button:hover {
+html[aui-istouch="false"] aside button:hover, aside button:active {
     background-color: var(--secondaryPress);
 }
 

@@ -17,7 +17,7 @@ button[aui-listitem] {
     transition: 0.5s background-color, 0.5s color;
 }
 
-button[aui-listitem]:hover {
+html[aui-istouch="false"] button[aui-listitem]:hover, button[aui-listitem]:active {
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
 }
@@ -61,7 +61,7 @@ aui-card[aui-linked], aui-card[aui-linked] * {
     cursor: pointer;
 }
 
-aui-card[aui-linked]:hover {
+html[aui-istouch="false"] aui-card[aui-linked]:hover, aui-card[aui-linked]:active {
     background-color: var(--secondaryPress);
 }
 

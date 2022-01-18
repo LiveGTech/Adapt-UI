@@ -53,7 +53,7 @@ button:not(header button):not(aside button) {
     transition: 0.5s background-color;
 }
 
-button:hover {
+html[aui-istouch="false"] button:hover, button:active {
     background-color: var(--primaryUIPress);
 }
 
@@ -62,7 +62,7 @@ button[aui-mode="secondary"] {
     color: var(--secondaryUIText);
 }
 
-button[aui-mode="secondary"]:hover {
+html[aui-istouch="false"] button[aui-mode="secondary"]:hover, button[aui-mode="secondary"]:active {
     background-color: var(--secondaryUIPress);
 }
 
@@ -71,7 +71,7 @@ button[aui-mode="dangerous"] {
     color: var(--dangerousUIText);
 }
 
-button[aui-mode="dangerous"]:hover {
+html[aui-istouch="false"] button[aui-mode="dangerous"]:hover, button[aui-mode="dangerous"]:active {
     background-color: var(--dangerousUIPress);
 }
 
@@ -89,7 +89,7 @@ button[aui-mode="navigational"] {
     cursor: pointer;
 }
 
-button[aui-mode="navigational"]:hover {
+html[aui-istouch="false"] button[aui-mode="navigational"]:hover, button[aui-mode="navigational"]:active {
     background-color: inherit;
     color: var(--primaryUIPress);
 }
@@ -139,7 +139,7 @@ input[type="range"]::-webkit-slider-thumb {
     transition: 0.5s background-color;
 }
 
-input[type="range"]::-webkit-slider-thumb:hover {
+html[aui-istouch="false"] input[type="range"]::-webkit-slider-thumb:hover, input[type="range"]::-webkit-slider-thumb:active {
     background-color: var(--primaryUIPress);
 }
 
@@ -151,7 +151,7 @@ input[type="range"]::-moz-slider-thumb {
     transition: 0.5s background-color;
 }
 
-input[type="range"]::-moz-slider-thumb:hover {
+html[aui-istouch="false"] input[type="range"]::-moz-slider-thumb:hover, input[type="range"]::-moz-slider-thumb:active {
     background-color: var(--primaryUIPress);
 }
 

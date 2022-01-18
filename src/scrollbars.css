@@ -24,7 +24,7 @@
     background-clip: content-box;
 }
 
-::-webkit-scrollbar-thumb:hover {
+html[aui-istouch="false"] ::-webkit-scrollbar-thumb:hover, ::-webkit-scrollbar-thumb:active {
     background-color: var(--scrollbarHover);
 }
 
