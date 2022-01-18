@@ -107,6 +107,7 @@ input:not([type="checkbox"]):not([type="radio"]), select, progress {
     color: var(--secondaryText);
     border: none;
     border-radius: 0.5rem;
+    transition: 0.5s background-color, 0.5s color;
 }
 
 input[aui-mode="secondary"]:not([type="checkbox"]):not([type="radio"]), select[aui-mode="secondary"] {
@@ -285,6 +286,7 @@ progress {
 progress::-webkit-progress-bar {
     background-color: var(--secondaryBackground);
     border-radius: 10px;
+    transition: 0.5s background-color, 0.5s color;
 }
 
 progress::-webkit-progress-value {

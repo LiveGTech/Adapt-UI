@@ -68,6 +68,7 @@ html, body {
     padding: 0;
     background-color: var(--primaryBackground);
     color: var(--primaryText);
+    transition: 0.5s background-color, 0.5s color;
 }
 
 aui-screen {
@@ -164,6 +165,7 @@ aside {
     color: var(--secondaryText);
     overflow: auto;
     z-index: 2;
+    transition: 0.5s background-color, 0.5s color;
 }
 
 [dir="rtl"] aside {
@@ -218,6 +220,7 @@ main {
     background-color: var(--primaryBackground);
     color: var(--primaryText);
     overflow: auto;
+    transition: 0.5s background-color, 0.5s color;
 }
 
 [dir="rtl"] main {
