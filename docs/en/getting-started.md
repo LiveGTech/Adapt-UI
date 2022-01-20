@@ -60,7 +60,7 @@ To add a navigation bar to our app, insert a `<header>` element above the `<main
 You can then add buttons later on for opening a menu or going back a screen.
 
 ## Creating a simple script
-Create a script called `script.js` and ensure it's linked in your HTML like so:
+Create a script called `script.js` and ensure it's linked in your HTML's `head` section like so:
 
 ```html
 <script type="module" src="script.js"></script>
