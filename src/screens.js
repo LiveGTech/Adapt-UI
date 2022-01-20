@@ -53,6 +53,8 @@ export function back(destinationElement) {
         sourceElement.hidden = true;
 
         backdrop.remove();
+
+        return Promise.resolve();
     });
 }
 
@@ -95,11 +97,41 @@ export function forward(destinationElement) {
         sourceElement.hidden = true;
 
         backdrop.remove();
+
+        return Promise.resolve();
+    });
+}
+
+export function jump(destinationElement) {
+    var sourceElement = document.querySelector("aui-screen:not([hidden])");
+
+    sourceElement.hidden = true;
+    destinationElement.hidden = false;
+
+    return Promise.resolve();
+}
+
+export function fade(destinationElement) {
+    var sourceElement = document.querySelector("aui-screen:not([hidden])");
+
+    destinationElement.style.zIndex = `1`;
+    destinationElement.style.opacity = `0`;
+    destinationElement.hidden = false;
+
+    sourceElement.style.zIndex = `0`;
+    sourceElement.hidden = false;
+
+    return animations.fadeIn(destinationElement, 500).then(function() {
+        sourceElement.hidden = true;
+
+        return Promise.resolve();
     });
 }
 
 export function navigateBack() {
     if (navigationStack.length > 0) {
-        back(navigationStack[navigationStack.length - 1]);
+        return back(navigationStack[navigationStack.length - 1]);
     }
+
+    return Promise.resolve();
 }

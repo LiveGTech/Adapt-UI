@@ -57,6 +57,8 @@ const AVAILABLE_OPERATIONS = {
     asideClose: aside.close,
     screenBack: screens.back,
     screenForward: screens.forward,
+    screenJump: screens.jump,
+    screenFade: screens.fade,
     dialogOpen: dialogs.open,
     dialogClose: dialogs.close
 };
