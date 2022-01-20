@@ -106,6 +106,20 @@ export function setId(element, value) {
     element.id = value;
 }
 
+export function getStyle(element, property) {
+    return element.style[property];
+}
+
+export function setStyle(element, property, value) {
+    element.style[property] = value;
+}
+
+export function applyStyle(element, style) {
+    Object.keys(style).forEach(function(property) {
+        setStyle(element, property, style[property]);
+    });
+}
+
 export function on(element, event, callback) {
     element.addEventListener(event, callback);
 }
