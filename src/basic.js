@@ -19,6 +19,10 @@ export function hide(element) {
     element.hidden = true;
 }
 
+export function clear(element) {
+    element.innerHTML = "";
+}
+
 export function getText(element) {
     return element.textContent;
 }

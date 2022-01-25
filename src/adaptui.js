@@ -28,6 +28,7 @@ const AVAILABLE_OPERATIONS = {
     get: basic.get,
     show: basic.show,
     hide: basic.hide,
+    clear: basic.clear,
     getText: basic.getText,
     setText: basic.setText,
     getHTML: basic.getHTML,
