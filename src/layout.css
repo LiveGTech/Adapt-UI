@@ -150,9 +150,27 @@ header button + button {
 
 header span {
     flex-grow: 1;
+    margin-top: -0.5rem;
+    margin-bottom: -0.5rem;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+
+header span[aui-mode="part"], header span[aui-mode="spacer"] {
+    flex-grow: 0;
+    flex-shrink: 0;
+}
+
+header span[aui-mode="spacer"] {
+    width: 0.5rem;
+}
+
+header img:not(button img) {
+    margin-left: 0.25rem;
+    margin-right: 0.25rem;
 }
 
 aside {
