@@ -81,7 +81,7 @@ function apply(operation, elements, multiReturn) {
             return returns;
         }
 
-        return returns[0];
+        return returns[0] == undefined ? $g.sel(elements) : returns[0];
     };
 }
 
@@ -173,6 +173,8 @@ export function sel(selector, multiReturn = false) {
                 return [elementToAdd];
             }).flat());
         });
+
+        return $g.sel(elements);
     };
 
     for (var operation in AVAILABLE_OPERATIONS) {
