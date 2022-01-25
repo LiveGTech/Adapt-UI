@@ -50,6 +50,8 @@ const AVAILABLE_OPERATIONS = {
     setStyle: basic.setStyle,
     applyStyle: basic.applyStyle,
     on: basic.on,
+    focus: basic.focus,
+    blur: basic.blur,
     easeStyleTransition: animations.easeStyleTransition,
     fadeIn: animations.fadeIn,
     fadeOut: animations.fadeOut,

@@ -127,3 +127,11 @@ export function applyStyle(element, style) {
 export function on(element, event, callback) {
     element.addEventListener(event, callback);
 }
+
+export function focus(element) {
+    element.focus();
+}
+
+export function blur(element) {
+    element.blur();
+}
