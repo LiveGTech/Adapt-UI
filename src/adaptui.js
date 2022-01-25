@@ -161,6 +161,20 @@ export function sel(selector, multiReturn = false) {
         }).filter((element) => element != null));
     };
 
+    appliedOperations["add"] = function() {
+        var addArgs = [...arguments];
+
+        elements.forEach(function(element) {
+            element.append(...addArgs.map(function(elementToAdd) {
+                if (elementToAdd instanceof Object) {
+                    return elementToAdd.getAll();
+                }
+
+                return [elementToAdd];
+            }).flat());
+        });
+    };
+
     for (var operation in AVAILABLE_OPERATIONS) {
         appliedOperations[operation] = apply(AVAILABLE_OPERATIONS[operation], elements, multiReturn);
     }
@@ -218,6 +232,10 @@ export function next(element, selector, condition = (element) => true) {
             return $g.sel(element);
         }
     }
+}
+
+export function create(tagName) {
+    return $g.sel(document.createElement(tagName));
 }
 
 export function waitForLoad() {
