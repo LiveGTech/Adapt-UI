@@ -125,7 +125,9 @@ export function applyStyle(element, style) {
 }
 
 export function on(element, event, callback) {
-    element.addEventListener(event, callback);
+    event.split(" ").forEach(function(eventType) {
+        element.addEventListener(eventType, callback);
+    });
 }
 
 export function focus(element) {
