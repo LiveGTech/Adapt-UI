@@ -179,6 +179,34 @@ export function sel(selector, multiReturn = false) {
         return $g.sel(elements);
     };
 
+    appliedOperations["condition"] = function(condition, ifTrue, ifFalse) {
+        if (condition) {
+            return ifTrue($g.sel(elements));
+        }
+
+        return ifFalse($g.sel(elements));
+    };
+
+    appliedOperations["choose"] = function() {
+        var args = [...arguments];
+        var testValue = args.shift();
+
+        while (args.length > 0) {
+            if (args.length >= 2) {
+                var targetValue = args.shift();
+                var ifEqual = args.shift();
+
+                if (targetValue == testValue) {
+                    return ifEqual($g.sel(elements));
+                }
+            } else {
+                return args.shift()($g.sel(elements));
+            }
+        }
+
+        return $g.sel(elements);
+    };
+
     for (var operation in AVAILABLE_OPERATIONS) {
         appliedOperations[operation] = apply(AVAILABLE_OPERATIONS[operation], elements, multiReturn);
     }
