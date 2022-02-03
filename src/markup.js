@@ -11,8 +11,8 @@ import * as aside from "./aside.js";
 import * as screens from "./screens.js";
 import * as dialogs from "./dialogs.js";
 
-export function applyBackdrop() {
-    document.querySelectorAll("aside").forEach(function(element) {
+export function applyBackdrop(root = document) {
+    root.querySelectorAll("aside").forEach(function(element) {
         var backdrop = document.createElement("aui-backdrop");
     
         backdrop.hidden = true;
@@ -27,8 +27,8 @@ export function applyBackdrop() {
     });
 }
 
-export function applyAsides() {
-    document.querySelectorAll("aside").forEach(function(element) {
+export function applyAsides(root = document) {
+    root.querySelectorAll("aside").forEach(function(element) {
         element.addEventListener("keydown", function(event) {
             if (event.key == "Escape") {
                 aside.close(element);
@@ -39,8 +39,8 @@ export function applyAsides() {
     });
 }
 
-export function applyDialogs() {
-    document.querySelectorAll("dialog").forEach(function(element) {
+export function applyDialogs(root = document) {
+    root.querySelectorAll("dialog").forEach(function(element) {
         dialogPolyfill.registerDialog(element);
 
         element.setAttribute("aui-mode", "hidden");
@@ -55,8 +55,8 @@ export function applyDialogs() {
     });
 }
 
-export function applyCards() {
-    document.querySelectorAll("aui-card").forEach(function(element) {
+export function applyCards(root = document) {
+    root.querySelectorAll("aui-card").forEach(function(element) {
         var linkElements = element.querySelectorAll("a");
 
         if (linkElements.length > 0) {
@@ -69,8 +69,8 @@ export function applyCards() {
     });
 }
 
-export function applyBindings() {
-    document.querySelectorAll("[aui-bind]").forEach(function(element) {
+export function applyBindings(root = document) {
+    root.querySelectorAll("[aui-bind]").forEach(function(element) {
         var binding = element.getAttribute("aui-bind").toLowerCase();
         var action = function() {};
 
@@ -93,10 +93,10 @@ export function applyBindings() {
     });
 }
 
-export function apply() {
-    applyBackdrop();
-    applyAsides();
-    applyDialogs();
-    applyCards();
-    applyBindings();
+export function apply(root = document) {
+    applyBackdrop(root);
+    applyAsides(root);
+    applyDialogs(root);
+    applyCards(root);
+    applyBindings(root);
 }
