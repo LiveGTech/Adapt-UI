@@ -10,11 +10,13 @@
 import * as a11y from "./a11y.js";
 import * as animations from "./animations.js";
 
+const dummySourceElement = document.createElement("aui-screen");
+
 export var navigationStack = [];
 
 export function back(destinationElement) {
     var backdrop = document.createElement("aui-backdrop");
-    var sourceElement = document.querySelector("aui-screen:not([hidden])");
+    var sourceElement = document.querySelector("aui-screen:not([hidden])") || dummySourceElement;
 
     backdrop.setAttribute("aui-for", "main");
 
@@ -60,7 +62,7 @@ export function back(destinationElement) {
 
 export function forward(destinationElement) {
     var backdrop = document.createElement("aui-backdrop");
-    var sourceElement = document.querySelector("aui-screen:not([hidden])");
+    var sourceElement = document.querySelector("aui-screen:not([hidden])") || dummySourceElement;
 
     backdrop.setAttribute("aui-for", "main");
 
@@ -103,7 +105,7 @@ export function forward(destinationElement) {
 }
 
 export function jump(destinationElement) {
-    var sourceElement = document.querySelector("aui-screen:not([hidden])");
+    var sourceElement = document.querySelector("aui-screen:not([hidden])") || dummySourceElement;
 
     sourceElement.hidden = true;
     destinationElement.hidden = false;
@@ -112,7 +114,7 @@ export function jump(destinationElement) {
 }
 
 export function fade(destinationElement) {
-    var sourceElement = document.querySelector("aui-screen:not([hidden])");
+    var sourceElement = document.querySelector("aui-screen:not([hidden])") || dummySourceElement;
 
     destinationElement.style.zIndex = `1`;
     destinationElement.style.opacity = `0`;
