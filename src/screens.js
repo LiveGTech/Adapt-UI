@@ -18,6 +18,10 @@ export function back(destinationElement) {
     var backdrop = document.createElement("aui-backdrop");
     var sourceElement = document.querySelector("aui-screen:not([hidden])") || dummySourceElement;
 
+    if (sourceElement == destinationElement) {
+        return Promise.resolve();
+    }
+
     backdrop.setAttribute("aui-for", "main");
 
     if (sourceElement instanceof Element) {    
@@ -63,6 +67,10 @@ export function back(destinationElement) {
 export function forward(destinationElement) {
     var backdrop = document.createElement("aui-backdrop");
     var sourceElement = document.querySelector("aui-screen:not([hidden])") || dummySourceElement;
+    
+    if (sourceElement == destinationElement) {
+        return Promise.resolve();
+    }
 
     backdrop.setAttribute("aui-for", "main");
 
@@ -107,6 +115,10 @@ export function forward(destinationElement) {
 export function jump(destinationElement) {
     var sourceElement = document.querySelector("aui-screen:not([hidden])") || dummySourceElement;
 
+    if (sourceElement == destinationElement) {
+        return Promise.resolve();
+    }
+
     sourceElement.hidden = true;
     destinationElement.hidden = false;
 
@@ -115,6 +127,10 @@ export function jump(destinationElement) {
 
 export function fade(destinationElement) {
     var sourceElement = document.querySelector("aui-screen:not([hidden])") || dummySourceElement;
+
+    if (sourceElement == destinationElement) {
+        return Promise.resolve();
+    }
 
     destinationElement.style.zIndex = `1`;
     destinationElement.style.opacity = `0`;
