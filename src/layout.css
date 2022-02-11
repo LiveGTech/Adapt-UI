@@ -63,7 +63,7 @@ p {
 
 html, body {
     width: 100vw;
-    height: 100%;
+    height: 100vh;
     margin: 0;
     padding: 0;
     background-color: var(--primaryBackground);
@@ -76,7 +76,7 @@ aui-screen {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100%;
 }
 
@@ -233,7 +233,7 @@ main {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     background-color: var(--primaryBackground);
     color: var(--primaryText);
@@ -261,7 +261,7 @@ header ~ main {
 
 aside ~ main {
     left: 15rem;
-    width: calc(100vw - 15rem);
+    width: calc(100% - 15rem);
 }
 
 [dir="rtl"] aside ~ main {
@@ -346,7 +346,7 @@ aui-backdrop {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100%;
     height: 100%;
     background-color: var(--blur);
     z-index: 2;
@@ -437,7 +437,7 @@ dialog aui-buttons button:not(header button):not(aside button) {
 
     aside ~ main {
         left: 0;
-        width: 100vw;
+        width: 100%;
     }
 
     [dir="rtl"] aside ~ main {
@@ -450,7 +450,7 @@ dialog aui-buttons button:not(header button):not(aside button) {
     }
 
     dialog {
-        max-width: 90vw;
+        max-width: 90%;
     }
 }
 
@@ -461,7 +461,7 @@ dialog aui-buttons button:not(header button):not(aside button) {
     }
 
     dialog {
-        width: 90vw;
+        width: 90%;
         min-width: unset;
         max-width: unset;
     }
