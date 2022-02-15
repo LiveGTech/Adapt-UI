@@ -179,6 +179,12 @@ export function sel(selector, multiReturn = false) {
         return $g.sel(elements);
     };
 
+    appliedOperations["remove"] = function() {
+        elements.forEach((element) => element.remove());
+
+        // Don't allow currying since there are no elements selected
+    };
+
     appliedOperations["condition"] = function(condition, ifTrue, ifFalse) {
         if (condition) {
             return ifTrue($g.sel(elements));
