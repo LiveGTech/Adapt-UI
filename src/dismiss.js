@@ -51,8 +51,8 @@ export function isWithinConstraints(position, direction = directions.HORIZONTAL,
 
         case directions.VERTICAL:
         case directions.HORIZONTAL:
-        return true;
-        }
+            return true;
+    }
 }
 
 export function swipeToDismiss(element, direction = directions.HORIZONTAL, minimumDistance = DEFAULT_MINIMUM_DISTANCE, textDirection = undefined) {
