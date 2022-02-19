@@ -17,6 +17,7 @@ import * as markup from "./markup.js";
 import * as aside from "./aside.js";
 import * as screens from "./screens.js";
 import * as dialogs from "./dialogs.js";
+import * as dismiss from "./dismiss.js";
 
 export * as requests from "./requests.js";
 export * as l10n from "./l10n.js";
@@ -56,6 +57,7 @@ const AVAILABLE_OPERATIONS = {
     fadeIn: animations.fadeIn,
     fadeOut: animations.fadeOut,
     switchFrom: animations.switchFrom,
+    collapse: animations.collapse,
     asideOpen: aside.open,
     asideClose: aside.close,
     screenBack: screens.back,
@@ -63,7 +65,8 @@ const AVAILABLE_OPERATIONS = {
     screenJump: screens.jump,
     screenFade: screens.fade,
     dialogOpen: dialogs.open,
-    dialogClose: dialogs.close
+    dialogClose: dialogs.close,
+    swipeToDismiss: dismiss.swipeToDismiss
 };
 
 const RESIZE_LISTENERS = [

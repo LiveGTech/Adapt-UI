@@ -16,4 +16,10 @@ $g.waitForLoad().then(function() {
     });
 
     $g.sel("#checkboxIndeterminate").setValue("indeterminate");
+
+    $g.sel("#dismissable > *").on("dismiss", function(event) {
+        $g.sel(event.target).collapse().then(function() {
+            $g.sel(event.target).remove();
+        });
+    });
 });

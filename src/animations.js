@@ -72,3 +72,20 @@ export function switchFrom(element, oldElement, duration = 500) {
         return fadeIn(element, duration / 2);
     });
 }
+
+export function collapse(element, vertically = true, duration = 500, easingFunction = easingFunctions.EASE) {
+    if (vertically) {
+        element.style.width = `${element.clientWidth}px`;
+    } else {
+        element.style.height = `${element.clientHeight}px`;
+    }
+
+    element.style.overflow = "hidden";
+
+    easeStyleTransition(element, vertically ? "padding-top" : "padding-inline-start", 0, duration, easingFunction);
+    easeStyleTransition(element, vertically ? "padding-bottom" : "padding-inline-end", 0, duration, easingFunction);
+    easeStyleTransition(element, vertically ? "margin-top" : "margin-inline-start", 0, duration, easingFunction);
+    easeStyleTransition(element, vertically ? "margin-bottom" : "margin-inline-end", 0, duration, easingFunction);
+
+    return easeStyleTransition(element, vertically ? "height" : "width", 0, duration, easingFunction);
+}

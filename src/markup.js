@@ -10,6 +10,7 @@
 import * as aside from "./aside.js";
 import * as screens from "./screens.js";
 import * as dialogs from "./dialogs.js";
+import * as dismiss from "./dismiss.js";
 
 export function applyBackdrop(root = document) {
     root.querySelectorAll("aside").forEach(function(element) {
@@ -69,6 +70,23 @@ export function applyCards(root = document) {
     });
 }
 
+export function applyDismissables(root = document) {
+    root.querySelectorAll("[aui-dismissables]").forEach(function(element) {
+        element.querySelectorAll(":scope > *").forEach(function(childElement) {
+            dismiss.swipeToDismiss(childElement, {
+                "up": dismiss.directions.UP,
+                "down": dismiss.directions.DOWN,
+                "left": dismiss.directions.LEFT,
+                "right": dismiss.directions.RIGHT,
+                "start": dismiss.directions.START,
+                "end": dismiss.directions.END,
+                "vertical": dismiss.directions.VERTICAL,
+                "horizontal": dismiss.directions.HORIZONTAL,
+            }[element.getAttribute("aui-dismissdir")] || undefined);
+        });
+    });
+}
+
 export function applyBindings(root = document) {
     root.querySelectorAll("[aui-bind]").forEach(function(element) {
         var binding = element.getAttribute("aui-bind").toLowerCase();
@@ -98,5 +116,6 @@ export function apply(root = document) {
     applyAsides(root);
     applyDialogs(root);
     applyCards(root);
+    applyDismissables(root);
     applyBindings(root);
 }
