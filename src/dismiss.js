@@ -60,9 +60,16 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
     var touchIsDown = false;
     var position = 0;
     var returnInterval = null;
+    var reachedThreshold = false;
     var hasActivated = false;
 
     function touchStartEvent(touch) {
+        var event = new Event("dismissintent", {cancelable: true});
+
+        if (!element.dispatchEvent(event)) {
+            return;
+        }
+
         element.style.position = "relative";
 
         clearInterval(returnInterval);
@@ -91,17 +98,21 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
         }
 
         if (Math.abs(position) >= (isHorizontal(direction) ? element.clientWidth : element.clientHeight) * ACTIVATION_DISTANCE_PERCENTAGE) {
-            hasActivated = true;
+            reachedThreshold = true;
         }
     }
 
     function touchEndEvent() {
+        if (!touchIsDown) {
+            return;
+        }
+
         touchIsDown = false;
 
-        if (hasActivated) {
-            var event = new Event("dismiss");
+        if (reachedThreshold) {
+            var event = new Event("dismiss", {cancelable: true});
 
-            element.dispatchEvent(event);
+            hasActivated = element.dispatchEvent(event);
         }
 
         clearInterval(returnInterval);
