@@ -3,6 +3,10 @@ import * as $g from "../../src/adaptui.js";
 window.$g = $g;
 
 $g.waitForLoad().then(function() {
+    $g.sel("#openActionMenu").on("click", function() {
+        $g.sel("#actionMenu").menuOpen();
+    });
+
     $g.sel("#inputSlider").on("change", function() {
         $g.sel("#progress").setValue(String($g.sel("#inputSlider").getValue() / 100));
     });

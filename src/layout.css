@@ -352,7 +352,7 @@ aui-backdrop {
     z-index: 2;
 }
 
-aui-backdrop[aui-for="aside"] {
+aui-backdrop[aui-for="aside"], aui-backdrop[aui-for="menu"] {
     opacity: 0;
 }
 

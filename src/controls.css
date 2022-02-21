@@ -35,13 +35,13 @@ label[aui-mode="switch"] {
     vertical-align: top;
 }
 
-button:not(header button):not(aside button), input, select, progress {
+button:not(header button):not(aside button):not(aui-menu button), input, select, progress {
     margin-top: 0.2rem;
     margin-bottom: 0.2rem;
     vertical-align: middle;
 }
 
-button:not(header button):not(aside button) {
+button:not(header button):not(aside button):not(aui-menu button) {
     margin-inline-end: 0.5rem;
     padding: 0.5rem;
     padding-left: 1rem;

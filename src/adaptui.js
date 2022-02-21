@@ -17,6 +17,7 @@ import * as markup from "./markup.js";
 import * as aside from "./aside.js";
 import * as screens from "./screens.js";
 import * as dialogs from "./dialogs.js";
+import * as menus from "./menus.js";
 import * as dismiss from "./dismiss.js";
 
 export * as requests from "./requests.js";
@@ -66,6 +67,8 @@ const AVAILABLE_OPERATIONS = {
     screenFade: screens.fade,
     dialogOpen: dialogs.open,
     dialogClose: dialogs.close,
+    menuOpen: menus.open,
+    menuClose: menus.close,
     swipeToDismiss: dismiss.swipeToDismiss
 };
 
