@@ -1,0 +1,45 @@
+/*
+    Adapt UI
+
+    Copyright (C) LiveG. All Rights Reserved.
+
+    https://liveg.tech
+    Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
+*/
+
+aui-menu {
+    position: fixed;
+    display: none;
+    min-width: 10rem;
+    max-width: calc(100% - 1rem);
+    padding: 0.5rem;
+    background-color: var(--secondaryBackground);
+    color: var(--secondaryText);
+    outline: 0.2rem solid var(--outline);
+    border-radius: 10px;
+    opacity: 0;
+    overflow: auto;
+    z-index: 3;
+}
+
+aui-menu button {
+    display: block;
+    width: 100%;
+    max-width: 20rem;
+    margin-bottom: 0.2rem;
+    padding: 0.5rem;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    border-radius: 10px;
+    text-align: start;
+    transition: 0.5s background-color;
+}
+
+aui-menu button[aui-selected] {
+    background-color: var(--secondarySelected);
+}
+
+html[aui-istouch="false"] aui-menu button:hover, aui-menu button:active {
+    background-color: var(--secondaryPress);
+}

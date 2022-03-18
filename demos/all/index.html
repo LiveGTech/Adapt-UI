@@ -12,7 +12,7 @@
             <header>
                 <button title="Open menu" aui-bind="aside" aria-label="Open menu"><img src="../../icons/menu.svg" alt="" aui-icon="light"></button>
                 <span>Adapt UI Demo</span>
-                <button title="Example action" aui-mode="action" aria-label="Example action"><img src="../../icons/star.svg" alt="" aui-icon="light"></button>
+                <button title="Example action" aui-mode="action" aria-label="Example action" id="openActionMenu"><img src="../../icons/star.svg" alt="" aui-icon="light"></button>
             </header>
             <aside>
                 <p>This is a sidebar which can hold menu items such as buttons and text.</p>
@@ -117,7 +117,7 @@
             <main hidden id="about">
                 <section>
                     <h1>This is the about page</h1>
-                    <aui-cards>
+                    <aui-cards aui-dismissables id="dismissable">
                         <aui-card>
                             <h2><a href="#">I'm a card</a></h2>
                             <p>Cards can be used to direct users to articles</p>
@@ -206,5 +206,9 @@
                 <button aui-mode="secondary" aui-bind="close">Cancel</button>
             </aui-buttons>
         </dialog>
+        <aui-menu id="actionMenu">
+            <button>This is a menu</button>
+            <button>It can pop out of things</button>
+        </aui-menu>
     </body>
 </html>

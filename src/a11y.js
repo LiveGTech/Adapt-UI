@@ -59,3 +59,7 @@ export function clearFocusTrap() {
     focusTrap = null;
     focusTrapAllowArrowKeys = false;
 }
+
+export function prefersReducedMotion() {
+    return window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+}

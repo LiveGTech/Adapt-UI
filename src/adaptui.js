@@ -17,6 +17,8 @@ import * as markup from "./markup.js";
 import * as aside from "./aside.js";
 import * as screens from "./screens.js";
 import * as dialogs from "./dialogs.js";
+import * as menus from "./menus.js";
+import * as dismiss from "./dismiss.js";
 
 export * as requests from "./requests.js";
 export * as l10n from "./l10n.js";
@@ -56,6 +58,7 @@ const AVAILABLE_OPERATIONS = {
     fadeIn: animations.fadeIn,
     fadeOut: animations.fadeOut,
     switchFrom: animations.switchFrom,
+    collapse: animations.collapse,
     asideOpen: aside.open,
     asideClose: aside.close,
     screenBack: screens.back,
@@ -63,7 +66,10 @@ const AVAILABLE_OPERATIONS = {
     screenJump: screens.jump,
     screenFade: screens.fade,
     dialogOpen: dialogs.open,
-    dialogClose: dialogs.close
+    dialogClose: dialogs.close,
+    menuOpen: menus.open,
+    menuClose: menus.close,
+    swipeToDismiss: dismiss.swipeToDismiss
 };
 
 const RESIZE_LISTENERS = [
@@ -83,7 +89,7 @@ function apply(operation, elements, multiReturn) {
             return returns;
         }
 
-        return returns[0] == undefined ? $g.sel(elements) : returns[0];
+        return returns[0] == undefined ? sel(elements) : returns[0];
     };
 }
 
@@ -104,19 +110,19 @@ export function sel(selector, multiReturn = false) {
     };
 
     appliedOperations["find"] = function(selector) {
-        return $g.sel(elements.map((element) => [...element.querySelectorAll(selector)]).flat());
+        return sel(elements.map((element) => [...element.querySelectorAll(selector)]).flat());
     };
 
     appliedOperations["first"] = function() {
-        return $g.sel(elements[0]);
+        return sel(elements[0]);
     };
 
     appliedOperations["last"] = function() {
-        return $g.sel(elements[elements.length - 1]);
+        return sel(elements[elements.length - 1]);
     };
 
     appliedOperations["prev"] = function(selector, condition = (element) => true) {
-        return $g.sel(elements.map(function(element) {
+        return sel(elements.map(function(element) {
             while (true) {
                 element = element.previousSibling;
     
@@ -140,7 +146,7 @@ export function sel(selector, multiReturn = false) {
     };
 
     appliedOperations["next"] = function(selector, condition = (element) => true) {
-        return $g.sel(elements.map(function(element) {
+        return sel(elements.map(function(element) {
             while (true) {
                 element = element.nextSibling;
     
@@ -176,7 +182,7 @@ export function sel(selector, multiReturn = false) {
             }).flat());
         });
 
-        return $g.sel(elements);
+        return sel(elements);
     };
 
     appliedOperations["remove"] = function() {
@@ -187,10 +193,10 @@ export function sel(selector, multiReturn = false) {
 
     appliedOperations["condition"] = function(condition, ifTrue, ifFalse) {
         if (condition) {
-            return ifTrue($g.sel(elements));
+            return ifTrue(sel(elements));
         }
 
-        return ifFalse($g.sel(elements));
+        return ifFalse(sel(elements));
     };
 
     appliedOperations["choose"] = function() {
@@ -203,14 +209,14 @@ export function sel(selector, multiReturn = false) {
                 var ifEqual = args.shift();
 
                 if (targetValue == testValue) {
-                    return ifEqual($g.sel(elements));
+                    return ifEqual(sel(elements));
                 }
             } else {
-                return args.shift()($g.sel(elements));
+                return args.shift()(sel(elements));
             }
         }
 
-        return $g.sel(elements);
+        return sel(elements);
     };
 
     for (var operation in AVAILABLE_OPERATIONS) {
@@ -241,7 +247,7 @@ export function prev(element, selector, condition = (element) => true) {
         }
 
         if (element.matches(selector)) {
-            return $g.sel(element);
+            return sel(element);
         }
     }
 }
@@ -267,13 +273,13 @@ export function next(element, selector, condition = (element) => true) {
         }
 
         if (element.matches(selector)) {
-            return $g.sel(element);
+            return sel(element);
         }
     }
 }
 
 export function create(tagName) {
-    return $g.sel(document.createElement(tagName));
+    return sel(document.createElement(tagName));
 }
 
 export function waitForLoad() {
