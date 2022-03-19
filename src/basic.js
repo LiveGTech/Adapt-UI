@@ -11,6 +11,10 @@ export function get(element) {
     return element;
 }
 
+export function is(element, selector) {
+    return element.matches(selector);
+}
+
 export function show(element) {
     element.hidden = false;
 }

@@ -28,6 +28,7 @@ export const VERNUM = 0;
 
 const AVAILABLE_OPERATIONS = {
     get: basic.get,
+    is: basic.is,
     show: basic.show,
     hide: basic.hide,
     clear: basic.clear,
