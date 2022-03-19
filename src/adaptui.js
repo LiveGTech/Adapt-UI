@@ -114,6 +114,14 @@ export function sel(selector, multiReturn = false) {
         return sel(elements.map((element) => [...element.querySelectorAll(selector)]).flat());
     };
 
+    appliedOperations["ancestor"] = function(selector) {
+        return sel([...new Set(
+            elements
+                .map((element) => element.closest(selector))
+                .filter((element) => element != null)
+        )]);
+    };
+
     appliedOperations["first"] = function() {
         return sel(elements[0]);
     };
