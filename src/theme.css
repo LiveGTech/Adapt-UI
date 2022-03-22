@@ -32,8 +32,8 @@
     --scrollbarPress: rgba(0, 0, 0, 0.8);
     --accordionSummary: rgba(0, 0, 0, 0.05);
     --accordionSummaryHover: rgba(0, 0, 0, 0.1);
+    --menuOutline: rgba(255, 255, 255, 0.5);
     --blur: rgba(0, 0, 0, 0.5);
-    --outline: rgba(0, 0, 0, 0.2);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -51,5 +51,6 @@
         --scrollbar: rgba(255, 255, 255, 0.5);
         --scrollbarHover: rgba(255, 255, 255, 0.6);
         --scrollbarPress: rgba(255, 255, 255, 0.8);
+        --menuOutline: rgba(0, 0, 0, 0.5);
     }
 }

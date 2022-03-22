@@ -12,10 +12,9 @@ aui-menu {
     display: none;
     min-width: 10rem;
     max-width: calc(100% - 1rem);
-    padding: 0.5rem;
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
-    outline: 0.2rem solid var(--outline);
+    outline: 0.2rem solid var(--menuOutline);
     border-radius: 10px;
     opacity: 0;
     overflow: auto;
@@ -26,12 +25,11 @@ aui-menu button {
     display: block;
     width: 100%;
     max-width: 20rem;
-    margin-bottom: 0.2rem;
     padding: 0.5rem;
     background-color: transparent;
     color: inherit;
     border: none;
-    border-radius: 10px;
+    border-radius: 0;
     text-align: start;
     transition: 0.5s background-color;
 }
