@@ -425,6 +425,13 @@ dialog aui-buttons button:not(header button):not(aside button) {
     text-align: end;
 }
 
+@media (min-width: 1000px) {
+    section {
+        padding-left: calc(50% - 20rem);
+        padding-right: calc(50% - 20rem);
+    }
+}
+
 @media (max-width: 800px) {
     aside {
         display: none;
