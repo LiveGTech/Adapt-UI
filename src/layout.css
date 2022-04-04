@@ -173,7 +173,7 @@ header img:not(button img) {
     margin-right: 0.25rem;
 }
 
-header input:not([type="checkbox"]):not([type="radio"]), select {
+header input:not([type="checkbox"]):not([type="radio"]), header select {
     flex-grow: 1;
     max-width: 20rem;
     height: 2rem;
