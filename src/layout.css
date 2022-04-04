@@ -173,6 +173,20 @@ header img:not(button img) {
     margin-right: 0.25rem;
 }
 
+header input:not([type="checkbox"]):not([type="radio"]), select {
+    flex-grow: 1;
+    max-width: 20rem;
+    height: 2rem;
+    margin: 0.6rem;
+    margin-top: -0.4rem;
+    margin-bottom: -0.2rem;
+    background-color: var(--secondaryBackground);
+    color: var(--secondaryText);
+    border: none;
+    border-radius: 0.5rem;
+    vertical-align: middle;
+}
+
 aside {
     position: fixed;
     top: 0;
