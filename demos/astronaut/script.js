@@ -4,10 +4,10 @@ astronaut.unpack();
 
 astronaut.render(
     Screen(true) (
-        Section() (
+        Section (
             Heading() ("This is a test of Astronaut"),
             Heading(2) ("This is another heading"),
-            Label() (
+            Label (
                 Text("Test input"),
                 Input({placeholder: "Type something here..."}) ()
             )
