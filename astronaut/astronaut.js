@@ -8,6 +8,7 @@
 */
 
 import * as $g from "../src/adaptui.js";
+import * as componentsList from "./components.js";
 
 window.$g = $g;
 
@@ -52,11 +53,12 @@ export function component(options, init) {
     var newComponent = function() {
         var args = [...arguments];
         var props = {};
+        var inter = {};
         var children = [];
         var isSplittingChildren = true;
 
         function create() {
-            var createdComponent = init(props, children);
+            var createdComponent = init(props, children, inter);
 
             (props.classes || []).forEach(function(className) {
                 createdComponent.addClass(className);
@@ -66,12 +68,14 @@ export function component(options, init) {
                 createdComponent.setAttribute("id", props.id);
             }
 
+            createdComponent.inter = inter;
+
             return createdComponent;
         }
 
         if (args.length > 0) {
             if (typeof(args[0]) == "object") {
-                if (args?._aui) {
+                if (args[0]._aui) {
                     children = args;
                     isSplittingChildren = false;
                 } else {
@@ -84,11 +88,19 @@ export function component(options, init) {
                     props[_options.positionals?.[i]] = arg;
                 });
             }
+        } else {
+            props = _options.default || {};
         }
 
         if (isSplittingChildren) {
             return function() {
                 children = [...arguments];
+
+                for (var i = 0; i < children.length; i++) {
+                    if (typeof(children[i]) != "object") {
+                        children[i] = components.Text(children[i]);
+                    }
+                }
 
                 return create();
             };
@@ -114,7 +126,7 @@ export function render(component, toRoot = null) {
     });
 }
 
-components.BaseElement = function(name, options) {
+components.ElementNode = function(name, options = {}) {
     var _options;
 
     if (typeof(name) == "string") {
@@ -133,7 +145,11 @@ components.BaseElement = function(name, options) {
     });
 
     return function() {
-        element.add(...arguments[0]);
+        if (Array.isArray(arguments[0])) {
+            element.add(...arguments[0]);
+        } else {
+            element.add(...arguments);
+        }
 
         return element;
     };
@@ -144,5 +160,7 @@ components.Text = function(text) {
 }
 
 component("Container", function(props, children) {
-    return components.BaseElement("div", props) (children);
+    return components.ElementNode("div", props) (children);
 });
+
+componentsList.init({components, component});
