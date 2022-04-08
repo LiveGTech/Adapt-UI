@@ -232,6 +232,8 @@ export function sel(selector, multiReturn = false) {
         appliedOperations[operation] = apply(AVAILABLE_OPERATIONS[operation], elements, multiReturn);
     }
 
+    appliedOperations._aui = true;
+
     return appliedOperations;
 }
 
