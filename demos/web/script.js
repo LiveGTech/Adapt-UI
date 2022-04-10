@@ -1,0 +1,1 @@
+import * as $g from "../../src/adaptui.js";

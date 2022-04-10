@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title translate aui-l10nstring="title">Web Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <link rel="stylesheet" href="../../src/adaptui.css">
+        <script type="module" src="script.js"></script>
+    </head>
+    <body aui-mode="web">
+        <nav>
+            <a href="#" aui-display="mobile"><img src="../../icons/menu.svg" alt="" aui-icon="dark"></a>
+            <a href="#"><img src="https://liveg.tech/logo.png" alt=""></a>
+            <a href="#" aui-mode="selected" aui-display="desktop">Home</a>
+            <a href="#" aui-display="desktop">About</a>
+            <a href="#" aui-display="desktop">Contact</a>
+            <span aui-mode="grow"></span>
+            <a href="#" aui-display="desktop">
+                <img src="../../icons/star.svg" alt="" aui-icon="dark">
+                <span>Action</span>
+            </a>
+        </nav>
+        <main>
+            <section>
+                <h1>This is an example website</h1>
+                <p>This example uses Adapt UI with <code>aui-mode="web"</code>.</p>
+            </section>
+            <section>
+                <aui-cards aui-mode="grid">
+                    <aui-card>
+                        <h2><a href="#">I'm a card</a></h2>
+                        <p>Cards can be used to direct users to articles</p>
+                    </aui-card>
+                    <aui-card>
+                        <h2><a href="#">What's my use?</a></h2>
+                        <p>They are mainly used for referencing user-generated content</p>
+                    </aui-card>
+                    <aui-card>
+                        <h2><a href="#">How am I implemented?</a></h2>
+                        <p>Cards are easy to implement and have hybrid functionality</p>
+                    </aui-card>
+                    <aui-card>
+                        <h2><a href="#">I'm a card</a></h2>
+                        <p>Cards can be used to direct users to articles</p>
+                    </aui-card>
+                    <aui-card>
+                        <h2><a href="#">What's my use?</a></h2>
+                        <p>They are mainly used for referencing user-generated content</p>
+                    </aui-card>
+                    <aui-card>
+                        <h2><a href="#">How am I implemented?</a></h2>
+                        <p>Cards are easy to implement and have hybrid functionality</p>
+                    </aui-card>
+                </aui-cards>
+            </section>
+        </main>
+    </body>
+</html>

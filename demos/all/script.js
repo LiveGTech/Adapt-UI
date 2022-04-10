@@ -1,8 +1,11 @@
 import * as $g from "../../src/adaptui.js";
+import * as templates from "../../src/templates.js";
 
 window.$g = $g;
 
 $g.waitForLoad().then(function() {
+    templates.apply();
+
     $g.sel("#openActionMenu").on("click", function() {
         $g.sel("#actionMenu").menuOpen();
     });
