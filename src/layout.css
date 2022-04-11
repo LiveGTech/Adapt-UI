@@ -217,7 +217,7 @@ nav a * {
     vertical-align: middle;
 }
 
-nav a[aui-mode="selected"] {
+nav a[aui-selected] {
     font-weight: bold;
 }
 
