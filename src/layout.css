@@ -298,7 +298,7 @@ main {
     right: 0;
 }
 
-main img {
+main img:not(aui-card img[aui-mode="background"]) {
     display: block;
     width: 100%;
     max-width: 30rem;
