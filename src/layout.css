@@ -353,6 +353,14 @@ footer {
     padding-bottom: 2rem;
 }
 
+footer a {
+    color: inherit;
+}
+
+footer a[aui-mode="block"] {
+    display: block;
+}
+
 figure {
     margin: 0;
 }
