@@ -311,7 +311,7 @@ header ~ main {
     height: calc(100% - 2.8rem);
 }
 
-aside ~ main {
+aside:not([aui-mode="hideOnDesktop"]) ~ main {
     left: 15rem;
     width: calc(100% - 15rem);
 }
@@ -525,6 +525,12 @@ span[aui-mode="grow"] {
     }
 }
 
+@media (min-width: 801px) {
+    aside[aui-mode="hideOnDesktop"] {
+        display: none!important;
+    }
+}
+
 @media (max-width: 800px) {
     aside {
         display: none;
@@ -560,7 +566,7 @@ span[aui-mode="grow"] {
 
 @media (min-width: 601px) {
     [aui-display="mobile"] {
-        display: none;
+        display: none!important;
     }
 }
 
@@ -582,6 +588,6 @@ span[aui-mode="grow"] {
     }
 
     [aui-display="desktop"] {
-        display: none;
+        display: none!important;
     }
 }
