@@ -353,6 +353,10 @@ footer {
     padding-bottom: 2rem;
 }
 
+footer h2 {
+    font-size: 1rem;
+}
+
 footer a {
     color: inherit;
 }
