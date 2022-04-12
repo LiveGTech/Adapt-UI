@@ -23,6 +23,7 @@ import * as dismiss from "./dismiss.js";
 export * as core from "./core.js";
 export * as requests from "./requests.js";
 export * as l10n from "./l10n.js";
+export * as templates from "./templates.js";
 
 export const VERSION = "0.1.0";
 export const VERNUM = 0;
