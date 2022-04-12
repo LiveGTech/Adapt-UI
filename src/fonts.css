@@ -10,7 +10,7 @@
 :root {
     --fontMain: "URW Gothic L", system-ui, sans-serif;
     --fontHeadings: "URW Gothic L", system-ui, sans-serif;
-    --fontCode: "Overpass Mono", monospace, sans-serif;
+    --fontCode: "Roboto Mono", monospace, sans-serif;
 }
 
 @font-face {
@@ -22,6 +22,11 @@
     font-family: "URW Gothic L";
     font-weight: bold;
     src: url("../fonts/urwgothicldemi.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: "Roboto Mono";
+    src: url("../fonts/robotomono.woff2") format("woff2");
 }
 
 * {
