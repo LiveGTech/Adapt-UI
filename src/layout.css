@@ -316,7 +316,7 @@ aside:not([aui-mode="hideOnDesktop"]) ~ main {
     width: calc(100% - 15rem);
 }
 
-[dir="rtl"] aside ~ main {
+[dir="rtl"] aside:not([aui-mode="hideOnDesktop"]) ~ main {
     left: unset;
     right: 15rem;
 }
@@ -553,12 +553,12 @@ span[aui-mode="grow"] {
         height: 100%;
     }
 
-    aside ~ main {
+    aside ~ main, aside:not([aui-mode="hideOnDesktop"]) ~ main {
         left: 0;
         width: 100%;
     }
 
-    [dir="rtl"] aside ~ main {
+    [dir="rtl"] aside ~ main, [dir="rtl"] aside:not([aui-mode="hideOnDesktop"]) ~ main {
         left: unset;
         right: 0;
     }
