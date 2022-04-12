@@ -23,10 +23,10 @@ export function open(element, openerElement = document.activeElement) {
 
     element.style.top = `${Math.min(
         openerTop + openerElement.clientHeight + calc.getRemSize(0.5),
-        window.innerHeight - element.clientHeight - calc.getRemSize(0.5)
+        document.body.clientHeight - element.clientHeight - calc.getRemSize(0.5)
     )}px`;
 
-    element.style.left = `${Math.min(openerLeft, window.innerWidth - element.clientWidth - calc.getRemSize(0.5))}px`;
+    element.style.left = `${Math.min(openerLeft, document.body.clientWidth - element.clientWidth - calc.getRemSize(0.5))}px`;
 
     a11y.focusStack.push(document.activeElement);
     element.querySelector(a11y.FOCUSABLES)?.focus();
