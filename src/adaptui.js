@@ -20,6 +20,7 @@ import * as dialogs from "./dialogs.js";
 import * as menus from "./menus.js";
 import * as dismiss from "./dismiss.js";
 
+export * as core from "./core.js";
 export * as requests from "./requests.js";
 export * as l10n from "./l10n.js";
 
