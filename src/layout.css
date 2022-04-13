@@ -61,6 +61,18 @@ p {
     cursor: default;
 }
 
+aui-badge {
+    display: inline;
+    padding: 0.3rem;
+    font-size: smaller;
+    background-color: var(--primaryUI);
+    color: var(--primaryUIText);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-decoration: none;
+    border-radius: 0.5rem;
+}
+
 html, body {
     width: 100%;
     height: 100%;
@@ -557,6 +569,26 @@ span[aui-mode="grow"] {
 
 [aui-stack="vertical"] {
     flex-direction: column;
+}
+
+[aui-stack="horizontal reverse"] {
+    flex-direction: row-reverse;
+}
+
+[aui-stack="vertical reverse"] {
+    flex-direction: column-reverse;
+}
+
+[aui-stackjustify="start"] {
+    align-items: start;
+}
+
+[aui-stackjustify="middle"] {
+    align-items: center;
+}
+
+[aui-stackjustify="end"] {
+    align-items: end;
 }
 
 @media (min-width: 1000px) {
