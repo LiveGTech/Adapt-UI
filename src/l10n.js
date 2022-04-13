@@ -140,7 +140,7 @@ export function selectLocaleFromResources(localeResources, fallbackLocaleCode = 
 
     if (localeResources[fallbacks[localeCode]] != undefined) {
         return selectLocaleFromResources(localeResources, fallbackLocaleCode, fallbacks, fallbacks[localeCode]).then(function(fallbackLocale) {
-            return Locale.fromResource(localeResources[localeCode], fallbackLocale);            
+            return Locale.fromResource(localeResources[localeCode], fallbackLocale);         
         });
     }
 
