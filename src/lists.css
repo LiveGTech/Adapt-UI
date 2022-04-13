@@ -64,6 +64,7 @@ aui-card img[aui-mode="background"] {
     left: 0;
     right: 0;
     width: 100%;
+    max-width: 100%;
     height: 100%;
     object-fit: cover;
     filter: brightness(1);
