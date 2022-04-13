@@ -22,6 +22,13 @@
                 <hr>
                 <button>Sign in</button>
                 <button>Sign up</button>
+                <hr>
+                <details>
+                    <summary>Section</summary>
+                    <button>Subpage</button>
+                    <button>Subpage</button>
+                    <button>Subpage</button>
+                </details>
             </aside>
             <main id="home">
                 <section>
@@ -32,8 +39,11 @@
                     <h5>So many headings</h5>
                     <h6>There's loads</h6>
                     <p aui-select="hint">As you can see, there are a lot of headings.</p>
-                    <p>This is a badge that can be shown in text: <aui-badge aria-label="(New)">New</aui-badge></p>
-                    <p aui-template="template.html"></p>
+                    <details aui-mode="boxed">
+                        <summary>Extras</summary>
+                        <p>This is a badge that can be shown in text: <aui-badge aria-label="(New)">New</aui-badge></p>
+                        <p aui-template="template.html"></p>
+                    </details>
                     <aui-buttons>
                         <button id="openDialogButton">Primary button</button>
                         <button aui-mode="secondary">Secondary button</button>

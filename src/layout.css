@@ -288,6 +288,18 @@ aside hr {
     border: none;
 }
 
+aside details {
+    margin: 0;
+    padding-inline-start: 0.5rem;
+}
+
+aside details button {
+    width: calc(100% - 0.5rem);
+    margin-inline-start: 0.5rem;
+    border-start-start-radius: 0.5rem;
+    border-end-start-radius: 0.5rem;
+}
+
 header ~ aside {
     top: 2.8rem;
     height: calc(100% - 2.8rem);
@@ -423,7 +435,53 @@ figure figcaption {
     margin-bottom: 0.5rem;
 }
 
+details {
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+}
+
+details summary {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    list-style: none;
+}
+
+details summary::before {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    margin-inline-end: 0.2rem;
+    background: url("../icons/dropdown.svg") center no-repeat;
+    background-size: contain;
+    color: transparent;
+    transform: rotate(0deg);
+    vertical-align: middle;
+    transition: 0.5s transform;
+    content: "";
+}
+
+details[open] > summary::before {
+    transform: rotate(180deg);
+}
+
+details[aui-mode="boxed"] {
+    padding: 0.5rem;
+    border: 0.2rem solid var(--secondaryBackground);
+    border-radius: 0.5rem;
+}
+
+details[aui-mode="boxed"] summary {
+    padding: 0;
+    font-weight: bold;
+}
+
+details[aui-mode="boxed"] p:last-child {
+    margin-bottom: 0;
+}
+
 dialog {
+    display: flex;
+    flex-direction: column;
     min-width: 500px;
     max-width: 700px;
     max-height: 80vh;
@@ -484,6 +542,7 @@ aui-backdrop[aui-for="aside"], aui-backdrop[aui-for="menu"] {
 
 aui-dialogcontent {
     display: block;
+    flex-grow: 1;
     max-height: 60vh;
     margin-inline-end: -0.5rem;
     padding-inline-end: 0.5rem;
