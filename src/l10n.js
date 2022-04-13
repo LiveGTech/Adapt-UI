@@ -139,7 +139,9 @@ export function selectLocaleFromResources(localeResources, fallbackLocaleCode = 
     }
 
     if (localeResources[fallbacks[localeCode]] != undefined) {
-        return Locale.fromResource(localeResources[localeCode], selectLocaleFromResources(localeResources, fallbackLocaleCode, fallbacks, fallbacks[localeCode]));
+        return selectLocaleFromResources(localeResources, fallbackLocaleCode, fallbacks, fallbacks[localeCode]).then(function(fallbackLocale) {
+            return Locale.fromResource(localeResources[localeCode], fallbackLocale);            
+        });
     }
 
     return Locale.fromResource(localeResources[localeCode]);
