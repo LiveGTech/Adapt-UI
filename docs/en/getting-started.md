@@ -1,5 +1,7 @@
 # Getting started with Adapt UI
-Adapt UI has been designed from the ground up to be intuitive, yet powerful. This guide will show you how to build your first app using Adapt UI.
+Adapt UI has been designed from the ground up to be an intuitive, yet powerful way to build apps that have seamless experiences. This guide will show you how to build your first app using Adapt UI.
+
+> **Note:** We recommend using Adapt UI's Astronaut toolkit, which is a much more convenient way of quickly building apps. You can learn how to get started with using Astronaut and Adapt UI together on [Astronaut's getting started page](astronaut-getting-started.md).
 
 ## Project template
 Create a new HTML file and insert the following boilerplate code:

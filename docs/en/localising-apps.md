@@ -51,11 +51,21 @@ $g.waitForLoad().then(function() {
 });
 ```
 
+<!-- @gdocs forstack astronaut -->
+
+Calls to `astronaut.render` can then be made immediately after `$g.l10n.translateApp` so that the app renders with all the loaded localised strings in place.
+
+> **Note:** Ensure that calls to `_` only happen after `$g.l10n.translateApp` when using Astronaut — initialising components before `window._` is assigned to will cause errors since those components may be initialised before `$g.l10n.selectLocaleFromResources` is even called. To solve this, move component initialisation to after `$g.l10n.translateApp`.
+
+<!-- @gdocs end -->
+
 Ensure that the reference to `src/adaptui.js` and the new locale resource file is the correct path.
 
 This code will retrieve the appropriate locale resource for the system (in this case, it'll only be the `en_GB` locale) when the app has finished loading and rendering, and once the locale file has been retrieved, the app will be translated from the returned locale instance (the variable `locale`). We also asign a global alias to be `_` which can be used for easily translating strings elsewhere in our app.
 
 > **Note:** Using `.then` will handle a `Promise` from `$g.waitForLoad` and `$g.l10n.selectLocaleFromResources`. Promises allow for asynchronous task management in JavaScript, which is needed here so that locale resources can be downloaded when needed. If you are not familliar with _promise chaining_ (as shown above), we suggest reading the [MDN Web Docs entry for promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining).
+
+<!-- @gdocs forstack html -->
 
 ## Using `l10n` in HTML
 The `l10n` module is designed to easily interact with your HTML code when the `translateApp` function is called. To use l10n strings in your HTML code, write the following:
@@ -85,6 +95,8 @@ The `enterName` string can then be added to the locale resources in the same way
 
 > **Note:** If you want to translate the attributes only (and not the textual contents of the element), set the `translate` attribute to be `translate="attributesOnly"`. This is particularly useful if the element has child elements which would otherwise be replaced, or in cases where user-generated content is loaded into an element which you only want to translate the attributes of.
 
+<!-- @gdocs end -->
+
 ## Using `l10n` in JavaScript
 As we mentioned earlier, the global alias function `_` can be used to translate strings programmatically. For example, the following `console.log` command can be localised:
 
@@ -103,6 +115,35 @@ $g.sel("#element").setText(_("helloWorld")); // Localised
 Because `_` is simply a function, its returned translated value can be used as an argument for any other function, and the value can also be stored in a variable.
 
 Ensure that you only use `_` when it has been initialised, such as after `$g.l10n.translateApp` has been called in your code. Otherwise, using `_` won't work.
+
+<!-- @gdocs forstack astronaut -->
+
+## Using `l10n` with Astronaut
+As with JavaScript, the global alias function `_` can also be used with Astronaut components, too. Using l10n with Astronaut is typically much easier than using it with HTML (especially when dealing with localising attributes) since Astronaut apps are written in JavaScript:
+
+```javascript
+astronaut.render(
+    Paragraph() (_("Hello, world!"))
+);
+```
+
+`_` can be used within `Text` components, or as a simple substitute to where string literals would be for an unlocalised app.
+
+For component properties, `_` works the same way, too:
+
+```javascript
+// Unlocalised
+astronaut.render(
+    Input({placeholder: "Enter your name"})
+);
+
+// Localised
+astronaut.render(
+    Input({placeholder: _("enterName")})
+);
+```
+
+<!-- @gdocs end -->
 
 ## Adding arguments to resource strings
 There may be cases where your app needs to translate a string which contains an arbitrary value. For example, your app may personalise greeting messages ─ such as if the user is called Charlie, then your app will show "Hello, Charlie!". The same may go for displaying numbers, too.
