@@ -10,6 +10,8 @@
 import * as core from "../src/core.js";
 
 export function init({components, component}) {
+    var parentPath = import.meta.url.split("/").slice(0, -1).join("/");
+
     function elementToComponent(name, element, elementProps = {}, propAttributes = {}) {
         component({name, positionals: Object.keys(propAttributes)}, function(props, children) {
             props.attributes = {};
@@ -44,6 +46,28 @@ export function init({components, component}) {
         }
 
         return components.ElementNode("aui-screen", props) (children);
+    });
+
+    component({name: "ScreenMain", positionals: ["showing"]}, function(props, children) {
+        if (!props.showing) {
+            props.attributes = {"hidden": true};
+        }
+
+        return components.ElementNode("main", props) (children);
+    });
+
+    component("Header", "header");
+
+    component({name: "HeaderMenuButton"}, function(props, children) {
+        props.attributes = {
+            "aui-bind": "aside",
+            "aria-label": props.alt || "Open menu"
+        };
+
+        return components.Button(props) (
+            components.Icon("menu", "light") (),
+            ...children
+        );
     });
 
     elementToComponent("Section", "section");
@@ -83,5 +107,22 @@ export function init({components, component}) {
         max: "max",
         step: "step",
         value: "value"
+    });
+
+    component({name: "Image", positionals: ["source"]}, function(props, children) {
+        props.attributes = {
+            "src": props.source,
+            "alt": props.alt
+        };
+
+        return components.ElementNode("img", props) (children);
+    });
+
+    component({name: "Icon", positionals: ["icon", "type"]}, function(props, children) {
+        props.attributes = {
+            "aui-icon": props.type || "dark"
+        };
+
+        return components.Image(`${parentPath}/../icons/${props.icon}.svg`) (children);
     });
 }
