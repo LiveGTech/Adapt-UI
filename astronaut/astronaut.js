@@ -8,6 +8,8 @@
 */
 
 import * as $g from "../src/adaptui.js";
+import * as markup from "../src/markup.js";
+
 import * as componentsList from "./components.js";
 
 window.$g = $g;
@@ -150,6 +152,8 @@ components.ElementNode = function(name, options = {}) {
         } else {
             element.add(...arguments);
         }
+
+        markup.apply(element.get());
 
         return element;
     };

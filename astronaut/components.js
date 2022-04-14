@@ -14,7 +14,7 @@ export function init({components, component}) {
 
     function elementToComponent(name, element, elementProps = {}, propAttributes = {}) {
         component({name, positionals: Object.keys(propAttributes)}, function(props, children) {
-            props.attributes = {};
+            props.attributes ||= {};
 
             Object.keys(propAttributes).forEach(function(prop) {
                 if (props[prop]) {
@@ -42,38 +42,75 @@ export function init({components, component}) {
 
     component({name: "Screen", positionals: ["showing"]}, function(props, children) {
         if (!props.showing) {
-            props.attributes = {"hidden": true};
+            props.attributes ||= {};
+            props.attributes["hidden"] = true;
         }
 
         return components.ElementNode("aui-screen", props) (children);
     });
 
-    component({name: "ScreenMain", positionals: ["showing"]}, function(props, children) {
+    component({name: "Page", positionals: ["showing"]}, function(props, children) {
+        var id = props.id || `astronaut_${core.generateKey()}`;
+
+        props.attributes ||= {};
+        props.attributes["id"] = id;
+
         if (!props.showing) {
-            props.attributes = {"hidden": true};
+            props.attributes["hidden"] = true;
         }
 
         return components.ElementNode("main", props) (children);
     });
 
-    component("Header", "header");
+    elementToComponent("Header", "header");
 
-    component({name: "HeaderMenuButton"}, function(props, children) {
-        props.attributes = {
-            "aui-bind": "aside",
-            "aria-label": props.alt || "Open menu"
-        };
+    component({name: "HeaderPageMenuButton"}, function(props, children) {
+        props.icon = "menu";
 
-        return components.Button(props) (
-            components.Icon("menu", "light") (),
-            ...children
-        );
+        props.attributes ||= {};
+        props.attributes["aui-bind"] = "aside";
+
+        return components.IconButton(props) (...children);
+    });
+
+    component({name: "HeaderActionButton", positionals: ["icon", "alt"]}, function(props, children) {
+        props.mode = "action";
+
+        return components.IconButton(props) (...children);
+    });
+
+    elementToComponent("PageMenu", "aside");
+
+    component({name: "PageMenuButton"}, function(props, children) {
+        if (props.page?.hasAttribute("id")) {
+            props.attributes ||= {};
+            props.attributes["aui-page"] = `#${props.page.getAttribute("id")}`;
+
+            if (!props.page.hasAttribute("hidden")) {
+                props.attributes["aui-selected"] = true;
+            }
+        }
+
+        return components.Button(props) (...children);
     });
 
     elementToComponent("Section", "section");
 
     elementToComponent("Button", "button", {}, {"mode": "aui-mode"});
     elementToComponent("NavigationalButton", "button", {attributes: {"aui-mode": "navigational"}});
+
+    component({name: "IconButton", positionals: ["icon", "alt"]}, function(props, children) {
+        if (props.alt) {
+            props.attributes ||= {};
+            props.attributes["title"] = props.alt;
+            props.attributes["aria-label"] = props.alt;
+        }
+
+        return components.Button(props) (
+            Icon(props.icon, "light") (),
+            ...children
+        );
+    });
 
     component("Label", function(props, children) {
         var id = props.id || `astronaut_${core.generateKey()}`;
@@ -110,19 +147,19 @@ export function init({components, component}) {
     });
 
     component({name: "Image", positionals: ["source"]}, function(props, children) {
-        props.attributes = {
-            "src": props.source,
-            "alt": props.alt
-        };
+            props.attributes ||= {};
+            props.attributes["src"] = props.source;
+            props.attributes["alt"] = props.alt || "";
 
         return components.ElementNode("img", props) (children);
     });
 
     component({name: "Icon", positionals: ["icon", "type"]}, function(props, children) {
         props.attributes = {
-            "aui-icon": props.type || "dark"
+            "aui-icon": props.type || "dark",
+            "aria-hidden": true
         };
 
-        return components.Image(`${parentPath}/../icons/${props.icon}.svg`) (children);
+        return components.Image({...props, source: `${parentPath}/../icons/${props.icon}.svg`}) (...children);
     });
 }
