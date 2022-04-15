@@ -230,6 +230,10 @@ export function sel(selector, multiReturn = false) {
         return sel(elements);
     };
 
+    appliedOperations["copy"] = function() {
+        return sel(elements.map((element) => element.cloneNode(true)));
+    };
+
     for (var operation in AVAILABLE_OPERATIONS) {
         appliedOperations[operation] = apply(AVAILABLE_OPERATIONS[operation], elements, multiReturn);
     }

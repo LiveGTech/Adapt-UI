@@ -96,6 +96,38 @@ export function init({components, component}) {
 
     elementToComponent("Section", "section");
 
+    component({name: "Accordion", positionals: ["open"]}, function(props, children) {
+        if (props.open) {
+            props.attributes ||= {};
+            props.attributes["open"] = true;
+        }
+
+        return components.ElementNode("details", props) (
+            components.ElementNode("section") (children[0]),
+            ...children.slice(1)
+        );
+    });
+
+    component({name: "SkeletonLoader", positionals: ["alt"]}, function(props, children) {
+        props.attributes ||= {};
+        props.attributes["aui-skeleton"] = true;
+        props.attributes["aria-label"] = props.alt || "";
+
+        var container = components.Container(props) (
+            ...children
+        );
+
+        container.find("button, input")
+            .setAttribute("disabled", true)
+            .setAttribute("aria-hidden", true)
+        ;
+
+        return container;
+    });
+
+    elementToComponent("Separator", "hr");
+    elementToComponent("LineBreak", "br");
+
     elementToComponent("Button", "button", {}, {"mode": "aui-mode"});
     elementToComponent("NavigationalButton", "button", {attributes: {"aui-mode": "navigational"}});
 

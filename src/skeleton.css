@@ -1,0 +1,82 @@
+/*
+    Adapt UI
+
+    Copyright (C) LiveG. All Rights Reserved.
+
+    https://liveg.tech
+    Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
+*/
+
+[aui-skeleton] {
+    cursor: wait;
+}
+
+[aui-skeleton] * {
+    color: transparent!important;
+    cursor: wait!important;
+}
+
+[aui-skeleton] :is(h1, h2, h3, h4, h5, h6, p, button, label, input, aui-card) {
+    background-color: var(--skeleton)!important;
+    background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.5) 50%, transparent 70%) var(--skeleton);
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: 2s shine ease-in-out infinite;
+}
+
+[aui-skeleton] :is(h1, h2, h3, h4, h5, h6) {
+    width: 16rem;
+    max-width: 60%;
+    border-radius: 0.3rem;
+}
+
+[aui-skeleton] h1 {
+    height: var(--sizeH1);
+}
+
+[aui-skeleton] h2 {
+    height: var(--sizeH2);
+}
+
+[aui-skeleton] h3 {
+    height: var(--sizeH3);
+}
+
+[aui-skeleton] h4 {
+    height: var(--sizeH4);
+}
+
+[aui-skeleton] h5 {
+    height: var(--sizeH5);
+}
+
+[aui-skeleton] h6 {
+    height: var(--sizeH6);
+}
+
+[aui-skeleton] p {
+    height: var(--sizeP);
+    border-radius: 0.2rem;
+}
+
+[aui-skeleton] label {
+    width: 20rem;
+    max-width: 80%;
+    height: var(--sizeP);
+    border-radius: 0.2rem;
+}
+
+[aui-skeleton] button {
+    width: 6rem;
+    height: 2.3rem;
+}
+
+@keyframes shine {
+    0% {
+        background-position-x: 180%;
+    }
+
+    100% {
+        background-position-x: -20%;
+    }
+}

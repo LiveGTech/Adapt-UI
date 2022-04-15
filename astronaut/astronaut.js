@@ -76,9 +76,22 @@ export function component(options, init) {
         }
 
         if (args.length > 0) {
-            if (typeof(args[0]) == "object") {
+            if (Array.isArray(args[0])) {
+                isSplittingChildren = false;
+            } else if (typeof(args[0]) == "object") {
                 if (args[0]._aui) {
-                    children = args;
+                    children = [];
+
+                    [...args].forEach(function(arg) {
+                        if (Array.isArray(arg)) {
+                            children.push(...arg);
+    
+                            return;
+                        }
+    
+                        children.push(arg);
+                    });
+
                     isSplittingChildren = false;
                 } else {
                     props = args[0];
@@ -96,7 +109,17 @@ export function component(options, init) {
 
         if (isSplittingChildren) {
             return function() {
-                children = [...arguments];
+                children = [];
+
+                [...arguments].forEach(function(arg) {
+                    if (Array.isArray(arg)) {
+                        children.push(...arg);
+
+                        return;
+                    }
+
+                    children.push(arg);
+                });
 
                 for (var i = 0; i < children.length; i++) {
                     if (typeof(children[i]) != "object") {
@@ -128,6 +151,16 @@ export function render(component, toRoot = null) {
     });
 }
 
+export function repeat(count, ...components) {
+    var repeatedComponents = [];
+
+    for (var i = 0; i < count; i++) {
+        repeatedComponents.push(...components.map((component) => component.copy()));
+    }
+
+    return repeatedComponents;
+}
+
 components.ElementNode = function(name, options = {}) {
     var _options;
 
@@ -157,11 +190,11 @@ components.ElementNode = function(name, options = {}) {
 
         return element;
     };
-}
+};
 
-components.Text = function(text) {
+components.Text = function(text = "") {
     return $g.create("span").setText(text);
-}
+};
 
 component("Container", function(props, children) {
     return components.ElementNode("div", props) (children);

@@ -15,7 +15,16 @@ var mainPage = Page(true) (
 
 var otherPage = Page() (
     Section (
-        Heading() ("This is another page")
+        Heading() ("This is another page"),
+        SkeletonLoader("Dummy content") (
+            Heading(2) (),
+            astronaut.repeat(3, Paragraph() ()),
+            Heading(3) (),
+            Label (
+                Text(),
+                Input() ()
+            )
+        )
     )
 );
 
