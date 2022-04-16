@@ -2,7 +2,23 @@
 Astronaut is a component-based interface-building toolkit that is designed to allow you to build Adapt UI apps with only JavaScript code. Its simple syntax is friendly to beginners, but is also powerful enough for advanced developers to use, too. This guide will show you how to build your first app using Adapt UI and Astronaut.
 
 ## Project template
-Create a new JavaScript file and insert the following template code:
+Create a new HTML file and insert the following boilerplate code:
+
+```html
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My First App</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1">
+        <link rel="stylesheet" href="/path/to/src/adaptui.css">
+        <script type="module" src="script.js"></script>
+    </head>
+    <body></body>
+</html>
+```
+
+Then create a script called `script.js`:
 
 ```javascript
 import * as astronaut from "/path/to/astronaut/astronaut.js";
@@ -10,9 +26,11 @@ import * as astronaut from "/path/to/astronaut/astronaut.js";
 astronaut.unpack();
 ```
 
-Ensure that the reference to `astronaut/astronaut.js` is the correct path.
+Ensure that the references to `/path/to/src/adaptui.css` and `astronaut/astronaut.js` are the correct path.
 
-`astronaut.unpack();` is the only other line in this template code aside from the `import` line. Its purpose is to unpack components into the global space — this saves you from having to write, for example, `astronaut.components.Paragraph` instead of just `Paragraph`.
+Everything that we're going to do in this guide will be within `script.js`, all in JavaScript. The HTML file is a page that does simple setup tasks such as loading the script and Adapt UI styling.
+
+`astronaut.unpack();` is the only other line in the script template code aside from the `import` line. Its purpose is to unpack components into the global space — this saves you from having to write, for example, `astronaut.components.Paragraph` instead of just `Paragraph`.
 
 ## Saying hello
 Below `astronaut.unpack();`, add the following lines:
@@ -94,6 +112,7 @@ astronaut.render(
                         nameInput
                     )
                 ),
+                LineBreak() (),
                 ButtonRow (
                     saveButton,
                     ClearButton
@@ -103,8 +122,6 @@ astronaut.render(
     )
 );
 ```
-
-<!-- TODO: Add <br> element to Astronaut -->
 
 Note how we've replaced the original header with `helloHeader` in the first `Section`.
 

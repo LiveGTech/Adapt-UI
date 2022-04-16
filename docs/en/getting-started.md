@@ -125,10 +125,10 @@ Now try entering your name and press the **Save** button. Your name should appea
 The JavaScript code you've written will do the following:
 
 1. Wait for the HTML page to finish loading and rendering
-2. Attaches a click event to the **Save** button
-3. Sets the text of the header to the value of the input when the button is clicked
-4. Attaches a click event to the **Clear** button
-5. Sets the value of the input to be blank when the button is clicked
+2. Attach a click event to the **Save** button
+3. Set the text of the header to the value of the input when the button is clicked
+4. Attach a click event to the **Clear** button
+5. Set the value of the input to be blank when the button is clicked
 
 ## Creating a dialog box
 Dialog boxes are useful for creating a new context in our app where the user can either view a message or enter some information. In this case, we'll make a dialog box which appears when the user doesn't enter anything into the input.
