@@ -113,9 +113,7 @@ export function init({components, component}) {
         props.attributes["aui-skeleton"] = true;
         props.attributes["aria-label"] = props.alt || "";
 
-        var container = components.Container(props) (
-            ...children
-        );
+        var container = components.Container(props) (...children);
 
         container.find("button, input")
             .setAttribute("disabled", true)
