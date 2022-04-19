@@ -134,6 +134,10 @@ export function on(element, event, callback) {
     });
 }
 
+export function emit(element, eventName, eventDetail = undefined) {
+    element.dispatchEvent(new CustomEvent(eventName, {detail: eventDetail}));
+}
+
 export function focus(element) {
     element.focus();
 }
