@@ -103,7 +103,7 @@ export function init({components, component}) {
         }
 
         return components.ElementNode("details", props) (
-            components.ElementNode("section") (children[0]),
+            components.ElementNode("summary") (children[0]),
             ...children.slice(1)
         );
     });
