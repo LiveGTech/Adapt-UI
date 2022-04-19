@@ -1,0 +1,9 @@
+{
+    "Get started": {
+        "Getting started with Adapt UI": "getting-started.md",
+        "Getting started with Astronaut and Adapt UI": "astronaut-getting-started.md"
+    },
+    "Build advanced apps": {
+        "Localising apps using the Adapt UI `l10n` module": "localising-apps.md"
+    }
+}
