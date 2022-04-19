@@ -12,8 +12,6 @@ import * as markup from "../src/markup.js";
 
 import * as componentsList from "./components.js";
 
-window.$g = $g;
-
 export var components = {};
 
 export function unpack() {
