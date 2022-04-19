@@ -13,11 +13,14 @@ import * as markup from "../src/markup.js";
 import * as componentsList from "./components.js";
 
 export var components = {};
+export var unpacked = false;
 
 export function unpack() {
     Object.keys(components).forEach(function(name) {
         globalThis[name] = components[name];
     });
+
+    unpacked = true;
 }
 
 export function state() {
@@ -134,6 +137,10 @@ export function component(options, init) {
 
     if (!_options.isPrivate) {
         components[_options.name] = newComponent;
+
+        if (unpacked) {
+            globalThis[_options.name] = newComponent;
+        }
     }
 
     return newComponent;
