@@ -115,7 +115,7 @@ astronaut.render(
                 LineBreak() (),
                 ButtonRow (
                     saveButton,
-                    ClearButton
+                    clearButton
                 )
             )
         )
