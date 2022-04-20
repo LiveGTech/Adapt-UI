@@ -51,6 +51,7 @@
     --menuOutline: rgba(255, 255, 255, 0.5);
     --blur: rgba(0, 0, 0, 0.5);
     --skeleton: rgba(0, 0, 0, 0.1);
+    --codeBackground: rgba(0, 0, 0, 0.1);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -77,5 +78,6 @@
         --scrollbarPress: rgba(255, 255, 255, 0.8);
         --menuOutline: rgba(0, 0, 0, 0.5);
         --skeleton: rgba(255, 255, 255, 0.1);
+        --codeBackground: rgba(255, 255, 255, 0.1);
     }
 }
