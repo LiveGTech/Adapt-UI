@@ -277,6 +277,10 @@ aside {
     right: 0;
 }
 
+aui-screen aside {
+    position: absolute;
+}
+
 aside p {
     margin: 0;
     padding: 1rem;
