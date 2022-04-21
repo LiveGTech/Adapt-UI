@@ -91,6 +91,11 @@ export function init({components, component}) {
             }
         }
 
+        if (props.selected) {
+            props.attributes ||= {};
+            props.attributes["aui-selected"] = true;
+        }
+
         return components.Button(props) (...children);
     });
 
