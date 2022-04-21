@@ -10,7 +10,7 @@
 :root {
     --fontMain: "URW Gothic L", system-ui, sans-serif;
     --fontHeadings: "URW Gothic L", system-ui, sans-serif;
-    --fontCode: "Roboto Mono", monospace, sans-serif;
+    --fontCode: "Noto Sans Mono", monospace, sans-serif;
 }
 
 @font-face {
@@ -25,8 +25,8 @@
 }
 
 @font-face {
-    font-family: "Roboto Mono";
-    src: url("../fonts/robotomono.woff2") format("woff2");
+    font-family: "Noto Sans Mono";
+    src: url("../fonts/notosansmono.woff2") format("woff2");
 }
 
 * {
