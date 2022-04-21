@@ -14,6 +14,7 @@ import * as componentsList from "./components.js";
 
 export var components = {};
 export var unpacked = false;
+export var loaded = false;
 
 export function unpack() {
     Object.keys(components).forEach(function(name) {
@@ -147,7 +148,9 @@ export function component(options, init) {
 }
 
 export function render(component, toRoot = null) {
-    $g.waitForLoad().then(function() {
+    (loaded ? Promise.resolve() : $g.waitForLoad()).then(function() {
+        loaded = true;
+
         if (toRoot == null) {
             toRoot = $g.sel("body");
         }
