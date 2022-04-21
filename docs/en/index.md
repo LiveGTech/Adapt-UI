@@ -1,5 +1,9 @@
 # Adapt UI
+![A screenshot of Adapt's UI demo](media/demo.png)
+
 Adapt UI is LiveG's user interface library and design language for building consistent and appealing products. We use it as our official tool for building user interfaces here at LiveG, but since Adapt UI is open-source, everyone is welcome to use the library for developing their own stylish apps!
+
+**[See a demo of Adapt UI in action](https://opensource.liveg.tech/Adapt-UI/demos/all)**
 
 ## Get started
 We recommend using Adapt UI with Astronaut — our tool for building apps with just a few lines of JavaScript code. It's designed to enable all developers to create their own apps and services, whether they are beginners or advanced hackers.
