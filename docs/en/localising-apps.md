@@ -1,4 +1,4 @@
-# Localising apps using the Adapt UI `l10n` module
+# Localising apps using the `l10n` module
 Internationalisation (i18n) and localisation (l10n) are key to ensuring that your apps work worldwide and can be used by people whose primary language is different from yours. I18n is the process of ensuring that your app is adaptive to different cultures and locales (such as ensuring that apps work in a right-to-left (RTL) text direction), and l10n is the process of translating apps into different languages.
 
 This guide assumes that you have got a basic app working so that you can then apply the l10n features to it. If you haven't got a basic app working yet, follow the [Getting started with Adapt UI](getting-started.md) guide.
