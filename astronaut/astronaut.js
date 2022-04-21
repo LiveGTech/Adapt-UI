@@ -209,3 +209,7 @@ component("Container", function(props, children) {
 });
 
 componentsList.init({components, component});
+
+$g.waitForLoad().then(function() {
+    loaded = true;
+});
