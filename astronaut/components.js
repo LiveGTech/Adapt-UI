@@ -40,7 +40,7 @@ export function init({components, component}) {
     elementToComponent("OrderedList", "ol");
     elementToComponent("ListItem", "li");
 
-    component({anme: "Link", positionals: ["source"]}, function(props, children) {
+    component({name: "Link", positionals: ["source"]}, function(props, children) {
         props.attributes ||= {};
         props.attributes["src"] = props.source || "javascript:void(0);";
 
