@@ -79,6 +79,9 @@ export function init({components, component}) {
         return components.IconButton(props) (...children);
     });
 
+    elementToComponent("Menu", "aui-menu");
+    elementToComponent("MenuButton", "button");
+
     elementToComponent("PageMenu", "aside");
 
     component({name: "PageMenuButton"}, function(props, children) {
