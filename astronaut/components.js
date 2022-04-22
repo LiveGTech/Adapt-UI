@@ -42,7 +42,7 @@ export function init({components, component}) {
 
     component({name: "Link", positionals: ["source"]}, function(props, children) {
         props.attributes ||= {};
-        props.attributes["src"] = props.source || "javascript:void(0);";
+        props.attributes["href"] = props.source || "javascript:void(0);";
 
         return components.ElementNode("a", props) (children);
     });
