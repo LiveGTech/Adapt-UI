@@ -40,6 +40,13 @@ export function init({components, component}) {
     elementToComponent("OrderedList", "ol");
     elementToComponent("ListItem", "li");
 
+    component({anme: "Link", positionals: ["source"]}, function(props, children) {
+        props.attributes ||= {};
+        props.attributes["src"] = props.source || "javascript:void(0);";
+
+        return components.ElementNode("a", props) (children);
+    });
+
     component({name: "Screen", positionals: ["showing"]}, function(props, children) {
         if (!props.showing) {
             props.attributes ||= {};
@@ -189,15 +196,24 @@ export function init({components, component}) {
             props.attributes["src"] = props.source;
             props.attributes["alt"] = props.alt || "";
 
-        return components.ElementNode("img", props) (children);
+        return components.ElementNode("img", props) (...children);
     });
 
     component({name: "Icon", positionals: ["icon", "type"]}, function(props, children) {
-        props.attributes = {
-            "aui-icon": props.type || "dark",
-            "aria-hidden": true
-        };
+        props.attributes ||= {};
+        props.attributes["aui-icon"] = props.type || "dark";
+        props.attributes["aria-hidden"] = true;
 
         return components.Image({...props, source: `${parentPath}/../icons/${props.icon}.svg`}) (...children);
+    });
+
+    elementToComponent("Cards", "aui-cards", {}, {mode: "aui-mode"});
+    elementToComponent("Card", "aui-card");
+
+    component({name: "CardBackgroundImage", positionals: ["source"]}, function(props, children) {
+        props.attributes ||= {};
+        props.attributes["aui-mode"] = "background";
+
+        return components.Image(props) (...children);
     });
 }
