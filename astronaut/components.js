@@ -216,4 +216,6 @@ export function init({components, component}) {
 
         return components.Image(props) (...children);
     });
+
+    elementToComponent("BrandWordmark", "aui-wordmark", {}, {mode: "aui-mode"});
 }

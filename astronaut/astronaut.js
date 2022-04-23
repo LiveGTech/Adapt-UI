@@ -187,6 +187,12 @@ components.ElementNode = function(name, options = {}) {
         element.setAttribute(attribute, attributes[attribute]);
     });
 
+    var styles = _options.styles || {};
+
+    Object.keys(styles).forEach(function(style) {
+        element.setStyle(style, styles[style]);
+    });
+
     return function() {
         if (Array.isArray(arguments[0])) {
             element.add(...arguments[0]);
