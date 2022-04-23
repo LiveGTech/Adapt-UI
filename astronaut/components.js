@@ -191,7 +191,7 @@ export function init({components, component}) {
         value: "value"
     });
 
-    component({name: "Image", positionals: ["source"]}, function(props, children) {
+    component({name: "Image", positionals: ["source", "alt"]}, function(props, children) {
             props.attributes ||= {};
             props.attributes["src"] = props.source;
             props.attributes["alt"] = props.alt || "";
@@ -217,5 +217,14 @@ export function init({components, component}) {
         return components.Image(props) (...children);
     });
 
-    elementToComponent("BrandWordmark", "aui-wordmark", {}, {mode: "aui-mode"});
+    component({name: "BrandWordmark", positionals: ["alt", "logoSource", "mode"]}, function(props, children) {
+        props.attributes ||= {};
+        props.attributes["aui-mode"] = props.mode || "";
+        props.attributes["aria-label"] = props.alt || "";
+
+        return components.ElementNode("aui-wordmark", props) (
+            Image(props.logoSource || "https://liveg.tech/logo.png") (),
+            ...children
+        );
+    });
 }
