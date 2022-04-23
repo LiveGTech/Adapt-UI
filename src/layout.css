@@ -112,6 +112,8 @@ aui-screen {
     left: 0;
     width: 100%;
     height: 100%;
+    background-color: var(--primaryBackground);
+    color: var(--primaryText);
 }
 
 [dir="rtl"] aui-screen {
