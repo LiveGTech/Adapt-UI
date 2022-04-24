@@ -612,6 +612,29 @@ dialog aui-buttons button:not(header button):not(aside button) {
     margin-bottom: 0;
 }
 
+aui-message {
+    display: block;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+}
+
+aui-message :is(h1, h2, h3, h4, h5, h6, p, img[aui-icon]) {
+    opacity: 0.6;
+    margin-top: 0.2rem;
+    margin-bottom: 0.2rem;
+}
+
+aui-message img[aui-icon] {
+    height: 4rem;
+}
+
+aui-message aui-buttons {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    justify-content: center;
+}
+
 span[aui-mode="grow"] {
     flex-grow: 1;
 }
