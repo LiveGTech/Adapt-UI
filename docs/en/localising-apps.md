@@ -134,12 +134,12 @@ For component properties, `_` works the same way, too:
 ```javascript
 // Unlocalised
 astronaut.render(
-    Input({placeholder: "Enter your name"})
+    Input({placeholder: "Enter your name"}) ()
 );
 
 // Localised
 astronaut.render(
-    Input({placeholder: _("enterName")})
+    Input({placeholder: _("enterName")}) ()
 );
 ```
 
