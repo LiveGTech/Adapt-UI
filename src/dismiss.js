@@ -21,6 +21,11 @@ export const directions = {
     HORIZONTAL: 8 // Both left and right
 };
 
+export const effects = {
+    NONE: 0,
+    OPACITY: 1
+};
+
 export function isHorizontal(direction) {
     return [directions.LEFT, directions.RIGHT, directions.START, directions.END, directions.HORIZONTAL].includes(direction);
 }
@@ -55,7 +60,7 @@ export function isWithinConstraints(position, direction = directions.HORIZONTAL,
     }
 }
 
-export function swipeToDismiss(element, direction = directions.HORIZONTAL, minimumDistance = DEFAULT_MINIMUM_DISTANCE, textDirection = undefined) {
+export function swipeToDismiss(element, direction = directions.HORIZONTAL, minimumDistance = DEFAULT_MINIMUM_DISTANCE, effect = effects.OPACITY, textDirection = undefined) {
     var initialTouch = 0;
     var touchIsDown = false;
     var position = 0;
@@ -84,6 +89,7 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
         }
 
         var deltaTouch = touch - initialTouch;
+        var displacementPercentage = Math.abs(position) / (isHorizontal(direction) ? element.clientWidth : element.clientHeight);
 
         if (isWithinConstraints(deltaTouch, direction, textDirection) && Math.abs(deltaTouch) >= minimumDistance) {
             position = deltaTouch;
@@ -97,9 +103,11 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
             element.style.top = `${position}px`;
         }
 
-        if (Math.abs(position) >= (isHorizontal(direction) ? element.clientWidth : element.clientHeight) * ACTIVATION_DISTANCE_PERCENTAGE) {
-            reachedThreshold = true;
+        if (effect == effects.OPACITY) {
+            element.style.opacity = Math.max(1 - (displacementPercentage / ACTIVATION_DISTANCE_PERCENTAGE), 0);
         }
+
+        reachedThreshold = displacementPercentage >= ACTIVATION_DISTANCE_PERCENTAGE;
     }
 
     function touchEndEvent() {
@@ -119,6 +127,7 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
 
         returnInterval = setInterval(function() {
             var target = hasActivated ? (isHorizontal(direction) ? element.clientWidth : element.clientHeight) : 0;
+            var displacementPercentage = Math.abs(position) / (isHorizontal(direction) ? element.clientWidth : element.clientHeight);
 
             if (position < 0) {
                 target *= -1;
@@ -138,6 +147,10 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
                 element.style.left = `${position}px`;
             } else {
                 element.style.top = `${position}px`;
+            }
+
+            if (effect == effects.OPACITY) {
+                element.style.opacity = Math.max(1 - (displacementPercentage / ACTIVATION_DISTANCE_PERCENTAGE), 0);
             }
         }, 10);
     }
