@@ -27,8 +27,8 @@ As you can see, we already have a source string called `helloWorld` which is tra
 * **`localeCode`:** Defines what locale code the locale resource is for.
 * **`metadata`:** Defines the properties of the given locale.
 * **`metadata.name`:** The full name of the locale (usually including the locale's country or region variant, if any).
-* **`metadata.nameShort`**: the short name of the locale (usually excluding the locale's country or region variant, if any).
-* **`metadata.textDirection`**: The direction that the translated text should be displayed in, such as left-to-right (`ltr`) for most languages, and right-to-left (`rtl`) for some Middle-Eastern langauges.
+* **`metadata.nameShort`:** the short name of the locale (usually excluding the locale's country or region variant, if any).
+* **`metadata.textDirection`:** The direction that the translated text should be displayed in, such as left-to-right (`ltr`) for most languages, and right-to-left (`rtl`) for some Middle-Eastern langauges.
 
 ## Using the `l10n` module to enable l10n
 So, we've created a locale resource file, but we need to tell the `l10n` module to retrieve the resource for use in l10n.
@@ -134,12 +134,12 @@ For component properties, `_` works the same way, too:
 ```javascript
 // Unlocalised
 astronaut.render(
-    Input({placeholder: "Enter your name"})
+    Input({placeholder: "Enter your name"}) ()
 );
 
 // Localised
 astronaut.render(
-    Input({placeholder: _("enterName")})
+    Input({placeholder: _("enterName")}) ()
 );
 ```
 
