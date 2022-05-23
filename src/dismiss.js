@@ -128,6 +128,13 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
 
         clearInterval(returnInterval);
 
+        var event = new Event("dismissreturn", {cancelable: true});
+        var hasEndedReturn = false;
+
+        if (!element.dispatchEvent(event)) {
+            return;
+        }
+
         returnInterval = setInterval(function() {
             var target = hasActivated ? (isHorizontal(direction) ? element.clientWidth : element.clientHeight) : 0;
 
@@ -139,6 +146,7 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
 
             if (Math.abs(change) < 2) {
                 position = target;
+                hasEndedReturn = true;
 
                 clearInterval(returnInterval);
             } else {
@@ -153,6 +161,10 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
 
             if (effect == effects.OPACITY) {
                 element.style.opacity = Math.max(1 - (getDisplacementPercentage() / ACTIVATION_DISTANCE_PERCENTAGE), 0);
+            }
+
+            if (hasEndedReturn) {
+                element.dispatchEvent(new Event("dismissreturnend"));
             }
         }, 10);
     }
