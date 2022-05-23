@@ -68,6 +68,10 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
     var reachedThreshold = false;
     var hasActivated = false;
 
+    function getDisplacementPercentage() {
+        return Math.abs(position) / (isHorizontal(direction) ? element.clientWidth : element.clientHeight);
+    }
+
     function touchStartEvent(touch) {
         var event = new Event("dismissintent", {cancelable: true});
 
@@ -89,7 +93,6 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
         }
 
         var deltaTouch = touch - initialTouch;
-        var displacementPercentage = Math.abs(position) / (isHorizontal(direction) ? element.clientWidth : element.clientHeight);
 
         if (isWithinConstraints(deltaTouch, direction, textDirection) && Math.abs(deltaTouch) >= minimumDistance) {
             position = deltaTouch;
@@ -104,10 +107,10 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
         }
 
         if (effect == effects.OPACITY) {
-            element.style.opacity = Math.max(1 - (displacementPercentage / ACTIVATION_DISTANCE_PERCENTAGE), 0);
+            element.style.opacity = Math.max(1 - (getDisplacementPercentage() / ACTIVATION_DISTANCE_PERCENTAGE), 0);
         }
 
-        reachedThreshold = displacementPercentage >= ACTIVATION_DISTANCE_PERCENTAGE;
+        reachedThreshold = getDisplacementPercentage() >= ACTIVATION_DISTANCE_PERCENTAGE;
     }
 
     function touchEndEvent() {
@@ -127,7 +130,6 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
 
         returnInterval = setInterval(function() {
             var target = hasActivated ? (isHorizontal(direction) ? element.clientWidth : element.clientHeight) : 0;
-            var displacementPercentage = Math.abs(position) / (isHorizontal(direction) ? element.clientWidth : element.clientHeight);
 
             if (position < 0) {
                 target *= -1;
@@ -150,7 +152,7 @@ export function swipeToDismiss(element, direction = directions.HORIZONTAL, minim
             }
 
             if (effect == effects.OPACITY) {
-                element.style.opacity = Math.max(1 - (displacementPercentage / ACTIVATION_DISTANCE_PERCENTAGE), 0);
+                element.style.opacity = Math.max(1 - (getDisplacementPercentage() / ACTIVATION_DISTANCE_PERCENTAGE), 0);
             }
         }, 10);
     }
