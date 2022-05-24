@@ -15,6 +15,12 @@ import * as dismiss from "./dismiss.js";
 
 export function applyBackdrop(root = document) {
     root.querySelectorAll("aside, aui-menu").forEach(function(element) {
+        if (!!element._aui_appliedBackdrop) {
+            return;
+        }
+
+        element._aui_appliedBackdrop = true;
+
         var backdrop = document.createElement("aui-backdrop");
     
         backdrop.hidden = true;
@@ -36,6 +42,12 @@ export function applyBackdrop(root = document) {
 
 export function applyAsides(root = document) {
     root.querySelectorAll("aside").forEach(function(element) {
+        if (!!element._aui_appliedAsides) {
+            return;
+        }
+
+        element._aui_appliedAsides = true;
+
         element.addEventListener("keydown", function(event) {
             if (event.key == "Escape") {
                 aside.close(element);
@@ -48,6 +60,12 @@ export function applyAsides(root = document) {
 
 export function applyDialogs(root = document) {
     root.querySelectorAll("dialog").forEach(function(element) {
+        if (!!element._aui_appliedDialogs) {
+            return;
+        }
+
+        element._aui_appliedDialogs = true;
+
         dialogPolyfill.registerDialog(element);
 
         element.setAttribute("aui-mode", "hidden");
@@ -64,6 +82,12 @@ export function applyDialogs(root = document) {
 
 export function applyCards(root = document) {
     root.querySelectorAll("aui-card").forEach(function(element) {
+        if (!!element._aui_appliedCards) {
+            return;
+        }
+
+        element._aui_appliedCards = true;
+
         var linkElements = element.querySelectorAll("a");
 
         if (linkElements.length > 0) {
@@ -78,6 +102,12 @@ export function applyCards(root = document) {
 
 export function applyMenus(root = document) {
     root.querySelectorAll("aui-menu").forEach(function(element) {
+        if (!!element._aui_appliedMenus) {
+            return;
+        }
+
+        element._aui_appliedMenus = true;
+
         element.addEventListener("keydown", function(event) {
             if (event.key == "Escape") {
                 event.preventDefault();
@@ -88,6 +118,12 @@ export function applyMenus(root = document) {
     });
 
     root.querySelectorAll("aui-menu button").forEach(function(element) {
+        if (!!element._aui_appliedMenus) {
+            return;
+        }
+
+        element._aui_appliedMenus = true;
+
         element.addEventListener("click", function() {
             menus.close(element.closest("aui-menu"));
         });
@@ -96,6 +132,12 @@ export function applyMenus(root = document) {
 
 export function applyDismissables(root = document) {
     root.querySelectorAll("[aui-dismissables]").forEach(function(element) {
+        if (!!element._aui_appliedDismissables) {
+            return;
+        }
+
+        element._aui_appliedDismissables = true;
+
         element.querySelectorAll(":scope > *").forEach(function(childElement) {
             dismiss.swipeToDismiss(childElement, {
                 "up": dismiss.directions.UP,
@@ -113,6 +155,12 @@ export function applyDismissables(root = document) {
 
 export function applyBindings(root = document) {
     root.querySelectorAll("[aui-bind]").forEach(function(element) {
+        if (!!element._aui_appliedBindings) {
+            return;
+        }
+
+        element._aui_appliedBindings = true;
+
         var binding = element.getAttribute("aui-bind").toLowerCase();
         var action = function() {};
 
