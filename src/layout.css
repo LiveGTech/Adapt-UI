@@ -774,3 +774,10 @@ span[aui-mode="grow"] {
         display: none!important;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    details summary::before {
+        background: url("../icons/dropdown-dark.svg") center no-repeat;
+        background-size: contain;
+    }
+}
