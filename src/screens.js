@@ -13,6 +13,7 @@ import * as animations from "./animations.js";
 const dummySourceElement = document.createElement("aui-screen");
 
 export var navigationStack = [];
+export var navigating = false;
 
 export function back(destinationElement) {
     var backdrop = document.createElement("aui-backdrop");
@@ -21,6 +22,12 @@ export function back(destinationElement) {
     if (sourceElement == destinationElement) {
         return Promise.resolve();
     }
+
+    if (navigating) {
+        return Promise.resolve();
+    }
+
+    navigating = true;
 
     backdrop.setAttribute("aui-for", "main");
 
@@ -57,6 +64,7 @@ export function back(destinationElement) {
         animations.easingFunctions.EASE_IN
     ).then(function() {
         sourceElement.hidden = true;
+        navigating = false;
 
         backdrop.remove();
 
@@ -71,6 +79,12 @@ export function forward(destinationElement) {
     if (sourceElement == destinationElement) {
         return Promise.resolve();
     }
+
+    if (navigating) {
+        return Promise.resolve();
+    }
+
+    navigating = true;
 
     backdrop.setAttribute("aui-for", "main");
 
@@ -105,6 +119,7 @@ export function forward(destinationElement) {
         animations.easingFunctions.EASE_OUT
     ).then(function() {
         sourceElement.hidden = true;
+        navigating = false;
 
         backdrop.remove();
 
@@ -119,8 +134,15 @@ export function jump(destinationElement) {
         return Promise.resolve();
     }
 
+    if (navigating) {
+        return Promise.resolve();
+    }
+
+    navigating = true;
+
     sourceElement.hidden = true;
     destinationElement.hidden = false;
+    navigating = false;
 
     return Promise.resolve();
 }
@@ -132,6 +154,12 @@ export function fade(destinationElement) {
         return Promise.resolve();
     }
 
+    if (navigating) {
+        return Promise.resolve();
+    }
+
+    navigating = true;
+
     destinationElement.style.zIndex = `1`;
     destinationElement.style.opacity = `0`;
     destinationElement.hidden = false;
@@ -141,6 +169,7 @@ export function fade(destinationElement) {
 
     return animations.fadeIn(destinationElement, 500).then(function() {
         sourceElement.hidden = true;
+        navigating = false;
 
         return Promise.resolve();
     });
