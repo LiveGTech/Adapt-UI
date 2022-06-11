@@ -7,7 +7,7 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
-export const FOCUSABLES = "button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled), [href]:not(:disabled), [tabindex]:not([tabindex=\"-1\"]):not(:disabled)";
+export const FOCUSABLES = "button:not(:disabled), input:not(:disabled), select:not(:disabled), textarea:not(:disabled), summary:not(:disabled), [href]:not(:disabled), [tabindex]:not([tabindex=\"-1\"]):not(:disabled)";
 
 export var focusStack = [];
 export var focusTrap = null;
@@ -19,7 +19,14 @@ export function startTrappingFocus() {
             return;
         }
 
-        var focusableChildren = [...focusTrap.querySelectorAll(FOCUSABLES)];
+        var focusableChildren = [...focusTrap.querySelectorAll(FOCUSABLES)].filter(function(element) {
+            if (element.matches("details:not([open]) *:not(summary)")) {
+                return false;
+            }
+
+            return true;
+        });
+
         var currentFocusedIndex = focusableChildren.findIndex((child) => child == document.activeElement);
 
         if ((event.key == "Tab" && event.shiftKey) || (focusTrapAllowArrowKeys && event.key == "ArrowUp")) {
@@ -27,7 +34,7 @@ export function startTrappingFocus() {
                 return;
             }
 
-            if (currentFocusedIndex == 0) {
+            if (currentFocusedIndex == 0 || currentFocusedIndex == -1) {
                 focusableChildren[focusableChildren.length - 1].focus();
 
                 event.preventDefault();
@@ -39,7 +46,7 @@ export function startTrappingFocus() {
                 return;
             }
 
-            if (currentFocusedIndex == focusableChildren.length - 1) {
+            if (currentFocusedIndex == focusableChildren.length - 1 || currentFocusedIndex == -1) {
                 focusableChildren[0].focus();
 
                 event.preventDefault();
