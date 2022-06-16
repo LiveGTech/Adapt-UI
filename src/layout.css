@@ -61,6 +61,10 @@ p {
     cursor: default;
 }
 
+sup, sub {
+    font-size: small;
+}
+
 pre {
     margin: -0.5rem;
     padding: 0.5rem;
