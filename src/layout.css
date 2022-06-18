@@ -716,6 +716,10 @@ span[aui-mode="grow"] {
     aside[aui-mode="hideOnDesktop"] {
         display: none!important;
     }
+
+    [aui-display="nonFull"] {
+        display: none!important;
+    }
 }
 
 @media (max-width: 800px) {
