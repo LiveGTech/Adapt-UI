@@ -14,7 +14,7 @@ export function init({components, component}) {
 
     function elementToComponent(name, element, elementProps = {}, propAttributes = {}) {
         component({name, positionals: Object.keys(propAttributes)}, function(props, children) {
-            props.attributes ||= {};
+            props.attributes ||= elementProps.attributes || {};
 
             Object.keys(propAttributes).forEach(function(prop) {
                 if (props[prop]) {
