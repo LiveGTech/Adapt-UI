@@ -749,6 +749,10 @@ span[aui-mode="grow"] {
     [aui-stack] {
         display: block;
     }
+
+    [aui-display="full"] {
+        display: none!important;
+    }
 }
 
 @media (min-width: 601px) {
