@@ -27,6 +27,9 @@ export function init({components, component}) {
     }
 
     elementToComponent("Paragraph", "p");
+    elementToComponent("TextFragment", "span");
+    elementToComponent("BoldTextFragment", "strong");
+    elementToComponent("EmphasisTextFragment", "em");
 
     component({name: "Heading", default: {level: 1}, positionals: ["level"]}, function(props, children) {
         if (![1, 2, 3, 4, 5, 6].includes(props.level)) {
@@ -158,6 +161,8 @@ export function init({components, component}) {
             ...children
         );
     });
+
+    elementToComponent("ListButton", "button", {attributes: {"aui-listitem": true}});
 
     component("Label", function(props, children) {
         var id = props.id || `astronaut_${core.generateKey()}`;
