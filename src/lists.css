@@ -32,8 +32,12 @@ button[aui-listitem] img {
     width: 2.5rem;
     height: 2.5rem;
     margin-inline-end: 0.5rem;
-    float: inline-start;
+    float: left;
     object-fit: contain;
+}
+
+[dir="rtl"] button[aui-listitem] img {
+    float: right;
 }
 
 aui-cards[aui-mode="grid"] {
