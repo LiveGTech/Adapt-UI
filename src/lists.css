@@ -28,6 +28,14 @@ section > button[aui-listitem] {
     margin-right: -0.5rem;
 }
 
+button[aui-listitem] img {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-inline-end: 0.5rem;
+    float: inline-start;
+    object-fit: contain;
+}
+
 aui-cards[aui-mode="grid"] {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(16rem, 1fr));
