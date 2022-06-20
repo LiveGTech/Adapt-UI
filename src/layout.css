@@ -73,7 +73,7 @@ pre {
     overflow: auto;
 }
 
-code {
+pre, pre *, code, code * {
     cursor: text;
     user-select: text;
 }
