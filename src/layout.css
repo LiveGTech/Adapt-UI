@@ -558,6 +558,25 @@ dialog h1 {
     font-weight: bold;
 }
 
+dt {
+    display: inline-block;
+    width: 10rem;
+    margin-inline-end: 0.5rem;
+    vertical-align: top;
+    font-weight: bold;
+}
+
+dd {
+    display: inline-block;
+    width: calc(100% - 11rem);
+    margin: 0;
+    vertical-align: top;
+}
+
+dd pre {
+    margin: 0;
+}
+
 aui-backdrop {
     position: fixed;
     top: 0;
@@ -784,6 +803,21 @@ span[aui-mode="grow"] {
 
     [aui-display="desktop"] {
         display: none!important;
+    }
+}
+
+@media (max-width: 500px) {
+    dt {
+        display: block;
+        width: 100%;
+        margin: 0;
+        margin-top: 0.5rem;
+    }
+
+    dd {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
     }
 }
 

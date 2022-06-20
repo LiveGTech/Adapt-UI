@@ -146,6 +146,17 @@ export function init({components, component}) {
     elementToComponent("Separator", "hr");
     elementToComponent("LineBreak", "br");
 
+    elementToComponent("PropertyList", "dl");
+    elementToComponent("PropertyName", "dt");
+    elementToComponent("PropertyValue", "dd");
+
+    component("Property", function(props, children) {
+        return components.Container(props) (
+            components.PropertyName() (children[0]),
+            components.PropertyValue() (...children.slice(1))
+        );
+    });
+
     elementToComponent("Button", "button", {}, {"mode": "aui-mode"});
     elementToComponent("NavigationalButton", "button", {attributes: {"aui-mode": "navigational"}});
 
