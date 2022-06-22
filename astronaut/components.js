@@ -177,6 +177,7 @@ export function init({components, component}) {
     });
 
     elementToComponent("ListButton", "button", {attributes: {"aui-listitem": true}});
+    elementToComponent("IconListButton", "button", {attributes: {"aui-listitem": "icon"}});
 
     component("Label", function(props, children) {
         var id = props.id || `astronaut_${core.generateKey()}`;

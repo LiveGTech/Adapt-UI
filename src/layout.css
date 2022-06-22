@@ -325,6 +325,10 @@ aside details {
     padding-inline-start: 0.5rem;
 }
 
+aside details summary {
+    padding-inline-end: 0.5rem;
+}
+
 aside details button {
     width: calc(100% - 0.5rem);
     margin-inline-start: 0.5rem;
@@ -473,13 +477,16 @@ details {
 }
 
 details summary {
+    display: flex;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     list-style: none;
+    word-break: break-word;
 }
 
 details summary::before {
     display: inline-block;
+    flex-shrink: 0;
     width: 1.5rem;
     height: 1.5rem;
     margin-inline-end: 0.2rem;
