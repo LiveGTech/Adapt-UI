@@ -182,10 +182,26 @@ export function init({components, component}) {
     component("Label", function(props, children) {
         var id = props.id || `astronaut_${core.generateKey()}`;
 
+        if (children[0]?.is("input")) { // Such as checkboxes and radio buttons
+            children[0].setAttribute("id", id);
+
+            return components.Container() (
+                children[0],
+                components.ElementNode("label", {attributes: {
+                    "for": id,
+                    "aui-mode": children[0].is("[role='switch']") ? "switch" : null
+                }, ...props}) (children[1] || undefined),
+                ...children.slice(2)
+            )
+        }
+
         children[1]?.setAttribute("id", id);
 
         return components.Container() (
-            components.ElementNode("label", {attributes: {for: id}, ...props}) (children[0]),
+            components.ElementNode("label", {attributes: {
+                "for": id,
+                "aui-mode": children[1]?.is("input[role='switch']") ? "switch" : null
+            }, ...props}) (children[0] || undefined),
             ...children.slice(1)
         );
     });
@@ -197,7 +213,7 @@ export function init({components, component}) {
         value: "value"
     });
 
-    elementToComponent("NumericalInput", "input", {"type": "number"}, {
+    elementToComponent("NumericalInput", "input", {attributes: {"type": "number"}}, {
         placeholder: "placeholder",
         mode: "aui-mode",
         min: "min",
@@ -206,11 +222,29 @@ export function init({components, component}) {
         value: "value"
     });
 
-    elementToComponent("RangeSliderInput", "input", {"type": "range"}, {
+    elementToComponent("RangeSliderInput", "input", {attributes: {"type": "range"}}, {
         min: "min",
         max: "max",
         step: "step",
         value: "value"
+    });
+
+    elementToComponent("CheckboxInput", "input", {attributes: {"type": "checkbox"}}, {
+        type: "type",
+        mode: "aui-mode",
+        value: "checked"
+    });
+
+    elementToComponent("RadioButtonInput", "input", {attributes: {"type": "radio"}}, {
+        type: "type",
+        mode: "aui-mode",
+        value: "checked"
+    });
+
+    elementToComponent("SwitchInput", "input", {attributes: {"type": "checkbox", "role": "switch"}}, {
+        type: "type",
+        mode: "aui-mode",
+        value: "checked"
     });
 
     component({name: "Image", positionals: ["source", "alt"]}, function(props, children) {
