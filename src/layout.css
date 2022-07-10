@@ -129,6 +129,10 @@ aui-screen[hidden] {
     display: none;
 }
 
+body[aui-mode="web"] aui-screen {
+    overflow: auto;
+}
+
 header {
     display: flex;
     height: 2.8rem;
