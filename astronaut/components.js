@@ -93,6 +93,7 @@ export function init({components, component}) {
     });
 
     elementToComponent("NavigationBar", "nav");
+    elementToComponent("Footer", "footer");
 
     elementToComponent("Menu", "aui-menu");
     elementToComponent("MenuButton", "button");
