@@ -92,6 +92,8 @@ export function init({components, component}) {
         return components.IconButton(props) (...children);
     });
 
+    elementToComponent("NavigationBar", "nav");
+
     elementToComponent("Menu", "aui-menu");
     elementToComponent("MenuButton", "button");
 
