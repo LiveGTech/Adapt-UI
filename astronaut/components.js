@@ -276,6 +276,9 @@ export function init({components, component}) {
         return components.Image(props) (...children);
     });
 
+    elementToComponent("Dialog", "dialog");
+    elementToComponent("DialogContent", "aui-dialogcontent");
+
     component({name: "BrandWordmark", positionals: ["alt", "logoSource", "mode"]}, function(props, children) {
         props.attributes ||= {};
         props.attributes["aui-mode"] = props.mode || "";
