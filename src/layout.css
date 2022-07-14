@@ -486,6 +486,7 @@ details summary {
     padding-bottom: 0.5rem;
     list-style: none;
     word-break: break-word;
+    cursor: default;
 }
 
 details summary::before {
@@ -505,6 +506,10 @@ details summary::before {
 
 details[open] > summary::before {
     transform: rotate(180deg);
+}
+
+details summary::-webkit-details-marker {
+    display: none;
 }
 
 details[aui-mode="boxed"] {
