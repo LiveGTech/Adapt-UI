@@ -23,9 +23,11 @@ input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus-visib
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         transition: none!important;
+        animation: none!important;
     }
 
     *::backdrop {
         transition: none!important;
+        animation: none!important;
     }
 }
