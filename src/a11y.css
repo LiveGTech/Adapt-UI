@@ -16,6 +16,10 @@ input:not([type="checkbox"]):not([type="radio"]):not([type="range"]):focus-visib
     outline: none;
 }
 
+[aria-role="group"] {
+    border-radius: 0.5rem;
+}
+
 @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after {
         transition: none!important;
