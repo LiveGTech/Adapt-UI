@@ -9,6 +9,7 @@
 
 a {
     color: var(--primaryUI);
+    cursor: pointer;
 }
 
 label {

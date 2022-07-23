@@ -33,10 +33,10 @@
     font-family: var(--fontMain);
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h1 *:not(code), h2, h2 *:not(code), h3, h3 *:not(code), h4, h4 *:not(code), h5, h5 *:not(code), h6, h6 *:not(code) {
     font-family: var(--fontHeadings);
 }
 
-pre, code {
+pre, pre *, code, code * {
     font-family: var(--fontCode);
 }

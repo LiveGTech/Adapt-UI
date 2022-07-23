@@ -61,6 +61,10 @@ p {
     cursor: default;
 }
 
+sup, sub {
+    font-size: small;
+}
+
 pre {
     margin: -0.5rem;
     padding: 0.5rem;
@@ -69,7 +73,7 @@ pre {
     overflow: auto;
 }
 
-code {
+pre, pre *, code, code * {
     cursor: text;
     user-select: text;
 }
@@ -123,6 +127,10 @@ aui-screen {
 
 aui-screen[hidden] {
     display: none;
+}
+
+body[aui-mode="web"] aui-screen {
+    overflow: auto;
 }
 
 header {
@@ -321,6 +329,10 @@ aside details {
     padding-inline-start: 0.5rem;
 }
 
+aside details summary {
+    padding-inline-end: 0.5rem;
+}
+
 aside details button {
     width: calc(100% - 0.5rem);
     margin-inline-start: 0.5rem;
@@ -469,13 +481,17 @@ details {
 }
 
 details summary {
+    display: flex;
     padding-top: 0.5rem;
     padding-bottom: 0.5rem;
     list-style: none;
+    word-break: break-word;
+    cursor: default;
 }
 
 details summary::before {
     display: inline-block;
+    flex-shrink: 0;
     width: 1.5rem;
     height: 1.5rem;
     margin-inline-end: 0.2rem;
@@ -490,6 +506,10 @@ details summary::before {
 
 details[open] > summary::before {
     transform: rotate(180deg);
+}
+
+details summary::-webkit-details-marker {
+    display: none;
 }
 
 details[aui-mode="boxed"] {
@@ -552,6 +572,25 @@ dialog h1 {
     margin: 0;
     font-size: 1.2rem;
     font-weight: bold;
+}
+
+dt {
+    display: inline-block;
+    width: 10rem;
+    margin-inline-end: 0.5rem;
+    vertical-align: top;
+    font-weight: bold;
+}
+
+dd {
+    display: inline-block;
+    width: calc(100% - 11rem);
+    margin: 0;
+    vertical-align: top;
+}
+
+dd pre {
+    margin: 0;
 }
 
 aui-backdrop {
@@ -712,6 +751,10 @@ span[aui-mode="grow"] {
     aside[aui-mode="hideOnDesktop"] {
         display: none!important;
     }
+
+    [aui-display="nonFull"] {
+        display: none!important;
+    }
 }
 
 @media (max-width: 800px) {
@@ -745,6 +788,10 @@ span[aui-mode="grow"] {
     [aui-stack] {
         display: block;
     }
+
+    [aui-display="full"] {
+        display: none!important;
+    }
 }
 
 @media (min-width: 601px) {
@@ -772,5 +819,27 @@ span[aui-mode="grow"] {
 
     [aui-display="desktop"] {
         display: none!important;
+    }
+}
+
+@media (max-width: 500px) {
+    dt {
+        display: block;
+        width: 100%;
+        margin: 0;
+        margin-top: 0.5rem;
+    }
+
+    dd {
+        display: block;
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    details summary::before {
+        background: url("../icons/dropdown-dark.svg") center no-repeat;
+        background-size: contain;
     }
 }

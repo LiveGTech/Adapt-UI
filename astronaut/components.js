@@ -14,7 +14,7 @@ export function init({components, component}) {
 
     function elementToComponent(name, element, elementProps = {}, propAttributes = {}) {
         component({name, positionals: Object.keys(propAttributes)}, function(props, children) {
-            props.attributes ||= {};
+            props.attributes ||= elementProps.attributes || {};
 
             Object.keys(propAttributes).forEach(function(prop) {
                 if (props[prop]) {
@@ -27,6 +27,12 @@ export function init({components, component}) {
     }
 
     elementToComponent("Paragraph", "p");
+    elementToComponent("TextFragment", "span");
+    elementToComponent("BoldTextFragment", "strong");
+    elementToComponent("EmphasisTextFragment", "em");
+
+    elementToComponent("CodeBlock", "pre");
+    elementToComponent("CodeSnippet", "code");
 
     component({name: "Heading", default: {level: 1}, positionals: ["level"]}, function(props, children) {
         if (![1, 2, 3, 4, 5, 6].includes(props.level)) {
@@ -86,6 +92,9 @@ export function init({components, component}) {
         return components.IconButton(props) (...children);
     });
 
+    elementToComponent("NavigationBar", "nav");
+    elementToComponent("Footer", "footer");
+
     elementToComponent("Menu", "aui-menu");
     elementToComponent("MenuButton", "button");
 
@@ -143,6 +152,17 @@ export function init({components, component}) {
     elementToComponent("Separator", "hr");
     elementToComponent("LineBreak", "br");
 
+    elementToComponent("PropertyList", "dl");
+    elementToComponent("PropertyName", "dt");
+    elementToComponent("PropertyValue", "dd");
+
+    component("Property", function(props, children) {
+        return components.Container(props) (
+            components.PropertyName() (children[0]),
+            components.PropertyValue() (...children.slice(1))
+        );
+    });
+
     elementToComponent("Button", "button", {}, {"mode": "aui-mode"});
     elementToComponent("NavigationalButton", "button", {attributes: {"aui-mode": "navigational"}});
 
@@ -159,13 +179,32 @@ export function init({components, component}) {
         );
     });
 
+    elementToComponent("ListButton", "button", {attributes: {"aui-listitem": true}});
+    elementToComponent("IconListButton", "button", {attributes: {"aui-listitem": "icon"}});
+
     component("Label", function(props, children) {
         var id = props.id || `astronaut_${core.generateKey()}`;
+
+        if (children[0]?.is("input")) { // Such as checkboxes and radio buttons
+            children[0].setAttribute("id", id);
+
+            return components.Container() (
+                children[0],
+                components.ElementNode("label", {attributes: {
+                    "for": id,
+                    "aui-mode": children[0].is("[role='switch']") ? "switch" : null
+                }, ...props}) (children[1] || undefined),
+                ...children.slice(2)
+            )
+        }
 
         children[1]?.setAttribute("id", id);
 
         return components.Container() (
-            components.ElementNode("label", {attributes: {for: id}, ...props}) (children[0]),
+            components.ElementNode("label", {attributes: {
+                "for": id,
+                "aui-mode": children[1]?.is("input[role='switch']") ? "switch" : null
+            }, ...props}) (children[0] || undefined),
             ...children.slice(1)
         );
     });
@@ -177,7 +216,7 @@ export function init({components, component}) {
         value: "value"
     });
 
-    elementToComponent("NumericalInput", "input", {"type": "number"}, {
+    elementToComponent("NumericalInput", "input", {attributes: {"type": "number"}}, {
         placeholder: "placeholder",
         mode: "aui-mode",
         min: "min",
@@ -186,11 +225,29 @@ export function init({components, component}) {
         value: "value"
     });
 
-    elementToComponent("RangeSliderInput", "input", {"type": "range"}, {
+    elementToComponent("RangeSliderInput", "input", {attributes: {"type": "range"}}, {
         min: "min",
         max: "max",
         step: "step",
         value: "value"
+    });
+
+    elementToComponent("CheckboxInput", "input", {attributes: {"type": "checkbox"}}, {
+        type: "type",
+        mode: "aui-mode",
+        value: "checked"
+    });
+
+    elementToComponent("RadioButtonInput", "input", {attributes: {"type": "radio"}}, {
+        type: "type",
+        mode: "aui-mode",
+        value: "checked"
+    });
+
+    elementToComponent("SwitchInput", "input", {attributes: {"type": "checkbox", "role": "switch"}}, {
+        type: "type",
+        mode: "aui-mode",
+        value: "checked"
     });
 
     component({name: "Image", positionals: ["source", "alt"]}, function(props, children) {
@@ -218,6 +275,9 @@ export function init({components, component}) {
 
         return components.Image(props) (...children);
     });
+
+    elementToComponent("Dialog", "dialog");
+    elementToComponent("DialogContent", "aui-dialogcontent");
 
     component({name: "BrandWordmark", positionals: ["alt", "logoSource", "mode"]}, function(props, children) {
         props.attributes ||= {};

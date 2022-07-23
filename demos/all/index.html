@@ -120,7 +120,7 @@
                     </div>
                     <br>
                     <div>
-                        <input type="radio" checked="trye" name="radio" id="radio1">
+                        <input type="radio" checked="true" name="radio" id="radio1">
                         <label for="radio1">Desktop computer</label>
                     </div>
                     <div>
@@ -141,9 +141,12 @@
                         <input type="checkbox" role="switch" id="switchOff">
                     </div>
                     <br>
-                    <button aui-listitem>
-                        <strong>I'm an option</strong><br>
-                        <span>Learn more about this option</span>
+                    <button aui-listitem="icon">
+                        <img src="../../icons/star.svg" alt="" aui-icon="dark embedded">
+                        <div>
+                            <strong>I'm an option</strong><br>
+                            <span>Learn more about this option</span>
+                        </div>
                     </button>
                     <button aui-listitem>
                         <strong>I'm another option</strong><br>
@@ -153,6 +156,16 @@
                         <strong>I'm yet another option</strong><br>
                         <span>The last in this list of options</span>
                     </button>
+                </section>
+                <section>
+                    <dl>
+                        <dt>Some data readout</dt>
+                        <dd>The readout's value</dd>
+                        <dt>Another readout</dt>
+                        <dd>This time, the value is much longer and therefore needs to span multiple lines to fit it all in</dd>
+                        <dt>IP address</dt>
+                        <dd>192.168.0.0</dd>
+                    </dl>
                 </section>
             </main>
             <main hidden id="about">

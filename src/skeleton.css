@@ -80,3 +80,11 @@
         background-position-x: -20%;
     }
 }
+
+@media (prefers-color-scheme: dark) {
+    [aui-skeleton] :is(h1, h2, h3, h4, h5, h6, p, button, label, input, aui-card) {
+        background: linear-gradient(120deg, transparent 30%, rgba(100, 100, 100, 0.5) 50%, transparent 70%) var(--skeleton);
+        background-size: 200% 100%;
+        background-position-x: 180%;
+    }
+}
