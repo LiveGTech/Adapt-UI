@@ -316,6 +316,14 @@ dialog label[aui-mode="switch"] {
     min-width: unset;
 }
 
+[disabled] {
+    opacity: 0.5;
+}
+
+[inert="dependent"] {
+    opacity: 0.5;
+}
+
 @media (max-width: 1000px) {
     label, button[aui-mode="navigational"], input:not([type="checkbox"]):not([type="radio"]), select, progress {
         width: 100%;
