@@ -675,6 +675,7 @@ aui-message aui-buttons {
 }
 
 aui-dependency {
+    display: block;
     margin-inline-start: 2rem;
 }
 
