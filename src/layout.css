@@ -674,6 +674,10 @@ aui-message aui-buttons {
     justify-content: center;
 }
 
+aui-dependency {
+    margin-inline-start: 2rem;
+}
+
 span[aui-mode="grow"] {
     flex-grow: 1;
 }

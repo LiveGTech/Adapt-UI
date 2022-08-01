@@ -121,6 +121,7 @@ export function init({components, component}) {
     elementToComponent("Section", "section");
     elementToComponent("ButtonRow", "aui-buttons", {}, {"mode": "aui-mode"});
     elementToComponent("Message", "aui-message");
+    elementToComponent("Dependency", "aui-dependency");
 
     component({name: "Accordion", positionals: ["open"]}, function(props, children) {
         if (props.open) {
