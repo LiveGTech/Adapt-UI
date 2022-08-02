@@ -116,6 +116,10 @@ input[aui-mode="secondary"]:not([type="checkbox"]):not([type="radio"]), select[a
     color: var(--primaryText);
 }
 
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
 input[type="range"]:not([type="checkbox"]):not([type="radio"]) {
     -webkit-appearance: none;
     -moz-appearance: none;
