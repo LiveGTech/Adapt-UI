@@ -677,6 +677,7 @@ aui-message aui-buttons {
 aui-dependency {
     display: block;
     margin-inline-start: 2rem;
+    transition: 0.5s opacity;
 }
 
 span[aui-mode="grow"] {
