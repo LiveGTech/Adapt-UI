@@ -9,6 +9,13 @@ var mainPage = Page(true) (
         Label (
             Text("Test input"),
             Input({placeholder: "Type something here..."}) ()
+        ),
+        Label (
+            Text("Test selection input"),
+            SelectionInput({
+                options: {"option1": "Some option", "option2": "Another option", "option3": "Yet another option"},
+                value: "option2"
+            }) ()
         )
     )
 );

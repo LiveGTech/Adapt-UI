@@ -250,6 +250,34 @@ export function init({components, component}) {
         value: "checked"
     });
 
+    elementToComponent("SelectionInput", "select", {}, {
+        type: "type",
+        placeholder: "placeholder",
+        mode: "aui-mode",
+        value: "value"
+    });
+
+    component({name: "SelectionInput", positionals: ["value"]}, function(props, children) {
+        props.options ||= {};
+
+        var element = components.ElementNode("select", props) (
+            ...Object.keys(props.options).map((value) => 
+                components.ElementNode("option", {
+                    attributes: {
+                        "value": value
+                    }
+                }) ()
+                    .setText(props.options[value])
+            )
+        );
+
+        if (props.value) {
+            element.setValue(props.value);
+        }
+
+        return element;
+    });
+
     component({name: "Image", positionals: ["source", "alt"]}, function(props, children) {
             props.attributes ||= {};
             props.attributes["src"] = props.source;
