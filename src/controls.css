@@ -116,6 +116,10 @@ input[aui-mode="secondary"]:not([type="checkbox"]):not([type="radio"]), select[a
     color: var(--primaryText);
 }
 
+input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+}
+
 input[type="range"]:not([type="checkbox"]):not([type="radio"]) {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -301,6 +305,21 @@ progress::-moz-progress-bar {
     border-radius: 10px;
 }
 
+progress:not([value]), progress[value="-1"] {
+    background: linear-gradient(90deg, transparent 40%, var(--secondaryUI) 50%, transparent 60%) var(--secondaryBackground);
+    background-size: 200% 100%;
+    background-position-x: 180%;
+    animation: 2s indeterminateProgress linear infinite;
+}
+
+progress:not([value])::-webkit-progress-bar, progress[value="-1"]::-webkit-progress-bar {
+    display: none;
+}
+
+progress:not([value])::-moz-progress-bar, progress[value="-1"]::-moz-progress-bar {
+    display: none;
+}
+
 dialog label, dialog button[aui-mode="navigational"], dialog input:not([type="checkbox"]):not([type="radio"]), dialog select, dialog progress {
     width: 100%;
     min-width: unset;
@@ -314,6 +333,24 @@ dialog input[type="checkbox"]:not([role="switch"]) + label, dialog input[type="r
 dialog label[aui-mode="switch"] {
     width: calc(100% - 5rem);
     min-width: unset;
+}
+
+[disabled] {
+    opacity: 0.5;
+}
+
+[inert="dependent"] {
+    opacity: 0.5;
+}
+
+@keyframes indeterminateProgress {
+    0% {
+        background-position-x: 180%;
+    }
+
+    100% {
+        background-position-x: -20%;
+    }
 }
 
 @media (max-width: 1000px) {
