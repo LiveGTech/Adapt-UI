@@ -251,6 +251,23 @@ export function init({components, component}) {
         value: "checked"
     });
 
+    component({name: "SelectionInput", positionals: ["mode", "value"]}, function(props, children) {
+        props.attributes ||= {};
+        props.attributes["aui-mode"] = props.mode || "";
+
+        var element = components.ElementNode("select", props) (...children);
+
+        if (props.value) {
+            element.setValue(props.value);
+        }
+
+        return element;
+    });
+
+    elementToComponent("SelectionInputOption", "option", {}, {
+        value: "value"
+    });
+
     component({name: "Image", positionals: ["source", "alt"]}, function(props, children) {
             props.attributes ||= {};
             props.attributes["src"] = props.source;
