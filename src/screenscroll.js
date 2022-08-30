@@ -13,8 +13,11 @@ export const SELECT_MOTION_TOLERANCE = 20;
 
 export class ScrollableScreen {
     constructor(element) {
+        var thisScope = this;
+
         this.element = element;
 
+        this.paginator = null;
         this.initialTouchX = 0;
         this.initialTouchY = 0;
         this.lastTouchX = 0;
@@ -22,6 +25,7 @@ export class ScrollableScreen {
         this.initialScrollX = 0;
         this.lastScrollX = 0;
         this.targetScrollX = 0;
+        this.screenIndex = 0;
         this.targetInstantaneous = false;
         this.touchIsDown = false;
         this.scrolling = false;
@@ -36,6 +40,11 @@ export class ScrollableScreen {
 
         $g.sel("body").on("mouseup", (event) => this._touchEndEvent(event.target));
         $g.sel("body").on("touchend", (event) => this._touchEndEvent(event.target));
+
+        new ResizeObserver(function() {
+            thisScope.targetScrollX = thisScope.element.find(":scope > *").getAll()[thisScope.screenIndex].offsetLeft;
+            thisScope.targetInstantaneous = true;
+        }).observe(this.element.get());
 
         setInterval(() => this._targetScroll(), 10);
     }
@@ -62,6 +71,33 @@ export class ScrollableScreen {
 
     deselectScreen() {
         this.screenSelected = false;
+    }
+
+    applyPagination(paginator) {
+        var thisScope = this;
+
+        this.paginator = paginator;
+
+        paginator.clear().add(
+            ...this.element.find(":scope > *").getAll().map(function(screenElement) {
+                    var button = $g.create("button");
+
+                    button.on("click", function() {
+                        thisScope.targetScrollX = screenElement.offsetLeft;
+                    });
+
+                    return button;
+                })
+        );
+    }
+
+    updatePaginator() {
+        if (this.paginator == null) {
+            return;
+        }
+
+        this.paginator.find("button").removeAttribute("aui-selected");
+        this.paginator.find("button").getAll()[this.screenIndex].setAttribute("aui-selected", true);
     }
 
     _touchStartEvent(touchX, touchY) {
@@ -174,6 +210,14 @@ export class ScrollableScreen {
             } else {
                 this.element.get().scrollLeft += change;
             }
+
+            var i = this.element.find(":scope > *").getAll().findIndex((screen) => screen == this.closestScreen?.get());
+
+            if (i >= 0) {
+                this.screenIndex = i;
+            }
+
+            this.updatePaginator();
         }
     }
 }

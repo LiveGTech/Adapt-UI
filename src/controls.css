@@ -335,6 +335,27 @@ dialog label[aui-mode="switch"] {
     min-width: unset;
 }
 
+aui-pagination {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+    height: 1.4rem;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+aui-pagination button {
+    width: 0.8rem;
+    height: 0.8rem;
+    padding: 0!important;
+    transition: 0.2s width, 0.5s background-color, 0.5s color!important;
+}
+
+aui-pagination button[aui-selected] {
+    width: 1.6rem;
+}
+
 [disabled] {
     opacity: 0.5;
 }
