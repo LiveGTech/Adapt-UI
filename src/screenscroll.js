@@ -97,7 +97,7 @@ export class ScrollableScreen {
         }
 
         this.paginator.find("button").removeAttribute("aui-selected");
-        this.paginator.find("button").getAll()[this.screenIndex].setAttribute("aui-selected", true);
+        this.paginator.find("button").getAll()[this.screenIndex]?.setAttribute("aui-selected", true);
     }
 
     _touchStartEvent(touchX, touchY) {
