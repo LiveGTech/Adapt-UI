@@ -124,6 +124,14 @@ export function applyMenus(root = document) {
             return;
         }
 
+        if (element.hasAttribute("aui-bind") == "noClose") {
+            return;
+        }
+
+        if (element.matches("aui-pagination button")) {
+            return;
+        }
+
         element._aui_appliedMenus = true;
 
         element.addEventListener("click", function() {
@@ -193,6 +201,7 @@ export function applyBindings(root = document) {
 
             case "close":
                 action = () => dialogs.close(element.closest("dialog"));
+                break;
         }
 
         element.addEventListener("click", function() {
