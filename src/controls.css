@@ -356,6 +356,10 @@ aui-pagination button[aui-selected] {
     width: 1.6rem;
 }
 
+aui-pagination button:first-child {
+    margin-inline-start: 0.5rem;
+}
+
 [disabled] {
     opacity: 0.5;
 }
