@@ -80,14 +80,14 @@ export class ScrollableScreen {
 
         paginator.clear().add(
             ...this.element.find(":scope > *").getAll().map(function(screenElement) {
-                    var button = $g.create("button");
+                var button = $g.create("button");
 
-                    button.on("click", function() {
-                        thisScope.targetScrollX = screenElement.offsetLeft;
-                    });
+                button.on("click", function() {
+                    thisScope.targetScrollX = screenElement.offsetLeft;
+                });
 
-                    return button;
-                })
+                return button;
+            })
         );
     }
 
