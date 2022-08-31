@@ -349,6 +349,7 @@ aui-pagination button {
     width: 0.8rem;
     height: 0.8rem;
     padding: 0!important;
+    background-color: var(--scrollbar)!important;
     transition: 0.2s width, 0.5s background-color, 0.5s color!important;
 }
 
@@ -358,6 +359,10 @@ aui-pagination button[aui-selected] {
 
 aui-pagination button:first-child {
     margin-inline-start: 0.5rem;
+}
+
+html[aui-istouch="false"] aui-pagination button:hover, aui-pagination button:active {
+    background-color: var(--scrollbarPress)!important;
 }
 
 [disabled] {
