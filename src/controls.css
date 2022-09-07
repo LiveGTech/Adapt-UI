@@ -36,13 +36,13 @@ label[aui-mode="switch"] {
     vertical-align: top;
 }
 
-button:not(header button):not(aside button):not(aui-menu button), input, select, progress {
+button:not(header button):not(aside button):not(aui-menu button), aui-pagination button, input, select, progress {
     margin-top: 0.2rem;
     margin-bottom: 0.2rem;
     vertical-align: middle;
 }
 
-button:not(header button):not(aside button):not(aui-menu button) {
+button:not(header button):not(aside button):not(aui-menu button), aui-pagination button {
     margin-inline-end: 0.5rem;
     padding: 0.5rem;
     padding-left: 1rem;
@@ -333,6 +333,36 @@ dialog input[type="checkbox"]:not([role="switch"]) + label, dialog input[type="r
 dialog label[aui-mode="switch"] {
     width: calc(100% - 5rem);
     min-width: unset;
+}
+
+aui-pagination {
+    display: block;
+    max-width: 100%;
+    margin: auto;
+    height: 1.4rem;
+    text-align: center;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+aui-pagination button {
+    width: 0.8rem;
+    height: 0.8rem;
+    padding: 0!important;
+    background-color: var(--scrollbar)!important;
+    transition: 0.2s width, 0.5s background-color, 0.5s color!important;
+}
+
+aui-pagination button[aui-selected] {
+    width: 1.6rem;
+}
+
+aui-pagination button:first-child {
+    margin-inline-start: 0.5rem;
+}
+
+html[aui-istouch="false"] aui-pagination button:hover, aui-pagination button:active {
+    background-color: var(--scrollbarPress)!important;
 }
 
 [disabled] {

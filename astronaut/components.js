@@ -297,6 +297,9 @@ export function init({components, component}) {
     elementToComponent("Dialog", "dialog");
     elementToComponent("DialogContent", "aui-dialogcontent");
 
+    elementToComponent("ScrollableScreenContainer", "aui-screenscroll", {}, {mode: "aui-mode"});
+    elementToComponent("Pagination", "aui-pagination");
+
     component({name: "BrandWordmark", positionals: ["alt", "logoSource", "mode"]}, function(props, children) {
         props.attributes ||= {};
         props.attributes["aui-mode"] = props.mode || "";

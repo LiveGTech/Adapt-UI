@@ -7,11 +7,13 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
+import * as $g from "./adaptui.js";
 import * as aside from "./aside.js";
 import * as menus from "./menus.js";
 import * as screens from "./screens.js";
 import * as dialogs from "./dialogs.js";
 import * as dismiss from "./dismiss.js";
+import * as screenScroll from "./screenscroll.js";
 
 export function applyBackdrop(root = document) {
     root.querySelectorAll("aside, aui-menu").forEach(function(element) {
@@ -122,6 +124,14 @@ export function applyMenus(root = document) {
             return;
         }
 
+        if (element.hasAttribute("aui-bind") == "noClose") {
+            return;
+        }
+
+        if (element.matches("aui-pagination button")) {
+            return;
+        }
+
         element._aui_appliedMenus = true;
 
         element.addEventListener("click", function() {
@@ -153,6 +163,22 @@ export function applyDismissables(root = document) {
     });
 }
 
+export function applyScrollableScreens(root = document) {
+    root.querySelectorAll("aui-screenscroll").forEach(function(element) {
+        var scrollable = new screenScroll.ScrollableScreen($g.sel(element));
+
+        if (element.getAttribute("aui-mode") == "paginated") {
+            var paginator = document.createElement("aui-pagination");
+
+            paginator.setAttribute("aria-role", "group");
+
+            scrollable.applyPagination($g.sel(paginator));
+
+            element.parentElement.insertBefore(paginator, element.nextSibling);
+        }
+    });
+}
+
 export function applyBindings(root = document) {
     root.querySelectorAll("[aui-bind]").forEach(function(element) {
         if (!!element._aui_appliedBindings) {
@@ -175,6 +201,7 @@ export function applyBindings(root = document) {
 
             case "close":
                 action = () => dialogs.close(element.closest("dialog"));
+                break;
         }
 
         element.addEventListener("click", function() {
@@ -190,5 +217,6 @@ export function apply(root = document) {
     applyCards(root);
     applyMenus(root);
     applyDismissables(root);
+    applyScrollableScreens(root);
     applyBindings(root);
 }

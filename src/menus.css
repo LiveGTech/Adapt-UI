@@ -21,7 +21,7 @@ aui-menu {
     z-index: 3;
 }
 
-aui-menu button {
+aui-menu button:not(aui-pagination button) {
     display: block;
     width: 100%;
     max-width: 20rem;
@@ -34,10 +34,10 @@ aui-menu button {
     transition: 0.5s background-color;
 }
 
-aui-menu button[aui-selected] {
+aui-menu button[aui-selected]:not(aui-pagination button) {
     background-color: var(--secondarySelected);
 }
 
-html[aui-istouch="false"] aui-menu button:hover, aui-menu button:active {
+html[aui-istouch="false"] aui-menu button:hover:not(aui-pagination button), aui-menu button:active:not(aui-pagination button) {
     background-color: var(--secondaryPress);
 }
