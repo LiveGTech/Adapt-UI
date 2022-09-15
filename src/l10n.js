@@ -85,7 +85,7 @@ export class Locale {
             }
 
             if (translation instanceof Object) {
-                var lastRule = Object.keys(translation)[Object.keys(translation) - 1];
+                var lastRule = Object.keys(translation)[Object.keys(translation).length - 1];
 
                 translation = translation[lastRule];
             }
