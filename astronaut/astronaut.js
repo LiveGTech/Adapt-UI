@@ -181,6 +181,14 @@ components.ElementNode = function(name, options = {}) {
 
     var element = $g.create(_options.name || "div");
 
+    (_options.classes || []).forEach(function(className) {
+        element.addClass(className);
+    });
+
+    if (_options.id) {
+        element.setAttribute("id", _options.id);
+    }
+
     var attributes = _options.attributes || {};
 
     Object.keys(attributes).forEach(function(attribute) {
