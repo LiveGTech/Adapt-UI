@@ -114,6 +114,10 @@ export function sel(selector, multiReturn = false) {
         return elements;
     };
 
+    appliedOperations["items"] = function() {
+        return elements.map((element) => sel(element));
+    };
+
     appliedOperations["find"] = function(selector) {
         return sel(elements.map((element) => [...element.querySelectorAll(selector)]).flat());
     };
