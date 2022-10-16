@@ -15,7 +15,7 @@ For an input whose value is not mutually exclusive from other inputs, a [`Checkb
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 | `group` | `name` | The name of the group of `RadioButtonInput`s that are to be mutually exclusive from each other. |
 | `mode` (default: `"primary"`) | `aui-mode` | A string representing how the `RadioButtonInput` should be displayed. The value `"primary"` should be used to represent primary inputs, `"secondary"` for secondary inputs. |
 | `value` (default: `false`) | `checked` | The default value to be stored in the `RadioButtonInput` when created. |

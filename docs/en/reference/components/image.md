@@ -14,7 +14,7 @@ A graphical image/picture. Will be scaled at an appropriate width depending on t
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 | `source` | `src` | The URL string of the image to be displayed. |
 | `alt` | `alt` | The accessible description string of the `Image`. |
 

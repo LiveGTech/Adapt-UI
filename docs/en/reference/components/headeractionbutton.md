@@ -15,7 +15,7 @@ An [`IconButton`](iconbutton.md) (derived) which describes a primary action on t
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 |`alt` | `title` and `aria-label` | The accessible description string of the `HeaderActionButton`. |
 | `icon` | `src` (inside `img`; must be full icon path) | The icon to use inside the `HeaderActionButton`. |
 

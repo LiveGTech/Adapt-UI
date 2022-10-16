@@ -13,7 +13,7 @@ An [`Input`](input.md) (derived) that contains numerical data that is input by t
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 | `placeholder` (default: `""`) | `placeholder` | The text to be shown if the `NumericalInput` is empty, used as a general guide as to what data should be entered. |
 | `mode` (default: `"primary"`) | `aui-mode` | A string representing how the `NumericalInput` should be displayed. The value `"primary"` should be used to represent primary inputs, `"secondary"` for secondary inputs. |
 | `min` (default: `""`) | `min` | The minimum value allowed in the `NumericalInput`. |

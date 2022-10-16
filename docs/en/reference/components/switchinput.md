@@ -15,6 +15,6 @@ For an input that is designed to not signify that its state is automatically app
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 | `mode` (default: `"primary"`) | `aui-mode` | A string representing how the `SwitchInput` should be displayed. The value `"primary"` should be used to represent primary inputs, `"secondary"` for secondary inputs. |
 | `value` (default: `false`) | `checked` | The default value to be stored in the `SwitchInput` when created. |

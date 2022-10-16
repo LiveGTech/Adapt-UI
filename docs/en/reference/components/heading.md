@@ -19,7 +19,7 @@ A heading that is used to define key sections of a document.
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 |`level` (default: `1`) | (Tag name) | The level at which the heading represents in the document. Must be an integer between 1 and 6. |
 
 ## Accessibility

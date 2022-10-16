@@ -16,5 +16,5 @@ The `Page` that shows as default must have its `showing` property set to `true`,
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 |`showing` (default: `false`) | `hidden` (inverted) | A boolean value representing whether the `Page` should be visible and active or not. |

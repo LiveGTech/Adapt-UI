@@ -13,7 +13,7 @@ An [`Input`](input.md) (derived) that contains numerical data that is input by t
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 | `min` (default: `""`) | `min` | The minimum value allowed in the `RangeSliderInput`. |
 | `max` (default: `""`) | `max` | The maximum value allowed in the `RangeSliderInput`. |
 | `step` (default: `""`) | `step` | How much the value should increase/decrease by when being changed. |

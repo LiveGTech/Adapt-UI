@@ -14,5 +14,5 @@ A fragment of text that is used as a hyperlink to another destination, used insi
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 |`source` | `href` | The URL string to visit when the link is pressed. |

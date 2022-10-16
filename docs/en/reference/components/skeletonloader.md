@@ -14,7 +14,7 @@ A container that represents details that are to be loaded, and is designed to sh
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 |`alt` | `aria-label` | The accessible description string of the `SkeletonLoader`. An example of an appropriate description would be `"Loading contents..."`. |
 
 ## Accessibility

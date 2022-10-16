@@ -17,6 +17,6 @@ For an input that is designed to signify that its state is automatically applied
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 | `mode` (default: `"primary"`) | `aui-mode` | A string representing how the `CheckboxInput` should be displayed. The value `"primary"` should be used to represent primary inputs, `"secondary"` for secondary inputs. |
 | `value` (default: `false`) | `checked` | The default value to be stored in the `CheckboxInput` when created. |

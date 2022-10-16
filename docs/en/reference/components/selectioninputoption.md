@@ -13,5 +13,5 @@ An option for a [`SelectionInput`](selectioninput.md) that can be selected. `Sel
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 | `value` (default: `false`) | `checked` | The value key for the `SelectionInputOption`. |

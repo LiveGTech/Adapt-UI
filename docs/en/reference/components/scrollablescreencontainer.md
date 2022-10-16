@@ -17,5 +17,5 @@ A container for multiple subcontainers that can be scrolled horizontally as _scr
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 | `mode` (default: `null`) | `aui-mode` | A string representing how the `ScrollableScreenContainer` should behave. The value of `"paginated"` will automatically add a paginator component after the `ScrollableScreenContainer` that will control it. |

@@ -15,7 +15,7 @@ An [`IconButton`](iconbutton.md) (derived) which will open a [`PageMenu`](pageme
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 |`alt` | `title` and `aria-label` | The accessible description string of the `HeaderPageMenuButton`. An example of an appropriate description would be `"Open menu"`. |
 | `icon` (default: `"menu"`) | `src` (inside `img`; must be full icon path) | The icon to use inside the `HeaderPageMenuButton`. |
 

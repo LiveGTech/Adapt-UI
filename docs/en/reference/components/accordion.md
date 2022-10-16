@@ -16,5 +16,5 @@ A container that can expand and collapse to show and hide the components inside 
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 |`open` (default: `false`) | `open` | A boolean value representing whether the accordion is expanded (opened) or not. |

@@ -16,7 +16,7 @@ A fragment of text that represents a product or service name as a brand wordmark
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 | `alt` | `alt` | The accessible description string of the `BrandWordmark`. |
 | `source` (default: `"https://liveg.tech/logo.png"`) | `src` | The URL string of the logo image to be displayed. |
 | `mode` (default: `null`) | `aui-mode` | A string representing how the `ScrollableScreenContainer` should be displayed. The value of `"acronym"` will modify the style to be more appropriate to acronym wordmarks where no space is added between the logo and text. |

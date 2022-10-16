@@ -14,7 +14,7 @@ An [`Image`](image.md) (derived) that is used as the background image for a [`Ca
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
-|-|-|-|
+|---|---|---|
 | `source` | `src` | The URL string of the image to be displayed. |
 | `alt` | `alt` | The accessible description string of the `Image`. |
 
