@@ -17,7 +17,7 @@ A [`Button`](button.md) (derived) which contains an [`Icon`](icon.md).
 ## Properties
 | Astronaut property | HTML attribute | Description |
 |-|-|-|
-|`alt` | `title` and `aria-label` | The accessible description string of the `IconButton`. |
+| `alt` | `title` and `aria-label` | The accessible description string of the `IconButton`. |
 | `icon` | `src` (inside `img`; must be full icon path) | The icon to use inside the `IconButton`. |
 
 ## Accessibility

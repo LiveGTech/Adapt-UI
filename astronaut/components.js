@@ -288,7 +288,7 @@ export function init({components, component}) {
     elementToComponent("Cards", "aui-cards", {}, {mode: "aui-mode"});
     elementToComponent("Card", "aui-card");
 
-    component({name: "CardBackgroundImage", positionals: ["source"]}, function(props, children) {
+    component({name: "CardBackgroundImage", positionals: ["source", "alt"]}, function(props, children) {
         props.attributes ||= {};
         props.attributes["aui-mode"] = "background";
 
