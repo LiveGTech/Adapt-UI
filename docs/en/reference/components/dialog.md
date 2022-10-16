@@ -21,4 +21,4 @@ HTML:
 <dialog></dialog>
 ```
 
-A modal dialog that can contain texual and user interface components, and an be shown and hidden, overlaying [`Screen`s](screen.md). Should contain a [`DialogContent` component](dialogcontent.md) for scrollable textual information and user interface components.
+A modal dialog that can contain texual and user interface components, and an be shown and hidden, overlaying [`Screen`s](reference/components/screen.md). Should contain a [`DialogContent` component](dialogcontent.md) for scrollable textual information and user interface components.

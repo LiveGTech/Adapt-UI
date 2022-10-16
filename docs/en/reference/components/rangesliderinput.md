@@ -9,7 +9,7 @@ HTML:
 <input type="range" min="" max="" step="1" value="">
 ```
 
-An [`Input`](input.md) (derived) that contains numerical data that is input by the user, represented as a sliding range scale.
+An [`Input`](reference/components/input.md) (derived) that contains numerical data that is input by the user, represented as a sliding range scale.
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

@@ -9,7 +9,7 @@ HTML:
 <aui-buttons aui-mode="start"></aui-buttons>
 ```
 
-A container for multiple [`Button`s](button.md) to be shown in a row.
+A container for multiple [`Button`s](reference/components/button.md) to be shown in a row.
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

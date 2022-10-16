@@ -9,4 +9,4 @@ HTML:
 <button aui-listitem></button>
 ```
 
-A [`Button`](button.md) (derived) which acts as an interactive item in a list of `ListButton`s.
+A [`Button`](reference/components/button.md) (derived) which acts as an interactive item in a list of `ListButton`s.

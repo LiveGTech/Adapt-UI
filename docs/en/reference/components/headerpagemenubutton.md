@@ -11,7 +11,7 @@ HTML:
 </button>
 ```
 
-An [`IconButton`](iconbutton.md) (derived) which will open a [`PageMenu`](pagemenu.md) inside the parent [`Screen`](screen.md) on mobile devices. `HeaderPageMenuButton`s are intended for use as children inside [`Header`s](header.md). The `HeaderPageMenuButton` is hidden on desktop devices.
+An [`IconButton`](reference/components/iconbutton.md) (derived) which will open a [`PageMenu`](reference/components/pagemenu.md) inside the parent [`Screen`](reference/components/screen.md) on mobile devices. `HeaderPageMenuButton`s are intended for use as children inside [`Header`s](reference/components/header.md). The `HeaderPageMenuButton` is hidden on desktop devices.
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

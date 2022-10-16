@@ -13,7 +13,7 @@ HTML:
 <select></select>
 ```
 
-An [`Input`](input.md) (derived) that can contain a selected option from a list of options. The `SelectionInput` should contain [`SelectionInputOption`s](selectioninputoption.md).
+An [`Input`](reference/components/input.md) (derived) that can contain a selected option from a list of options. The `SelectionInput` should contain [`SelectionInputOption`s](reference/components/selectioninputoption.md).
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

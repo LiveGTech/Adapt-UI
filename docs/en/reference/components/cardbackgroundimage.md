@@ -10,7 +10,7 @@ HTML:
 <img src="" alt="" aui-mode="background">
 ```
 
-An [`Image`](image.md) (derived) that is used as the background image for a [`Card`](card.md). Should be used as the first child in a `Card`.
+An [`Image`](reference/components/image.md) (derived) that is used as the background image for a [`Card`](reference/components/card.md). Should be used as the first child in a `Card`.
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

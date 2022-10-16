@@ -17,4 +17,4 @@ HTML:
 </ol>
 ```
 
-A list consisting of items that are represented in a particular order. The list should contain [`ListItem`s](listitem.md).
+A list consisting of items that are represented in a particular order. The list should contain [`ListItem`s](reference/components/listitem.md).

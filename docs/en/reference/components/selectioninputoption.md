@@ -9,7 +9,7 @@ HTML:
 <option value=""></option>
 ```
 
-An option for a [`SelectionInput`](selectioninput.md) that can be selected. `SelectionInputOption`s are intended for use as children inside `SelectionInput`s.
+An option for a [`SelectionInput`](reference/components/selectioninput.md) that can be selected. `SelectionInputOption`s are intended for use as children inside `SelectionInput`s.
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

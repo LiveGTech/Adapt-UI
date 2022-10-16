@@ -13,7 +13,7 @@ HTML:
 <aui-cards aui-mode="primary"></aui-cards>
 ```
 
-A container for [`Card`](card.md) components.
+A container for [`Card`](reference/components/card.md) components.
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

@@ -14,7 +14,7 @@ A screen which covers the viewport. Each `Screen` component represents a screen 
 
 The `Screen` that shows as default must have its `showing` property set to `true`, with all other screens having a `false` `showing` value.
 
-`Screen`s typically contain [`Page`](page.md)s which contain the main contents to be shown, with the exception of [`Header`s](header.md) and [`PageMenu`s](pagemenu.md).
+`Screen`s typically contain [`Page`](reference/components/page.md)s which contain the main contents to be shown, with the exception of [`Header`s](reference/components/header.md) and [`PageMenu`s](reference/components/pagemenu.md).
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

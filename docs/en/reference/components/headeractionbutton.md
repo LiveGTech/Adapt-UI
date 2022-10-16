@@ -11,7 +11,7 @@ HTML:
 </button>
 ```
 
-An [`IconButton`](iconbutton.md) (derived) which describes a primary action on the current [`Screen`](screen.md). `HeaderActionButton`s are intended for use as children inside [`Header`s](header.md).
+An [`IconButton`](reference/components/iconbutton.md) (derived) which describes a primary action on the current [`Screen`](reference/components/screen.md). `HeaderActionButton`s are intended for use as children inside [`Header`s](reference/components/header.md).
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

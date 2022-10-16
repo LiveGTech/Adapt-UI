@@ -13,7 +13,7 @@ HTML:
 <aui-screenscroll></aui-screenscroll>
 ```
 
-A container for multiple subcontainers that can be scrolled horizontally as _screens_ (different from [`Screen`s](screen.md), but conceptually similar).
+A container for multiple subcontainers that can be scrolled horizontally as _screens_ (different from [`Screen`s](reference/components/screen.md), but conceptually similar).
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

@@ -9,7 +9,7 @@ HTML:
 <button aui-selected aui-page=""></button>
 ```
 
-A button that is intended for use as a child inside [`PageMenu`s](pagemenu.md).
+A button that is intended for use as a child inside [`PageMenu`s](reference/components/pagemenu.md).
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

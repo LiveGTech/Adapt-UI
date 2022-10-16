@@ -9,9 +9,9 @@ HTML:
 <input type="radio" name="" checked aui-mode="primary">
 ```
 
-An [`Input`](input.md) (derived) that can represent a checked or unchecked state, and whose value is mutually exclusive from other `RadioButtonInput`s in the same group (where the group name is denoted by the `group` property).
+An [`Input`](reference/components/input.md) (derived) that can represent a checked or unchecked state, and whose value is mutually exclusive from other `RadioButtonInput`s in the same group (where the group name is denoted by the `group` property).
 
-For an input whose value is not mutually exclusive from other inputs, a [`CheckboxInput`](checkboxinput.md) should be used instead (other `CheckboxInput`s in the same group will not become unchecked when a `CheckboxInput` is checked).
+For an input whose value is not mutually exclusive from other inputs, a [`CheckboxInput`](reference/components/checkboxinput.md) should be used instead (other `CheckboxInput`s in the same group will not become unchecked when a `CheckboxInput` is checked).
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

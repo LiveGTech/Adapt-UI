@@ -10,7 +10,7 @@ HTML:
 <img src="" aui-icon="dark" aria-hidden="true">
 ```
 
-A graphical icon [`Image`](image.md) (derived) that can be used as an alternative to text in [`Button`s](button.md) (with [`IconButton`s](iconbutton.md)).
+A graphical icon [`Image`](reference/components/image.md) (derived) that can be used as an alternative to text in [`Button`s](reference/components/button.md) (with [`IconButton`s](reference/components/iconbutton.md)).
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

@@ -18,4 +18,4 @@ HTML:
 </button>
 ```
 
-A [`ListButton`](listbutton.md) (derived) which is designed to contain an [`Icon`](icon.md).
+A [`ListButton`](reference/components/listbutton.md) (derived) which is designed to contain an [`Icon`](reference/components/icon.md).

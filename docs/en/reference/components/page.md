@@ -10,7 +10,7 @@ HTML:
 <main hidden></main>
 ```
 
-A page which contains the main information for a [`Screen`](screen.md). Each `Page` component represents a single page in a number of pages which can be browsed through with a [`PageMenu`](pagemenu.md). `Page`s can transition to other `Page`s as a means of sub-`Screen` navigation.
+A page which contains the main information for a [`Screen`](reference/components/screen.md). Each `Page` component represents a single page in a number of pages which can be browsed through with a [`PageMenu`](reference/components/pagemenu.md). `Page`s can transition to other `Page`s as a means of sub-`Screen` navigation.
 
 The `Page` that shows as default must have its `showing` property set to `true`, with all other `Page`s having a `false` `showing` value.
 

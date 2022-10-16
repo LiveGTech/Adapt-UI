@@ -12,7 +12,7 @@ HTML:
 </button>
 ```
 
-A [`Button`](button.md) (derived) which contains an [`Icon`](icon.md).
+A [`Button`](reference/components/button.md) (derived) which contains an [`Icon`](reference/components/icon.md).
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

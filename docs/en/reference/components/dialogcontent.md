@@ -14,4 +14,4 @@ HTML:
 <aui-dialogcontent></aui-dialogcontent>
 ```
 
-A container for scrollable textual information and user interface components inside a [`Dialog`](dialog.md). The `DialogContent` component is intended for use as a child inside a `Dialog`.
+A container for scrollable textual information and user interface components inside a [`Dialog`](reference/components/dialog.md). The `DialogContent` component is intended for use as a child inside a `Dialog`.

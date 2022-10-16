@@ -9,4 +9,4 @@ HTML:
 <section></section>
 ```
 
-An area inside a [`Page`](page.md) that can contain textual information and user interface components.
+An area inside a [`Page`](reference/components/page.md) that can contain textual information and user interface components.

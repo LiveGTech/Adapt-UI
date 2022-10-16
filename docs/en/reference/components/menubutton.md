@@ -9,4 +9,4 @@ HTML:
 <button></button>
 ```
 
-A button that is intended for use as a child inside [`Menu`s](menu.md).
+A button that is intended for use as a child inside [`Menu`s](reference/components/menu.md).

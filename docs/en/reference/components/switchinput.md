@@ -9,9 +9,9 @@ HTML:
 <input type="checkbox" role="switch" checked aui-mode="primary">
 ```
 
-An [`Input`](input.md) (derived) that can represent a checked or unchecked state, and is designed to signify that its state is automatically applied when its state changes.
+An [`Input`](reference/components/input.md) (derived) that can represent a checked or unchecked state, and is designed to signify that its state is automatically applied when its state changes.
 
-For an input that is designed to not signify that its state is automatically applied when its state changes, a [`CheckboxInput`](checkboxinput.md) should be used instead.
+For an input that is designed to not signify that its state is automatically applied when its state changes, a [`CheckboxInput`](reference/components/checkboxinput.md) should be used instead.
 
 ## Properties
 | Astronaut property | HTML attribute | Description |

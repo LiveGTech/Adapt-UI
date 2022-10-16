@@ -9,7 +9,7 @@ HTML:
 <input type="number" placeholder="" min="" max="" step="1" value="" aui-mode="primary">
 ```
 
-An [`Input`](input.md) (derived) that contains numerical data that is input by the user.
+An [`Input`](reference/components/input.md) (derived) that contains numerical data that is input by the user.
 
 ## Properties
 | Astronaut property | HTML attribute | Description |
