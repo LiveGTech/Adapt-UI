@@ -242,6 +242,7 @@ export function init({components, component}) {
     elementToComponent("RadioButtonInput", "input", {attributes: {"type": "radio"}}, {
         type: "type",
         mode: "aui-mode",
+        group: "name",
         value: "checked"
     });
 

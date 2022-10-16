@@ -7,8 +7,8 @@ HeaderActionButton({icon, alt}) ()
 HTML:
 ```html
 <button title="" aria-label="" aui-mode="action">
-    <img src="">
-</header>
+    <img src="" aui-icon="light" aria-hidden="true">
+</button>
 ```
 
 An [`IconButton`](iconbutton.md) (derived) which describes a primary action on the current [`Screen`](screen.md). `HeaderActionButton`s are intended for use as children inside [`Header`s](header.md).

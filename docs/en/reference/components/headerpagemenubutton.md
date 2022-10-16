@@ -7,8 +7,8 @@ HeaderPageMenuButton({icon: "menu", alt}) ()
 HTML:
 ```html
 <button title="" aria-label="" aui-bind="aside">
-    <img src="">
-</header>
+    <img src="" aui-icon="light" aria-hidden="true">
+</button>
 ```
 
 An [`IconButton`](iconbutton.md) (derived) which will open a [`PageMenu`](pagemenu.md) inside the parent [`Screen`](screen.md) on mobile devices. `HeaderPageMenuButton`s are intended for use as children inside [`Header`s](header.md). The `HeaderPageMenuButton` is hidden on desktop devices.

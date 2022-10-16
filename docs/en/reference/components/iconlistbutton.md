@@ -1,0 +1,21 @@
+# `IconListButton` component
+Astronaut:
+```javascript
+IconListButton() (
+    Icon() (),
+    Container() (
+        BoldTextFragment() (),
+        LineBreak() (),
+        TextFragment() ()
+    )
+)
+```
+
+HTML:
+```html
+<button aui-listitem="icon">
+    <img src="" aui-icon="dark embedded" aria-hidden="true">
+</button>
+```
+
+A [`ListButton`](listbutton.md) (derived) which is designed to contain an [`Icon`](icon.md).

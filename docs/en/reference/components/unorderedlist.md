@@ -17,4 +17,4 @@ HTML:
 </ul>
 ```
 
-A list consisting of items that are represented in no particular order (commonly known as _bullet points_). The list should contain [`ListItem`](listitem.md)s.
+A list consisting of items that are represented in no particular order (commonly known as _bullet points_). The list should contain [`ListItem`s](listitem.md).
