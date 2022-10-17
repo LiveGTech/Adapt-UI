@@ -1,5 +1,5 @@
 # Component reference index
-The component reference lists and documents all of the user interface components made available in both Adapt UI, and by extension, Astronaut. The reference gives examples for use in both Astronaut and HTML, making it easier to develop apps that use a number of advanced components.
+The component reference lists and documents all of the user interface components made available in both Adapt UI — and by extension — Astronaut. This reference gives examples for using components in both Astronaut and HTML, making it easier to develop apps that use a number of advanced components.
 
 ## Components by category
 
