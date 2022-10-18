@@ -13,3 +13,6 @@ We recommend using Adapt UI with Astronaut — our tool for building apps with j
 If you'd rather stick to developing apps using HTML, CSS and JavaScript, that's fine, too! In fact, we sometimes use this non-Astronaut combo for some projects. We provide a jQuery-like interface for easily interacting with HTML elements from JavaScript, which also integrates many of Adapt UI's enhancements (like animation and localisation).
 
 **[Read our getting started guide for Adapt UI](getting-started.md)**
+
+## Develop further
+Once you've learnt the basics, you can begin to build your own advanced apps with Adapt UI and Astronaut. You can look at the selection of — and get information on — Adapt UI components in our [component reference](reference/components/index.md).
