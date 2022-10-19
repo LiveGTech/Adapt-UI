@@ -16,3 +16,7 @@ If you'd rather stick to developing apps using HTML, CSS and JavaScript, that's 
 
 ## Develop further
 Once you've learnt the basics, you can begin to build your own advanced apps with Adapt UI and Astronaut. You can look at the selection of — and get information on — Adapt UI components in our [component reference](reference/components/index.md).
+
+We also have other guides for what you can do with Adapt UI beyond knowing the basics:
+
+* Learn how to localise your app: [Localising apps using the Adapt UI `l10n` module](localising-apps.md)
