@@ -1,8 +1,8 @@
 # `Icon` component
 Astronaut:
 ```javascript
-Image(icon, type) ()
-Image({icon, type: "dark"}) ()
+Icon(icon, type) ()
+Icon({icon, type: "dark"}) ()
 ```
 
 HTML:

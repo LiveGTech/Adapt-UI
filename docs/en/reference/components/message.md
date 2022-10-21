@@ -2,7 +2,7 @@
 Astronaut:
 ```javascript
 Message() (
-    Image() (),
+    Icon() (),
     Heading() (),
     Paragraph() (),
     Paragraph() (),
