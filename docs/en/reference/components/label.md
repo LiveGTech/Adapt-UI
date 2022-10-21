@@ -2,16 +2,16 @@
 Astronaut:
 ```javascript
 Label() (
-    Text() (),
+    Text(),
     Input() ()
 )
 Label() (
     CheckboxInput() (),
-    Text() ()
+    Text()
 )
 Label() (
     RadioButtonInput() (),
-    Text() ()
+    Text()
 )
 ```
 
