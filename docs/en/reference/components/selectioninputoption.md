@@ -14,4 +14,4 @@ An option for a [`SelectionInput`](reference/components/selectioninput.md) that 
 ## Properties
 | Astronaut property | HTML attribute | Description |
 |---|---|---|
-| `value` (default: `false`) | `checked` | The value key for the `SelectionInputOption`. |
+| `value` | `checked` | The value key for the `SelectionInputOption`. |
