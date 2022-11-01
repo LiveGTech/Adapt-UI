@@ -260,6 +260,7 @@ input[type="checkbox"][role="switch"]:checked::after {
 select {
     padding-top: 0.6rem;
     padding-bottom: 0.6rem;
+    padding-right: 1.5rem;
     background: url("../icons/dropdown.svg") no-repeat right var(--secondaryBackground);
     background-size: 1.5rem;
     border-right: 0.2rem solid transparent;
