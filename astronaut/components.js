@@ -270,9 +270,9 @@ export function init({components, component}) {
     });
 
     component({name: "Image", positionals: ["source", "alt"]}, function(props, children) {
-            props.attributes ||= {};
-            props.attributes["src"] = props.source;
-            props.attributes["alt"] = props.alt || "";
+        props.attributes ||= {};
+        props.attributes["src"] = props.source;
+        props.attributes["alt"] = props.alt || "";
 
         return components.ElementNode("img", props) (...children);
     });
