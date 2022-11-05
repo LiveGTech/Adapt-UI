@@ -8,7 +8,7 @@
 */
 
 export function parameter(parameter) {
-    return new URLSearchParams(location.search).get(parameter);
+    return decodeURIComponent(new URLSearchParams(location.search).get(parameter));
 }
 
 export function generateKey(length = 16, digits = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_") {
