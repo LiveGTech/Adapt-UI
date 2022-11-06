@@ -33,7 +33,7 @@
     font-family: var(--fontMain);
 }
 
-h1, h1 *:not(code), h2, h2 *:not(code), h3, h3 *:not(code), h4, h4 *:not(code), h5, h5 *:not(code), h6, h6 *:not(code) {
+h1, h1 *:not(code, code *), h2, h2 *:not(code, code *), h3, h3 *:not(code, code *), h4, h4 *:not(code, code *), h5, h5 *:not(code, code *), h6, h6 *:not(code, code *) {
     font-family: var(--fontHeadings);
 }
 
