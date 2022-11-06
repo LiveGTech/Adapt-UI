@@ -8,7 +8,8 @@
 */
 
 export function parameter(parameter) {
-    return decodeURIComponent(new URLSearchParams(location.search).get(parameter));
+    const searchParams = new URLSearchParams(location.search).get(parameter);
+    return typeof searchParams === 'string' ? decodeURIComponent(searchParams) : searchParams;
 }
 
 export function generateKey(length = 16, digits = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_") {
