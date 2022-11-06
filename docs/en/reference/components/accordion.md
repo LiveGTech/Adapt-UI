@@ -18,4 +18,4 @@ A container that can expand and collapse to show and hide the components inside 
 | Astronaut property | HTML attribute | Description |
 |---|---|---|
 |`open` (default: `false`) | `open` | A boolean value representing whether the accordion is expanded (opened) or not. |
-|`aui-mode` (default: `null`) | `aui-mode` | A string representing how the `Accordion` should be displayed and what type of action it represents. The value `"boxed"` should be used to represent accordions that should be styled in an enclosed box (typically used to ensure a distinction between the content in the accordion and after it), and `null` for default, non-boxed styling. |
+|`mode` (default: `null`) | `aui-mode` | A string representing how the `Accordion` should be displayed and what type of action it represents. The value `"boxed"` should be used to represent accordions that should be styled in an enclosed box (typically used to ensure a distinction between the content in the accordion and after it), and `null` for default, non-boxed styling. |
