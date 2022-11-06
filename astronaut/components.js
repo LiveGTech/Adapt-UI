@@ -129,6 +129,11 @@ export function init({components, component}) {
             props.attributes["open"] = true;
         }
 
+        if (props.mode) {
+            props.attributes ||= {};
+            props.attributes["aui-mode"] = props.mode;
+        }
+
         return components.ElementNode("details", props) (
             components.ElementNode("summary") (children[0]),
             ...children.slice(1)

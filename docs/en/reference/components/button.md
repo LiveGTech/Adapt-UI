@@ -6,7 +6,7 @@ Button({mode: "primary"}) ()
 
 HTML:
 ```html
-<button></button>
+<button aui-mode="primary"></button>
 ```
 
 A button that can perform an action when pressed.
