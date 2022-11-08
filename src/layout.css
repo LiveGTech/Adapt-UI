@@ -527,6 +527,10 @@ details[aui-mode="boxed"] p:last-child {
     margin-bottom: 0;
 }
 
+details[aui-mode="boxed"] pre {
+    margin: 0;
+}
+
 dialog {
     display: flex;
     flex-direction: column;
