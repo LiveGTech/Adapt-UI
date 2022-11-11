@@ -163,7 +163,7 @@ To allow arbitrary values to be used in translations, add arguments to strings l
 Here, we can then translate strings and substitute the arguments for values in JavaScript:
 
 ```javascript
-var name = "Charlie"; // This may be any arbitrary value, such as one read from user input
+var enteredName = "Charlie"; // This may be any arbitrary value, such as one read from user input
 
 $g.sel("#greeting").setText(_("helloName", {name: enteredName})); // -> "Hello, Charlie!"
 ```
