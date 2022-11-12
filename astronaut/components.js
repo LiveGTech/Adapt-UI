@@ -46,9 +46,17 @@ export function init({components, component}) {
     elementToComponent("OrderedList", "ol");
     elementToComponent("ListItem", "li");
 
-    component({name: "Link", positionals: ["source"]}, function(props, children) {
+    component({name: "Link", positionals: ["source", "openExternal"]}, function(props, children) {
         props.attributes ||= {};
         props.attributes["href"] = props.source || "javascript:void(0);";
+
+        if (props.openExternal) {
+            props.attributes["target"] = "_blank";
+        }
+
+        if (props.download) {
+            props.attributes["download"] = true;
+        }
 
         return components.ElementNode("a", props) (children);
     });
