@@ -2,9 +2,9 @@
 Astronaut:
 ```javascript
 PropertyList() (
-    Property(Text(), Text()),
-    Property(Text(), Text()),
-    Property(Text(), Text())
+    Property() (Text(), Text()),
+    Property() (Text(), Text()),
+    Property() (Text(), Text())
 )
 ```
 
