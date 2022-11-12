@@ -2,7 +2,7 @@
 Astronaut:
 ```javascript
 Link(source) ()
-Link({source}) ()
+Link({source: null}) ()
 ```
 
 HTML:
@@ -15,4 +15,4 @@ A fragment of text that is used as a hyperlink to another destination, used insi
 ## Properties
 | Astronaut property | HTML attribute | Description |
 |---|---|---|
-|`source` | `href` | The URL string to visit when the link is pressed. |
+|`source` (default: `null`) | `href` | The URL string to visit when the link is pressed. The value `null` will cause the link to not visit any URL when pressed (so that its action can be handled by a JavaScript event). |

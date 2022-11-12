@@ -1,7 +1,7 @@
 # `Cards` component
 Astronaut:
 ```javascript
-Cards({mode: "primary"}) (
+Cards({mode}) (
     Card() (),
     Card() (),
     Card() ()
@@ -10,7 +10,7 @@ Cards({mode: "primary"}) (
 
 HTML:
 ```html
-<aui-cards aui-mode="primary"></aui-cards>
+<aui-cards aui-mode="list"></aui-cards>
 ```
 
 A container for [`Card`](reference/components/card.md) components.
@@ -18,4 +18,4 @@ A container for [`Card`](reference/components/card.md) components.
 ## Properties
 | Astronaut property | HTML attribute | Description |
 |---|---|---|
-| `mode` (default: `"primary"`) | `aui-mode` | A string representing how the `Cards` should be displayed. The value `"primary"` should be used to represent primary cards, `"secondary"` for secondary cards. |
+| `mode` (default: `"list"`) | `aui-mode` | A string representing how the `Cards` should be displayed. The value `"list"` will display the `Card`s vertically, and `"grid"` will display them in a grid (but still vertically on mobile devices). |

@@ -291,7 +291,17 @@ export function init({components, component}) {
     });
 
     elementToComponent("Cards", "aui-cards", {}, {mode: "aui-mode"});
-    elementToComponent("Card", "aui-card");
+
+    component("Card", function(props, children) {
+        if (props.linked) {
+            props.attributes ||= {};
+            props.attributes["aui-linked"] = true;
+        }
+
+        return components.Card(props) (...children);
+    });
+
+    elementToComponent("Card", "aui-card", {}, {linked: "aui-linked"});
 
     component({name: "CardBackgroundImage", positionals: ["source", "alt"]}, function(props, children) {
         props.attributes ||= {};
