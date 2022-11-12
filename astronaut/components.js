@@ -55,7 +55,7 @@ export function init({components, component}) {
         }
 
         if (props.download) {
-            props.attributes["download"] = true;
+            props.attributes["download"] = props.download;
         }
 
         return components.ElementNode("a", props) (children);
