@@ -85,7 +85,7 @@ Let's add a UI which asks for the user's name and performs a certain action with
 var nameInput = Input() ();
 var saveButton = Button() ("Save");
 var clearButton = Button({mode: "secondary"}) ("Clear");
-var helloHeader = Header() ("Hello, world!")
+var helloHeader = Header() ("Hello, world!");
 ```
 
 Here, `Input` refers to a text input, and `Button` refers to a pressable button. The property `mode` being set to `"secondary"` will make the button be coloured in the secondary colour (to signify that the button isn't the primary action).
