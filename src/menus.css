@@ -41,3 +41,9 @@ aui-menu button[aui-selected]:not(aui-pagination button) {
 html[aui-istouch="false"] aui-menu button:hover:not(aui-pagination button), aui-menu button:active:not(aui-pagination button) {
     background-color: var(--secondaryPress);
 }
+
+aui-menu[aui-mode~="centred"] {
+    top: 50%!important;
+    left: 50%!important;
+    transform: translate(-50%, -50%);
+}

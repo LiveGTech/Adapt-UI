@@ -103,7 +103,7 @@ export function init({components, component}) {
     elementToComponent("NavigationBar", "nav");
     elementToComponent("Footer", "footer");
 
-    elementToComponent("Menu", "aui-menu");
+    elementToComponent("Menu", "aui-menu", {}, {"mode": "aui-mode"});
     elementToComponent("MenuButton", "button");
 
     elementToComponent("PageMenu", "aside");
