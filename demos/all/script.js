@@ -6,7 +6,7 @@ window.$g = $g;
 $g.waitForLoad().then(function() {
     templates.apply();
 
-    $g.sel("#openActionMenu").on("click", function() {
+    $g.sel(".openActionMenu").on("click", function() {
         $g.sel("#actionMenu").menuOpen();
     });
 

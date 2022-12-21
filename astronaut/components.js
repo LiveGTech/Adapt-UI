@@ -104,7 +104,20 @@ export function init({components, component}) {
     elementToComponent("Footer", "footer");
 
     elementToComponent("Menu", "aui-menu", {}, {"mode": "aui-mode"});
-    elementToComponent("MenuButton", "button");
+
+    component({name: "MenuButton"}, function(props, children) {
+        if (props.submenu?.hasAttribute("id")) {
+            props.attributes ||= {};
+            props.attributes["aui-submenu"] = `#${props.submenu.getAttribute("id")}`;
+        }
+
+        if (props.mode) {
+            props.attributes ||= {};
+            props.attributes["aui-mode"] = props.mode;
+        }
+
+        return components.Button(props) (...children);
+    });
 
     elementToComponent("PageMenu", "aside");
 

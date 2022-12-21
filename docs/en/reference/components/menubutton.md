@@ -1,12 +1,18 @@
 # `MenuButton` component
 Astronaut:
 ```javascript
-MenuButton() ()
+MenuButton({mode: null, submenu: null}) ()
 ```
 
 HTML:
 ```html
-<button></button>
+<button aui-mode="" aui-submenu=""></button>
 ```
 
 A button that is intended for use as a child inside [`Menu`s](reference/components/menu.md).
+
+## Properties
+| Astronaut property | HTML attribute | Description |
+|---|---|---|
+| `mode` (default: `null`) | `aui-mode` | A string representing how the `MenuButtonButton` should behave. A value containing `"persist"` will keep the `MenuButton`'s parent `Menu` open when pressed. A value containing `"pressToShowSubmenu"` will require the `MenuButton` to be pressed to show its submenu. |
+| `submenu` (default: `null`) | `aui-submenu` (`Menu` element's selector instead of Astronaut component) | The Astronaut component representing the submenu (`Menu` element) to show when pressed or hovered over, if present. No submenu will be shown if `null`. |
