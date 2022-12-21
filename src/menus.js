@@ -33,10 +33,17 @@ export function open(element, openerElement = document.activeElement, parentMenu
         if (modeOptions.includes("openSide") || openerElement.hasAttribute("aui-submenu")) {
             element.style.top = `${Math.min(openerTop, document.body.clientHeight - element.clientHeight - calc.getRemSize(0.5))}px`;
 
-            element.style.left = `${Math.min(
-                openerLeft + openerElement.clientWidth + calc.getRemSize(0.5),
-                document.body.clientWidth - element.clientWidth - calc.getRemSize(0.5)
-            )}px`;
+            if (!element.matches("[dir='rtl'] *")) {
+                element.style.left = `${Math.min(
+                    openerLeft + openerElement.clientWidth + calc.getRemSize(0.5),
+                    document.body.clientWidth - element.clientWidth - calc.getRemSize(0.5)
+                )}px`;
+            } else {
+                element.style.left = `${Math.max(
+                    openerLeft - element.clientWidth - calc.getRemSize(0.5),
+                    calc.getRemSize(0.5)
+                )}px`;
+            }
         } else {
             element.style.top = `${Math.min(
                 openerTop + openerElement.clientHeight + calc.getRemSize(0.5),
