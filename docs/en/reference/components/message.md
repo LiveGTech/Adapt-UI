@@ -17,7 +17,18 @@ Message() (
 
 HTML:
 ```html
-<aui-message></aui-message>
+<aui-message>
+    <img src aui-icon="dark" aria-hidden="true">
+    <h1></h1>
+    <p></p>
+    <p></p>
+    <p></p>
+    <aui-buttons>
+        <button></button>
+        <button></button>
+        <button></button>
+    </aui-buttons>
+</aui-message>
 ```
 
 An area inside a [`Section`](reference/components/section.md) that is designed to fill the [`Page`](reference/components/page.md) with a message. The `Message` is rendered with a lower opacity than normal text, and is intended to communicate information to a user when there content it replaces is not available (such as a list of items being empty, or that there is no connection to the internet available).
