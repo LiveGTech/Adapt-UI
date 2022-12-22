@@ -120,7 +120,7 @@ export function applyMenus(root = document) {
         });
 
         element.addEventListener("click", function(event) {
-            if (event.target.matches("button")) {
+            if (event.target.matches("button") || event.target.closest("button") != null) {
                 return;
             }
 
