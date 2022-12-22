@@ -15,6 +15,10 @@ HTML:
 ```html
 <button aui-listitem="icon">
     <img src="" aui-icon="dark embedded" aria-hidden="true">
+    <div>
+        <strong></strong><br>
+        <span></span>
+    </div>
 </button>
 ```
 

@@ -10,7 +10,11 @@ SelectionInput({mode: "primary", value: null}) (
 
 HTML:
 ```html
-<select></select>
+<select>
+    <option></option>
+    <option></option>
+    <option></option>
+</select>
 ```
 
 An [`Input`](reference/components/input.md) (derived) that can contain a selected option from a list of options. The `SelectionInput` should contain [`SelectionInputOption`s](reference/components/selectioninputoption.md).

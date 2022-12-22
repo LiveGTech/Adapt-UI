@@ -10,7 +10,11 @@ Cards({mode}) (
 
 HTML:
 ```html
-<aui-cards aui-mode="list"></aui-cards>
+<aui-cards aui-mode="list">
+    <aui-card></aui-card>
+    <aui-card></aui-card>
+    <aui-card></aui-card>
+</aui-cards>
 ```
 
 A container for [`Card`](reference/components/card.md) components.
