@@ -118,6 +118,18 @@ export function applyMenus(root = document) {
                 menus.close(element);
             }
         });
+
+        element.addEventListener("click", function(event) {
+            if (event.target.matches("button")) {
+                return;
+            }
+
+            element.querySelectorAll("button[aui-submenu]").forEach(function(buttonElement) {
+                var submenu = document.querySelector(buttonElement.getAttribute("aui-submenu"));
+        
+                menus.close(submenu, false);
+            });
+        });
     });
 
     root.querySelectorAll("aui-menu button").forEach(function(element) {

@@ -30,7 +30,7 @@ export function open(element, openerElement = document.activeElement, parentMenu
     element.style.display = "block";
 
     if (!modeOptions.includes("centred")) {
-        if (modeOptions.includes("openSide") || openerElement.hasAttribute("aui-submenu")) {
+        if (modeOptions.includes("openSide") || (openerElement.hasAttribute("aui-submenu") && !modeOptions.includes("openAligned"))) {
             element.style.top = `${Math.min(openerTop, document.body.clientHeight - element.clientHeight - calc.getRemSize(0.5))}px`;
 
             if (!element.matches("[dir='rtl'] *")) {
