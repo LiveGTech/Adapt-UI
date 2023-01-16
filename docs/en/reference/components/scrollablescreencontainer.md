@@ -10,7 +10,11 @@ ScrollableScreenContainer({mode: null}) (
 
 HTML:
 ```html
-<aui-screenscroll></aui-screenscroll>
+<aui-screenscroll aui-mode="">
+    <div></div>
+    <div></div>
+    <div></div>
+</aui-screenscroll>
 ```
 
 A container for multiple subcontainers that can be scrolled horizontally as _screens_ (different from [`Screen`s](reference/components/screen.md), but conceptually similar).

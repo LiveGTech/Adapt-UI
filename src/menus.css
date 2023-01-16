@@ -21,6 +21,12 @@ aui-menu {
     z-index: 3;
 }
 
+aui-menu[aui-mode~="centred"] {
+    top: 50%!important;
+    left: 50%!important;
+    transform: translate(-50%, -50%);
+}
+
 aui-menu button:not(aui-pagination button) {
     display: block;
     width: 100%;
@@ -40,4 +46,52 @@ aui-menu button[aui-selected]:not(aui-pagination button) {
 
 html[aui-istouch="false"] aui-menu button:hover:not(aui-pagination button), aui-menu button:active:not(aui-pagination button) {
     background-color: var(--secondaryPress);
+}
+
+/* For submenu hints, we can't supress hover effect on mobile since `[dir="rtl"]` could collide with `html[aui-istouch="false"]` */
+
+aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]) {
+    padding-inline-end: 1.5rem;
+    background: url("../icons/submenu.svg") no-repeat right var(--secondaryBackground);
+    background-size: 1.5rem;
+    border-right: 0.1rem solid transparent;
+}
+
+aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]):hover {
+    background: url("../icons/submenu.svg") no-repeat right var(--secondaryPress);
+    background-size: 1.5rem;
+}
+
+[dir="rtl"] aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]) {
+    background: url("../icons/submenu-rtl.svg") no-repeat left var(--secondaryBackground);
+    background-size: 1.5rem;
+    border-left: 0.1rem solid transparent;
+    border-right: unset;
+}
+
+[dir="rtl"] aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]):hover {
+    background: url("../icons/submenu-rtl.svg") no-repeat left var(--secondaryPress);
+    background-size: 1.5rem;
+}
+
+@media (prefers-color-scheme: dark) {
+    aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]) {
+        background: url("../icons/submenu-dark.svg") no-repeat right var(--secondaryBackground)!important;
+        background-size: 1.5rem!important;
+    }
+
+    aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]):hover {
+        background: url("../icons/submenu-dark.svg") no-repeat right var(--secondaryPress)!important;
+        background-size: 1.5rem!important;
+    }
+
+    [dir="rtl"] aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]) {
+        background: url("../icons/submenu-rtldark.svg") no-repeat left var(--secondaryBackground)!important;
+        background-size: 1.5rem!important;
+    }
+
+    [dir="rtl"] aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]):hover {
+        background: url("../icons/submenu-rtldark.svg") no-repeat left var(--secondaryPress)!important;
+        background-size: 1.5rem!important;
+    }
 }

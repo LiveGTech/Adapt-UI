@@ -1,12 +1,20 @@
 # `ButtonRow` component
 Astronaut:
 ```javascript
-ButtonRow({mode: "start"}) ()
+ButtonRow({mode: "start"}) (
+    Button() (),
+    Button() (),
+    Button() ()
+)
 ```
 
 HTML:
 ```html
-<aui-buttons aui-mode="start"></aui-buttons>
+<aui-buttons aui-mode="start">
+    <button></button>
+    <button></button>
+    <button></button>
+</aui-buttons>
 ```
 
 A container for multiple [`Button`s](reference/components/button.md) to be shown in a row.

@@ -18,7 +18,16 @@ Label() (
 HTML:
 ```html
 <div>
-    <label for=""></label>
+    <label for></label>
+    <input id>
+</div>
+<div>
+    <label for></label>
+    <input type="checkbox" id>
+</div>
+<div>
+    <label for></label>
+    <input type="radio" id>
 </div>
 ```
 

@@ -12,7 +12,7 @@
             <header>
                 <button title="Open menu" aui-bind="aside" aria-label="Open menu"><img src="../../icons/menu.svg" alt="" aui-icon="light"></button>
                 <span>Adapt UI Demo</span>
-                <button title="Example action" aui-mode="action" aria-label="Example action" id="openActionMenu"><img src="../../icons/star.svg" alt="" aui-icon="light"></button>
+                <button title="Example action" aui-mode="action" aria-label="Example action" class="openActionMenu"><img src="../../icons/star.svg" alt="" aui-icon="light"></button>
             </header>
             <aside>
                 <p>This is a sidebar which can hold menu items such as buttons and text.</p>
@@ -75,7 +75,7 @@
                     </details>
                     <aui-buttons>
                         <button id="openDialogButton">Primary button</button>
-                        <button aui-mode="secondary">Secondary button</button>
+                        <button aui-mode="secondary" class="openActionMenu">Secondary button</button>
                     </aui-buttons>
                     <button aui-mode="navigational" id="navigateForwardButton">Go to another page</button>
                 </section>
@@ -290,7 +290,19 @@
         </dialog>
         <aui-menu id="actionMenu">
             <button>This is a menu</button>
-            <button>It can pop out of things</button>
+            <button aui-submenu="#submenu">It can pop out of things</button>
+            <button aui-submenu="#submenu2">More menus</button>
+        </aui-menu>
+        <aui-menu id="submenu">
+            <button>This is submenu</button>
+            <button aui-submenu="#submenu2">Can also open the other submenu</button>
+        </aui-menu>
+        <aui-menu id="submenu2">
+            <button>This is another submenu</button>
+            <button>It can pop out of other menus</button>
+            <button>Using a depth of 3 menus is rare</button>
+            <button>However, it is possible</button>
+            <button>Gotta get in those edge cases</button>
         </aui-menu>
     </body>
 </html>

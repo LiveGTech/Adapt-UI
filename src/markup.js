@@ -28,7 +28,8 @@ export function applyBackdrop(root = document) {
         backdrop.hidden = true;
 
         backdrop.setAttribute("aui-for", {
-            "ASIDE": "aside", "AUI-MENU": "menu"
+            "ASIDE": "aside",
+            "AUI-MENU": "menu"
         }[element.tagName] || "");
 
         backdrop.addEventListener("click", function() {
@@ -117,6 +118,18 @@ export function applyMenus(root = document) {
                 menus.close(element);
             }
         });
+
+        element.addEventListener("click", function(event) {
+            if (event.target.matches("button") || event.target.closest("button") != null) {
+                return;
+            }
+
+            element.querySelectorAll("button[aui-submenu]").forEach(function(buttonElement) {
+                var submenu = document.querySelector(buttonElement.getAttribute("aui-submenu"));
+        
+                menus.close(submenu, false);
+            });
+        });
     });
 
     root.querySelectorAll("aui-menu button").forEach(function(element) {
@@ -134,8 +147,65 @@ export function applyMenus(root = document) {
 
         element._aui_appliedMenus = true;
 
+        var modeOptions = (element.getAttribute("aui-mode") || "").split(" ");
+        var hoverEnterTimeout = null;
+
+        function performSubmenuSelection(allowOpen = true, isHover = false) {
+            element.closest("aui-menu").querySelectorAll("button[aui-submenu]").forEach(function(buttonElement) {
+                if (buttonElement == element) {
+                    return;
+                }
+
+                var submenu = document.querySelector(buttonElement.getAttribute("aui-submenu"));
+        
+                if (
+                    submenu != null &&
+                    (
+                        !isHover ||
+                        !(submenu.getAttribute("aui-mode") || "").split(" ").includes("persistHover")
+                    )
+                ) {
+                    menus.close(submenu, false);
+                }
+            });
+
+            if (allowOpen && element.hasAttribute("aui-submenu")) {
+                var submenu = document.querySelector(element.getAttribute("aui-submenu"));
+
+                if (submenu != null) {
+                    menus.open(submenu, element, element.closest("aui-menu"));
+
+                    return true; // Prevent close
+                }
+            }
+
+            return false;
+        }
+
         element.addEventListener("click", function() {
+            if (performSubmenuSelection()) {
+                return;
+            }
+
+            if (modeOptions.includes("persist")) {
+                return;
+            }
+
             menus.close(element.closest("aui-menu"));
+        });
+
+        element.addEventListener("mouseenter", function() {
+            hoverEnterTimeout = setTimeout(function() {
+                if (hoverEnterTimeout != null) {
+                    performSubmenuSelection(!modeOptions.includes("pressToShowSubmenu"), true);
+                }
+            }, 500);
+        });
+
+        element.addEventListener("mouseleave", function() {
+            clearTimeout(hoverEnterTimeout);
+
+            hoverEnterTimeout = null;
         });
     });
 }
