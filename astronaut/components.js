@@ -116,7 +116,31 @@ export function init({components, component}) {
             props.attributes["aui-mode"] = props.mode;
         }
 
+        if (props.isCheckable || props.isChecked) {
+            props.attributes ||= {};
+            props.attributes["aria-role"] = "checkbox";
+
+            if (props.isChecked) {
+                props.attributes["aria-checked"] = true;
+            }
+        }
+
         return components.Button(props) (...children);
+    });
+
+    component({name: "IconMenuButton", positionals: ["icon"]}, function(props, children) {
+        props.attributes ||= {};
+
+        props.attributes["aui-mode"] = "icon";
+
+        if (!props.icon) {
+            return components.MenuButton(props) (...children);
+        }
+
+        return components.MenuButton(props) (
+            components.Icon(props.icon, "dark embedded"),
+            ...children
+        );
     });
 
     elementToComponent("PageMenu", "aside");

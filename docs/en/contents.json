@@ -32,6 +32,7 @@
         "`Icon`": "reference/components/icon.md",
         "`IconButton`": "reference/components/iconbutton.md",
         "`IconListButton`": "reference/components/iconlistbutton.md",
+        "`IconMenuButton`": "reference/components/iconmenubutton.md",
         "`Image`": "reference/components/image.md",
         "`Input`": "reference/components/input.md",
         "`Label`": "reference/components/label.md",
