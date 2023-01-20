@@ -63,7 +63,7 @@ To add a navigation bar to our app, insert a `Header` component above the `Page`
 ```javascript
 astronaut.render(
     Screen(true) (
-        Header() (
+        Header (
             Text("My First App")
         ),
         Page(true) (
@@ -97,7 +97,7 @@ Now add a section below our current `Section` in our app, like so:
 ```javascript
 astronaut.render(
     Screen(true) (
-        Header() (
+        Header (
             Text("My First App")
         ),
         Page(true) (
@@ -140,5 +140,167 @@ clearButton.on("click", function() {
 Now try entering your name and press the **Save** button. Your name should appear in the header!
 
 > **Note:** If the syntax for adding events and setting text and input values feels familiar to you, that is because the methods under components are the same as those under `$g.sel()` and `$g.create()`.
+
+## Creating a dialog box
+Dialog boxes are useful for creating a new context in our app where the user can either view a message or enter some information. In this case, we'll make a dialog box which appears when the user doesn't enter anything into the input.
+
+Firstly, create a variable that stores a confirmation button and another that stores our dialog box:
+
+```javascript
+var nameErrorConfirmButton = Button() ("OK");
+
+var nameErrorDialog = Dialog (
+    Heading() ("No name entered"),
+    DialogContent (
+        Paragraph() ("Please enter your name into the input.")
+    ),
+    ButtonRow (
+        nameErrorConfirmButton
+    )
+);
+```
+
+We then need to make the confirmation button close the dialog when it is pressed:
+
+```javascript
+nameErrorConfirmButton.on("click", function() {
+    nameErrorDialog.dialogClose();
+});
+```
+
+Our next step is to refactor the event code of the save button to conditionally show the dialog if the name input is empty:
+
+```javascript
+saveButton.on("click", function() {
+    var name = nameInput.getValue();
+
+    if (name.trim() != "") {
+        helloHeader.setText(`Hello, ${name}!`);
+    } else {
+        nameErrorDialog.dialogOpen();
+    }
+});
+```
+
+Our final step is to include the dialog box in our app's root element so that it can be shown due to be included in the element tree. We can do this by refractoring the call to `astronaut.render`:
+
+```javascript
+astronaut.render(
+    Container (
+        Screen(true) (
+            // ...
+        ),
+        nameErrorDialog
+    )
+);
+```
+
+> **Note:** A `Container` element (an HTML `div` element) has been used to allow both the `Screen` and `Dialog` elements to coexist in the same tree. This is necessary when using multiple screens in an app since `astronaut.render` will only take one element to be used for the root in its function call (in this case, the `Container` element).
+
+## Adding a navigation menu
+Let's now add a navigation menu which will appear at the side of the app (will be hidden by default on mobile). Since we'll be referencing our current `Page` element, it is best to refactor our code to instead store it in a variable:
+
+```javascript
+var firstPage = Page(true) (
+    Section (
+        helloHeader,
+        Paragraph() ("Welcome to my first app using Astronaut and Adapt UI.")
+    ),
+    Section (
+        Container (
+            Label (
+                Text("What's your name?"),
+                nameInput
+            )
+        ),
+        LineBreak() (),
+        ButtonRow (
+            saveButton,
+            clearButton
+        )
+    )
+);
+```
+
+We can then modify our call to `astronaut.render` to use our `firstPage` variable:
+
+```javascript
+astronaut.render(
+    Container (
+        Screen(true) (
+            Header (
+                Text("My First App")
+            ),
+            firstPage
+        ),
+        nameErrorDialog
+    )
+);
+```
+
+Now create two more pages by defining the variables `secondPage` and `thirdPage` and assigning `Page` elements to them. Make sure that you add the references to those two pages in our `Screen` element, underneath `firstPage`. Additionally, the two other `Page` elements will not need to be `Page(true)` since they aren't going to be shown by default on load:
+
+```javascript
+var firstPage = Page(true) (
+    // ...
+);
+
+var secondPage = Page (
+    // ...
+);
+
+var thirdPage = Page (
+    // ...
+);
+```
+
+Ideally, we would use better variable names instead of `firstPage`, `secondPage` and `thirdPage` (for example, `feedPage` and `signInPage`), but for the purposes of this tutorial, we'll stick to these basic names. Feel free to add some content to the new `Page` elements (such as a paragraph) — ensure that both contain a `Section` element for proper layouting.
+
+Now create a `PageMenu` element just below the `Header` like so:
+
+```javascript
+astronaut.render(
+    Container (
+        Screen(true) (
+            Header (
+                // ...
+            ),
+            PageMenu (
+                PageMenuButton({page: firstPage}) ("First page"),
+                PageMenuButton() ("Second page"),
+                PageMenuButton() ("Third page")
+            )
+            firstPage,
+            secondPage,
+            thirdPage
+        )
+    ),
+    // ...
+);
+```
+
+Now that you've created the extra pages and referenced them in the `PageMenuButton` elements, you can try switching between pages when testing out your app.
+
+There is only one thing to do to make our navigation menu fully functional. On mobile, you can't open the menu yet, so we'll need to add a button which allows mobile users to open the menu.
+
+In the `Header` element, just above the `Text` element, insert this line:
+
+```javascript
+HeaderPageMenuButton({alt: "Open menu"}) ()
+```
+
+This newly-added button will:
+
+* Open the navigation menu when pressed.
+* Announce "Open menu" to assistive technologies (such as screen readers) when the button is selected, using the `alt` property. Mouse users can also hover over the button to see what it does as a tooltip will appear.
+* Have an icon inside it that visually conveys that the button is a menu.
+* Automatically hide on non-mobile devices (since it's not needed).
+
+Now that our navigation menu is fully complete, you can navigate between pages. Pages aren't quite screens, though; there's a difference:
+
+* A screen is a distinct area of your app which is part of a progressive navigation flow. It is defined by `Screen`. Screens can have their own header titles and header buttons.
+* A page is a subsection of a screen. A screen can contain one or more pages via the `Page` element. Pages can't control the header, and can only mainly be selected through a navigation menu. It is designed for lateral navigation and not progressive navigation.
+
+Screens can also be animated to transition back and fourth between different scenarios. For example, you may have a sign-in screen which then transitions to the main screen of the app. Pages don't have this navigative animatibility aside from being able to fade out and then fade in to show a different page, since they're not designed for conveying progessive navigation.
 
 <!-- TODO: Add rest of guide for Astronaut, following on from HTML version of getting started guide -->
