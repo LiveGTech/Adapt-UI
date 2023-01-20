@@ -122,6 +122,24 @@ export function sel(selector, multiReturn = false) {
         return sel(elements.map((element) => [...element.querySelectorAll(selector)]).flat());
     };
 
+    appliedOperations["where"] = function(selector) {
+        return sel(elements.filter((element) => element.matches(selector)));
+    };
+
+    appliedOperations["filter"] = function(filterFunction) {
+        return sel(elements.filter((element) => filterFunction(sel(element))));
+    };
+
+    appliedOperations["map"] = function(mapFunction) {
+        return elements.map((element, i) => mapFunction(sel(element), i));
+    };
+
+    appliedOperations["forEach"] = function(iterationFunction) {
+        elements.forEach((element, i) => iterationFunction(sel(element), i));
+
+        return sel(elements);
+    };
+
     appliedOperations["ancestor"] = function(selector) {
         return sel([...new Set(
             elements

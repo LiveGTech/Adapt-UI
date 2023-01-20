@@ -50,6 +50,7 @@ The component reference lists and documents all of the user interface components
 * [`HeaderPageMenuButton`](reference/components/headerpagemenubutton.md)
 * [`IconButton`](reference/components/iconbutton.md)
 * [`IconListButton`](reference/components/iconlistbutton.md)
+* [`IconMenuButton`](reference/components/iconmenubutton.md)
 * [`ListButton`](reference/components/listbutton.md)
 * [`MenuButton`](reference/components/menubutton.md)
 * [`NavigationalButton`](reference/components/navigationalbutton.md)

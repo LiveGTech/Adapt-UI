@@ -289,9 +289,15 @@
             </aui-buttons>
         </dialog>
         <aui-menu id="actionMenu">
-            <button>This is a menu</button>
-            <button aui-submenu="#submenu">It can pop out of things</button>
-            <button aui-submenu="#submenu2">More menus</button>
+            <button aui-mode="icon">
+                <img src="../../icons/star.svg" alt="" aui-icon="dark embedded">
+                <span>This is a menu</span>
+            </button>
+            <button aui-mode="icon" aui-submenu="#submenu">It can pop out of things</button>
+            <button aui-mode="icon" aui-submenu="#submenu2">
+                <img src="../../icons/star.svg" alt="" aui-icon="dark embedded">
+                <span>More menus</span>
+            </button>
         </aui-menu>
         <aui-menu id="submenu">
             <button>This is submenu</button>
@@ -300,9 +306,9 @@
         <aui-menu id="submenu2">
             <button>This is another submenu</button>
             <button>It can pop out of other menus</button>
-            <button>Using a depth of 3 menus is rare</button>
-            <button>However, it is possible</button>
-            <button>Gotta get in those edge cases</button>
+            <button aria-role="checkbox" aria-checked="true">Using a depth of 3 menus is rare</button>
+            <button aria-role="checkbox">However, it is possible</button>
+            <button aria-role="checkbox" aria-checked="true">Gotta get in those edge cases</button>
         </aui-menu>
     </body>
 </html>

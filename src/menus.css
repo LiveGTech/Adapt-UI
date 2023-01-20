@@ -48,6 +48,26 @@ html[aui-istouch="false"] aui-menu button:hover:not(aui-pagination button), aui-
     background-color: var(--secondaryPress);
 }
 
+aui-menu button[aui-mode~="icon"] {
+    position: relative;
+    padding-inline-start: 2rem;
+}
+
+aui-menu button[aui-mode~="icon"] img {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 2rem;
+    height: 100%;
+    padding: 0.25rem;
+}
+
+[dir="rtl"] aui-menu button[aui-mode~="icon"] img {
+    left: unset;
+    right: 0;
+}
+
 /* For submenu hints, we can't supress hover effect on mobile since `[dir="rtl"]` could collide with `html[aui-istouch="false"]` */
 
 aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]) {
@@ -74,6 +94,33 @@ aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]):hover {
     background-size: 1.5rem;
 }
 
+aui-menu button[aria-role="checkbox"]:not([aui-submenu]:not([aui-mode~="noSubmenuHint"])) {
+    padding-inline-end: 1.6rem;
+}
+
+aui-menu button[aria-role="checkbox"][aria-checked="true"]:not([aui-submenu]:not([aui-mode~="noSubmenuHint"])) {
+    background: url("../icons/checkmark.svg") no-repeat right var(--secondaryBackground);
+    background-size: 1.5rem;
+    border-right: 0.1rem solid transparent;
+}
+
+aui-menu button[aria-role="checkbox"][aria-checked="true"]:not([aui-submenu]:not([aui-mode~="noSubmenuHint"])):hover {
+    background: url("../icons/checkmark.svg") no-repeat right var(--secondaryPress);
+    background-size: 1.5rem;
+}
+
+[dir="rtl"] button[aria-role="checkbox"][aria-checked="true"]:not([aui-submenu]:not([aui-mode~="noSubmenuHint"])) {
+    background: url("../icons/checkmark.svg") no-repeat left var(--secondaryBackground);
+    background-size: 1.5rem;
+    border-left: 0.1rem solid transparent;
+    border-right: unset;
+}
+
+[dir="rtl"] button[aria-role="checkbox"][aria-checked="true"]:not([aui-submenu]:not([aui-mode~="noSubmenuHint"])):hover {
+    background: url("../icons/checkmark.svg") no-repeat left var(--secondaryPress);
+    background-size: 1.5rem;
+}
+
 @media (prefers-color-scheme: dark) {
     aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]) {
         background: url("../icons/submenu-dark.svg") no-repeat right var(--secondaryBackground)!important;
@@ -92,6 +139,26 @@ aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]):hover {
 
     [dir="rtl"] aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]):hover {
         background: url("../icons/submenu-rtldark.svg") no-repeat left var(--secondaryPress)!important;
+        background-size: 1.5rem!important;
+    }
+
+    aui-menu button[aria-role="checkbox"][aria-checked="true"]:not([aui-submenu]:not([aui-mode~="noSubmenuHint"])) {
+        background: url("../icons/checkmark-dark.svg") no-repeat right var(--secondaryBackground)!important;
+        background-size: 1.5rem!important;
+    }
+
+    aui-menu button[aria-role="checkbox"][aria-checked="true"]:not([aui-submenu]:not([aui-mode~="noSubmenuHint"])):hover {
+        background: url("../icons/checkmark-dark.svg") no-repeat right var(--secondaryPress)!important;
+        background-size: 1.5rem!important;
+    }
+
+    [dir="rtl"] aui-menu button[aria-role="checkbox"][aria-checked="true"]:not([aui-submenu]:not([aui-mode~="noSubmenuHint"])) {
+        background: url("../icons/checkmark-dark.svg") no-repeat left var(--secondaryBackground)!important;
+        background-size: 1.5rem!important;
+    }
+
+    [dir="rtl"] aui-menu button[aria-role="checkbox"][aria-checked="true"]:not([aui-submenu]:not([aui-mode~="noSubmenuHint"])):hover {
+        background: url("../icons/checkmark-dark.svg") no-repeat left var(--secondaryPress)!important;
         background-size: 1.5rem!important;
     }
 }
