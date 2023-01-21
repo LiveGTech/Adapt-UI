@@ -85,7 +85,7 @@ Let's add a UI which asks for the user's name and performs a certain action with
 var nameInput = Input() ();
 var saveButton = Button() ("Save");
 var clearButton = Button({mode: "secondary"}) ("Clear");
-var helloHeader = Header() ("Hello, world!");
+var helloHeading = Heading() ("Hello, world!");
 ```
 
 Here, `Input` refers to a text input, and `Button` refers to a pressable button. The property `mode` being set to `"secondary"` will make the button be coloured in the secondary colour (to signify that the button isn't the primary action).
@@ -102,7 +102,7 @@ astronaut.render(
         ),
         Page(true) (
             Section (
-                helloHeader,
+                helloHeading,
                 Paragraph() ("Welcome to my first app using Astronaut and Adapt UI.")
             ),
             Section (
@@ -123,13 +123,13 @@ astronaut.render(
 );
 ```
 
-Note how we've replaced the original header with `helloHeader` in the first `Section`.
+Note how we've replaced the original header with `helloHeading` in the first `Section`.
 
-Of course our code doesn't actually do anything yet — we'll need to add the functionality to set the `helloHeader` header when a name is entered before `astronaut.render`:
+Of course our code doesn't actually do anything yet — we'll need to add the functionality to set the `helloHeading` header when a name is entered before `astronaut.render`:
 
 ```javascript
 saveButton.on("click", function() {
-    helloHeader.setText(`Hello, ${nameInput.getValue()}!`);
+    helloHeading.setText(`Hello, ${nameInput.getValue()}!`);
 });
 
 clearButton.on("click", function() {
@@ -154,7 +154,7 @@ var nameErrorDialog = Dialog (
     DialogContent (
         Paragraph() ("Please enter your name into the input.")
     ),
-    ButtonRow (
+    ButtonRow("end") (
         nameErrorConfirmButton
     )
 );
@@ -175,7 +175,7 @@ saveButton.on("click", function() {
     var name = nameInput.getValue();
 
     if (name.trim() != "") {
-        helloHeader.setText(`Hello, ${name}!`);
+        helloHeading.setText(`Hello, ${name}!`);
     } else {
         nameErrorDialog.dialogOpen();
     }
@@ -203,7 +203,7 @@ Let's now add a navigation menu which will appear at the side of the app (will b
 ```javascript
 var firstPage = Page(true) (
     Section (
-        helloHeader,
+        helloHeading,
         Paragraph() ("Welcome to my first app using Astronaut and Adapt UI.")
     ),
     Section (
@@ -367,7 +367,7 @@ astronaut.render(
 Now, to go forwards a screen from `mainScreen`, attach an event to a button which runs the command `aboutScreen.screenForward();` by modifying the code for `firstPage`:
 
 ```javascript
-var aboutButton = Button() ("Open app information");
+var aboutButton = Button("navigational") ("Open app information");
 
 var firstPage = Page(true) (
     Section (

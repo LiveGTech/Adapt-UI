@@ -252,7 +252,7 @@ Now, to go forwards a screen from the `#main` screen, attach an event to a butto
 
 ```html
 <section>
-    <button id="openAboutButton">Open app information</button>
+    <button aui-mode="navigational" id="openAboutButton">Open app information</button>
 </section>
 ```
 
