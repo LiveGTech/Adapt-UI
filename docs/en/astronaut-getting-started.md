@@ -267,15 +267,15 @@ astronaut.render(
             ),
             PageMenu (
                 PageMenuButton({page: firstPage}) ("First page"),
-                PageMenuButton() ("Second page"),
-                PageMenuButton() ("Third page")
+                PageMenuButton({page: secondPage}) ("Second page"),
+                PageMenuButton({page: thirdPage}) ("Third page")
             )
             firstPage,
             secondPage,
             thirdPage
-        )
-    ),
-    // ...
+        ),
+        nameErrorDialog
+    )
 );
 ```
 
@@ -303,4 +303,97 @@ Now that our navigation menu is fully complete, you can navigate between pages. 
 
 Screens can also be animated to transition back and fourth between different scenarios. For example, you may have a sign-in screen which then transitions to the main screen of the app. Pages don't have this navigative animatibility aside from being able to fade out and then fade in to show a different page, since they're not designed for conveying progessive navigation.
 
-<!-- TODO: Add rest of guide for Astronaut, following on from HTML version of getting started guide -->
+## Adding extra screens
+As we have discussed, we have added pages to our main screen, but we can also add screens to our app to add a progressive flow. First refactor the code to store our current screen in a variable:
+
+```javascript
+var mainScreen = Screen(true) (
+    Header (
+        // ...
+    ),
+    PageMenu (
+        // ...
+    )
+    firstPage,
+    secondPage,
+    thirdPage
+);
+
+astronaut.render(
+    Container (
+        mainScreen,
+        nameErrorDialog
+    )
+);
+```
+
+Now add another screen:
+
+```javascript
+var aboutScreen = Screen (
+    Header (
+        IconButton({
+            icon: "back",
+            alt: "Back",
+            attributes: {
+                "aui-bind": "back"
+            }
+        }) (),
+        Text("About this app")
+    ),
+    Page(true) (
+        Section (
+            Heading() ("App information"),
+            Paragraph() ("I made this app")
+        )
+    )
+);
+```
+
+> **Note:** Just like with `Page` elements, only one `Screen` element should be `Screen(true)` the other elements won't be shown by default on load.
+
+Here, the back button is given the attribute `aui-bind="back"`. This automatically hooks an event to the back button which traverses back a screen when pressed. Now modify the call to `astronaut.render` to reference this screen:
+
+```javascript
+astronaut.render(
+    Container (
+        mainScreen,
+        aboutScreen,
+        nameErrorDialog
+    )
+);
+```
+
+Now, to go forwards a screen from `mainScreen`, attach an event to a button which runs the command `aboutScreen.screenForward();` by modifying the code for `firstPage`:
+
+```javascript
+var aboutButton = Button() ("Open app information");
+
+var firstPage = Page(true) (
+    Section (
+        // ...
+    ),
+    Section (
+        // ...
+    ),
+    Section (
+        aboutButton
+    )
+);
+
+aboutButton.on("click", function() {
+    aboutScreen.screenForward();
+});
+```
+
+Now test the app. You should be able to navigate forwards by pressing the new button, and then navigate back again by pressing the back button in the header.
+
+## Next steps
+Congrats! You've got a basic app working. We have other guides for what you can do with Adapt UI, for which you can choose what you want to learn next.
+
+* Learn how to localise your app: [Localising apps using the Adapt UI `l10n` module](localising-apps.md)
+
+There are also a few other things you can do with your app's code:
+
+* You could use the ECMAScript 6 module system to make the screens in your app more modular by defining a screen in each JavaScript file.
+* You could use the `astronaut.component` function to further encapsulate screens and other components into their own new combined components that can be reused in multiple places in your app.

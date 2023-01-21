@@ -269,4 +269,5 @@ Now test the app. You should be able to navigate forwards by pressing the new bu
 ## Next steps
 Congrats! You've got a basic app working. We have other guides for what you can do with Adapt UI, for which you can choose what you want to learn next.
 
+* Learn how to build your app using Astronaut: [Getting started with Astronaut and Adapt UI](astronaut-getting-started.md)
 * Learn how to localise your app: [Localising apps using the Adapt UI `l10n` module](localising-apps.md)
