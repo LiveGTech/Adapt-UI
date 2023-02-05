@@ -7,9 +7,10 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
-export function parameter(parameter) {
-    const searchParams = new URLSearchParams(location.search).get(parameter);
-    return typeof searchParams === 'string' ? decodeURIComponent(searchParams) : searchParams;
+export function parameter(parameter, url = new URL(window.location)) {
+    const searchParams = new URLSearchParams(url.search).get(parameter);
+
+    return typeof searchParams === "string" ? decodeURIComponent(searchParams) : searchParams;
 }
 
 export function generateKey(length = 16, digits = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_") {
