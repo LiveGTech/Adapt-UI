@@ -702,6 +702,10 @@ span[aui-mode="grow"] {
     flex-grow: 1;
 }
 
+[hidden] {
+    display: none!important;
+}
+
 [aui-select], [aui-select] * {
     user-select: text!important;
     -webkit-user-drag: auto!important;
