@@ -226,7 +226,7 @@ export function sel(selector, multiReturn = false) {
         // Don't allow currying since there are no elements selected
     };
 
-    appliedOperations["condition"] = function(condition, ifTrue, ifFalse) {
+    appliedOperations["condition"] = function(condition, ifTrue, ifFalse = (selection) => selection) {
         if (condition) {
             return ifTrue(sel(elements));
         }
