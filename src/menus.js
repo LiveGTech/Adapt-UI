@@ -27,6 +27,7 @@ export function open(element, openerElement = document.activeElement, parentMenu
     element._aui_open = true;
     element._aui_parentMenu = parentMenu;
 
+    element.hidden = false;
     element.style.display = "block";
 
     if (!modeOptions.includes("centred")) {
