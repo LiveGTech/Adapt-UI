@@ -8,9 +8,13 @@
 */
 
 export function parameter(parameter, url = new URL(window.location)) {
-    const searchParams = new URLSearchParams(url.search).get(parameter);
+    if (!(url instanceof URL)) {
+        url = new URL(url);
+    }
 
-    return typeof searchParams === "string" ? decodeURIComponent(searchParams) : searchParams;
+    var searchParams = new URLSearchParams(url.search).get(parameter);
+
+    return typeof(searchParams) === "string" ? decodeURIComponent(searchParams) : searchParams;
 }
 
 export function generateKey(length = 16, digits = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789-_") {
