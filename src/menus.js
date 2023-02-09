@@ -68,6 +68,8 @@ export function open(element, openerElement = document.activeElement, parentMenu
         }
     }
 
+    element.dispatchEvent(new CustomEvent("open"));
+
     return animations.fadeIn(element, 250, animations.easingFunctions.EASE_IN);
 }
 
@@ -107,6 +109,8 @@ export function close(element, closeParentMenus = true) {
     if (closeParentMenus && element._aui_parentMenu != null) {
         close(element._aui_parentMenu);
     }
+
+    element.dispatchEvent(new CustomEvent("close"));
 
     return animations.fadeOut(element, 250, animations.easingFunctions.EASE_OUT).then(function() {
         element.style.display = "none";
