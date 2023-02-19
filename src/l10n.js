@@ -25,6 +25,18 @@ export class Locale {
         this.metadata = metadata;
     }
 
+    get name() {
+        return this.metadata.name;
+    }
+
+    get nameShort() {
+        return this.metadata.nameShort || this.metadata.name;
+    }
+
+    get textDirection() {
+        return this.metadata.textDirection || "ltr";
+    }
+
     static fromResource(url, fallbackLocale = null) {
         var thisScope = this;
 
@@ -41,6 +53,10 @@ export class Locale {
         } else {
             return data;
         }
+    }
+
+    createCollator(options = {}) {
+        return new Intl.Collator(this.localeCode.split("_")[0], options);
     }
 
     translationErrorHandler(string) {
@@ -96,18 +112,6 @@ export class Locale {
         }
 
         return translation;
-    }
-
-    get name() {
-        return this.metadata.name;
-    }
-
-    get nameShort() {
-        return this.metadata.nameShort || this.metadata.name;
-    }
-
-    get textDirection() {
-        return this.metadata.textDirection || "ltr";
     }
 }
 

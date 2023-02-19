@@ -192,6 +192,8 @@ This can then be customised for different locales which have different requireme
 
 > **Note:** Conditional string rules (the keys of the objects in the `"source"` part of locale resources) are directly substituted and then evaluated by JavaScript. Whilst this provides a powerful tool for rule determination, ensure that your use of conditional string rules is only restricted to formatted data such as numbers, since maliciously-crafted strings could potentially execute untrusted code.
 
+<!-- TODO: Discuss usage of collation for sorting textual data based on locale preferences -->
+
 ## Mirroring for right-to-left (RTL) languages
 For languages where text is displayed in a right-to-left text direction, the layout of the page will need to be vertically mirrored to respect the text direction. Whilst this is automatically done via Adapt UI's CSS, ensure that your app performs well for both LTR and RTL text directions. You must pay special attention to this if you use custom CSS in your Adapt UI app, too.
 
