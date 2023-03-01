@@ -46,7 +46,15 @@ export class ScrollableScreen {
             thisScope.targetInstantaneous = true;
         }).observe(this.element.get());
 
-        setInterval(() => this._targetScroll(), 10);
+        setTimeout(function update() {
+            requestAnimationFrame(function() {
+                thisScope._targetScroll();
+
+                setTimeout(function() {
+                    update();
+                }, 10);
+            });
+        }, 10);
     }
 
     get screenWidth() {
