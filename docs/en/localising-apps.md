@@ -38,11 +38,15 @@ In your app's script, add the following:
 ```javascript
 import * as $g from "/path/to/src/adaptui.js";
 
+var currentLocale = null;
+
 $g.waitForLoad().then(function() {
     return $g.l10n.selectLocaleFromResources({
         "en_GB": "locales/en_GB.json"
     });
 }).then(function(locale) {
+    currentLocale = locale;
+
     window._ = function() {
         return locale.translate(...arguments);
     };
@@ -63,7 +67,7 @@ Ensure that the reference to `src/adaptui.js` and the new locale resource file i
 
 This code will retrieve the appropriate locale resource for the system (in this case, it'll only be the `en_GB` locale) when the app has finished loading and rendering, and once the locale file has been retrieved, the app will be translated from the returned locale instance (the variable `locale`). We also asign a global alias to be `_` which can be used for easily translating strings elsewhere in our app.
 
-> **Note:** Using `.then` will handle a `Promise` from `$g.waitForLoad` and `$g.l10n.selectLocaleFromResources`. Promises allow for asynchronous task management in JavaScript, which is needed here so that locale resources can be downloaded when needed. If you are not familliar with _promise chaining_ (as shown above), we suggest reading the [MDN Web Docs entry for promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining).
+> **Note:** Using `then` will handle a `Promise` from `$g.waitForLoad` and `$g.l10n.selectLocaleFromResources`. Promises allow for asynchronous task management in JavaScript, which is needed here so that locale resources can be downloaded when needed. If you are not familliar with _promise chaining_ (as shown above), we suggest reading the [MDN Web Docs entry for promises](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises#chaining).
 
 <!-- @gdocs forstack html -->
 
@@ -192,7 +196,27 @@ This can then be customised for different locales which have different requireme
 
 > **Note:** Conditional string rules (the keys of the objects in the `"source"` part of locale resources) are directly substituted and then evaluated by JavaScript. Whilst this provides a powerful tool for rule determination, ensure that your use of conditional string rules is only restricted to formatted data such as numbers, since maliciously-crafted strings could potentially execute untrusted code.
 
-<!-- TODO: Discuss usage of collation for sorting textual data based on locale preferences -->
+## Sorting strings based on locale alphabetical rules
+By default, sorting arrays of strings using the JavaScript `sort` method will sort those strings based on their Unicode code point values. While this is acceptable by the rules of English, this sorting method is insufficient for many other languages as the conventions vary between languages (especially for those that use a non-Latin script).
+
+To sort an array based on locale using Adapt UI, use the `createCollator` method of `Locale`:
+
+```javascript
+var words = ["Hello", "world", "Adapt UI", "astronaut", "äga"];
+
+// `currentLocale` was defined at the start of this tutorial
+console.log(words.sort(currentLocale.createCollator().compare));
+
+// Output (English): `["Adapt UI", "äga", "astronaut", "Hello", "world"]`
+// Output (Swedish): `["Adapt UI", "astronaut", "Hello", "world", "äga"]`
+
+var array = [{word: "Hello"}, {word: "world"}, {word: "Adapt UI"}, {word: "astronaut"}, {word: "äga"}];
+
+// For an array of objects that need sorting by the `word` key:
+console.log(array.sort((a, b) => currentLocale.createCollator().compare(a.word, b.word)));
+```
+
+You can also optionally pass options that configure the way the items should be collated to the `createCollator` method as an object in the method's first argument. For more information about the options object, see the [MDN Web Docs entry for `Intl.Collator`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/Collator/Collator#options).
 
 ## Mirroring for right-to-left (RTL) languages
 For languages where text is displayed in a right-to-left text direction, the layout of the page will need to be vertically mirrored to respect the text direction. Whilst this is automatically done via Adapt UI's CSS, ensure that your app performs well for both LTR and RTL text directions. You must pay special attention to this if you use custom CSS in your Adapt UI app, too.
