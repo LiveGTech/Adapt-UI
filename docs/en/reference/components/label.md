@@ -33,6 +33,10 @@ HTML:
     <label for></label>
     <input type="radio" id>
 </div>
+<div>
+    <label for></label>
+    <input type="checkbox" role="switch" id>
+</div>
 ```
 
 A container that can contain a user interface component (such as an [`Input`](reference/components/input.md)) alongside textual information that describes or names that component.
