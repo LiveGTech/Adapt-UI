@@ -8,9 +8,9 @@
 */
 
 :root {
-    --fontMain: "URW Gothic L", system-ui, sans-serif;
-    --fontHeadings: "URW Gothic L", system-ui, sans-serif;
-    --fontCode: "Noto Sans Mono", monospace, sans-serif;
+    --fontMain: "URW Gothic L", "LiveG Emoji", system-ui, sans-serif;
+    --fontHeadings: "URW Gothic L", "LiveG Emoji", system-ui, sans-serif;
+    --fontCode: "Noto Sans Mono", "LiveG Emoji", monospace, sans-serif;
 }
 
 @font-face {
