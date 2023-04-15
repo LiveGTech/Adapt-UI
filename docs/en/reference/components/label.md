@@ -13,6 +13,10 @@ Label() (
     RadioButtonInput() (),
     Text()
 )
+Label() (
+    Text(),
+    SwitchInput() ()
+)
 ```
 
 HTML:
