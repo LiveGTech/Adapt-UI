@@ -320,6 +320,7 @@ export function init({components, component}) {
     });
 
     elementToComponent("ProgressIndicator", "progress", {}, {
+        mode: "aui-mode",
         max: "max",
         value: "value"
     });
