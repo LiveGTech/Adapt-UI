@@ -336,7 +336,7 @@ export function init({components, component}) {
     });
 
     elementToComponent("Cards", "aui-cards", {}, {mode: "aui-mode"});
-    elementToComponent("Card", "aui-card");
+    elementToComponent("Card", "aui-card", {}, {mode: "aui-mode"});
 
     component({name: "CardBackgroundImage", positionals: ["source", "alt"]}, function(props, children) {
         props.attributes ||= {};
