@@ -319,6 +319,11 @@ export function init({components, component}) {
         value: "value"
     });
 
+    elementToComponent("ProgressIndicator", "progress", {}, {
+        max: "max",
+        value: "value"
+    });
+
     component({name: "Image", positionals: ["source", "alt"]}, function(props, children) {
         props.attributes ||= {};
         props.attributes["src"] = props.source;
