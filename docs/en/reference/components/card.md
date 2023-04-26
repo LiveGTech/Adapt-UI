@@ -1,7 +1,7 @@
 # `Card` component
 Astronaut:
 ```javascript
-Card() ()
+Card({mode: null}) ()
 ```
 
 HTML:
