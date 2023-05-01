@@ -1,7 +1,7 @@
 # `BrandWordmark` component
 Astronaut:
 ```javascript
-BrandWordmark(alt, logoSource, mode) (Text() ())
+BrandWordmark(alt, logoSource, mode) (Text())
 BrandWordmark({alt, logoSource: "https://liveg.tech/logo.png", mode: null}) ()
 ```
 

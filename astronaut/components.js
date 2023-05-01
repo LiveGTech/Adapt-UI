@@ -319,6 +319,12 @@ export function init({components, component}) {
         value: "value"
     });
 
+    elementToComponent("ProgressIndicator", "progress", {}, {
+        mode: "aui-mode",
+        max: "max",
+        value: "value"
+    });
+
     component({name: "Image", positionals: ["source", "alt"]}, function(props, children) {
         props.attributes ||= {};
         props.attributes["src"] = props.source;
@@ -336,7 +342,7 @@ export function init({components, component}) {
     });
 
     elementToComponent("Cards", "aui-cards", {}, {mode: "aui-mode"});
-    elementToComponent("Card", "aui-card");
+    elementToComponent("Card", "aui-card", {}, {mode: "aui-mode"});
 
     component({name: "CardBackgroundImage", positionals: ["source", "alt"]}, function(props, children) {
         props.attributes ||= {};

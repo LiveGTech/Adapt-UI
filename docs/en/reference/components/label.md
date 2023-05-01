@@ -13,6 +13,10 @@ Label() (
     RadioButtonInput() (),
     Text()
 )
+Label() (
+    Text(),
+    SwitchInput() ()
+)
 ```
 
 HTML:
@@ -28,6 +32,10 @@ HTML:
 <div>
     <label for></label>
     <input type="radio" id>
+</div>
+<div>
+    <label for></label>
+    <input type="checkbox" role="switch" id>
 </div>
 ```
 

@@ -93,7 +93,7 @@ export function applyCards(root = document) {
 
         var linkElements = element.querySelectorAll("a");
 
-        if (linkElements.length > 0) {
+        if (linkElements.length > 0 && !(element.getAttribute("aui-mode") || "").split(" ").includes("keepUnlinked")) {
             element.setAttribute("aui-linked", "");
 
             element.addEventListener("click", function() {
