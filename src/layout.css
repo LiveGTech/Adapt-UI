@@ -61,6 +61,17 @@ p {
     cursor: default;
 }
 
+hr {
+    height: 0.2rem;
+    background-color: var(--secondaryBackground);
+    border: none;
+    border-radius: 0.1rem;
+}
+
+aui-card hr {
+    background-color: var(--secondaryPress);
+}
+
 sup, sub {
     font-size: small;
 }
@@ -321,7 +332,7 @@ html[aui-istouch="false"] aside button:hover, aside button:active {
 aside hr {
     height: 2px;
     background-color: var(--secondaryPress);
-    border: none;
+    border-radius: 0;
 }
 
 aside details {
