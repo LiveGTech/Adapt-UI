@@ -111,7 +111,7 @@ input:not([type="checkbox"]):not([type="radio"]), select, progress {
     transition: 0.5s background-color, 0.5s color;
 }
 
-input[aui-mode="secondary"]:not([type="checkbox"]):not([type="radio"]), select[aui-mode="secondary"] {
+input[aui-mode="secondary"]:not([type="checkbox"]:checked):not([type="radio"]:checked), select[aui-mode="secondary"] {
     background-color: var(--primaryBackground);
     color: var(--primaryText);
 }
