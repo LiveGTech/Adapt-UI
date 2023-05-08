@@ -221,7 +221,7 @@ You can also optionally pass options that configure the way the items should be 
 ## Mirroring for right-to-left (RTL) languages
 For languages where text is displayed in a right-to-left text direction, the layout of the page will need to be vertically mirrored to respect the text direction. Whilst this is automatically done via Adapt UI's CSS, ensure that your app performs well for both LTR and RTL text directions. You must pay special attention to this if you use custom CSS in your Adapt UI app, too.
 
-Some icons are automatically mirroed with Adapt UI where necessary to ensure that progressive navigation makes sense to users that have a RTL locale selected.
+Some icons are automatically mirrored with Adapt UI where necessary to ensure that progressive navigation makes sense to users that have a RTL locale selected.
 
 ## Best practices
 * **Begin l10n as early as possible:** Even if you are not yet intending to distribute your app internationally, it may still be important to ensure that your app is fully localised, even if your app currently will only have the English locale. That way, later on, you can translate your app with ease when going international.
