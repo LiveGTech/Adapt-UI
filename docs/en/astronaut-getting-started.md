@@ -350,7 +350,7 @@ var aboutScreen = Screen (
 );
 ```
 
-> **Note:** Just like with `Page` elements, only one `Screen` element should be `Screen(true)` the other elements won't be shown by default on load.
+> **Note:** Just like with `Page` elements, only one `Screen` element should be `Screen(true)` so that the other elements won't be shown by default on load.
 
 Here, the back button is given the attribute `aui-bind="back"`. This automatically hooks an event to the back button which traverses back a screen when pressed. Now modify the call to `astronaut.render` to reference this screen:
 
