@@ -66,6 +66,9 @@ The component reference lists and documents all of the user interface components
 * [`SelectionInputOption`](reference/components/selectioninputoption.md)
 * [`SwitchInput`](reference/components/switchinput.md)
 
+### Indicators
+* [`ProgressIndicator`](reference/components/progressindicator.md)
+
 ### Modal interfaces
 * [`Dialog`](reference/components/dialog.md)
 * [`Menu`](reference/components/menu.md)

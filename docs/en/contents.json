@@ -51,6 +51,7 @@
         "`PageMenu`": "reference/components/pagemenu.md",
         "`PageMenuButton`": "reference/components/pagemenubutton.md",
         "`Paragraph`": "reference/components/paragraph.md",
+        "`ProgressIndicator`": "reference/components/progressindicator.md",
         "`Property`": "reference/components/property.md",
         "`PropertyList`": "reference/components/propertylist.md",
         "`RadioButtonInput`": "reference/components/radiobuttoninput.md",
