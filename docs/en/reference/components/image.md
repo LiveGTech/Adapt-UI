@@ -7,7 +7,7 @@ Image({source, alt}) ()
 
 HTML:
 ```html
-<img src="" alt="">
+<img src alt>
 ```
 
 A graphical image/picture. Will be scaled at an appropriate width depending on the parent container.
