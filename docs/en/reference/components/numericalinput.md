@@ -16,7 +16,7 @@ An [`Input`](reference/components/input.md) (derived) that contains numerical da
 |---|---|---|
 | `placeholder` (default: `""`) | `placeholder` | The text to be shown if the `NumericalInput` is empty, used as a general guide as to what data should be entered. |
 | `mode` (default: `"primary"`) | `aui-mode` | A string representing how the `NumericalInput` should be displayed. The value `"primary"` should be used to represent primary inputs, `"secondary"` for secondary inputs. |
-| `min` (default: `""`) | `min` | The minimum value allowed in the `NumericalInput`. |
-| `max` (default: `""`) | `max` | The maximum value allowed in the `NumericalInput`. |
-| `step` (default: `""`) | `step` | How much the value should increase/decrease by when being changed. |
+| `min` (default: `null`) | `min` | The minimum value allowed in the `NumericalInput`. |
+| `max` (default: `null`) | `max` | The maximum value allowed in the `NumericalInput`. |
+| `step` (default: `1`) | `step` | How much the value should increase/decrease by when being changed. |
 | `value` (default: `""`) | `value` | The default value to be stored in the `NumericalInput` when created. |

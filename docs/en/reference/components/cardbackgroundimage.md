@@ -1,13 +1,13 @@
 # `CardBackgroundImage` component
 Astronaut:
 ```javascript
-Image(source, alt) ()
-Image({source, alt}) ()
+CardBackgroundImage(source, alt) ()
+CardBackgroundImage({source, alt}) ()
 ```
 
 HTML:
 ```html
-<img src="" alt="" aui-mode="background">
+<img src alt aui-mode="background">
 ```
 
 An [`Image`](reference/components/image.md) (derived) that is used as the background image for a [`Card`](reference/components/card.md). Should be used as the first child in a `Card`.
@@ -16,7 +16,7 @@ An [`Image`](reference/components/image.md) (derived) that is used as the backgr
 | Astronaut property | HTML attribute | Description |
 |---|---|---|
 | `source` | `src` | The URL string of the image to be displayed. |
-| `alt` | `alt` | The accessible description string of the `Image`. |
+| `alt` | `alt` | The accessible description string of the `CardBackgroundImage`. |
 
 ## Accessibility
 The `alt` property must be used to provide an accessible description of the `CardBackgroundImage`.
