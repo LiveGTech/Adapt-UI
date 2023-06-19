@@ -167,6 +167,14 @@ export function init({components, component}) {
     elementToComponent("ButtonRow", "aui-buttons", {}, {"mode": "aui-mode"});
     elementToComponent("Message", "aui-message");
     elementToComponent("Dependency", "aui-dependency");
+    elementToComponent("Note", "blockquote");
+
+    component("Figure", function(props, children) {
+        return components.ElementNode("figure", props) (
+            ...children.slice(1),
+            components.ElementNode("figcaption") (children[0])
+        );
+    });
 
     component({name: "Accordion", positionals: ["open"]}, function(props, children) {
         if (props.open) {

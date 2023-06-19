@@ -32,6 +32,7 @@ The component reference lists and documents all of the user interface components
 * [`LineBreak`](reference/components/linebreak.md)
 * [`Link`](reference/components/link.md)
 * [`ListItem`](reference/components/listitem.md)
+* [`Note`](reference/components/note.md)
 * [`OrderedList`](reference/components/orderedlist.md)
 * [`Paragraph`](reference/components/paragraph.md)
 * [`Property`](reference/components/property.md)
@@ -41,6 +42,7 @@ The component reference lists and documents all of the user interface components
 
 ### Graphics and media
 * [`CardBackgroundImage`](reference/components/cardbackgroundimage.md)
+* [`Figure`](reference/components/figure.md)
 * [`Icon`](reference/components/icon.md)
 * [`Image`](reference/components/image.md)
 
