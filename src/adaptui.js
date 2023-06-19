@@ -81,6 +81,8 @@ const RESIZE_LISTENERS = [
     aside.update
 ];
 
+var loaded = false;
+
 function apply(operation, elements, multiReturn) {
     return function() {
         var operationArguments = arguments;
@@ -325,11 +327,19 @@ export function create(tagName) {
 
 export function waitForLoad() {
     return new Promise(function(resolve, reject) {
+        if (loaded) {
+            resolve();
+
+            return;
+        }
+
         window.addEventListener("load", resolve);
     });
 }
 
 window.addEventListener("load", function() {
+    loaded = true;
+
     a11y.startTrappingFocus();
     device.startChecking();
 
