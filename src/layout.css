@@ -562,6 +562,7 @@ details[aui-mode="boxed"] pre {
 }
 
 dialog {
+    position: fixed;
     display: flex;
     flex-direction: column;
     min-width: 500px;
