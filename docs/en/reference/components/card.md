@@ -14,4 +14,4 @@ A container with a distinct style to visually separate information from other `C
 ## Properties
 | Astronaut property | HTML attribute | Description |
 |---|---|---|
-| `mode` (default: `null`) | `aui-mode` | A string representing how the `Card` should be behave. The value `"keepUnlinked"` will prevent the `Card` from automatically acting as a large, pressable area that activates the first [`Link`](reference/components/link.md) when pressed. |
+| `mode` (default: `null`) | `aui-mode` | A string representing how the `Card` should be behave. The value `"keepUnlinked"` will prevent the `Card` from automatically acting as a large, pressable area that activates the first [`Link`](reference/components/link.md) when pressed (except as where otherwise specified by a `Link`'s `mode` property). |
