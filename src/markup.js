@@ -91,7 +91,7 @@ export function applyCards(root = document) {
 
         element._aui_appliedCards = true;
 
-        var linkElements = element.querySelectorAll("a");
+        var linkElements = element.querySelectorAll("a[aui-mode~='cardLink'], a:not([aui-mode~='notCardLink'])");
 
         if (linkElements.length > 0 && !(element.getAttribute("aui-mode") || "").split(" ").includes("keepUnlinked")) {
             element.setAttribute("aui-linked", "");
