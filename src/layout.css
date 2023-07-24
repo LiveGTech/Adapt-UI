@@ -444,6 +444,10 @@ section[aui-mode~="cover"] img {
     filter: brightness(0.8);
 }
 
+section[aui-mode~="cover"] a {
+    color: inherit;
+}
+
 section[aui-mode~="cover"][aui-mode~="large"] {
     padding-top: 4rem;
     padding-bottom: 4rem;
