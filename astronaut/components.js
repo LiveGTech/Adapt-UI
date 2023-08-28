@@ -234,7 +234,7 @@ export function init({components, component}) {
         }
 
         return components.Button(props) (
-            Icon(props.icon, "light") (),
+            Icon(props.icon, props.iconType || "light") (),
             ...children
         );
     });
