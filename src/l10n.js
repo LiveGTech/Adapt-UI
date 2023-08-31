@@ -122,6 +122,10 @@ export function getSystemLocaleCode() {
         rawLocaleCode = navigator.languages[0];
     }
 
+    if (rawLocaleCode.split("-").length == 1) {
+        return rawLocaleCode;
+    }
+
     return rawLocaleCode.split("-")[0] + "_" + rawLocaleCode.split("-")[1];
 }
 
