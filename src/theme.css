@@ -30,6 +30,7 @@
     --primaryText: rgb(0, 0, 0);
     --primaryUI: hsl(var(--primaryHue), var(--primarySaturation), var(--primaryLightness));
     --primaryUIText: rgb(255, 255, 255);
+    --dark-primaryUIText: var(--primaryUIText);
     --primaryUIPress: hsl(var(--primaryHue), calc(var(--primarySaturation) - 10%), calc(var(--primaryLightness) + 5%));
     --primaryExtra: rgba(0, 0, 0, 0.5);
     --primaryPress: rgba(0, 0, 0, 0.2);
@@ -38,12 +39,14 @@
     --secondaryText: rgb(0, 0, 0);
     --secondaryUI: hsl(var(--secondaryHue), var(--secondarySaturation), var(--secondaryLightness));
     --secondaryUIText: rgb(255, 255, 255);
+    --dark-secondaryUIText: var(--secondaryUIText);
     --secondaryUIPress: hsl(var(--secondaryHue), calc(var(--secondarySaturation) - 10%), calc(var(--secondaryLightness) + 5%));
     --secondaryExtra: rgba(0, 0, 0, 0.5);
     --secondaryPress: rgba(0, 0, 0, 0.2);
     --secondarySelected: rgba(0, 0, 0, 0.1);
     --dangerousUI: hsl(var(--dangerousHue), var(--dangerousSaturation), var(--dangerousLightness));
     --dangerousUIText: rgb(255, 255, 255);
+    --dark-dangerousUIText: var(--dangerousUIText);
     --dangerousUIPress: hsl(var(--dangerousHue), calc(var(--dangerousSaturation) - 10%), calc(var(--dangerousLightness) + 5%));
     --scrollbar: rgba(0, 0, 0, 0.5);
     --scrollbarHover: rgba(0, 0, 0, 0.6);
@@ -59,6 +62,7 @@
         --primaryBackground: rgb(33, 33, 33);
         --primaryText: rgb(255, 255, 255);
         --primaryUI: hsl(var(--dark-primaryHue), var(--dark-primarySaturation), var(--dark-primaryLightness));
+        --primaryUIText: var(--dark-primaryUIText);
         --primaryUIPress: hsl(var(--dark-primaryHue), calc(var(--dark-primarySaturation) - 10%), calc(var(--dark-primaryLightness) - 5%));
         --primaryExtra: rgba(255, 255, 255, 0.5);
         --primaryPress: rgba(255, 255, 255, 0.2);
@@ -66,12 +70,13 @@
         --secondaryBackground: rgb(77, 77, 77);
         --secondaryText: rgb(255, 255, 255);
         --secondaryUI: hsl(var(--dark-secondaryHue), var(--dark-secondarySaturation), var(--dark-secondaryLightness));
+        --secondaryUIText: var(--dark-secondaryUIText);
         --secondaryUIPress: hsl(var(--dark-secondaryHue), calc(var(--dark-secondarySaturation) - 10%), calc(var(--dark-secondaryLightness) - 5%));
         --secondaryExtra: rgba(255, 255, 255, 0.5);
         --secondaryPress: rgba(255, 255, 255, 0.2);
         --secondarySelected: rgba(255, 255, 255, 0.1);
         --dangerousUI: hsl(var(--dark-dangerousHue), var(--dark-dangerousSaturation), var(--dark-dangerousLightness));
-        --dangerousUIText: rgb(255, 255, 255);
+        --dangerousUIText: var(--dark-dangerousUIText);
         --dangerousUIPress: hsl(var(--dangerousHue), calc(var(--dangerousSaturation) - 5%), calc(var(--dangerousLightness) - 5%));
         --scrollbar: rgba(255, 255, 255, 0.5);
         --scrollbarHover: rgba(255, 255, 255, 0.6);

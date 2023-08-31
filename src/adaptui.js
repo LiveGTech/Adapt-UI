@@ -337,9 +337,15 @@ export function waitForLoad() {
     });
 }
 
-window.addEventListener("load", function() {
+if (document.readyState == "complete") {
     loaded = true;
+} else {
+    window.addEventListener("load", function() {
+        loaded = true;
+    });
+}
 
+waitForLoad().then(function() {
     a11y.startTrappingFocus();
     device.startChecking();
 

@@ -16,4 +16,4 @@ A graphical icon [`Image`](reference/components/image.md) (derived) that can be 
 | Astronaut property | HTML attribute | Description |
 |---|---|---|
 | `icon` | `src` (inside `img`; must be full icon path) | The icon to use inside the `IconButton`. |
-| `type` | `aui-icon` | A string representing the styling type to use. The value of `"light"` will display an icon in a light colour, `"dark"` in a dark colour, and `"light embedded"` and `"dark embedded"` in their respective colours with dark mode support (used outside of `Button`s). |
+| `type` (default: `"dark"`) | `aui-icon` (no default) | A string representing the styling type to use. The value of `"light"` will display an icon in a light colour, `"dark"` in a dark colour, and `"light embedded"` and `"dark embedded"` in their respective colours with dark mode support (typically used outside of `Button`s). |
