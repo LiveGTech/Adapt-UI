@@ -18,50 +18,76 @@ export var loaded = false;
 export var styleSets = [];
 
 export class StyleSet {
-    constructor(elementClass, css) {
-        this.elementClass = elementClass;
-        this.css = css;
+    constructor(styles, qualifiers = "*", _shouldRender = true) {
+        this.styles = styles;
+        this.qualifiers = qualifiers;
 
-        this.stylesheetElement = $g.create("style").setText(this.css);
-
-        styleSets.push(this);
+        if (_shouldRender) {
+            this._render();
+        }
     }
 
-    static stylesToCss(style) {
+    static stylesToCss(styles) {
         var cssParts = [];
 
-        Object.keys(style).forEach(function(property) {
+        Object.keys(styles).forEach(function(property) {
             cssParts.push(property);
             cssParts.push(":");
-            cssParts.push(style[property]);
+            cssParts.push(styles[property]);
             cssParts.push(";");
         });
 
         return cssParts.join("");
     }
 
-    static always(styles, qualifiers = "*") {
-        var elementClass = `astronaut_${$g.core.generateKey()}`;
+    _render() {
+        this.elementClass = `astronaut_${$g.core.generateKey()}`;
+        this.elementClasses = [this.elementClass];
+        this.css = this.generateCss();
+        this.styleElement = $g.create("style").setText(this.css);
 
-        return new this(
-            elementClass,
-            `.${elementClass}` +
-            (qualifiers != "*" ? `:is(${qualifiers})` : "") +
-            `{${this.stylesToCss(styles)}}`
-        );
+        console.log("rendered", this.css);
+
+        styleSets.push(this);
     }
 
-    static mediaQuery(mediaQuery, styles, qualifiers = "*") {
-        var elementClass = `astronaut_${$g.core.generateKey()}`;
-
-        return new this(
-            elementClass,
-            `@media(${mediaQuery}){` +
-            `.${elementClass}` +
-            (qualifiers != "*" ? `:is(${qualifiers})` : "") +
-            `{${this.stylesToCss(styles)}}` +
-            "}"
+    generateCss() {
+        return (
+            `.${this.elementClass}` +
+            (this.qualifiers != "*" ? `:is(${this.qualifiers})` : "") +
+            `{${this.constructor.stylesToCss(this.styles)}}`
         );
+    }
+}
+
+export class MediaQueryStyleSet extends StyleSet {
+    constructor(mediaQuery, styles, qualifiers = "*", _shouldRender = true) {
+        super(styles, qualifiers, false);
+
+        this.mediaQuery = mediaQuery;
+
+        if (_shouldRender) {
+            this._render();
+        }
+    }
+
+    generateCss() {
+        return (
+            `@media(${this.mediaQuery}){` +
+            super.generateCss() +
+            `}`
+        );
+    }
+}
+
+export class StyleGroup {
+    constructor(styleSets) {
+        this.styleSets = styleSets;
+        this.styleElement = null;
+    }
+
+    get elementClasses() {
+        return this.styleSets.map((styleSet) => styleSet.elementClasses).flat();
     }
 }
 
@@ -118,7 +144,10 @@ export function component(options, init) {
             });
 
             (props.styleSets || []).forEach(function(styleSet) {
-                createdComponent.addClass(styleSet.elementClass);
+                console.log(styleSet);
+                styleSet.elementClasses.forEach(function(className) {
+                    createdComponent.addClass(className);
+                });
             });
 
             if (props.id) {
@@ -210,7 +239,7 @@ export function render(component, toRoot = null) {
 
         toRoot.clear().add(
             component,
-            ...styleSets.map((styleSet) => styleSet.stylesheetElement)
+            ...styleSets.map((styleSet) => styleSet.styleElement).filter((element) => element != null)
         );
     });
 }
