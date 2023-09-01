@@ -27,7 +27,7 @@ export class StyleSet {
         styleSets.push(this);
     }
 
-    static styleToCss(style) {
+    static stylesToCss(style) {
         var cssParts = [];
 
         Object.keys(style).forEach(function(property) {
@@ -40,18 +40,18 @@ export class StyleSet {
         return cssParts.join("");
     }
 
-    static always(style, qualifiers = "*") {
+    static always(styles, qualifiers = "*") {
         var elementClass = `astronaut_${$g.core.generateKey()}`;
 
         return new this(
             elementClass,
             `.${elementClass}` +
             (qualifiers != "*" ? `:is(${qualifiers})` : "") +
-            `{${this.styleToCss(style)}}`
+            `{${this.stylesToCss(styles)}}`
         );
     }
 
-    static mediaQuery(mediaQuery, style, qualifiers = "*") {
+    static mediaQuery(mediaQuery, styles, qualifiers = "*") {
         var elementClass = `astronaut_${$g.core.generateKey()}`;
 
         return new this(
@@ -59,7 +59,7 @@ export class StyleSet {
             `@media(${mediaQuery}){` +
             `.${elementClass}` +
             (qualifiers != "*" ? `:is(${qualifiers})` : "") +
-            `{${this.styleToCss(style)}}` +
+            `{${this.stylesToCss(styles)}}` +
             "}"
         );
     }
