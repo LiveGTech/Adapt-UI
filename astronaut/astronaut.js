@@ -15,6 +15,55 @@ import * as componentsList from "./components.js";
 export var components = {};
 export var unpacked = false;
 export var loaded = false;
+export var styleSets = [];
+
+export class StyleSet {
+    constructor(elementClass, css) {
+        this.elementClass = elementClass;
+        this.css = css;
+
+        this.stylesheetElement = $g.create("style").setText(this.css);
+
+        styleSets.push(this);
+    }
+
+    static styleToCss(style) {
+        var cssParts = [];
+
+        Object.keys(style).forEach(function(property) {
+            cssParts.push(property);
+            cssParts.push(":");
+            cssParts.push(style[property]);
+            cssParts.push(";");
+        });
+
+        return cssParts.join("");
+    }
+
+    static always(style, qualifiers = "*") {
+        var elementClass = `astronaut_${$g.core.generateKey()}`;
+
+        return new this(
+            elementClass,
+            `.${elementClass}` +
+            (qualifiers != "*" ? `:is(${qualifiers})` : "") +
+            `{${this.styleToCss(style)}}`
+        );
+    }
+
+    static mediaQuery(mediaQuery, style, qualifiers = "*") {
+        var elementClass = `astronaut_${$g.core.generateKey()}`;
+
+        return new this(
+            elementClass,
+            `@media(${mediaQuery}){` +
+            `.${elementClass}` +
+            (qualifiers != "*" ? `:is(${qualifiers})` : "") +
+            `{${this.styleToCss(style)}}` +
+            "}"
+        );
+    }
+}
 
 export function unpack() {
     Object.keys(components).forEach(function(name) {
@@ -66,6 +115,10 @@ export function component(options, init) {
 
             (props.classes || []).forEach(function(className) {
                 createdComponent.addClass(className);
+            });
+
+            (props.styleSets || []).forEach(function(styleSet) {
+                createdComponent.addClass(styleSet.elementClass);
             });
 
             if (props.id) {
@@ -155,7 +208,10 @@ export function render(component, toRoot = null) {
             toRoot = $g.sel("body");
         }
 
-        toRoot.clear().add(component);
+        toRoot.clear().add(
+            component,
+            ...styleSets.map((styleSet) => styleSet.stylesheetElement)
+        );
     });
 }
 
