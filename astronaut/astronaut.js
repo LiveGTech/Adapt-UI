@@ -47,8 +47,6 @@ export class StyleSet {
         this.css = this.generateCss();
         this.styleElement = $g.create("style").setText(this.css);
 
-        console.log("rendered", this.css);
-
         styleSets.push(this);
     }
 
