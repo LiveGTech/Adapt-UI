@@ -144,7 +144,6 @@ export function component(options, init) {
             });
 
             (props.styleSets || []).forEach(function(styleSet) {
-                console.log(styleSet);
                 styleSet.elementClasses.forEach(function(className) {
                     createdComponent.addClass(className);
                 });
