@@ -18,9 +18,10 @@ export var loaded = false;
 export var styleSets = [];
 
 export class StyleSet {
-    constructor(styles, qualifiers = "*", _shouldRender = true) {
+    constructor(styles, qualifiers = "*", childQualifiers = null, _shouldRender = true) {
         this.styles = styles;
         this.qualifiers = qualifiers;
+        this.childQualifiers = childQualifiers;
 
         if (_shouldRender) {
             this._render();
@@ -46,8 +47,6 @@ export class StyleSet {
         this.css = this.generateCss();
         this.styleElement = $g.create("style").setText(this.css);
 
-        console.log("rendered", this.css);
-
         styleSets.push(this);
     }
 
@@ -55,14 +54,15 @@ export class StyleSet {
         return (
             `.${this.elementClass}` +
             (this.qualifiers != "*" ? `:is(${this.qualifiers})` : "") +
+            (this.childQualifiers != null ? ` ${this.childQualifiers}` : "") +
             `{${this.constructor.stylesToCss(this.styles)}}`
         );
     }
 }
 
 export class MediaQueryStyleSet extends StyleSet {
-    constructor(mediaQuery, styles, qualifiers = "*", _shouldRender = true) {
-        super(styles, qualifiers, false);
+    constructor(mediaQuery, styles, qualifiers = undefined, childQualifiers = undefined, _shouldRender = true) {
+        super(styles, qualifiers, childQualifiers, false);
 
         this.mediaQuery = mediaQuery;
 
