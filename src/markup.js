@@ -235,6 +235,12 @@ export function applyDismissables(root = document) {
 
 export function applyScrollableScreens(root = document) {
     root.querySelectorAll("aui-screenscroll").forEach(function(element) {
+        if (!!element._aui_appliedScrollableScreens) {
+            return;
+        }
+
+        element._aui_appliedScrollableScreens = true;
+
         var scrollable = new screenScroll.ScrollableScreen($g.sel(element));
 
         if (element.getAttribute("aui-mode") == "paginated") {
