@@ -2,7 +2,7 @@
 Astronaut:
 ```javascript
 IconButton(icon, alt) ()
-IconButton({icon, alt}) ()
+IconButton({icon, alt, iconType: "light"}) ()
 ```
 
 HTML:

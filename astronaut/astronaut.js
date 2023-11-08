@@ -65,6 +65,7 @@ export class MediaQueryStyleSet extends StyleSet {
         super(styles, qualifiers, childQualifiers, false);
 
         this.mediaQuery = mediaQuery;
+        this.mediaQueryParts = Array.isArray(mediaQuery) ? mediaQuery : [`(${mediaQuery})`];
 
         if (_shouldRender) {
             this._render();
@@ -73,7 +74,7 @@ export class MediaQueryStyleSet extends StyleSet {
 
     generateCss() {
         return (
-            `@media(${this.mediaQuery}){` +
+            `@media ${this.mediaQueryParts.join(",")} {` +
             super.generateCss() +
             `}`
         );
