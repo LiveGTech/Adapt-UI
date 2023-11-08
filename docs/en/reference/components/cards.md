@@ -1,7 +1,7 @@
 # `Cards` component
 Astronaut:
 ```javascript
-Cards({mode}) (
+Cards({mode: "list"}) (
     Card() (),
     Card() (),
     Card() ()

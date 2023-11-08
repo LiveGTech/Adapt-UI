@@ -23,6 +23,7 @@ The component reference lists and documents all of the user interface components
 * [`SkeletonLoader`](reference/components/skeletonloader.md)
 
 ### Text
+* [`Badge`](reference/components/badge.md)
 * [`BoldTextFragment`](reference/components/boldtextfragment.md)
 * [`BrandWordmark`](reference/components/brandwordmark.md)
 * [`CodeBlock`](reference/components/codeblock.md)

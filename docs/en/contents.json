@@ -10,6 +10,7 @@
     "Component reference": {
         "Reference index": "reference/components/index.md",
         "`Accordion`": "reference/components/accordion.md",
+        "`Badge`": "reference/components/badge.md",
         "`BoldTextFragment`": "reference/components/boldtextfragment.md",
         "`BrandWordmark`": "reference/components/brandwordmark.md",
         "`Button`": "reference/components/button.md",

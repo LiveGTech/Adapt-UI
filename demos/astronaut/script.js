@@ -15,7 +15,7 @@ var mainPage = Page(true) (
         Heading() ("This is a test of Astronaut"),
         Heading(2) ("This is another heading"),
         Paragraph({styleSets: [LIGHT_MODE_STYLES]}) ("Viewing in light mode"),
-        Paragraph({styleSets: [DARK_MODE_STYLES]}) ("Viewing in dark mode"),
+        Paragraph({styleSets: [DARK_MODE_STYLES]}) ("Viewing in dark mode ", Badge() ("Certified dark")),
         Label (
             Text("Test input"),
             Input({placeholder: "Type something here..."}) ()

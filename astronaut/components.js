@@ -31,6 +31,13 @@ export function init({components, component}) {
     elementToComponent("BoldTextFragment", "strong");
     elementToComponent("EmphasisTextFragment", "em");
 
+    component({name: "Badge", positionals: ["alt"]}, function(props, children) {
+        props.attributes ||= {};
+        props.attributes["aria-label"] = props.alt || `(${children.map((child) => child.getText()).join(" ")})`;
+
+        return components.ElementNode("aui-badge", props) (children);
+    });
+
     elementToComponent("CodeBlock", "pre");
     elementToComponent("CodeSnippet", "code");
 
