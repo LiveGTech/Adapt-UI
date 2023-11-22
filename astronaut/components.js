@@ -175,7 +175,7 @@ export function init({components, component}) {
     elementToComponent("ButtonRow", "aui-buttons", {}, {"mode": "aui-mode"});
     elementToComponent("Message", "aui-message");
     elementToComponent("Dependency", "aui-dependency");
-    elementToComponent("Note", "blockquote");
+    elementToComponent("Note", "blockquote", {}, {"mode": "aui-mode"});
 
     component("Figure", function(props, children) {
         return components.ElementNode("figure", props) (

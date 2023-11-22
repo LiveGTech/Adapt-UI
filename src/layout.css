@@ -492,6 +492,14 @@ blockquote p:last-child {
     margin-bottom: 0;
 }
 
+blockquote[aui-mode="secondary"] {
+    border-inline-start: 0.5rem solid var(--secondaryUI);
+}
+
+blockquote[aui-mode="dangerous"] {
+    border-inline-start: 0.5rem solid var(--dangerousUI);
+}
+
 figure {
     margin: 0;
 }
