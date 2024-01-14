@@ -7,6 +7,9 @@
     "Build advanced apps": {
         "Localising apps using the `l10n` module": "localising-apps.md"
     },
+    "Command reference": {
+        "Element operations": "reference/commands/elements.md"
+    },
     "Component reference": {
         "Reference index": "reference/components/index.md",
         "`Accordion`": "reference/components/accordion.md",
