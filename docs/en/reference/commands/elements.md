@@ -159,10 +159,10 @@ ifFalse(element: {Function}): any
 
 ## `$g.sel(...).choose`
 ```javascript
-$g.sel(...).choose(testValue: Boolean, targetValue1?: any, ifEqual1?: Function, targetValue2?: any, ifEqual2?: Function, ... targetValueN?: any, ifEqualN?: Function, ifNotEqual: Function): any
+$g.sel(...).choose(testValue: Boolean, targetValue1?: any, ifEqual1?: Function, targetValue2?: any, ifEqual2?: Function, ... targetValueN?: any, ifEqualN?: Function, ifNotEqual?: Function): any
 ```
 
-Based on the value given by the `testValue` argument, compare each target value and function (given as pairs of arguments `targetValueN` and `ifEqualN` respectively) and call the respecive function if the target value is equal to the test value. Otherwise, call the function given by the `ifNotEqual` argument. Return the value of the function called.
+Based on the value given by the `testValue` argument, compare each target value and function (given as pairs of arguments `targetValueN` and `ifEqualN` respectively) and call the respecive function if the target value is equal to the test value. Otherwise, call the function given by the `ifNotEqual` argument. Return the value of the function called. If no function is called (due to the ommission of the `ifNotEqual` argument), then the operations for the selected elements will be returned.
 
 This command is intended to act similarly to a `switch` statement:
 
