@@ -175,8 +175,8 @@ switch (testValue) {
     case targetValue2:
         return ifEqual2(element);
 
-    case targetValue3:
-        return ifEqual3(element);
+    case targetValueN:
+        return ifEqualN(element);
 
     default:
         return ifNotEqual(element);
