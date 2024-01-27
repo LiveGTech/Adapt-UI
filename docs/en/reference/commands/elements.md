@@ -146,10 +146,10 @@ Remove the selected elements from their parents in the DOM tree.
 
 ## `$g.sel(...).condition`
 ```javascript
-$g.sel(...).condition(condition: Boolean, ifTrue: Function, ifFalse: Function): any
+$g.sel(...).condition(condition: Boolean, ifTrue: Function, ifFalse: Function = (selection) => selection): any
 ```
 
-If the condition given by the `condition` argument is truthy, then call the function given by the `ifTrue` argument, or otherwise call the function given by the `ifFalse` argument. Return the value of the function called.
+If the condition given by the `condition` argument is truthy, then call the function given by the `ifTrue` argument, or otherwise call the function given by the optional `ifFalse` argument. Return the value of the function called.
 
 ### Callbacks
 ```javascript
