@@ -318,6 +318,20 @@ export function init({components, component}) {
         value: "checked"
     });
 
+    component("TextInputArea", function(props, children) {
+        props.attributes ||= {};
+        props.attributes["placeholder"] = props.placeholder || "";
+        props.attributes["aui-mode"] = props.mode || "";
+
+        var element = components.ElementNode("textarea", props) ();
+
+        if (props.value) {
+            element.setValue(props.value);
+        }
+
+        return element;
+    });
+
     component({name: "SelectionInput", positionals: ["mode", "value"]}, function(props, children) {
         props.attributes ||= {};
         props.attributes["aui-mode"] = props.mode || "";

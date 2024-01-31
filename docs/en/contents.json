@@ -71,6 +71,7 @@
         "`SkeletonLoader`": "reference/components/skeletonloader.md",
         "`SwitchInput`": "reference/components/switchinput.md",
         "`TextFragment`": "reference/components/textfragment.md",
+        "`TextInputArea`": "reference/components/textinputarea.md",
         "`UnorderedList`": "reference/components/unorderedlist.md"
     }
 }

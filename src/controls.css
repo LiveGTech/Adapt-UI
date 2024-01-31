@@ -36,7 +36,7 @@ label[aui-mode="switch"] {
     vertical-align: top;
 }
 
-button:not(header button):not(aside button):not(aui-menu button), aui-pagination button, input, select, progress {
+button:not(header button):not(aside button):not(aui-menu button), aui-pagination button, input, select, textarea, progress {
     margin-top: 0.2rem;
     margin-bottom: 0.2rem;
     vertical-align: middle;
@@ -99,7 +99,7 @@ button[aui-mode="navigational"] img {
     opacity: 0.5;
 }
 
-input:not([type="checkbox"]):not([type="radio"]), select, progress {
+input:not([type="checkbox"]):not([type="radio"]), select, textarea, progress {
     margin-inline-end: 0.5rem;
     padding: 0.5rem;
     width: 100%;
@@ -111,7 +111,7 @@ input:not([type="checkbox"]):not([type="radio"]), select, progress {
     transition: 0.5s background-color, 0.5s color;
 }
 
-input[aui-mode="secondary"]:not([type="checkbox"]:checked):not([type="radio"]:checked), select[aui-mode="secondary"] {
+input[aui-mode="secondary"]:not([type="checkbox"]:checked):not([type="radio"]:checked), select[aui-mode="secondary"] textarea[aui-mode="secondary"] {
     background-color: var(--primaryBackground);
     color: var(--primaryText);
 }
@@ -280,6 +280,11 @@ select::-ms-expand {
     border-right: unset;
 }
 
+textarea {
+    min-height: 5rem;
+    resize: none;
+}
+
 progress {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -331,7 +336,7 @@ progress:not([value])::-moz-progress-bar, progress[value="-1"]::-moz-progress-ba
     display: none;
 }
 
-dialog label, dialog button[aui-mode="navigational"], dialog input:not([type="checkbox"]):not([type="radio"]), dialog select, dialog progress {
+dialog label, dialog button[aui-mode="navigational"], dialog input:not([type="checkbox"]):not([type="radio"]), dialog select, dialog textarea, dialog progress {
     width: 100%;
     min-width: unset;
 }
@@ -395,7 +400,7 @@ html[aui-istouch="false"] aui-pagination button:hover, aui-pagination button:act
 }
 
 @media (max-width: 1000px) {
-    label, button[aui-mode="navigational"], input:not([type="checkbox"]):not([type="radio"]), select, progress {
+    label, button[aui-mode="navigational"], input:not([type="checkbox"]):not([type="radio"]), select, textarea, progress {
         width: 100%;
         min-width: unset;
     }
