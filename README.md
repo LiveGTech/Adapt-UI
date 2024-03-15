@@ -1,7 +1,7 @@
 # Adapt UI
 Our user interface design library and tools for making great apps.
 
-Licensed by the [LiveG Open-Source Licence](LICENCE.md).
+Licensed by the [LiveG Open-Source Licence and other licences](LICENCE.md).
 
 Documentation for Adapt UI can be found on [LiveG Docs](https://docs.liveg.tech/?product=adaptui&page=index.md).
 
