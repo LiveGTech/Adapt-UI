@@ -21,7 +21,7 @@ TableMain() (
 ```
 
 HTML:
-```javascript
+```html
 <tbody>
     <tr>
         <td></td>

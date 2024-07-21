@@ -5,7 +5,7 @@ TableCell() ()
 ```
 
 HTML:
-```javascript
+```html
 <th></th>
 ```
 

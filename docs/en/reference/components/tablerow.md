@@ -14,7 +14,7 @@ TableRow() (
 ```
 
 HTML:
-```javascript
+```html
 <tr>
     <th></th>
     <th></th>

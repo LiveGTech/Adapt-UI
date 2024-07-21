@@ -11,7 +11,7 @@ TableHeader() (
 ```
 
 HTML:
-```javascript
+```html
 <thead>
     <tr>
         <th></th>
