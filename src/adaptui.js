@@ -120,6 +120,10 @@ export function sel(selector, multiReturn = false) {
         return elements.map((element) => sel(element));
     };
 
+    appliedOperations["exists"] = function() {
+        return elements.length > 0;
+    };
+
     appliedOperations["find"] = function(selector) {
         return sel(elements.map((element) => [...element.querySelectorAll(selector)]).flat());
     };
