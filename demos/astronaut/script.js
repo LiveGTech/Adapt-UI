@@ -122,9 +122,12 @@ var listViewDemoPage = Page() (
     Section() (
         Heading() ("List view demo"),
         listView,
-        addListViewItemButton,
-        updateListViewItemButton,
-        removeListViewItemButton
+        LineBreak() (),
+        Container (
+            addListViewItemButton,
+            updateListViewItemButton,
+            removeListViewItemButton
+        )
     )
 );
 
