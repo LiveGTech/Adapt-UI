@@ -577,6 +577,29 @@ details[aui-mode="boxed"] pre {
     margin: 0;
 }
 
+table {
+    margin-inline: auto;
+    border: 0.15rem solid var(--secondaryBackground);
+    border-radius: 0.5rem;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+table th {
+    background-color: var(--secondaryBackground);
+    padding: 0.5rem;
+    text-align: start;
+}
+
+table td {
+    border: none;
+    padding: 0.5rem;
+}
+
+table tr:not(:last-child) td {
+    border-bottom: 0.15rem solid var(--secondaryBackground);
+}
+
 dialog {
     position: fixed;
     display: flex;
