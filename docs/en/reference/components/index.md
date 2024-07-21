@@ -70,6 +70,14 @@ The component reference lists and documents all of the user interface components
 * [`SwitchInput`](reference/components/switchinput.md)
 * [`TextInputArea`](reference/components/textinputarea.md)
 
+### Tables
+* [`Table`](reference/components/table.md)
+* [`TableCell`](reference/components/tablecell.md)
+* [`TableHeader`](reference/components/tableheader.md)
+* [`TableHeaderCell`](reference/components/tableheadercell.md)
+* [`TableMain`](reference/components/tablemain.md)
+* [`TableRow`](reference/components/tablerow.md)
+
 ### Indicators
 * [`ProgressIndicator`](reference/components/progressindicator.md)
 

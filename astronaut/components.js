@@ -381,6 +381,13 @@ export function init({components, component}) {
         return components.Image(props) (...children);
     });
 
+    elementToComponent("Table", "table");
+    elementToComponent("TableHeader", "thead");
+    elementToComponent("TableMain", "tbody");
+    elementToComponent("TableRow", "tr");
+    elementToComponent("TableHeaderCell", "th");
+    elementToComponent("TableCell", "td");
+
     elementToComponent("Dialog", "dialog");
     elementToComponent("DialogContent", "aui-dialogcontent");
 

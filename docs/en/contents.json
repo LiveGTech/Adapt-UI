@@ -70,6 +70,12 @@
         "`Separator`": "reference/components/separator.md",
         "`SkeletonLoader`": "reference/components/skeletonloader.md",
         "`SwitchInput`": "reference/components/switchinput.md",
+        "`Table`": "reference/components/table.md",
+        "`TableCell`": "reference/components/tablecell.md",
+        "`TableHeader`": "reference/components/tableheader.md",
+        "`TableHeaderCell`": "reference/components/tableheadercell.md",
+        "`TableMain`": "reference/components/tablemain.md",
+        "`TableRow`": "reference/components/tablerow.md",
         "`TextFragment`": "reference/components/textfragment.md",
         "`TextInputArea`": "reference/components/textinputarea.md",
         "`UnorderedList`": "reference/components/unorderedlist.md"
