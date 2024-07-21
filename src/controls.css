@@ -172,6 +172,10 @@ input[type="checkbox"]:not([role="switch"]), input[type="radio"] {
     transition: 0.5s background-color;
 }
 
+table input[type="checkbox"]:not([role="switch"]), table input[type="radio"] {
+    margin-top: 0;
+}
+
 input[type="radio"] {
     border-radius: 0.75rem;
 }

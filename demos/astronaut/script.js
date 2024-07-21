@@ -1,4 +1,6 @@
+import * as $g from "../../src/adaptui.js";
 import * as astronaut from "../../astronaut/astronaut.js";
+import * as listViews from "../../astronaut/assemblies/listviews/listviews.js";
 
 astronaut.unpack();
 
@@ -48,6 +50,84 @@ var otherPage = Page() (
     )
 );
 
+var listViewData = {};
+var listViewCounter = 1;
+
+function addData() {
+    var id = $g.core.generateKey();
+
+    listViewData[id] = {
+        name: Text(`Item ${listViewCounter++}`),
+        id: CodeSnippet({
+            styles: {
+                "white-space": "nowrap"
+            }
+        }) (id)
+    };
+}
+
+function pickRandomId() {
+    var keys = Object.keys(listViewData);
+
+    return keys[Math.round(Math.random() * (keys.length - 1))];
+}
+
+for (var i = 0; i < 10; i++) {
+    addData();
+}
+
+var listView = listViews.ListView({
+    items: listViewData,
+    keyOrder: ["name", "id"]
+}) (
+    TableHeaderCell({
+        styles: {
+            "width": "100%"
+        }
+    }) ("Name"),
+    TableHeaderCell() ("ID")
+)
+
+var addListViewItemButton = ListButton() ("Add item");
+var updateListViewItemButton = ListButton() ("Update item");
+var removeListViewItemButton = ListButton() ("Remove item");
+
+addListViewItemButton.on("click", function() {
+    addData();
+
+    listView.inter.syncItems(listViewData);
+});
+
+updateListViewItemButton.on("click", function() {
+    if (Object.keys(listViewData).length == 0) {
+        return;
+    }
+
+    listViewData[pickRandomId()].name = `Updated ${listViewCounter++}`;
+
+    listView.inter.syncItems(listViewData);
+});
+
+removeListViewItemButton.on("click", function() {
+    if (Object.keys(listViewData).length == 0) {
+        return;
+    }
+
+    delete listViewData[pickRandomId()];
+
+    listView.inter.syncItems(listViewData);
+});
+
+var listViewDemoPage = Page() (
+    Section() (
+        Heading() ("List view demo"),
+        listView,
+        addListViewItemButton,
+        updateListViewItemButton,
+        removeListViewItemButton
+    )
+);
+
 astronaut.render(
     Screen(true) (
         Header (
@@ -57,9 +137,12 @@ astronaut.render(
         ),
         PageMenu (
             PageMenuButton({page: mainPage}) ("Main page"),
-            PageMenuButton({page: otherPage}) ("Other page")
+            PageMenuButton({page: otherPage}) ("Other page"),
+            Separator() (),
+            PageMenuButton({page: listViewDemoPage}) ("List view demo")
         ),
         mainPage,
-        otherPage
+        otherPage,
+        listViewDemoPage
     )
 );

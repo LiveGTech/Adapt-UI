@@ -48,6 +48,7 @@
     --dangerousUIText: rgb(255, 255, 255);
     --dark-dangerousUIText: var(--dangerousUIText);
     --dangerousUIPress: hsl(var(--dangerousHue), calc(var(--dangerousSaturation) - 10%), calc(var(--dangerousLightness) + 5%));
+    --highlighted: hsl(var(--secondaryHue), var(--secondarySaturation), calc(var(--secondaryLightness) + 10%));
     --scrollbar: rgba(0, 0, 0, 0.5);
     --scrollbarHover: rgba(0, 0, 0, 0.6);
     --scrollbarPress: rgba(0, 0, 0, 0.8);
@@ -78,6 +79,7 @@
         --dangerousUI: hsl(var(--dark-dangerousHue), var(--dark-dangerousSaturation), var(--dark-dangerousLightness));
         --dangerousUIText: var(--dark-dangerousUIText);
         --dangerousUIPress: hsl(var(--dangerousHue), calc(var(--dangerousSaturation) - 5%), calc(var(--dangerousLightness) - 5%));
+        --highlighted: hsl(var(--dark-secondaryHue), var(--dark-secondarySaturation), calc(var(--dark-secondaryLightness) - 10%));
         --scrollbar: rgba(255, 255, 255, 0.5);
         --scrollbarHover: rgba(255, 255, 255, 0.6);
         --scrollbarPress: rgba(255, 255, 255, 0.8);

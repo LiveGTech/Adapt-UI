@@ -585,10 +585,22 @@ table {
     border-spacing: 0;
 }
 
+table thead {
+    background-color: var(--secondaryBackground);
+}
+
 table th {
     background-color: var(--secondaryBackground);
     padding: 0.5rem;
     text-align: start;
+}
+
+table tr {
+    transition: 0.5s background-color;
+}
+
+table tr:has(input[type="checkbox"]:checked) {
+    background-color: var(--highlighted);
 }
 
 table td {
