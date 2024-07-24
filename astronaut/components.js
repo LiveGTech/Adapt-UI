@@ -386,11 +386,18 @@ export function init({components, component}) {
         return components.Image(props) (...children);
     });
 
-    elementToComponent("Table", "table");
+    elementToComponent("Table", "table", {}, {
+        mode: "aui-mode"
+    });
+
     elementToComponent("TableHeader", "thead");
     elementToComponent("TableMain", "tbody");
     elementToComponent("TableRow", "tr");
-    elementToComponent("TableHeaderCell", "th");
+
+    elementToComponent("TableHeaderCell", "th", {}, {
+        mode: "aui-mode"
+    });
+
     elementToComponent("TableCell", "td");
 
     elementToComponent("Dialog", "dialog");

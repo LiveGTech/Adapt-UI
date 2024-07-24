@@ -18,7 +18,7 @@ aui-menu {
     border-radius: 10px;
     opacity: 0;
     overflow: auto;
-    z-index: 3;
+    z-index: 4;
 }
 
 aui-menu[aui-mode~="centred"] {

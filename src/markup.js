@@ -8,6 +8,7 @@
 */
 
 import * as $g from "./adaptui.js";
+import * as calc from "./calc.js";
 import * as aside from "./aside.js";
 import * as menus from "./menus.js";
 import * as screens from "./screens.js";
@@ -255,6 +256,107 @@ export function applyScrollableScreens(root = document) {
     });
 }
 
+export function applyTables(root = document) {
+    root.querySelectorAll("table").forEach(function(element) {
+        if (!!element._aui_appliedTables) {
+            return;
+        }
+
+        element._aui_appliedTables = true;
+
+        var headerRow = element.querySelector("tr:has(th)");
+        var closestColumn = null;
+        var currentColumn = null;
+        var initialWidth = null;
+        var nextInitialWidth = null;
+        var initialX = null;
+
+        if (headerRow) {
+            function checkPointerPosition(event) {
+                if (currentColumn != null) {
+                    return;
+                }
+
+                closestColumn = null;
+
+                headerRow.querySelectorAll("th").forEach(function(column) {
+                    if (!(column.getAttribute("aui-mode") || "").split(" ").includes("resize") || column == headerRow.lastChild) {
+                        return;
+                    }
+
+                    var rect = column.getBoundingClientRect();
+                    var edge = element.matches("[dir='rtl'] *") ? rect.left : rect.right;
+
+                    if (event.clientX >= edge - calc.getRemSize(0.55) && event.clientX < edge + calc.getRemSize(0.25)) {
+                        closestColumn = column;
+                        initialWidth = rect.width;
+                        nextInitialWidth = column.nextSibling ? column.nextSibling.getBoundingClientRect().width : null;
+                        initialX = event.clientX;
+                    }
+                });
+
+                if (closestColumn) {
+                    element.setAttribute("aui-resizehover", true);
+                } else {
+                    element.removeAttribute("aui-resizehover");
+                }
+
+                event.preventDefault();
+            }
+
+            headerRow.addEventListener("pointerdown", function(event) {
+                checkPointerPosition(event);
+
+                currentColumn = closestColumn;
+            });
+
+            document.body.addEventListener("pointermove", function(event) {
+                if (currentColumn == null) {
+                    return;
+                }
+
+                if (!element.hasAttribute("aui-resized")) {
+                    headerRow.querySelectorAll("th").forEach(function(column) {
+                        var rect = column.getBoundingClientRect();
+
+                        column.style.width = `${rect.width}px`;
+                    });
+
+                    element.setAttribute("aui-resized", true);
+                }
+
+                var delta = element.matches("[dir='rtl'] *") ? initialX - event.clientX : event.clientX - initialX;
+
+                currentColumn.style.width = `${initialWidth + delta}px`;
+
+                if (currentColumn.nextSibling) {
+                    currentColumn.nextSibling.style.width = `${nextInitialWidth - delta}px`;
+                }
+            });
+
+            headerRow.addEventListener("pointermove", checkPointerPosition);
+
+            document.body.addEventListener("pointerup", function() {
+                currentColumn = null;
+                closestColumn = null;
+            });
+
+            document.body.addEventListener("pointerleave", function() {
+                currentColumn = null;
+                closestColumn = null;
+            });
+
+            headerRow.addEventListener("pointerleave", function() {
+                element.removeAttribute("aui-resizehover");
+            });
+
+            document.body.addEventListener("touchend", function() {
+                element.removeAttribute("aui-resizehover");
+            });
+        }
+    });
+}
+
 export function applyBindings(root = document) {
     root.querySelectorAll("[aui-bind]").forEach(function(element) {
         if (!!element._aui_appliedBindings) {
@@ -294,5 +396,6 @@ export function apply(root = document) {
     applyMenus(root);
     applyDismissables(root);
     applyScrollableScreens(root);
+    applyTables(root);
     applyBindings(root);
 }

@@ -192,7 +192,7 @@ header button[aui-mode="action"] {
     padding: 0.6rem;
     background-color: var(--secondaryUI);
     border-radius: 50%;
-    z-index: 1;
+    z-index: 2;
 }
 
 html[aui-istouch="false"] header button[aui-mode="action"]:hover, header button[aui-mode="action"]:active {
@@ -259,7 +259,7 @@ nav {
     align-items: center;
     white-space: nowrap;
     overflow: auto;
-    z-index: 1;
+    z-index: 2;
 }
 
 nav a {
@@ -289,7 +289,7 @@ aside {
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
     overflow: auto;
-    z-index: 2;
+    z-index: 3;
     transition: 0.5s background-color, 0.5s color;
 }
 
@@ -578,6 +578,7 @@ details[aui-mode="boxed"] pre {
 }
 
 table {
+    max-width: 100%;
     margin-inline: auto;
     border: 0.15rem solid var(--secondaryBackground);
     border-radius: 0.5rem;
@@ -585,18 +586,46 @@ table {
     border-spacing: 0;
 }
 
+table[aui-resizehover] {
+    cursor: col-resize;
+}
+
 table thead {
     background-color: var(--secondaryBackground);
 }
 
 table th {
-    background-color: var(--secondaryBackground);
+    position: relative;
     padding: 0.5rem;
+    background-color: var(--secondaryBackground);
     text-align: start;
+    touch-action: none;
+}
+
+table th[aui-mode~="resize"]:not(:last-child)::after {
+    position: absolute;
+    top: 0.5rem;
+    right: 0;
+    width: 0.15rem;
+    height: calc(100% - 1rem);
+    background-color: var(--scrollbar);
+    border-radius: 0.075rem;
+    content: "";
+}
+
+[dir="rtl"] table th[aui-mode~="resize"]:not(:last-child)::after {
+    left: 0;
+    right: unset;
 }
 
 table tr {
     transition: 0.5s background-color;
+}
+
+table tr:has(th) {
+    position: sticky;
+    top: 0;
+    z-index: 1;
 }
 
 table tr:has(input[type="checkbox"]:checked) {
@@ -610,6 +639,16 @@ table td {
 
 table tr:not(:last-child) td {
     border-bottom: 0.15rem solid var(--secondaryBackground);
+}
+
+table[aui-mode~="truncate"] th, table[aui-mode~="truncate"] td {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+table[aui-resized][aui-mode~="truncate"] td {
+    max-width: 0;
 }
 
 dialog {
@@ -686,7 +725,7 @@ aui-backdrop {
     width: 100%;
     height: 100%;
     background-color: var(--blur);
-    z-index: 2;
+    z-index: 3;
 }
 
 aui-backdrop[aui-for="aside"], aui-backdrop[aui-for="menu"] {

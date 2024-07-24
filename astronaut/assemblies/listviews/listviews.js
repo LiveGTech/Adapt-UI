@@ -137,7 +137,7 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
         });
     });
 
-    return c.Table (
+    return c.Table(props) (
         c.TableHeader (
             c.TableRow (
                 c.TableHeaderCell() (selectAllCheckbox),

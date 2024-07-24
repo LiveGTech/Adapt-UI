@@ -62,7 +62,8 @@ function addData() {
             styles: {
                 "white-space": "nowrap"
             }
-        }) (id)
+        }) (id),
+        updated: Text("No")
     };
 }
 
@@ -77,16 +78,19 @@ for (var i = 0; i < 10; i++) {
 }
 
 var listView = listViews.ListView({
+    mode: "truncate",
     items: listViewData,
-    keyOrder: ["name", "id"]
+    keyOrder: ["name", "id", "updated"]
 }) (
     TableHeaderCell({
+        mode: "resize",
         styles: {
             "width": "100%"
         }
     }) ("Name"),
-    TableHeaderCell() ("ID")
-)
+    TableHeaderCell({mode: "resize"}) ("ID"),
+    TableHeaderCell({mode: "resize"}) ("Updated?")
+);
 
 var addListViewItemButton = ListButton() ("Add item");
 var updateListViewItemButton = ListButton() ("Update item");
@@ -103,7 +107,8 @@ updateListViewItemButton.on("click", function() {
         return;
     }
 
-    listViewData[pickRandomId()].name = `Updated ${listViewCounter++}`;
+    listViewData[pickRandomId()].name = Text(`Updated ${listViewCounter++}`);
+    listViewData[pickRandomId()].updated = Text("Yes");
 
     listView.inter.syncItems(listViewData);
 });
