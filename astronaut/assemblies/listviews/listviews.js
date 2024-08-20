@@ -23,6 +23,8 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
     var tableMain = c.TableMain() ();
 
     var rows = {};
+    var lastSimpleSelectionKey = null;
+    var lastClickedItemKey = null;
 
     function checkAllSelected() {
         var allSelected = true;
@@ -63,20 +65,67 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
 
             inter.setItemSelection(key, isSelected);
 
-            checkAllSelected();
-
             return;
         }
 
-        rows[key] = c.TableRow() (
+        rows[key] = c.TableRow({
+            attributes: {
+                "aui-key": key
+            }
+        }) (
             ...getCells(data)
         );
+
+        rows[key].on("click", function(event) {
+            if (event.ctrlKey) {
+                inter.setItemSelection(key, !inter.checkItemIsSelected(key));
+
+                lastClickedItemKey = key;
+
+                return;
+            }
+
+            if (event.shiftKey && lastSimpleSelectionKey != null) {
+                if (key == lastClickedItemKey && inter.checkItemIsSelected(key)) {
+                    inter.setSelection([lastSimpleSelectionKey]);
+    
+                    return;
+                }
+
+                var tableKeys = tableMain.find("tr").map((row) => row.getAttribute("aui-key"));
+                var startIndex = tableKeys.indexOf(lastSimpleSelectionKey);
+                var endIndex = tableKeys.indexOf(key);
+                var selectedKeys = [];
+
+                if (endIndex < startIndex) {
+                    var temp = startIndex;
+
+                    startIndex = endIndex;
+                    endIndex = temp;
+                }
+
+                tableKeys.forEach(function(key, index) {
+                    if (index >= startIndex && index <= endIndex) {
+                        selectedKeys.push(key);
+                    }
+                });
+
+                inter.setSelection(selectedKeys);
+
+                lastClickedItemKey = key;
+
+                return;
+            }
+
+            inter.setSelection([key]);
+
+            lastSimpleSelectionKey = key;
+            lastClickedItemKey = key;
+        });
 
         tableMain.add(rows[key]);
 
         inter.setItemSelection(key, selectAllCheckbox.getValue());
-
-        checkAllSelected();
     };
 
     inter.removeItem = function(key) {
@@ -115,14 +164,20 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
         return Object.keys(rows).filter((key) => inter.checkItemIsSelected(key));
     };
 
-    inter.setItemSelection = function(key, selected) {
+    inter.setItemSelection = function(key, selected, shouldCheckAllSelected = true) {
         rows[key].find("input[type='checkbox']").setValue(selected);
+
+        if (shouldCheckAllSelected) {
+            checkAllSelected();
+        }
     };
 
     inter.setSelection = function(selection) {
         Object.keys(rows).forEach(function(key) {
-            inter.setItemSelection(key, selection.includes(key));
+            inter.setItemSelection(key, selection.includes(key), false);
         });
+
+        checkAllSelected();
     };
 
     Object.keys(props.items).forEach(function(itemKey) {
