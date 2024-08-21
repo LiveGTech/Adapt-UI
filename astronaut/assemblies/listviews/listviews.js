@@ -7,6 +7,7 @@
     Licensed by the LiveG Open-Source Licence, which can be found at LICENCE.md.
 */
 
+import * as $g from "../../../src/adaptui.js";
 import * as astronaut from "../../astronaut.js";
 
 var c = astronaut.components;
@@ -77,6 +78,10 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
         );
 
         rows[key].on("click", function(event) {
+            if ($g.sel(event.target).is("input[type='checkbox']")) {
+                return;
+            }
+
             if (event.ctrlKey) {
                 inter.setItemSelection(key, !inter.checkItemIsSelected(key));
 
