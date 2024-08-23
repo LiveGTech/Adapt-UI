@@ -359,16 +359,16 @@ waitForLoad().then(function() {
         background-color: rgb(80, 145, 247);
         color: yellow;
         font-size: 20px;
-        font-family: "URW Gothic L Book", sans-serif;
+        font-family: "URW Gothic L", "URW Gothic L Book", sans-serif;
     `,`
         background-color: rgb(80, 145, 247);
         color: white;
         font-size: 20px;
-        font-family: "URW Gothic L Book", sans-serif;
+        font-family: "URW Gothic L", "URW Gothic L Book", sans-serif;
     `, `
         margin-top: 6px;
         font-size: 12px;
-        font-family: "URW Gothic L Book", sans-serif;
+        font-family: "URW Gothic L", "URW Gothic L Book", sans-serif;
     `);
 });
 
