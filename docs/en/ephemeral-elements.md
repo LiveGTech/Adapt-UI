@@ -65,13 +65,13 @@ The `Screen` is closed and automatically removed from the DOM when the `Button` 
 ## Using ephemeral elements in Astronaut
 Let's say we have a `Button` on our main screen:
 
-```js
+```javascript
 var viewProfileButton = Button() ("View profile");
 ```
 
 In our JavaScript code, we can create a new `Screen` and open it ephemerally like this:
 
-```js
+```javascript
 var user = {}; // Contains loaded profile data
 
 viewProfileButton.on("click", function() {
