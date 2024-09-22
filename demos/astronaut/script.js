@@ -70,7 +70,7 @@ openEphemeralDialogButton.on("click", function() {
             Heading() ("This is ephemeral dialog #" + (ephemeralDialogCounter++)),
             Paragraph() ("It was generated on-the-fly and will be removed from the DOM when closed.")
         ),
-        ButtonRow (
+        ButtonRow({mode: "end"}) (
             Button({bind: "close"}) ("Close")
         )
     )).then((dialog) => dialog.dialogOpen());
