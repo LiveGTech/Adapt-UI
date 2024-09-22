@@ -116,6 +116,14 @@ export function close(element, closeParentMenus = true) {
         element.style.display = "none";
         element.style.left = "0";
 
+        if (element.getAttribute("aui-ephemeral") == "true") {
+            if (element.previousSibling?.tagName == "AUI-BACKDROP") {
+                element.previousSibling.remove();
+            }
+
+            element.remove();
+        }
+
         return Promise.resolve();
     });
 }

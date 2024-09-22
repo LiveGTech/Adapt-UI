@@ -12,6 +12,14 @@ const DARK_MODE_STYLES = new astronaut.MediaQueryStyleSet("prefers-color-scheme:
     display: "none"
 });
 
+var openEphemeralScreenButton = ListButton() ("Open ephemeral screen");
+var openEphemeralDialogButton = ListButton() ("Open ephemeral dialog");
+var openEphemeralMenuButton = ListButton() ("Open ephemeral menu");
+
+var ephemeralScreenCounter = 1;
+var ephemeralDialogCounter = 1;
+var ephemeralMenuCounter = 1;
+
 var mainPage = Page(true) (
     Section (
         Heading() ("This is a test of Astronaut"),
@@ -31,9 +39,50 @@ var mainPage = Page(true) (
                 SelectionInputOption("option2") ("Another option"),
                 SelectionInputOption("option3") ("Yet another option")
             )
+        ),
+        LineBreak() (),
+        Container (
+            openEphemeralScreenButton,
+            openEphemeralDialogButton,
+            openEphemeralMenuButton
         )
     )
 );
+
+openEphemeralScreenButton.on("click", function() {
+    astronaut.addEphemeral(Screen (
+        Header (
+            IconButton({icon: "back", alt: "Back", bind: "back"}) (),
+            Text("Ephemeral screen")
+        ),
+        Page(true) (
+            Section (
+                Heading() ("This is ephemeral screen #" + (ephemeralScreenCounter++)),
+                Paragraph() ("It was generated on-the-fly and will be removed from the DOM when exited.")
+            )
+        )
+    )).then((dialog) => dialog.screenForward());
+});
+
+openEphemeralDialogButton.on("click", function() {
+    astronaut.addEphemeral(Dialog (
+        DialogContent (
+            Heading() ("This is ephemeral dialog #" + (ephemeralDialogCounter++)),
+            Paragraph() ("It was generated on-the-fly and will be removed from the DOM when closed.")
+        ),
+        ButtonRow (
+            Button({bind: "close"}) ("Close")
+        )
+    )).then((dialog) => dialog.dialogOpen());
+});
+
+openEphemeralMenuButton.on("click", function() {
+    astronaut.addEphemeral(Menu (
+        MenuButton() ("Ephemeral menu #" + (ephemeralMenuCounter++)),
+        MenuButton() ("Generated on-the-fly"),
+        MenuButton() ("Removed from DOM on close"),
+    )).then((dialog) => dialog.menuOpen());
+});
 
 var otherPage = Page() (
     Section (

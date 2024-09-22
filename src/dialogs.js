@@ -43,6 +43,10 @@ export function close(element) {
 
         lastFocusedElement = null;
 
+        if (element.getAttribute("aui-ephemeral") == "true") {
+            element.remove();
+        }
+
         return Promise.resolve();
     }
 
@@ -52,6 +56,10 @@ export function close(element) {
             lastFocusedElement.focus();
 
             lastFocusedElement = null;
+
+            if (element.getAttribute("aui-ephemeral") == "true") {
+                element.remove();
+            }
 
             resolve();
         }, 500);

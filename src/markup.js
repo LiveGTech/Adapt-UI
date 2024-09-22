@@ -18,7 +18,7 @@ import * as screenScroll from "./screenscroll.js";
 
 export function applyBackdrop(root = document) {
     root.querySelectorAll("aside, aui-menu").forEach(function(element) {
-        if (!!element._aui_appliedBackdrop) {
+        if (!element.parentElement || !!element._aui_appliedBackdrop) {
             return;
         }
 

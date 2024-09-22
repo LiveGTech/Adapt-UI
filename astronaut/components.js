@@ -235,7 +235,7 @@ export function init({components, component}) {
         );
     });
 
-    elementToComponent("Button", "button", {}, {"mode": "aui-mode"});
+    elementToComponent("Button", "button", {}, {"mode": "aui-mode", "bind": "aui-bind"});
     elementToComponent("NavigationalButton", "button", {attributes: {"aui-mode": "navigational"}});
 
     component({name: "IconButton", positionals: ["icon", "alt"]}, function(props, children) {
@@ -400,7 +400,8 @@ export function init({components, component}) {
 
     elementToComponent("TableCell", "td");
 
-    elementToComponent("Dialog", "dialog");
+    elementToComponent("Dialog", "dialog", {attributes: {"aui-mode": "hidden"}});
+
     elementToComponent("DialogContent", "aui-dialogcontent");
 
     elementToComponent("ScrollableScreenContainer", "aui-screenscroll", {}, {mode: "aui-mode"});

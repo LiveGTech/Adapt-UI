@@ -68,6 +68,10 @@ export function back(destinationElement) {
 
         backdrop.remove();
 
+        if (sourceElement.getAttribute("aui-ephemeral") == "true") {
+            sourceElement.remove();
+        }
+
         return Promise.resolve();
     });
 }

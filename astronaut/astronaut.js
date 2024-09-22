@@ -16,6 +16,7 @@ export var components = {};
 export var unpacked = false;
 export var loaded = false;
 export var styleSets = [];
+export var defaultRoot = null;
 
 export class StyleSet {
     constructor(styles, qualifiers = "*", childQualifiers = null, _shouldRender = true) {
@@ -229,18 +230,44 @@ export function component(options, init) {
     return newComponent;
 }
 
-export function render(component, toRoot = null) {
-    (loaded ? Promise.resolve() : $g.waitForLoad()).then(function() {
+export function add(components, toRoot = null) {
+    return (loaded ? Promise.resolve() : $g.waitForLoad()).then(function() {
         loaded = true;
 
         if (toRoot == null) {
-            toRoot = $g.sel("body");
+            toRoot = defaultRoot || $g.sel("body");
+        } else {
+            if (defaultRoot == null) {
+                defaultRoot = toRoot;
+            }
         }
 
-        toRoot.clear().add(
-            component,
+        toRoot.add(
+            ...(Array.isArray(components) ? components : [components]),
             ...styleSets.map((styleSet) => styleSet.styleElement).filter((element) => element != null)
         );
+
+        markup.apply(toRoot.get());
+
+        return Promise.resolve(components);
+    });
+}
+
+export function addEphemeral(components, toRoot = undefined) {
+    (Array.isArray(components) ? components : [components]).forEach(function(component) {
+        component.setAttribute("aui-ephemeral", "true");
+    });
+
+    return add(components, toRoot);
+}
+
+export function render(components, toRoot = undefined) {
+    return (loaded ? Promise.resolve() : $g.waitForLoad()).then(function() {
+        loaded = true;
+
+        (toRoot || $g.sel("body")).clear();
+
+        return add(components, toRoot);
     });
 }
 
