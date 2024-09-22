@@ -391,6 +391,7 @@ Now test the app. You should be able to navigate forwards by pressing the new bu
 ## Next steps
 Congrats! You've got a basic app working. We have other guides for what you can do with Adapt UI, for which you can choose what you want to learn next.
 
+* Learn how to create interfaces on-the-fly in your app: [Using ephemeral elements in your app](ephemeral-elements.md)
 * Learn how to localise your app: [Localising apps using the Adapt UI `l10n` module](localising-apps.md)
 
 There are also a few other things you can do with your app's code:
