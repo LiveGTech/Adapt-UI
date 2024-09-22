@@ -90,6 +90,10 @@ export function removeAttribute(element, attributeName) {
     element.removeAttribute(attributeName);
 }
 
+export function makeEphemeral(element) {
+    element.setAttribute("aui-ephemeral", "true");
+}
+
 export function hasClass(element, className) {
     return element.classList.contains(className);
 }

@@ -46,6 +46,7 @@ const AVAILABLE_OPERATIONS = {
     setAttribute: basic.setAttribute,
     addAttribute: basic.addAttribute,
     removeAttribute: basic.removeAttribute,
+    makeEphemeral: basic.makeEphemeral,
     hasClass: basic.hasClass,
     addClass: basic.addClass,
     removeClass: basic.removeClass,

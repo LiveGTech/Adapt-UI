@@ -5,6 +5,7 @@
         "Getting started with Astronaut and Adapt UI": "astronaut-getting-started.md"
     },
     "Build advanced apps": {
+        "Using ephemeral elements in your app": "ephemeral-elements.md",
         "Localising apps using the `l10n` module": "localising-apps.md"
     },
     "Command reference": {

@@ -255,7 +255,7 @@ export function add(components, toRoot = null) {
 
 export function addEphemeral(components, toRoot = undefined) {
     (Array.isArray(components) ? components : [components]).forEach(function(component) {
-        component.setAttribute("aui-ephemeral", "true");
+        component.makeEphemeral();
     });
 
     return add(components, toRoot);

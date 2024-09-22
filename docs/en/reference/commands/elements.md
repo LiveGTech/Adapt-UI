@@ -321,6 +321,13 @@ Remove the HTML attribute given by the `attributeName` argument from the selecte
 
 This operation allows other operations to be chained.
 
+## `$g.sel(...).makeEphemeral`
+```javascript
+$g.sel(...).makeEphemeral();
+```
+
+Mark the selected elements as ephemeral. If the elements are [`Screen`s](reference/components/screen.md), [`Dialog`s](reference/components/dialog.md) or [`Menu`s](reference/components/menu.md), then they will be removed from the DOM once closed. Learn more in the [Using ephemeral elements in your app](ephemeral-elements.md) guide.
+
 ## `$g.sel(...).hasClass`
 ```javascript
 $g.sel(...).hasClass(className: String): Boolean
