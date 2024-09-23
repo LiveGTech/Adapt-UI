@@ -19,4 +19,5 @@ Once you've learnt the basics, you can begin to build your own advanced apps wit
 
 We also have other guides for what you can do with Adapt UI beyond knowing the basics:
 
+* Learn how to make complex apps using dynamically-generated components: [Using ephemeral elements in your app](ephemeral-elements.md)
 * Learn how to localise your app: [Localising apps using the Adapt UI `l10n` module](localising-apps.md)
