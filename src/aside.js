@@ -9,6 +9,7 @@
 
 import * as a11y from "./a11y.js";
 import * as animations from "./animations.js";
+import * as pages from "./pages.js";
 
 const ASIDE_HIDDEN_SCREEN_WIDTH = 800;
 
@@ -114,39 +115,8 @@ export function update() {
 
 export function addPages(element) {
     element.querySelectorAll("button[aui-page]").forEach(function(buttonElement) {
-        var pageSelector = buttonElement.getAttribute("aui-page");
-
         buttonElement.addEventListener("click", function() {
-            element.parentNode.querySelectorAll("main").forEach(function(mainElement) {
-                if (mainElement != element.parentNode.querySelector(pageSelector)) {
-                    animations.fadeOut(mainElement, 250, animations.easingFunctions.EASE_OUT);
-                }
-            });
-
-            element.querySelectorAll("button[aui-page]").forEach(function(otherButtonElement) {
-                otherButtonElement.removeAttribute("aui-selected");
-            });
-
-            buttonElement.setAttribute("aui-selected", "");
-
-            close(element);
-
-            if (element.parentNode.querySelector(pageSelector).hidden == false) {
-                return;
-            }
-
-            if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-                element.parentNode.querySelector(pageSelector).style.opacity = "1";
-                element.parentNode.querySelector(pageSelector).hidden = false;
-
-                return;
-            }
-
-            element.parentNode.querySelector(pageSelector).style.opacity = "0";
-
-            setTimeout(function() {
-                animations.fadeIn(element.parentNode.querySelector(pageSelector), 250, animations.easingFunctions.EASE_IN);
-            }, 250);
+            pages.fade(element.closest("aui-screen").querySelector(buttonElement.getAttribute("aui-page")));
         });
     });
 }

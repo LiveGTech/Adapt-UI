@@ -77,7 +77,7 @@
                         <button id="openDialogButton">Primary button</button>
                         <button aui-mode="secondary" class="openActionMenu">Secondary button</button>
                     </aui-buttons>
-                    <button aui-mode="navigational" id="navigateForwardButton">Go to another page</button>
+                    <button aui-mode="navigational" id="navigateForwardButton">Go to another screen</button>
                 </section>
                 <section>
                     <div>
@@ -145,7 +145,7 @@
                         <input type="checkbox" role="switch" id="switchOff">
                     </div>
                     <br>
-                    <button aui-listitem="icon">
+                    <button aui-listitem="icon" id="switchPageButton">
                         <img src="../../icons/star.svg" alt="" aui-icon="dark embedded">
                         <div>
                             <strong>I'm an option</strong><br>
@@ -314,17 +314,17 @@
                 </section>
             </main>
         </aui-screen>
-        <aui-screen hidden id="otherPage">
+        <aui-screen hidden id="otherScreen">
             <header>
                 <button title="Back" aui-bind="back" aria-label="Back"><img src="../../icons/back.svg" alt="" aui-icon="light"></button>
-                <span>Another page</span>
+                <span>Another screen</span>
                 <input placeholder="This is a header input">
             </header>
             <main>
                 <section>
                     <aui-message>
                         <img src="../../icons/star.svg" alt="" aui-icon="dark embedded">
-                        <h1>This is another page</h1>
+                        <h1>This is another screen</h1>
                         <p>This is an example of a page message</p>
                         <aui-buttons>
                             <button>OK</button>

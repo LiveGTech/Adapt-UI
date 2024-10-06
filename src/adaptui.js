@@ -16,6 +16,7 @@ import * as animations from "./animations.js";
 import * as markup from "./markup.js";
 import * as aside from "./aside.js";
 import * as screens from "./screens.js";
+import * as pages from "./pages.js";
 import * as dialogs from "./dialogs.js";
 import * as menus from "./menus.js";
 import * as dismiss from "./dismiss.js";
@@ -71,6 +72,8 @@ const AVAILABLE_OPERATIONS = {
     screenForward: screens.forward,
     screenJump: screens.jump,
     screenFade: screens.fade,
+    pageJump: pages.jump,
+    pageFade: pages.fade,
     dialogOpen: dialogs.open,
     dialogClose: dialogs.close,
     menuOpen: menus.open,

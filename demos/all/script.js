@@ -15,11 +15,15 @@ $g.waitForLoad().then(function() {
     });
 
     $g.sel("#navigateForwardButton").on("click", function() {
-        $g.sel("#otherPage").screenForward();
+        $g.sel("#otherScreen").screenForward();
     });
 
     $g.sel("#openDialogButton").on("click", function() {
         $g.sel("#dialog").dialogOpen();
+    });
+
+    $g.sel("#switchPageButton").on("click", function() {
+        $g.sel("#about").pageFade();
     });
 
     $g.sel("#checkboxIndeterminate").setValue("indeterminate");
