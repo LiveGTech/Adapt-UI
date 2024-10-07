@@ -117,6 +117,8 @@ export function addPages(element) {
     element.querySelectorAll("button[aui-page]").forEach(function(buttonElement) {
         buttonElement.addEventListener("click", function() {
             pages.fade(element.closest("aui-screen").querySelector(buttonElement.getAttribute("aui-page")));
+
+            close(element);
         });
     });
 }
