@@ -114,7 +114,7 @@ export function init({components, component}) {
     });
 
     elementToComponent("NavigationBar", "nav");
-    elementToComponent("Footer", "footer");
+    elementToComponent("Footer", "footer", {}, {"mode": "aui-mode"});
 
     elementToComponent("Menu", "aui-menu", {}, {"mode": "aui-mode"});
 
@@ -176,7 +176,7 @@ export function init({components, component}) {
         return components.Button(props) (...children);
     });
 
-    elementToComponent("Section", "section");
+    elementToComponent("Section", "section", {}, {"mode": "aui-mode"});
     elementToComponent("ButtonRow", "aui-buttons", {}, {"mode": "aui-mode"});
     elementToComponent("Message", "aui-message");
     elementToComponent("Dependency", "aui-dependency");

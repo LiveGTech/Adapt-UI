@@ -173,7 +173,7 @@ removeListViewItemButton.on("click", function() {
 });
 
 var listViewDemoPage = Page() (
-    Section() (
+    Section({mode: "wide"}) (
         Heading() ("List view demo"),
         listView,
         LineBreak() (),
