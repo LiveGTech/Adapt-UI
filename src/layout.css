@@ -457,6 +457,11 @@ section[aui-mode~="cover"][aui-mode~="large"] {
     padding-bottom: 4rem;
 }
 
+section[aui-mode~="wide"], footer[aui-mode~="wide"] {
+    padding-left: 5%!important;
+    padding-right: 5%!important;
+}
+
 footer {
     background-color: var(--secondaryBackground);
     color: var(--secondaryText);
