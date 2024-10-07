@@ -16,7 +16,7 @@
     cursor: wait!important;
 }
 
-[aui-skeleton] :is(h1, h2, h3, h4, h5, h6, p, button, label, input, aui-card) {
+[aui-skeleton] :is(h1, h2, h3, h4, h5, h6, p, button, label, input, aui-card, [aui-skeletontext]) {
     background-color: var(--skeleton)!important;
     background: linear-gradient(120deg, transparent 30%, rgba(255, 255, 255, 0.5) 50%, transparent 70%) var(--skeleton);
     background-size: 200% 100%;
@@ -24,7 +24,7 @@
     animation: 2s shine ease-in-out infinite;
 }
 
-[aui-skeleton] :is(h1, h2, h3, h4, h5, h6) {
+[aui-skeleton] :is(h1, h2, h3, h4, h5, h6, [aui-skeletontext]) {
     width: 16rem;
     max-width: 60%;
     border-radius: 0.3rem;
@@ -55,6 +55,12 @@
 }
 
 [aui-skeleton] p {
+    height: var(--sizeP);
+    border-radius: 0.2rem;
+}
+
+[aui-skeleton] [aui-skeletontext] {
+    display: inline-block;
     height: var(--sizeP);
     border-radius: 0.2rem;
 }
