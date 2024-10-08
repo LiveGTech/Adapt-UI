@@ -130,7 +130,7 @@ Return the operations for the next element in the DOM tree for each selected ele
 
 ## `$g.sel(...).add`
 ```javascript
-$g.sel(...).add(...elementsToAdd: [Function | {Function}]): {Function}
+$g.sel(...).add(...elementsToAdd: [Function | {Function} | [<elementsToAdd>] | null]): {Function}
 ```
 
 Add the elements given by the `elementsToAdd` argument (a spreaded `Array` of either DOM elements or element operations) to the selected elements.
