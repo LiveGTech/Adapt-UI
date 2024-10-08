@@ -124,7 +124,7 @@ function pickRandomId() {
 }
 
 for (var i = 0; i < 10; i++) {
-    addData(i == 4 ? Icon("star") () : null);
+    addData(i == 4 ? Icon("star", "dark embedded") () : null);
 }
 
 var listView = listViews.ListView({
