@@ -27,6 +27,16 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
     var lastSimpleSelectionKey = null;
     var lastClickedItemKey = null;
 
+    var table = c.Table(props) (
+        c.TableHeader (
+            c.TableRow (
+                c.TableHeaderCell() (selectAllCheckbox),
+                ...children
+            )
+        ),
+        tableMain
+    );
+
     function checkAllSelected() {
         var allSelected = true;
 
@@ -39,6 +49,12 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
         selectAllCheckbox.setValue(allSelected);
     }
 
+    function emitChangeEvent() {
+        table.emit("selectionchange", {
+            selection: inter.getSelection()
+        });
+    }
+
     function getCells(item) {
         var checkbox = c.CheckboxInput({
             attributes: {
@@ -48,11 +64,24 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
 
         checkbox.on("change", function() {
             checkAllSelected();
+
+            emitChangeEvent();
         });
 
+        var image = item[props.imageKey];
+
+        if (image) {
+            checkbox.setAttribute("aui-maskedbyicon", true);
+        }
+
         return [
-            c.TableCell (
+            c.TableCell({
+                styles: {
+                    "position": "relative"
+                }
+            }) (
                 checkbox,
+                image
             ),
             ...props.keyOrder.map((cellKey) => c.TableCell() (item[cellKey] || Text("")))
         ];
@@ -87,12 +116,16 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
 
                 lastClickedItemKey = key;
 
+                emitChangeEvent();
+
                 return;
             }
 
             if (event.shiftKey && lastSimpleSelectionKey != null) {
                 if (key == lastClickedItemKey && inter.checkItemIsSelected(key)) {
                     inter.setSelection([lastSimpleSelectionKey]);
+
+                    emitChangeEvent();
     
                     return;
                 }
@@ -119,6 +152,8 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
 
                 lastClickedItemKey = key;
 
+                emitChangeEvent();
+
                 return;
             }
 
@@ -126,6 +161,25 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
 
             lastSimpleSelectionKey = key;
             lastClickedItemKey = key;
+
+            emitChangeEvent();
+        });
+
+        function emitActivateEvent() {
+            table.emit("activaterow", {
+                key,
+                row: rows[key]
+            });
+        }
+
+        rows[key].find("input[type='checkbox']").on("keydown", function(event) {
+            if (event.key == "Enter") {
+                emitActivateEvent();
+            }
+        });
+
+        rows[key].on("dblclick", function() {
+            emitActivateEvent();
         });
 
         tableMain.add(rows[key]);
@@ -193,17 +247,13 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
         var shouldSelectAll = selectAllCheckbox.getValue();
 
         Object.values(rows).forEach(function(row) {
-            row.find("input[type='checkbox']").setValue(shouldSelectAll)
+            row.find("input[type='checkbox']").setValue(shouldSelectAll);
+        });
+
+        table.emit("selectionchange", {
+            selection: inter.getSelection()
         });
     });
 
-    return c.Table(props) (
-        c.TableHeader (
-            c.TableRow (
-                c.TableHeaderCell() (selectAllCheckbox),
-                ...children
-            )
-        ),
-        tableMain
-    );
+    return table;
 });

@@ -102,7 +102,7 @@ var otherPage = Page() (
 var listViewData = {};
 var listViewCounter = 1;
 
-function addData() {
+function addData(icon = null) {
     var id = $g.core.generateKey();
 
     listViewData[id] = {
@@ -112,7 +112,8 @@ function addData() {
                 "white-space": "nowrap"
             }
         }) (id),
-        updated: Text("No")
+        updated: Text("No"),
+        icon
     };
 }
 
@@ -123,13 +124,14 @@ function pickRandomId() {
 }
 
 for (var i = 0; i < 10; i++) {
-    addData();
+    addData(i == 4 ? Icon("star") () : null);
 }
 
 var listView = listViews.ListView({
     mode: "truncate",
     items: listViewData,
-    keyOrder: ["name", "id", "updated"]
+    keyOrder: ["name", "id", "updated"],
+    imageKey: "icon"
 }) (
     TableHeaderCell({
         mode: "resize",

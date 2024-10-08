@@ -656,6 +656,31 @@ table[aui-resized][aui-mode~="truncate"] td {
     max-width: 0;
 }
 
+table input[type="checkbox"][aui-maskedbyicon] {
+    position: absolute;
+    opacity: 0;
+    transition: 0.5s background-color, 0.5s opacity;
+}
+
+table input[type="checkbox"][aui-maskedbyicon] + img {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: 0.5s opacity;
+}
+
+table input[type="checkbox"][aui-maskedbyicon]:checked {
+    opacity: 1;
+}
+
+table input[type="checkbox"][aui-maskedbyicon]:checked + img {
+    opacity: 0;
+}
+
+table input[type="checkbox"][aui-maskedbyicon]:focus + img {
+    outline: auto;
+}
+
 dialog {
     position: fixed;
     display: flex;
