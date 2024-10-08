@@ -677,7 +677,7 @@ table input[type="checkbox"][aui-maskedbyicon]:checked + img {
     opacity: 0;
 }
 
-table input[type="checkbox"][aui-maskedbyicon]:focus + img {
+table input[type="checkbox"][aui-maskedbyicon]:focus-visible + img {
     outline: auto;
 }
 
