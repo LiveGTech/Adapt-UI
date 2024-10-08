@@ -218,7 +218,15 @@ export function sel(selector, multiReturn = false) {
         var addArgs = [...arguments];
 
         elements.forEach(function(element) {
-            element.append(...addArgs.map(function(elementToAdd) {
+            element.append(...addArgs.map(function getElementList(elementToAdd) {
+                if (elementToAdd == null) {
+                    return [];
+                }
+
+                if (Array.isArray(elementToAdd)) {
+                    return elementToAdd.flatMap((element) => getElementList(element));
+                }
+
                 if (elementToAdd instanceof Object) {
                     return elementToAdd.getAll();
                 }
