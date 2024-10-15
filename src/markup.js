@@ -146,13 +146,15 @@ export function applyMenus(root = document) {
             return;
         }
 
+        var closestMenu = element.closest("aui-menu");
+
         element._aui_appliedMenus = true;
 
         var modeOptions = (element.getAttribute("aui-mode") || "").split(" ");
         var hoverEnterTimeout = null;
 
         function performSubmenuSelection(allowOpen = true, isHover = false) {
-            element.closest("aui-menu").querySelectorAll("button[aui-submenu]").forEach(function(buttonElement) {
+            closestMenu.querySelectorAll("button[aui-submenu]").forEach(function(buttonElement) {
                 if (buttonElement == element) {
                     return;
                 }
@@ -174,7 +176,7 @@ export function applyMenus(root = document) {
                 var submenu = document.querySelector(element.getAttribute("aui-submenu"));
 
                 if (submenu != null) {
-                    menus.open(submenu, element, element.closest("aui-menu"));
+                    menus.open(submenu, element, closestMenu);
 
                     return true; // Prevent close
                 }
@@ -192,7 +194,7 @@ export function applyMenus(root = document) {
                 return;
             }
 
-            menus.close(element.closest("aui-menu"));
+            menus.close(closestMenu);
         });
 
         element.addEventListener("mouseenter", function() {
