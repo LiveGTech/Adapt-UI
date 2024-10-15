@@ -121,6 +121,10 @@ aui-menu button[aria-role="checkbox"][aria-checked="true"]:not([aui-submenu]:not
     background-size: 1.5rem;
 }
 
+aui-menu hr {
+    background-color: var(--primarySelected);
+}
+
 @media (prefers-color-scheme: dark) {
     aui-menu button[aui-submenu]:not([aui-mode~="noSubmenuHint"]) {
         background: url("../icons/submenu-dark.svg") no-repeat right var(--secondaryBackground)!important;
