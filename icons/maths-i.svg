@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="48px"
+   viewBox="0 0 24 24"
+   width="48px"
+   fill="#000000"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="maths-i.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect1659"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="13.317178"
+     inkscape:cx="29.360575"
+     inkscape:cy="24.254388"
+     inkscape:window-width="1920"
+     inkscape:window-height="1026"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="text1515" />
+  <path
+     d="M 0,0 H 24 V 24 H 0 Z"
+     fill="none"
+     id="path1187" />
+  <path
+     d="M0 0h24v24H0V0z"
+     fill="none"
+     id="path2" />
+  <g
+     id="g1346"
+     transform="matrix(1.2639544,0,0,1.2639544,-2.9912907,-3.0152722)">
+    <g
+       id="g1310"
+       transform="translate(0.00372814)">
+      <g
+         aria-label="i"
+         id="text1515"
+         style="font-size:19.2116px;line-height:1.25;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic';letter-spacing:0px;word-spacing:0px;stroke-width:0.480288">
+        <path
+           style="font-style:italic;font-family:MathJax_Main;-inkscape-font-specification:MathJax_Main"
+           d="m 11.981773,7.54738 h -0.345808 c -0.249751,0.038423 -0.557137,0.1729044 -0.787676,0.3265972 -0.59556,0.4226551 -1.1719076,1.3256003 -1.4600816,2.3438148 -0.057635,0.153693 -0.076846,0.230539 -0.076846,0.288174 0,0.07685 0.076846,0.134481 0.1152696,0.172905 h 0.3073856 c 0.192116,0 0.3458084,0 0.3650204,-0.01921 0.05763,-0.03842 0.07685,-0.05763 0.153692,-0.36502 0.23054,-0.8260991 0.48029,-1.3256007 0.806888,-1.6906211 0.230539,-0.2305392 0.441866,-0.3458088 0.710829,-0.3650204 0.288174,0 0.345808,0.1152696 0.345808,0.4034436 0,0.192116 -0.03842,0.4418668 -0.115269,0.7108292 -0.01921,0.076846 -1.709832,4.6684187 -1.729044,4.7836887 -0.03842,0.172904 -0.05763,0.345808 -0.05763,0.518713 0,0.883733 0.576348,1.556139 1.575351,1.556139 0.268963,0 0.307386,0 0.461079,-0.03842 1.114272,-0.36502 1.729044,-1.44087 2.094064,-2.651201 0.03842,-0.115269 0.05764,-0.192116 0.05764,-0.24975 0,-0.07685 -0.03842,-0.11527 -0.07685,-0.153693 -0.03842,-0.03842 -0.07685,-0.03842 -0.36502,-0.03842 h -0.11527 c -0.288174,0 -0.288174,0.01921 -0.36502,0.326597 -0.249751,0.864522 -0.518713,1.421658 -0.864522,1.786679 -0.230539,0.211327 -0.48029,0.326597 -0.730041,0.326597 -0.211327,0 -0.307385,-0.11527 -0.307385,-0.384232 0,-0.230539 0.05764,-0.499502 0.115269,-0.691618 0.03842,-0.115269 1.709833,-4.7068417 1.748256,-4.8221113 0.03842,-0.1344812 0.03842,-0.2305392 0.05763,-0.4610784 0,-0.96058 -0.576348,-1.6137743 -1.517717,-1.6137743 z"
+           id="path1638" />
+        <path
+           style="font-style:italic;font-family:MathJax_Main;-inkscape-font-specification:MathJax_Main"
+           d="m 12.366005,5.3919116 c 0,0.4226552 0.307386,0.7492523 0.749253,0.7492523 0.537924,0 1.133484,-0.4802899 1.133484,-1.0950611 0,-0.4418668 -0.326597,-0.7492524 -0.768464,-0.7492524 -0.59556,0 -1.114273,0.5571364 -1.114273,1.0950612 z"
+           id="path1537" />
+      </g>
+    </g>
+  </g>
+</svg>

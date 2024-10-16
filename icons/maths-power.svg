@@ -6,7 +6,7 @@
    fill="#000000"
    version="1.1"
    id="svg6"
-   sodipodi:docname="maths-square.svg"
+   sodipodi:docname="maths-power.svg"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -43,7 +43,7 @@
      inkscape:deskcolor="#505050"
      showgrid="false"
      inkscape:zoom="9.416667"
-     inkscape:cx="16.460176"
+     inkscape:cx="13.38053"
      inkscape:cy="19.327433"
      inkscape:window-width="1920"
      inkscape:window-height="1026"
@@ -66,7 +66,7 @@
        id="g1310"
        transform="translate(0.00372814)">
       <rect
-         style="fill:#000000;fill-opacity:1;stroke:#000000;stroke-width:0.495631;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;stop-color:#000000"
+         style="fill:none;fill-opacity:1;stroke:#000000;stroke-width:0.65390017;stroke-dasharray:none;stroke-opacity:1;paint-order:normal;stop-color:#000000"
          id="rect1116-3"
          width="3.8098311"
          height="5.7624087"
