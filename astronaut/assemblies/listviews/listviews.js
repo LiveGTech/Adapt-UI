@@ -27,7 +27,13 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
     var lastSimpleSelectionKey = null;
     var lastClickedItemKey = null;
 
-    var table = c.Table(props) (
+    var table = c.Table({
+        styles: {
+            "display": "block",
+            ...(props.styles || {})
+        },
+        ...props
+    }) (
         c.TableHeader (
             c.TableRow (
                 c.TableHeaderCell() (selectAllCheckbox),

@@ -355,6 +355,27 @@ export function applyTables(root = document) {
             document.body.addEventListener("touchend", function() {
                 element.removeAttribute("aui-resizehover");
             });
+
+            var lastResizableHeader = headerRow.querySelector("th[aui-mode='resize']:last-of-type");
+
+            if (lastResizableHeader) {
+                element.style.display = "block";
+
+                requestAnimationFrame(function ensureRowsFillTable() {
+                    if (!element.parentElement) {
+                        // No longer in DOM
+                        return;
+                    }
+
+                    var gap = element.clientWidth - headerRow.clientWidth;
+
+                    if (gap > 0) {
+                        lastResizableHeader.style.width = `${lastResizableHeader.clientWidth + gap}px`;
+                    }
+
+                    requestAnimationFrame(ensureRowsFillTable);
+                });
+            }
         }
     });
 }

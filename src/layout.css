@@ -583,7 +583,6 @@ details[aui-mode="boxed"] pre {
 }
 
 table {
-    display: block;
     max-width: 100%;
     margin-inline: auto;
     border: 0.15rem solid var(--secondaryBackground);
