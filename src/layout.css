@@ -583,12 +583,14 @@ details[aui-mode="boxed"] pre {
 }
 
 table {
+    display: block;
     max-width: 100%;
     margin-inline: auto;
     border: 0.15rem solid var(--secondaryBackground);
     border-radius: 0.5rem;
     border-collapse: separate;
     border-spacing: 0;
+    overflow-x: auto;
 }
 
 table[aui-resizehover] {

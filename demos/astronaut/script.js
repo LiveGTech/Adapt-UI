@@ -147,6 +147,10 @@ var addListViewItemButton = ListButton() ("Add item");
 var updateListViewItemButton = ListButton() ("Update item");
 var removeListViewItemButton = ListButton() ("Remove item");
 
+listView.on("activaterow", function(event) {
+    console.log("Row activated:", event.detail);
+});
+
 addListViewItemButton.on("click", function() {
     addData();
 

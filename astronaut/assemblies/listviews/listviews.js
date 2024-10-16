@@ -182,6 +182,14 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
             emitActivateEvent();
         });
 
+        rows[key].on("touchend", function(event) {
+            if (event.target.matches("input[type='checkbox']") || inter.getSelection().length > 1) {
+                return;
+            }
+
+            emitActivateEvent();
+        });
+
         tableMain.add(rows[key]);
 
         inter.setItemSelection(key, selectAllCheckbox.getValue());
