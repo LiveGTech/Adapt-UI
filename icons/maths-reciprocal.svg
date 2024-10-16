@@ -6,7 +6,7 @@
    fill="#000000"
    version="1.1"
    id="svg6"
-   sodipodi:docname="maths-power.svg"
+   sodipodi:docname="maths-reciprocal.svg"
    inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
@@ -43,14 +43,14 @@
      inkscape:deskcolor="#505050"
      showgrid="false"
      inkscape:zoom="13.317178"
-     inkscape:cx="26.657299"
-     inkscape:cy="19.673838"
+     inkscape:cx="24.855116"
+     inkscape:cy="21.626203"
      inkscape:window-width="1920"
      inkscape:window-height="1026"
      inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g1310" />
+     inkscape:current-layer="g2209" />
   <path
      d="M 0,0 H 24 V 24 H 0 Z"
      fill="none"
@@ -75,13 +75,24 @@
            id="path1495" />
       </g>
       <g
-         aria-label="2"
-         id="text1511"
-         style="font-size:8.32186px;line-height:1.25;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic';letter-spacing:0px;word-spacing:0px;stroke-width:0.208046">
-        <path
-           d="m 14.825936,11.43796 h 3.97785 v -1.040233 h -2.421662 l 1.256601,-1.1400947 c 0.898761,-0.8072205 1.190026,-1.3231758 1.190026,-2.0804651 0,-1.1400949 -0.857151,-1.9972465 -2.005568,-1.9972465 -0.71568,0 -1.364785,0.3411963 -1.714303,0.8987609 -0.233013,0.3661619 -0.324553,0.7406456 -0.324553,1.3314977 h 1.090164 c 0,-0.7323237 0.382805,-1.2149916 0.957014,-1.2149916 0.507633,0 0.890439,0.416093 0.890439,0.9653358 0,0.3994493 -0.199725,0.7572893 -0.707358,1.2316353 l -2.18865,2.0721432 z"
-           style="font-weight:bold"
-           id="path1513" />
+         aria-label="-1"
+         id="text2200"
+         style="font-size:8.39595px;line-height:1.25;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic';letter-spacing:0px;word-spacing:0px;stroke-width:0.209898">
+        <g
+           id="g2209"
+           transform="translate(9.800713)">
+          <g
+             id="g2283">
+            <path
+               d="m 4.3542924,9.2996636 h 2.325678 v -0.990722 h -2.325678 z"
+               style="font-weight:bold"
+               id="path2202" />
+            <path
+               d="m 8.3389331,11.411245 h 1.116661 V 5.2066381 h -1.897484 v 1.0494938 h 0.780823 z"
+               style="font-weight:bold"
+               id="path2204" />
+          </g>
+        </g>
       </g>
     </g>
   </g>
