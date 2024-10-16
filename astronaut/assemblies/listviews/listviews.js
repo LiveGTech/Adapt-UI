@@ -88,6 +88,10 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
     }
 
     inter.setItem = function(key, data) {
+        var touchX = 0;
+        var touchY = 0;
+        var shouldActivateOnTouchEnd = true;
+
         if (rows[key]) {
             var isSelected = inter.checkItemIsSelected(key);
 
@@ -182,8 +186,21 @@ export var ListView = astronaut.component({name: "ListView", positionals: ["item
             emitActivateEvent();
         });
 
+        rows[key].on("touchstart", function(event) {
+            touchX = event.touches[0].clientX;
+            touchY = event.touches[0].clientY;
+
+            shouldActivateOnTouchEnd = true;
+        });
+
+        rows[key].on("touchmove", function(event) {
+            if (Math.abs(event.touches[0].clientX - touchX) > 10 || Math.abs(event.touches[0].clientY - touchY) > 10) {
+                shouldActivateOnTouchEnd = false;
+            }
+        });
+
         rows[key].on("touchend", function(event) {
-            if (event.target.matches("input[type='checkbox']") || inter.getSelection().length > 1) {
+            if (!shouldActivateOnTouchEnd || event.target.matches("input[type='checkbox']") || inter.getSelection().length > 1) {
                 return;
             }
 
