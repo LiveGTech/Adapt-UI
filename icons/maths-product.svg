@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   height="48px"
+   viewBox="0 0 24 24"
+   width="48px"
+   fill="#000000"
+   version="1.1"
+   id="svg6"
+   sodipodi:docname="maths-product.svg"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <defs
+     id="defs10">
+    <inkscape:path-effect
+       effect="fillet_chamfer"
+       id="path-effect1659"
+       is_visible="true"
+       lpeversion="1"
+       nodesatellites_param="F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1 @ F,0,0,1,0,0,0,1"
+       unit="px"
+       method="auto"
+       mode="F"
+       radius="0"
+       chamfer_steps="1"
+       flexible="false"
+       use_knot_distance="true"
+       apply_no_radius="true"
+       apply_with_radius="true"
+       only_selected="false"
+       hide_knots="false" />
+  </defs>
+  <sodipodi:namedview
+     id="namedview8"
+     pagecolor="#505050"
+     bordercolor="#ffffff"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#505050"
+     showgrid="false"
+     inkscape:zoom="9.4166669"
+     inkscape:cx="22.77876"
+     inkscape:cy="18.902654"
+     inkscape:window-width="1920"
+     inkscape:window-height="1026"
+     inkscape:window-x="0"
+     inkscape:window-y="32"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="g1310" />
+  <path
+     d="M 0,0 H 24 V 24 H 0 Z"
+     fill="none"
+     id="path1187" />
+  <path
+     d="M0 0h24v24H0V0z"
+     fill="none"
+     id="path2" />
+  <g
+     id="g1346"
+     transform="matrix(1.2639544,0,0,1.2639544,-2.9912907,-3.0152722)">
+    <g
+       id="g1310"
+       transform="translate(0.00372814)">
+      <g
+         aria-label="Π"
+         id="text919"
+         style="font-size:15.1923px;line-height:1.25;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic';letter-spacing:0px;word-spacing:0px;stroke-width:0.379806">
+        <path
+           d="M 8.1651694,6.7370069 V 17.022194 H 9.1982458 V 7.6637372 h 5.3173052 v 9.3584568 h 1.033076 V 6.7370069 Z"
+           id="path1078" />
+      </g>
+    </g>
+  </g>
+</svg>
