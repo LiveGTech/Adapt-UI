@@ -74,7 +74,7 @@ In our JavaScript code, we can create a new `Screen` and open it ephemerally lik
 ```javascript
 var user = {}; // Contains loaded profile data
 
-viewProfileButton.on("click", function() {
+viewProfileButton.on("click", async function() {
     var screen = await astronaut.addEphemeral(Screen (
         Header (
             IconButton({icon: "back", alt: "Back", bind: "back"}) (),
