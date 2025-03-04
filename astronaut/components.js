@@ -22,7 +22,7 @@ export function init({components, component}) {
             };
 
             Object.keys(propAttributes).forEach(function(prop) {
-                if (props[prop]) {
+                if (props[prop] || props[prop] === 0 || props[prop] === "") {
                     props.attributes[propAttributes[prop]] = props[prop];
                 }
             });
