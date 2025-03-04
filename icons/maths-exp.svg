@@ -43,14 +43,14 @@
      inkscape:deskcolor="#505050"
      showgrid="false"
      inkscape:zoom="9.416667"
-     inkscape:cx="12.902654"
+     inkscape:cx="8.4955749"
      inkscape:cy="17.628318"
      inkscape:window-width="1920"
      inkscape:window-height="1026"
      inkscape:window-x="0"
      inkscape:window-y="32"
      inkscape:window-maximized="1"
-     inkscape:current-layer="g1310" />
+     inkscape:current-layer="g4055" />
   <path
      d="M 0,0 H 24 V 24 H 0 Z"
      fill="none"
@@ -76,18 +76,23 @@
            x="14.901624"
            y="5.4277363"
            ry="0.45566344" />
-        <text
-           xml:space="preserve"
-           style="font-size:11.3763px;line-height:1.25;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic';letter-spacing:-1.10763px;word-spacing:0px;stroke-width:0.284407"
-           x="-3.4435081"
-           y="18.471582"
-           id="text4011"><tspan
-             sodipodi:role="line"
-             id="tspan4009"
-             style="font-weight:bold;stroke-width:0.284407"
-             x="-3.4435081"
-             y="18.471582"
-             dx="0 0">×10</tspan></text>
+        <g
+           aria-label="×10"
+           id="text4011"
+           style="font-size:11.3763px;line-height:1.25;font-family:'URW Gothic';-inkscape-font-specification:'URW Gothic';letter-spacing:-1.10763px;word-spacing:0px;stroke-width:0.284407">
+          <path
+             d="M 0.9363673,14.307857 2.8703383,12.373886 1.9374817,11.441029 0.00351071,13.375 -1.9304603,11.441029 l -0.9328566,0.932857 1.93397102,1.933971 -1.93397102,1.933971 0.9328566,0.932856 1.93397101,-1.933971 1.93397099,1.933971 0.9328566,-0.932856 z"
+             style="font-weight:bold"
+             id="path397" />
+          <path
+             d="M 5.0732156,18.471582 H 6.5862635 V 10.064497 H 4.0152197 v 1.422037 h 1.0579959 z"
+             style="font-weight:bold"
+             id="path399" />
+          <path
+             d="m 13.510295,12.726551 c 0,-1.706445 -1.103501,-2.8099461 -2.809946,-2.8099461 -1.7291974,0 -2.8213222,1.1148771 -2.8213222,2.8782041 v 2.866827 c 0,0.807718 0.1592682,1.376533 0.5346861,1.888466 0.5233098,0.693954 1.3310271,1.069372 2.3548941,1.069372 0.966985,0 1.717821,-0.352665 2.207002,-1.023867 0.375418,-0.534686 0.534686,-1.092124 0.534686,-1.933971 z m -4.1182203,0.06826 c 0,-0.921481 0.5005572,-1.490295 1.3196513,-1.490295 0.819093,0 1.285521,0.534686 1.285521,1.490295 v 2.855451 c 0,1.057996 -0.420923,1.581306 -1.274145,1.581306 -0.864599,0 -1.3310273,-0.568815 -1.3310273,-1.615435 z"
+             style="font-weight:bold"
+             id="path401" />
+        </g>
       </g>
     </g>
   </g>
